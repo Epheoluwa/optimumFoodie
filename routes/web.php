@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\Admin\PagesController as AdminPagesController;
 
+use App\Http\Controllers\EmailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +30,7 @@ Route::get('/', [GeneralController::class, 'calculator']);
 Route::any('/post-calculator-data', [GeneralController::class, 'postCalculatorData']);
 Route::any('/ajax-calculator', [GeneralController::class, 'ajaxCalculator']);
 
-
+Route::post('/sendmail',[EmailController::class, 'emailLogic']);
 
 // Admin Pages Routes
 Route::prefix('admin')->middleware(['admin-auth'])->group(function () {
