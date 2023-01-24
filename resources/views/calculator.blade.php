@@ -1147,7 +1147,7 @@ $perc = 20;
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
                                                 <div style="display:inline-block;" align="center">
-                                                    <select  name="main_meal">
+                                                    <select name="main_meal">
                                                         <option>1</option>
                                                         <option>2</option>
                                                         <option>3</option>
@@ -1239,7 +1239,8 @@ $perc = 20;
                                                     <input class="bestest" placeholder="Best Email" type="email" name="best_email">
                                                     <br>
 
-                                                    <a href="#myCarousel" style="width:200px;border-radius:3px;margin-top:20px;" class="btn btn-dark-outline whom-btn" onclick="" data-slide="next">Send me my FREE PLAN</a>
+                                                    <a href="#myCarousel" style="width:200px;border-radius:3px;margin-top:20px;" class="btn btn-dark-outline whom-btn" onclick="sendEmailPost()">Send me my FREE PLAN</a>
+                                                    <!-- data-slide="next" -->
                                                 </div>
                                             </div>
                                         </div>
@@ -1695,8 +1696,8 @@ $perc = 20;
         if (ref != '') {
             var ind = parseInt($('#myCarousel').find('.active').index());
             var datum = $('#calcForm').serializeObject();
-            console.log(datum);
-            
+            // console.log(datum);
+
             if (ind == 7 && datum['activity[]'] == undefined) {
                 alert("Kindly pick a minimum of one option to proceed");
                 return false;
@@ -1871,6 +1872,33 @@ $perc = 20;
 
     function roundToNearest50(number) {
         return Math.round(number / 100) * 100;
+    }
+
+    //send email function
+    function sendEmailPost() {
+        var datum = $('#calcForm').serializeObject();
+        // console.log(datum);
+        $.ajax({
+            data: datum,
+            type: 'POST',
+            url: "{{ url('sendmail') }}",
+            // beforeSend: function() {
+            //     $('#proceed-msg').html('<div class="lds-ripple"><div></div><div></div></div>');
+            // },
+            success: function(e) {
+                if (e == 'success') {
+                    // $('#proceed-msg').html('');
+                    // $('#myCarousel').carousel('next');
+                    console.log(e);
+                } else {
+                    // $('#proceed-msg').html('<b>' + e + '</b><br>').css("color", "#FF9494");
+                    // setTimeout(function() {
+                    //     $('#proceed-msg').html('');
+                    // }, 15000);
+                    console.log(e);
+                }
+            }
+        });
     }
 </script>
 @endsection

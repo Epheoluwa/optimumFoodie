@@ -29,7 +29,6 @@ use App\Http\Controllers\EmailController;
 Route::get('/', [GeneralController::class, 'calculator']);
 Route::any('/post-calculator-data', [GeneralController::class, 'postCalculatorData']);
 Route::any('/ajax-calculator', [GeneralController::class, 'ajaxCalculator']);
-
 Route::post('/sendmail',[EmailController::class, 'emailLogic']);
 
 // Admin Pages Routes
