@@ -73,6 +73,12 @@
                         </div>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('admin/categories') }}">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
 
                 <!-- <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"

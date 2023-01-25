@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Validator;
 
 use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\Admin\PagesController as AdminPagesController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 
 use App\Http\Controllers\EmailController;
 /*
@@ -37,7 +38,11 @@ Route::prefix('admin')->middleware(['admin-auth'])->group(function () {
     Route::get('/', [AdminPagesController::class, 'dashboard']);
     Route::get('/dashboard', [AdminPagesController::class, 'dashboard']);
 
-    
+    //USER ROUTES
+    Route::get('/usersAdd', [AdminUserController::class, 'usersAdd']);
+    Route::post('/create-new-user', [AdminUserController::class, 'Addnewusers']);
+
+
     // CATEGORIES ROUTES
     Route::get('/categories', [AdminPagesController::class, 'categories']);
     Route::get('/category-activate/{id}', [AdminPagesController::class, 'categoryActivate']);
