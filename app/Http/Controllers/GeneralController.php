@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Cookie\CookieJar;
+use PDF;
 // use Stripe;
 
 class GeneralController extends Controller
 {
+    public $sentData;
     public function __construct(){
         // $this->middleware('auth');
         
@@ -44,6 +46,7 @@ class GeneralController extends Controller
 
     public function postCalculatorData(Request $request){
         $data['data'] = $request->all();
+        $this->sentData = $request->all();
 
         $template = $request->main_meal.'meal '.$request->snack_meal.'snacks';
         $cal = \App\Models\CaloryTemplateType::whereCalory($request->calories)->where('template_name', $template)->where('template_name', $template)->first();
@@ -204,5 +207,19 @@ class GeneralController extends Controller
         $ret = 100 * round($number / 100);
         
         return $ret;
+    }
+
+    // Generate PDF
+    public function createPDF()
+    {
+        // retreive all records from db
+        $data = $this->sentData;
+        var_dump($data);
+        exit;
+        // share data to view
+        view()->share('values', $data);
+        $pdf = PDF::loadView('pdf_view', $data);
+        // download PDF file with download method
+        return $pdf->download('pdf_file.pdf');
     }
 }

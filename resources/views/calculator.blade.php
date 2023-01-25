@@ -576,7 +576,7 @@ $perc = 20;
     </div>
 </section>
 
-<form action="{{ url('post-calculator-data') }}" method="GET" id="calcForm">
+<form action="{{ url('post-calculator-data') }}" method="POST" id="calcForm">
     {!! csrf_field() !!}
     <div class="modal" tabindex="-1" role="dialog" id="calculatorModal">
         <div class="modal-dialog" role="document" style="height:100vh;width:100vw;margin:0px;">
@@ -1240,7 +1240,7 @@ $perc = 20;
                                                     <br>
 
                                                     <a href="#myCarousel" style="width:200px;border-radius:3px;margin-top:20px;" class="btn btn-dark-outline whom-btn" onclick="sendEmailPost()">Send me my FREE PLAN</a>
-                                                    <!-- data-slide="next" -->
+                                                    <!-- data-slide="next" onclick="sendEmailPost()"-->
                                                 </div>
                                             </div>
                                         </div>
@@ -1886,6 +1886,7 @@ $perc = 20;
             //     $('#proceed-msg').html('<div class="lds-ripple"><div></div><div></div></div>');
             // },
             success: function(e) {
+                $('#myCarousel').carousel('next');
                 if (e == 'success') {
                     // $('#proceed-msg').html('');
                     // $('#myCarousel').carousel('next');

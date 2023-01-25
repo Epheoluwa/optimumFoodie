@@ -27,9 +27,10 @@ use App\Http\Controllers\EmailController;
 
 // Route::get('/calculator', [GeneralController::class, 'calculator']);
 Route::get('/', [GeneralController::class, 'calculator']);
-Route::any('/post-calculator-data', [GeneralController::class, 'postCalculatorData']);
+Route::post('/post-calculator-data', [GeneralController::class, 'postCalculatorData']);
 Route::any('/ajax-calculator', [GeneralController::class, 'ajaxCalculator']);
 Route::post('/sendmail',[EmailController::class, 'emailLogic']);
+Route::get('/mealsData/pdf', [GeneralController::class, 'createPDF']);
 
 // Admin Pages Routes
 Route::prefix('admin')->middleware(['admin-auth'])->group(function () {

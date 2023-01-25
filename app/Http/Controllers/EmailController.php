@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Mail\SentEmail;
 use Illuminate\Support\Facades\Mail;
 
+
 class EmailController extends Controller
 {
+   
     public function emailLogic(Request $request)
     {
         $data = $request->all();
@@ -26,7 +28,7 @@ class EmailController extends Controller
             //             ->from($mail_data['from'], $mail_data['fromName'])
             //             ->subject($mail_data['subject']);
             // });
-           $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName']));;
+            $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName']));;
             if ($sent) {
                 return "Email has been sent successfully.";
             }
@@ -43,4 +45,6 @@ class EmailController extends Controller
             return false;
         }
     }
+
+    
 }
