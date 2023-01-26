@@ -74,7 +74,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('admin/categories') }}">
+                    <a class="nav-link" href="{{ url('admin/usersAdd') }}">
                         <i class="fas fa-fw fa-user"></i>
                         <span>Users</span>
                     </a>

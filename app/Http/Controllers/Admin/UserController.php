@@ -15,7 +15,7 @@ class UserController extends Controller
     public function Addnewusers(Request $request){
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required|unique:email',
+            'email' => 'required',
             'status' => 'required'
         ]);
         if ($validator->fails()) {
@@ -23,7 +23,7 @@ class UserController extends Controller
             return redirect()->back()->withInput();
         }
         
-        $update = \App\Models\Category::create($request->all());
+        $update = \App\Models\User::create($request->all());
         \Session::flash('success', 'User created successfully!');
         
         return redirect()->back();
