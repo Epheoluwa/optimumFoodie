@@ -14,6 +14,13 @@ class EmailController extends Controller
     {
         $data = $request->all();
         var_dump($data);
+        $emailwa = \App\Models\User::where('email',$data['best_email'])->first();
+        if ($emailwa) {
+            var_dump('waaaaa');
+        }else{
+            var_dump('kosi available');
+        }
+        exit;
         if ($this->isOnline()) {
             $mail_data = [
                 'reciever' => $request->best_email,

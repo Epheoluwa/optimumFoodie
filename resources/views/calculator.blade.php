@@ -1894,7 +1894,7 @@ $perc = 20;
                 } else {
                     // $('#proceed-msg').html('<b>' + e + '</b><br>').css("color", "#FF9494");
                     // setTimeout(function() {
-                    //     $('#proceed-msg').html('');
+                    //     $('#proceed-msg').html(''); 
                     // }, 15000);
                     console.log(e);
                 }

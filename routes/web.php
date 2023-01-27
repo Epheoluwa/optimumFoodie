@@ -41,6 +41,7 @@ Route::prefix('admin')->middleware(['admin-auth'])->group(function () {
     //USER ROUTES
     Route::get('/usersAdd', [AdminUserController::class, 'usersAdd']);
     Route::post('/create-new-user', [AdminUserController::class, 'Addnewusers']);
+    Route::post('/edit-user/{id}', [AdminUserController::class, 'Editusers']);
 
 
     // CATEGORIES ROUTES
