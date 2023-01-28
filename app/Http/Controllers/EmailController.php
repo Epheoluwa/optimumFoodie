@@ -16,9 +16,22 @@ class EmailController extends Controller
         var_dump($data);
         $emailwa = \App\Models\User::where('email',$data['best_email'])->first();
         if ($emailwa) {
-            var_dump('waaaaa');
+            if ($emailwa['status']== 'paid') {
+               var_dump('paid user');
+            }else{
+                var_dump('not paid user');
+            }
         }else{
-            var_dump('kosi available');
+            var_dump('NEW USER CREATE AND ACCOUNT');
+            //Create new user account and send mail
+            $userData = [
+                'email' => $data['best_email'],
+                'name' => $data['best_name'],
+                'status' => 'free',
+                'password' => 123456
+            ];
+            $update = \App\Models\User::create($userData);
+            var_dump($update);
         }
         exit;
         if ($this->isOnline()) {

@@ -1886,7 +1886,7 @@ $perc = 20;
             //     $('#proceed-msg').html('<div class="lds-ripple"><div></div><div></div></div>');
             // },
             success: function(e) {
-                $('#myCarousel').carousel('next');
+                // $('#myCarousel').carousel('next');
                 if (e == 'success') {
                     // $('#proceed-msg').html('');
                     // $('#myCarousel').carousel('next');
