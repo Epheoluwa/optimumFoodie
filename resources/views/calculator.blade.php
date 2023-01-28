@@ -1238,8 +1238,10 @@ $perc = 20;
                                                     <br>
                                                     <input class="bestest" placeholder="Best Email" type="email" name="best_email">
                                                     <br>
+                                                    
+                                                    <button type="submit" style="width:240px;border-radius:3px;margin-top:20px;" class="btn btn-dark-outline whom-btn" onclick="">Save </button>
 
-                                                    <a href="#myCarousel" style="width:200px;border-radius:3px;margin-top:20px;" class="btn btn-dark-outline whom-btn" onclick="sendEmailPost()">Send me my FREE PLAN</a>
+                                                    <!-- <a href="#myCarousel" style="width:200px;border-radius:3px;margin-top:20px;" class="btn btn-dark-outline whom-btn" >Send me my FREE PLAN</a> -->
                                                     <!-- data-slide="next" onclick="sendEmailPost()"-->
                                                 </div>
                                             </div>
@@ -1254,7 +1256,7 @@ $perc = 20;
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
                                                 <div style="display:inline-block;" align="center">
-                                                    <button type="submit" style="width:240px;border-radius:3px;margin-top:20px;" class="btn btn-dark-outline whom-btn" onclick="">I want the complete PLAN</button>
+                                                    <!-- <button type="submit" style="width:240px;border-radius:3px;margin-top:20px;" class="btn btn-dark-outline whom-btn" onclick="">I want the complete PLAN</button> -->
                                                 </div>
                                             </div>
                                         </div>
