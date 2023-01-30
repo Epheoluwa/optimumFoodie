@@ -1,6 +1,7 @@
 <?php 
     $numberFormatter = new NumberFormatter('en_US', NumberFormatter::ORDINAL);
     $days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+    // dd(json_encode($foods));
 ?>
 @extends('backend.master')
 
@@ -255,6 +256,8 @@
 
 
     <script type="text/javascript">
+        var users = <?= json_encode($foods) ?>;
+
         function deleteQ(d){
             $('#'+d).remove();
         }
@@ -272,29 +275,28 @@
             `;
             $('#all-attributes-'+d).append(newQ);
 
-            // $('.mealXX').suggest('@', {
-            //   data: users,
-            //   map: function(user) {
-            //     return {
-            //       value: user.name,
-            //       text: '<strong>'+user.name+'</strong> <small>('+user.category+' family)</small>'
-            //     }
-            //   }
-            // });
+            $('.mealXX').suggest('[', {
+              data: users,
+              map: function(user) {
+                return {
+                  value: user.name+']',
+                  text: '<strong>'+user.name+'</strong> <small>('+user.category+' family)</small>'
+                }
+              }
+            });
         }
 
 
         $(document).ready( function () {
-            // var users = JSON.parse('<?= json_encode($foods) ?>');
-            // $('.mealXX').suggest('@', {
-            //   data: users,
-            //   map: function(user) {
-            //     return {
-            //       value: user.name,
-            //       text: '<strong>'+user.name+'</strong> <small>('+user.category+' family)</small>'
-            //     }
-            //   }
-            // });
+            $('.mealXX').suggest('[', {
+              data: users,
+              map: function(user) {
+                return {
+                  value: user.name+']',
+                  text: '<strong>'+user.name+'</strong> <small>('+user.category+' family)</small>'
+                }
+              }
+            });
 
             // $('#dataTableX').DataTable();
 

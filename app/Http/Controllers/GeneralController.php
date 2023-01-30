@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Cookie\CookieJar;
 use PDF;
+
+use function PHPSTORM_META\type;
+
 // use Stripe;
 
 class GeneralController extends Controller
@@ -112,12 +115,30 @@ class GeneralController extends Controller
         // echo(json_encode($data['meal1']));
         // echo(json_encode($data['meal2']));
 
+        
+        //check user status and create new user if no status
+        $emailwa = \App\Models\User::where('email',$data['data']['best_email'])->first();
+        if (!$emailwa) {
+            $userData = [
+                'email' => $data['data']['best_email'],
+                'name' => $data['data']['best_name'],
+                'status' => 'free',
+                'password' => 123456
+            ];
+            $update = \App\Models\User::create($userData);
+            if ($update) {
+               //Can run logic to send email to new user and password
+            }
+        }
+        //save meal to DB linking it to the user account
+        $emailwa2 = \App\Models\User::where('email',$data['data']['best_email'])->first();
+        $userID = $emailwa2['id'];
         $meal1ako = $data['meal1'];
         foreach($meal1ako as $day=> $mainmeals1eat)
         {
             $userMealData = [
                 'days' => $day,
-                'user_id' => '1',
+                'user_id' => $userID,
                 'sex' => $data['data']['sex'],
                 'age' => $data['data']['age'],
                 'height' => $data['data']['height'],
@@ -135,24 +156,15 @@ class GeneralController extends Controller
                 
             ];
            
-            var_dump($userMealData);
+            // var_dump($userMealData);
+           
+            // echo json_encode($userMealData);
+            $saveMeal = \App\Models\UserMealPlan::create($userMealData);
+            if ($saveMeal) {
+                echo 'saved';
+             }
         }
         exit;
-        //check user status and create new user if no status
-        $emailwa = \App\Models\User::where('email',$data['data']['best_email'])->first();
-        if (!$emailwa) {
-            $userData = [
-                'email' => $data['data']['best_email'],
-                'name' => $data['data']['best_name'],
-                'status' => 'free',
-                'password' => 123456
-            ];
-            $update = \App\Models\User::create($userData);
-            if ($update) {
-               //Can run logic to send email to new user and password
-            }
-        }
-        //save meal to DB linking it to the user account
     }
 
     public function checkRightMeal($meal, $food_options)

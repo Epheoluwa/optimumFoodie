@@ -309,6 +309,20 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <div class="col-md-3">
+                                    <label for="snack_meal">
+                                        <input type="checkbox" name="meal_composition_id[]" value="Snack meal" id="snack_meal" onclick="return snackMealChosen(this, '')"/>
+                                        &nbsp; Snack Meal
+                                    </label>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="cheat_meal">
+                                        <input type="checkbox" name="meal_composition_id[]" value="Cheat meal" id="cheat_meal" onclick="return cheatMealChosen(this, '')" />
+                                        &nbsp; Cheat Meal
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
@@ -338,6 +352,36 @@
     <script type="text/javascript">
         var users = JSON.parse('<?= json_encode($comps) ?>');
 
+        function snackMealChosen(e, r){
+            if($(e).prop('checked')){
+                var con = confirm('This will WIPE OFF all the MEAL PLANS. \n\nAre you sure you want to proceed?');
+                if(!con) return false;
+
+                $('#Q_wedr').remove('.col-md-6');
+                $('#Q_wedr').html("");
+                $('#Q_wedr').empty();
+                $('#add-new-q'+r).attr('disabled', 'disabled');
+                $('#cheat_meal'+r).attr('disabled', 'disabled');
+            }else{
+                $('#add-new-q'+r).removeAttr('disabled');
+                $('#cheat_meal'+r).removeAttr('disabled');
+            }
+        }
+        function cheatMealChosen(e, r){
+            if($(e).prop('checked')){
+                var con = confirm('This will WIPE OFF all the MEAL PLANS. \n\nAre you sure you want to proceed?');
+                if(!con) return false;
+
+                $('#Q_wedr').remove('.col-md-6');
+                $('#Q_wedr').html("");
+                $('#Q_wedr').empty();
+                $('#add-new-q'+r).attr('disabled', 'disabled');
+                $('#snack_meal'+r).attr('disabled', 'disabled');
+            }else{
+                $('#add-new-q'+r).removeAttr('disabled');
+                $('#snack_meal'+r).removeAttr('disabled');
+            }
+        }
         function snackX(e, r){
             if($(e).prop('checked')){
                 $('#'+r).attr('disabled', 'disabled');
