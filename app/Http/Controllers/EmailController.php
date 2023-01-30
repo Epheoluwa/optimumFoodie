@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
 {
+
+    public function DisplayPage()
+    {
+        return view('finalPage');
+    }
    
     public function emailLogic(Request $request)
     {

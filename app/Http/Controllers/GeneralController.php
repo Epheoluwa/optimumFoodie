@@ -111,13 +111,8 @@ class GeneralController extends Controller
 
         // return view('time-table', $data);
 
-        // echo(json_encode($data['data']));
-        // echo(json_encode($data['meal1']));
-        // echo(json_encode($data['meal2']));
-
-        
         //check user status and create new user if no status
-        $emailwa = \App\Models\User::where('email',$data['data']['best_email'])->first();
+        $emailwa = \App\Models\User::where('email', $data['data']['best_email'])->first();
         if (!$emailwa) {
             $userData = [
                 'email' => $data['data']['best_email'],
@@ -127,44 +122,72 @@ class GeneralController extends Controller
             ];
             $update = \App\Models\User::create($userData);
             if ($update) {
-               //Can run logic to send email to new user and password
+                //Can run logic to send email to new user and password
             }
         }
         //save meal to DB linking it to the user account
-        $emailwa2 = \App\Models\User::where('email',$data['data']['best_email'])->first();
+        $emailwa2 = \App\Models\User::where('email', $data['data']['best_email'])->first();
         $userID = $emailwa2['id'];
-        $meal1ako = $data['meal1'];
-        foreach($meal1ako as $day=> $mainmeals1eat)
-        {
-            $userMealData = [
-                'days' => $day,
-                'user_id' => $userID,
-                'sex' => $data['data']['sex'],
-                'age' => $data['data']['age'],
-                'height' => $data['data']['height'],
-                'weight' => $data['data']['weight'],
-                'goal' => $data['data']['goal'],
-                'weight_aim' => $data['data']['weight_aim'],
-                'weight_time_aim' => $data['data']['weight_time_aim'],
-                'activity' => $data['data']['activity'],
-                'calories' => $data['data']['calories'],
-                'main_meal' => $data['data']['main_meal'],
-                'snack_meal' => $data['data']['snack_meal'],
-                'food_options' => $data['data']['food_options'],
-                'month_par' => '1_and_2',
-                'daymeal' => $mainmeals1eat,
-                
-            ];
-           
-            // var_dump($userMealData);
-           
-            // echo json_encode($userMealData);
-            $saveMeal = \App\Models\UserMealPlan::create($userMealData);
-            if ($saveMeal) {
-                echo 'saved';
-             }
-        }
-        exit;
+        // $meal1ako = $data['meal1'];
+        // foreach ($meal1ako as $day => $mainmeals1eat) {
+        //     $userMealData = [
+        //         'days' => $day,
+        //         'user_id' => $userID,
+        //         'sex' => $data['data']['sex'],
+        //         'age' => $data['data']['age'],
+        //         'height' => $data['data']['height'],
+        //         'weight' => $data['data']['weight'],
+        //         'goal' => $data['data']['goal'],
+        //         'weight_aim' => $data['data']['weight_aim'],
+        //         'weight_time_aim' => $data['data']['weight_time_aim'],
+        //         'activity' => $data['data']['activity'],
+        //         'calories' => $data['data']['calories'],
+        //         'main_meal' => $data['data']['main_meal'],
+        //         'snack_meal' => $data['data']['snack_meal'],
+        //         'food_options' => $data['data']['food_options'],
+        //         'month_par' => '1_and_2',
+        //         'daymeal' => $mainmeals1eat,
+
+        //     ];
+
+        //     // var_dump($userMealData);
+
+        //     // echo json_encode($userMealData);
+        //     $saveMeal = \App\Models\UserMealPlan::create($userMealData);
+        // }
+        // $meal1ako2 = $data['meal2'];
+        // foreach ($meal1ako2 as $day2 => $mainmeals1eat2) {
+        //     $userMealData2 = [
+        //         'days' => $day2,
+        //         'user_id' => $userID,
+        //         'sex' => $data['data']['sex'],
+        //         'age' => $data['data']['age'],
+        //         'height' => $data['data']['height'],
+        //         'weight' => $data['data']['weight'],
+        //         'goal' => $data['data']['goal'],
+        //         'weight_aim' => $data['data']['weight_aim'],
+        //         'weight_time_aim' => $data['data']['weight_time_aim'],
+        //         'activity' => $data['data']['activity'],
+        //         'calories' => $data['data']['calories'],
+        //         'main_meal' => $data['data']['main_meal'],
+        //         'snack_meal' => $data['data']['snack_meal'],
+        //         'food_options' => $data['data']['food_options'],
+        //         'month_par' => '3_and_4',
+        //         'daymeal' => $mainmeals1eat2,
+
+        //     ];
+
+        //     // var_dump($userMealData);
+
+        //     // echo json_encode($userMealData);
+        //     $saveMeal = \App\Models\UserMealPlan::create($userMealData2);
+        // }
+
+        session(['activeUserID' => $userID]);
+        // $samms =  session('activeUserID'); 
+
+        return redirect('/getmail');
+
     }
 
     public function checkRightMeal($meal, $food_options)

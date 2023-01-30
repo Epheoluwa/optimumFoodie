@@ -31,6 +31,7 @@ Route::get('/', [GeneralController::class, 'calculator']);
 Route::post('/post-calculator-data', [GeneralController::class, 'postCalculatorData']);
 Route::any('/ajax-calculator', [GeneralController::class, 'ajaxCalculator']);
 Route::post('/sendmail',[EmailController::class, 'emailLogic']);
+Route::get('/getmail',[EmailController::class, 'DisplayPage']);
 Route::get('/mealsData/pdf', [GeneralController::class, 'createPDF']);
 
 // Admin Pages Routes
