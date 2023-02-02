@@ -12,32 +12,17 @@ class EmailController extends Controller
 
     public function DisplayPage()
     {
-        return view('finalPage');
+        $activeUserId = session('activeUserID');
+        $userDetails = \App\Models\User::where('id', $activeUserId)->first();
+        // var_dump($userDetails);
+        return view('finalPage',compact('userDetails'));
     }
    
     public function emailLogic(Request $request)
     {
         $data = $request->all();
         var_dump($data);
-        $emailwa = \App\Models\User::where('email',$data['best_email'])->first();
-        if ($emailwa) {
-            if ($emailwa['status']== 'paid') {
-               var_dump('paid user');
-            }else{
-                var_dump('not paid user');
-            }
-        }else{
-            var_dump('NEW USER CREATE AND ACCOUNT');
-            //Create new user account and send mail
-            $userData = [
-                'email' => $data['best_email'],
-                'name' => $data['best_name'],
-                'status' => 'free',
-                'password' => 123456
-            ];
-            $update = \App\Models\User::create($userData);
-            var_dump($update);
-        }
+        // $userDetails = \App\Models\User::where('email',$data['best_email'])->first();
         exit;
         if ($this->isOnline()) {
             $mail_data = [
@@ -45,7 +30,7 @@ class EmailController extends Controller
                 'from' => 'solomon@testing.com',
                 'fromName' => 'Salo',
                 'recieverName' => $request->best_name,
-                'subject' => "Testing Gmail Tessting"
+                'subject' => "Testing Gmail Testing"
 
             ];
             // Mail::send('mail/email-template', $mail_data, function($message) use($mail_data){

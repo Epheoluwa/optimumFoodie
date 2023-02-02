@@ -123,6 +123,7 @@ class GeneralController extends Controller
                 //Can run logic to send email to new user and password
             }
         }
+
         //save meal to DB linking it to the user account
         $emailwa2 = \App\Models\User::where('email', $data['data']['best_email'])->first();
         $userID = $emailwa2['id'];
@@ -150,6 +151,7 @@ class GeneralController extends Controller
             // save the data on each day loop
             $saveMeal = \App\Models\UserMealPlan::create($userMealData);
         }
+
         $meal1ako2 = $data['meal2'];
         foreach ($meal1ako2 as $day2 => $mainmeals1eat2) {
             $userMealData2 = [
@@ -174,6 +176,7 @@ class GeneralController extends Controller
             // save the data on each day loop
             $saveMeal = \App\Models\UserMealPlan::create($userMealData2);
         }
+        
         session(['activeUserID' => $userID]);
         if($saveMeal){
             return redirect('/getmail');
