@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Attachment;
 
 class SentEmail extends Mailable
 {
@@ -16,13 +17,20 @@ class SentEmail extends Mailable
      *
      * @return void
      */
-    public function __construct(private $name)
+    public function __construct(private $name, public $attachedfile)
     {
         //
     }
 
+    public function attachments()
+    {
+        return [
+            Attachment::fromPath($this->attachedfile),
+        ];
 
-   
+    }
+
+  
 
     /**
      * Build the message.
@@ -31,6 +39,6 @@ class SentEmail extends Mailable
      */
     public function build()
     {
-        return $this->from("support@cmp.com")->view('mail.email-template')->with(['name' => $this->name])->subject('Meal plan');
+        return $this->from("support@cmp.com")->view('mail.email-template')->with(['name' => $this->name])->subject('Meal plan')->attach($this->attachedfile);
     }
 }
