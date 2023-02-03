@@ -13,4 +13,8 @@ class UserMealPlan extends Model
     protected $casts = [
         'goal' => 'array','activity'=> 'array','food_options'=> 'array','daymeal' => 'array'
      ];
+
+     public function User(){
+        return $this->belongsTo('App\Models\User', 'user_id');
+    }
 }

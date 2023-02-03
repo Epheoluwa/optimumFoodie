@@ -45,6 +45,6 @@ class User extends Authenticatable
     ];
 
     public function UserMealPlan(){
-        return $this->hasMany('App\Models\UserMealPlan', 'user_id');
+        return $this->hasMany('App\Models\UserMealPlan', 'id');
     }
 }

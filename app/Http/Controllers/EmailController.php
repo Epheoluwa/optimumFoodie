@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Mail\SentEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
 use PDF;
 
 class EmailController extends Controller
@@ -21,7 +22,10 @@ class EmailController extends Controller
 
     public function pdfPage()
     {
-        $MealDetails = \App\Models\User::where('id', $data['userId'])->first();
+        // $MealDetails = \App\Models\UserMealPlan::where('user_id', 1);
+        $MealDetails = DB::select('select * from user_meal_plans where user_id = ?', [1]);
+        // var_dump($MealDetails[]['days']);
+        // print_r(json_encode($MealDetails));
 
         exit;
         $pdf = PDF::loadview('mail.email-template', [
