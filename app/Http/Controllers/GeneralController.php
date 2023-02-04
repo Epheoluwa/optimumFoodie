@@ -107,7 +107,7 @@ class GeneralController extends Controller
         // dd($mealPlans1, $mealPlans2);
         $data['meal1'] = $mealPlans1;
         $data['meal2'] = $mealPlans2;
-        // return view('time-table', $data);
+        return view('time-table', $data);
 
         //check user status and create new user if no status
         $emailwa = \App\Models\User::where('email', $data['data']['best_email'])->first();

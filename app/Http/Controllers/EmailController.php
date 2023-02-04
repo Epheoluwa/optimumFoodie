@@ -23,9 +23,25 @@ class EmailController extends Controller
     public function pdfPage()
     {
         // $MealDetails = \App\Models\UserMealPlan::where('user_id', 1);
-        $MealDetails = DB::select('select * from user_meal_plans where user_id = ?', [1]);
-        // var_dump($MealDetails[]['days']);
-        // print_r(json_encode($MealDetails));
+        // $MealDetails = DB::select('select * from user_meal_plans where user_id = ?', [1]);
+        $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal')->where('user_id', 1)->limit(2)->get();
+        // var_dump($MealDetails);
+        // exit;
+        // $meals = [];
+        // $mealsDaa = [];
+        // foreach($MealDetails as $v)
+        // {
+        //     // var_dump($v->daymeal);
+        //     // $explode_meals =  explode(',', $v->daymeal);
+        //     array_push($mealsDaa, $v->days);
+            
+        //     // var_dump($explode_meals);
+        // }
+        // array_push($meals, $mealsDaa);
+        // var_dump($meals);
+    //    exit;
+        return view('free-time-table', compact('MealDetails'));
+        
 
         exit;
         $pdf = PDF::loadview('mail.email-template', [
