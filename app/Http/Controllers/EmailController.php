@@ -22,36 +22,20 @@ class EmailController extends Controller
 
     public function pdfPage()
     {
-        // $MealDetails = \App\Models\UserMealPlan::where('user_id', 1);
-        // $MealDetails = DB::select('select * from user_meal_plans where user_id = ?', [1]);
         $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal')->where('user_id', 1)->limit(2)->get();
-        // var_dump($MealDetails);
+        // return view('free-time-table', compact('MealDetails'));
         // exit;
-        // $meals = [];
-        // $mealsDaa = [];
-        // foreach($MealDetails as $v)
-        // {
-        //     // var_dump($v->daymeal);
-        //     // $explode_meals =  explode(',', $v->daymeal);
-        //     array_push($mealsDaa, $v->days);
-            
-        //     // var_dump($explode_meals);
-        // }
-        // array_push($meals, $mealsDaa);
-        // var_dump($meals);
-    //    exit;
-        return view('free-time-table', compact('MealDetails'));
-        
-
-        exit;
-        $pdf = PDF::loadview('mail.email-template', [
-            'name' => 'salo'
-        ]);
+        $pdf = PDF::loadview('free-time-table', compact('MealDetails'));
         $pdf->setOptions([
             'footer-center' => 'Optimum'
         ]);
          $pdfFilePath = public_path('pdf/'.uniqid().'.pdf');
-         $pdf->save($pdfFilePath);
+        $pdfdone = $pdf->save($pdfFilePath);
+        if ($pdfdone) {
+            echo 'yes';
+        }else{
+            echo 'no';
+        }
     }
 
     public function emailLogic(Request $request)
