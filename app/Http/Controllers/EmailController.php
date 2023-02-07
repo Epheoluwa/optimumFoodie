@@ -40,10 +40,29 @@ class EmailController extends Controller
 
     public function emailLogic(Request $request)
     {
+        //This Logic here can always be improved very basic and bad approach here though
         $data = $request->all();
         $userDetails = \App\Models\User::where('id', $data['userId'])->first();
+
+        // var_dump($userDetails->UserMealPlan);
+        $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal')->where('user_id', $data['userId'])->limit(2)->get();
+        // $GetSpecificMealDetails = DB::table('user_meal_plans')->select('weight_time_aim', 'weight_aim', 'calories')->where('user_id', $data['userId'])->first();
+        
+        // return view('free-time-table', compact('MealDetails', 'userDetails'));
+        
+        $pdf = PDF::loadview('free-time-table', compact('MealDetails','userDetails'));
+        $pdf->setOptions([
+            'footer-center' => 'Optimum'
+        ]);
+         $pdfFilePath = public_path('pdf/'.$data['userId'].$userDetails['name'].'.pdf');
+        $pdfdone = $pdf->save($pdfFilePath);
+        if ($pdfdone) {
+            echo 'yes';
+        }else{
+            echo 'no';
+        }
         // var_dump($userDetails);
-        // exit;
+        exit;
         if ($this->isOnline()) {
             $mail_data = [
                 // 'reciever' => $userDetails['email'], this is the correct path when domain is ready

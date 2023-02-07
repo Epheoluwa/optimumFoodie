@@ -125,6 +125,7 @@
                 </p>
                 <h1 align="center">Your Customized Meal Plan</h1><br>
               
+                @include('includes.free_intro_talk')
 
                 @include('includes.guideline')
 
