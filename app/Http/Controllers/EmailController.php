@@ -55,14 +55,9 @@ class EmailController extends Controller
             'footer-center' => 'Optimum'
         ]);
          $pdfFilePath = public_path('pdf/'.$data['userId'].$userDetails['name'].'.pdf');
-        $pdfdone = $pdf->save($pdfFilePath);
-        if ($pdfdone) {
-            echo 'yes';
-        }else{
-            echo 'no';
-        }
+        $pdf->save($pdfFilePath); 
         // var_dump($userDetails);
-        exit;
+        // exit;
         if ($this->isOnline()) {
             $mail_data = [
                 // 'reciever' => $userDetails['email'], this is the correct path when domain is ready
@@ -77,7 +72,7 @@ class EmailController extends Controller
             //             ->from($mail_data['from'], $mail_data['fromName'])
             //             ->subject($mail_data['subject']);
             // });
-            $file_path = public_path('favicon.ico');
+            $file_path = public_path('pdf/'.$data['userId'].$userDetails['name'].'.pdf');
             $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName'], $file_path));;
             if ($sent) {
                 return "Email has been sent successfully.";
