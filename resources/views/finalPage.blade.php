@@ -429,7 +429,8 @@
             <form action="{{ url('sendmail') }}" method="post">
                 {!! csrf_field() !!}
                 <input type="hidden" name="userId" value="{{$userDetails['id']}}">
-                <button type="submit">SEND MY FREE PLAN!</button>
+                <input type="hidden" name="cusType" value="free">
+                <button type="submit">GET FREE PLAN!</button>
             </form>
             
 
@@ -476,7 +477,13 @@
             <h3>Yaaay! Your Meal Plan is ready!! </h3>
             <p>We’ve just created your fully CUSTOMIZED 4 week meal plan!.</p>
 
-            <button>GET PLAN!</button>
+            <form action="{{ url('sendmail') }}" method="post">
+                {!! csrf_field() !!}
+                <input type="hidden" name="userId" value="{{$userDetails['id']}}">
+                <input type="hidden" name="cusType" value="paid">
+                <button type="submit">GET PLAN!</button>
+            </form>
+           
 
         </div>
         @endif

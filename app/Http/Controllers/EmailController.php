@@ -29,11 +29,11 @@ class EmailController extends Controller
         $pdf->setOptions([
             'footer-center' => 'Optimum'
         ]);
-         $pdfFilePath = public_path('pdf/'.uniqid().'.pdf');
+        $pdfFilePath = public_path('pdf/' . uniqid() . '.pdf');
         $pdfdone = $pdf->save($pdfFilePath);
         if ($pdfdone) {
             echo 'yes';
-        }else{
+        } else {
             echo 'no';
         }
     }
@@ -46,39 +46,53 @@ class EmailController extends Controller
 
         // var_dump($userDetails->UserMealPlan);
         $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal')->where('user_id', $data['userId'])->limit(2)->get();
-        // $GetSpecificMealDetails = DB::table('user_meal_plans')->select('weight_time_aim', 'weight_aim', 'calories')->where('user_id', $data['userId'])->first();
-        
         // return view('free-time-table', compact('MealDetails', 'userDetails'));
-        
-        $pdf = PDF::loadview('free-time-table', compact('MealDetails','userDetails'));
-        $pdf->setOptions([
-            'footer-center' => 'Optimum'
-        ]);
-         $pdfFilePath = public_path('pdf/'.$data['userId'].$userDetails['name'].'.pdf');
-        $pdf->save($pdfFilePath); 
-        // var_dump($userDetails);
-        // exit;
-        if ($this->isOnline()) {
-            $mail_data = [
-                // 'reciever' => $userDetails['email'], this is the correct path when domain is ready
-                'reciever' => 'sunmolasolomon@gmail.com',
-                'from' => 'solomon@testing.com',
-                'fromName' => 'Salo',
-                'recieverName' => $userDetails['name'],
 
-            ];
-            // Mail::send('mail/email-template', $mail_data, function($message) use($mail_data){
-            //     $message->to($mail_data['reciever'])
-            //             ->from($mail_data['from'], $mail_data['fromName'])
-            //             ->subject($mail_data['subject']);
-            // });
-            $file_path = public_path('pdf/'.$data['userId'].$userDetails['name'].'.pdf');
-            $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName'], $file_path));;
-            if ($sent) {
-                return "Email has been sent successfully.";
+        if ($data['cusType'] == 'free') {
+
+            $pdf = PDF::loadview('free-time-table', compact('MealDetails', 'userDetails'));
+            $pdf->setOptions([
+                'footer-center' => 'Optimum'
+            ]);
+            $pdfFilePath = public_path('pdf/' . $data['userId'] . $userDetails['name'] . '.pdf');
+            $pdf->save($pdfFilePath);
+            if ($this->isOnline()) {
+                $mail_data = [
+                    // 'reciever' => $userDetails['email'], this is the correct path when domain is ready
+                    'reciever' => 'sunmolasolomon@gmail.com',
+                    'from' => 'solomon@testing.com',
+                    'fromName' => 'Salo',
+                    'recieverName' => $userDetails['name'],
+
+                ];
+                // Mail::send('mail/email-template', $mail_data, function($message) use($mail_data){
+                //     $message->to($mail_data['reciever'])
+                //             ->from($mail_data['from'], $mail_data['fromName'])
+                //             ->subject($mail_data['subject']);
+                // });
+                $file_path = public_path('pdf/' . $data['userId'] . $userDetails['name'] . '.pdf');
+                $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName'], $file_path));;
+                if ($sent) {
+                    return "Email has been sent successfully.";
+                }
+                return "Oops! There was some error sending the email.";
+            } else {
             }
-            return "Oops! There was some error sending the email.";
         } else {
+
+            // $pdf = PDF::loadview('free-time-table', compact('MealDetails', 'userDetails'));
+            // $pdf->setOptions([
+            //     'footer-center' => 'Optimum'
+            // ]);
+            // return $pdf->inline();
+
+            $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal','month_par')->where('user_id', $data['userId'])->get();
+
+              $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails'));
+            $pdf->setOptions([
+                'footer-center' => 'Optimum'
+            ]);
+            return $pdf->inline();
         }
     }
 

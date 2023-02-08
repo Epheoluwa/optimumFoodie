@@ -120,11 +120,8 @@
             <tr>
               <td class="wrapper" style="font-family: sans-serif; font-size: 14px; vertical-align: top; box-sizing: border-box; padding: 50px;">
                 <p style="height:40px;">
-                  <img src="{{ url('/client-assets/img/logo.png?tok='.rand(100,999)) }}" height="120px" style="float:left;" />
+                  <!-- <img src="{{ url('/client-assets/img/logo.png?tok='.rand(100,999)) }}" height="120px" style="float:left;" /> -->
                 </p>
-                <div class="d-flex justify-content-end mb-4">
-                  <a class="btn btn-primary" href="{{ URL::to('/mealsData/pdf') }}">Export to PDF</a>
-                </div>
                 <h1 align="center">Your Customized Meal Plan</h1><br>
 
                 @include('includes.intro_talks')

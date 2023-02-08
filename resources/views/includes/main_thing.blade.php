@@ -7,17 +7,23 @@
         <th>Lunch</th>
         <th>Dinner</th>
     </tr>
-    @foreach($meal1 as $k=>$m)
+    @foreach($MealDetails as $m)
     <tr>
-        <th>{!! $k !!}</th>
-        @foreach($m as $v)
+        @if($m->month_par == '1_and_2')
         <td style="min-width:90px;padding:5px">
-            <?php
-            $yer = str_replace(['[', ']'], '', $v);
-            ?>
-            {!! !empty(trim($yer)) ? $yer: 'Snack meal' !!}
+            {{$m->days}}
+        </td>
+        <?php
+
+        $yer = str_replace(['[', ']'], '', $m->daymeal);
+        $implo = explode('",', $yer);
+        ?>
+        @foreach($implo as $k=> $ml)
+        <td style="min-width:90px;padding:5px">
+            {!! strlen($ml) > 3 ? $ml : 'Snack meal' !!}
         </td>
         @endforeach
+        @endif
     </tr>
     @endforeach
 </table><br>
@@ -35,17 +41,23 @@
         <th>Lunch</th>
         <th>Dinner</th>
     </tr>
-    @foreach($meal2 as $k=>$m)
+    @foreach($MealDetails as $m)
     <tr>
-        <th>{!! $k !!}</th>
-        @foreach($m as $v)
+        @if($m->month_par == '3_and_4')
         <td style="min-width:90px;padding:5px">
-            <?php
-            $yer = str_replace(['[', ']'], '', $v);
-            ?>
-            {!! !empty(trim($yer)) ? $yer: 'Snack meal' !!}
+            {{$m->days}}
+        </td>
+        <?php
+
+        $yer = str_replace(['[', ']'], '', $m->daymeal);
+        $implo = explode('",', $yer);
+        ?>
+        @foreach($implo as $k=> $ml)
+        <td style="min-width:90px;padding:5px">
+            {!! strlen($ml) > 3 ? $ml : 'Snack meal' !!}
         </td>
         @endforeach
+        @endif
     </tr>
     @endforeach
 </table><br>
