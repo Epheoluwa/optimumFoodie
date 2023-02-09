@@ -1698,7 +1698,7 @@ $perc = 20;
         if (ref != '') {
             var ind = parseInt($('#myCarousel').find('.active').index());
             var datum = $('#calcForm').serializeObject();
-            // console.log(datum);
+            console.log(datum);
 
             if (ind == 7 && datum['activity[]'] == undefined) {
                 alert("Kindly pick a minimum of one option to proceed");

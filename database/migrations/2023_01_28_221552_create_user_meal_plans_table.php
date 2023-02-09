@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('sex');
             $table->integer('age');
             $table->integer('height');
-            $table->integer('weight');
+            $table->string('weight');
             $table->json('goal');
             $table->string('weight_aim')->nullable();
             $table->integer('weight_time_aim')->nullable();
