@@ -79,7 +79,8 @@ class EmailController extends Controller
                 $file_path = public_path('pdf/' . $data['userId'] . $userDetails['name'] . '.pdf');
                 $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName'], $file_path));;
                 if ($sent) {
-                    return "Email has been sent successfully.";
+                    return view('email-sent');
+                    // return "Email has been sent successfully.";
                 }
                 return "Oops! There was some error sending the email.";
             } else {
