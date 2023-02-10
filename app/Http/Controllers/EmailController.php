@@ -12,6 +12,15 @@ use PDF;
 class EmailController extends Controller
 {
 
+    public function pract()
+    {
+        return view('email-sent');
+    }
+    public function planview()
+    {
+        return view('payment/plans');
+    }
+
     public function DisplayPage()
     {
         $activeUserId = session('activeUserID');
