@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\PagesController as AdminPagesController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,7 +33,8 @@ Route::post('/post-calculator-data', [GeneralController::class, 'postCalculatorD
 Route::any('/ajax-calculator', [GeneralController::class, 'ajaxCalculator']);
 Route::post('/sendmail',[EmailController::class, 'emailLogic']);
 Route::get('/paratd',[EmailController::class, 'pract']);
-Route::get('/selectplan',[EmailController::class, 'planview']);
+Route::get('/selectplan',[PaymentController::class, 'planview']);
+Route::get('/verify-payment/{reference}',[PaymentController::class, 'verify']);
 Route::get('/getmail',[EmailController::class, 'DisplayPage']);
 Route::get('/pdfmail',[EmailController::class, 'pdfPage']);
 Route::get('/mealsData/pdf', [GeneralController::class, 'createPDF']);

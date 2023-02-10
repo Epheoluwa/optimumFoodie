@@ -41,28 +41,28 @@
             outline: none;
         }
 
-        #form {
+        #paymentForm {
             width: 100%;
             padding: 20px 20px;
         }
 
-        #form .title {
+        #paymentForm .title {
             font-size: 24px;
             line-height: 32px;
             margin-bottom: 15px;
             font-weight: 700;
         }
 
-        #form .input {
+        #paymentForm .input {
             width: 100%;
         }
 
-        #form .input.error input {
+        #paymentForm .input.error input {
             border-color: red;
         }
 
-        #form .input input,
-        #form .input textarea {
+        #paymentForm .input input,
+        #paymentForm .input textarea {
             border-radius: 10px;
             width: 100%;
             padding: 10px 12px;
@@ -72,16 +72,16 @@
             border-color: #5892FF;
         }
 
-        #form .input textarea {
+        #paymentForm .input textarea {
             height: 80px;
             resize: none;
         }
 
-        #form .input:not(:last-child) {
+        #paymentForm .input:not(:last-child) {
             margin-bottom: 10px;
         }
 
-        #form .btn {
+        #paymentForm .btn {
             background-color: #5892FF;
             color: #fff;
             border-radius: 25px;
@@ -93,13 +93,13 @@
             border-color: #5892FF;
         }
 
-        #form .btn:hover {
+        #paymentForm .btn:hover {
             background-color: transparent;
             border-color: #5892FF;
             color: #5892FF;
         }
 
-        #form span {
+        #paymentForm span {
             font-size: 12px;
         }
 
@@ -126,29 +126,63 @@
     <div class=content>
         <div class="wrapper-1">
             <div class="wrapper-2">
-                <form id="form">
+                <form id="paymentForm">
                     <div>
-                    <h2 class="title">Active User Details</h2>
-                    <h2 class="title">Amount to pay: &#8358;30,000</h2>
+                        <h2 class="title">Active User Details</h2>
+                        <h2 class="title">Amount to pay: &#8358;30,000</h2>
                     </div>
-                    
+
                     <div class="input">
-                        <input type="text" id="form__name" name="form__name" placeholder="Name:">
-                    </div>
-                    <div class="input">
-                        <input type="text" id="form__email" name="form__email" placeholder="Email:">
+                        <input type="text" id="name" name="name" placeholder="Name:">
                     </div>
                     <div class="input">
-                        <input type="text" id="form__phone" name="form__phone" placeholder="Phone:">
+                        <input type="text" id="email-address" name="email-address" placeholder="Email:" required>
+                    </div>
+                    <div class="input">
+                        <input type="tel" id="amount" name="amount" placeholder="Amount:" required>
                     </div>
                     <div class="btn__wrapper">
-                        <button type="submit" id="form__btn" class="btn btn2">Pay Now</button>
+                        <button type="submit" onclick="payWithPaystack(event)" class="btn btn2">Pay Now</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-
 </body>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    const paymentForm = document.getElementById('paymentForm');
+    paymentForm.addEventListener("submit", payWithPaystack, false);
+
+    function payWithPaystack(e) {
+        e.preventDefault();
+
+        let handler = PaystackPop.setup({
+            key: 'pk_test_35053dedc279e268b2132443c3ca9500ebe4b77a', // Replace with your public key
+            email: document.getElementById("email-address").value,
+            amount: document.getElementById("amount").value * 100,
+            // ref: '' + Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+            // // label: "Optional string that replaces customer email"
+            onClose: function() {
+                alert('Window closed.');
+            },
+            callback: function(response) {
+                let reference = response.reference
+
+                $.ajax({
+                    type:"GET",
+                    url: "{{URL::to('verify-payment')}}/"+reference,
+
+                    success: function(response){
+                        console.log(response)
+                    }
+                });
+            }
+        });
+
+        handler.openIframe();
+    }
+</script>
 
 </html>

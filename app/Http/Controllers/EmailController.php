@@ -16,10 +16,7 @@ class EmailController extends Controller
     {
         return view('email-sent');
     }
-    public function planview()
-    {
-        return view('payment/plans');
-    }
+   
 
     public function DisplayPage()
     {
