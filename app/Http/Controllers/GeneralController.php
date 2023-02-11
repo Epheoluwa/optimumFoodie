@@ -35,6 +35,7 @@ class GeneralController extends Controller
 
     public function calculator(Request $request)
     {
+        session()->forget('activeUserID');
         $cats = \App\Models\Category::whereStatus('active')->get();
         $food_options = [];
         foreach ($cats as $cat) {
