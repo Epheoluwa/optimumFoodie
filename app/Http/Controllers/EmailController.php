@@ -92,7 +92,8 @@ class EmailController extends Controller
             //     'footer-center' => 'Optimum'
             // ]);
             // return $pdf->inline();
-
+            
+            //generate pdf and display for paid user
             $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal','month_par')->where('user_id', $data['userId'])->get();
 
               $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails'));

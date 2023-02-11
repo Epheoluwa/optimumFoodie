@@ -46,16 +46,6 @@ class PaymentController extends Controller
         //save payment data
         $CustEmail = $main_response->data->customer->email;
         $userDetails = \App\Models\User::where('email', $CustEmail)->first();
-        // $paymentUserId = $userDetails['id'];
-        // $paymentStatus = $main_response->status;
-        // $paymentReference = $main_response->data->reference;
-        // $paymentId = $main_response->data->id;
-        // $paymentAmount = $main_response->data->amount / 100;
-
-        
-
-        // $paymentCustPaystackId = $main_response->data->customer->id;
-        // $paymentCustCode= $main_response->data->customer->customer_code;
         $paymentDate = $main_response->data->paid_at;
         $date = Carbon::parse($paymentDate)->format('Y-m-d H:i:s');
         $paymentDetails = [
@@ -71,7 +61,10 @@ class PaymentController extends Controller
         $save = \App\Models\Payment::create($paymentDetails);
         if($save)
         {
-            echo true;
+            //update user to paid user
+            \App\Models\User::where('id',$paymentDetails['user_id'])->update(array('status' => 'paid'));
+            // Delete old and generate new pdf file and send to user mail.
+            
         }
         
         // return [$main_response];
