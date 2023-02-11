@@ -32,12 +32,12 @@
             outline-color: none;
             height: 40px;
             border-radius: 5px;
-            background-color: #05a1c4;
+            background-color: #28a7e9;
             color: #fff;
             cursor: pointer;
             margin-top: 20px;
             width: 240px;
-            border: 1px solid #05a1c4;
+            border: 1px solid #28a7e9;
         }
 
         .whom-btn:hover,
@@ -83,7 +83,7 @@
             top: 0;
             height: 10px;
             width: 100%;
-            background-color: #05a1c4;
+            background-color: #28a7e9;
         }
 
         .screen h3 {
@@ -114,9 +114,9 @@
         }
 
         .screen button {
-            background: #05a1c4;
-            border: 1px solid #0094ff;
-            box-shadow: 0 3px 20px 0 #0094ff;
+            background: #28a7e9;
+            border: 1px solid #28a7e9;
+            box-shadow: 0 3px 20px 0 #28a7e9;
             border-radius: 100px;
             letter-spacing: 1.5px;
             font-weight: 500;
@@ -182,7 +182,7 @@
         }
 
         :root {
-            --color-blue: #0094ff;
+            --color-blue: #28a7e9;
             --color-white: #fff;
             --curve: cubic-bezier(0.42, 0, 0.275, 1.155);
         }

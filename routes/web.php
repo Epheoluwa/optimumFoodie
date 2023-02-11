@@ -33,11 +33,11 @@ Route::post('/post-calculator-data', [GeneralController::class, 'postCalculatorD
 Route::any('/ajax-calculator', [GeneralController::class, 'ajaxCalculator']);
 Route::post('/sendmail',[EmailController::class, 'emailLogic']);
 Route::get('/paratd',[EmailController::class, 'pract']);
-Route::get('/selectplan',[PaymentController::class, 'planview']);
-Route::get('/verify-payment/{reference}',[PaymentController::class, 'verify']);
 Route::get('/getmail',[EmailController::class, 'DisplayPage']);
 Route::get('/pdfmail',[EmailController::class, 'pdfPage']);
 Route::get('/mealsData/pdf', [GeneralController::class, 'createPDF']);
+Route::get('/selectplan',[PaymentController::class, 'planview']);
+Route::get('/verify-payment/{reference}',[PaymentController::class, 'verify']);
 
 // Admin Pages Routes
 Route::prefix('admin')->middleware(['admin-auth'])->group(function () {

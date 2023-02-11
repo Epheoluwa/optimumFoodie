@@ -69,7 +69,7 @@
             font-size: 14px;
             line-height: 16px;
             border: 2px solid #000;
-            border-color: #5892FF;
+            border-color: #28a7e9;
         }
 
         #paymentForm .input textarea {
@@ -82,7 +82,7 @@
         }
 
         #paymentForm .btn {
-            background-color: #5892FF;
+            background-color: #28a7e9;
             color: #fff;
             border-radius: 25px;
             font-size: 16px;
@@ -90,13 +90,13 @@
             cursor: pointer;
             margin-top: 15px;
             transition: 0.2s;
-            border-color: #5892FF;
+            border-color: #28a7e9;
         }
 
         #paymentForm .btn:hover {
             background-color: transparent;
-            border-color: #5892FF;
-            color: #5892FF;
+            border-color: #28a7e9;
+            color: #28a7e9;
         }
 
         #paymentForm span {
@@ -128,7 +128,7 @@
             <div class="wrapper-2">
                 <form id="paymentForm">
                     <div>
-                        <h2 class="title">Active User Details</h2>
+                        <h2 class="title">Payment required to have access to FULL meal plan</h2>
                         <h2 class="title">Amount to pay: &#8358;30,000</h2>
                     </div>
 

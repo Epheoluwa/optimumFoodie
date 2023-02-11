@@ -40,7 +40,7 @@
     font-family: 'Kaushan Script', cursive;
     font-size: 4em;
     letter-spacing: 3px;
-    color: #5892FF;
+    color: #28a7e9;
     margin: 0;
     margin-bottom: 20px;
   }
@@ -55,7 +55,7 @@
 
   .go-home {
     color: #fff;
-    background: #5892FF;
+    background: #28a7e9;
     border: none;
     padding: 10px 50px;
     margin: 50px 10px;
@@ -75,14 +75,14 @@
   .footer-like p {
     margin: 0;
     padding: 4px;
-    color: #5892FF;
+    color: #28a7e9;
     font-family: 'Source Sans Pro', sans-serif;
     letter-spacing: 1px;
   }
 
   .footer-like p a {
     text-decoration: none;
-    color: #5892FF;
+    color: #28a7e9;
     font-weight: 600;
   }
 
