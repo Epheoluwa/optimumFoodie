@@ -8,7 +8,9 @@ class PaymentController extends Controller
 {
     public function planview()
     {
-        return view('payment/plans');
+        $userID = session('activeUserID');
+        $userDetails = \App\Models\User::where('id', $userID)->first();
+        return view('payment/plans', compact('userDetails'));
     }
 
     public function verify($reference)

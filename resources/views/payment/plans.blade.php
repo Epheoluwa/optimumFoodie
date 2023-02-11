@@ -130,16 +130,17 @@
                     <div>
                         <h2 class="title">Payment required to have access to FULL meal plan</h2>
                         <h2 class="title">Amount to pay: &#8358;30,000</h2>
+                        {{$userDetails['email']}}
                     </div>
 
                     <div class="input">
-                        <input type="text" id="name" name="name" placeholder="Name:">
+                        <input type="text" id="name" name="name" value="{{$userDetails['name']}}" placeholder="Name:">
                     </div>
                     <div class="input">
-                        <input type="text" id="email-address" name="email-address" placeholder="Email:" required>
+                        <input type="text" id="email-address" name="email-address" value="{{$userDetails['email']}}" placeholder="Email:" required>
                     </div>
                     <div class="input">
-                        <input type="tel" id="amount" name="amount" placeholder="Amount:" required>
+                        <input type="tel" id="amount" name="amount" placeholder="Amount:" value="30000" required>
                     </div>
                     <div class="btn__wrapper">
                         <button type="submit" onclick="payWithPaystack(event)" class="btn btn2">Pay Now</button>
