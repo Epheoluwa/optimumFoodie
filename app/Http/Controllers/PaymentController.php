@@ -40,6 +40,20 @@ class PaymentController extends Controller
         $err = curl_error($curl);
         curl_close($curl);
         $main_response = json_decode($response);
-        return [$main_response];
+        var_dump($main_response);
+
+        //save payment data
+        $CustEmail = $main_response->data->customer->email;
+        $userDetails = \App\Models\User::where('email', $CustEmail)->first();
+        $paymentUserId = $userDetails['id'];
+        $paymentStatus = $main_response->status;
+        $paymentReference = $main_response->data->reference;
+        $paymentId = $main_response->data->id;
+        $paymentAmount = $main_response->data->amount / 100;
+        $paymentDate = $main_response->data->paid_at;
+        $paymentCustPaystackId = $main_response->data->customer->id;
+        $paymentCustCode= $main_response->data->customer->customer_code;
+        
+        // return [$main_response];
     }
 }
