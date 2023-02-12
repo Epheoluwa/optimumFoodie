@@ -103,6 +103,18 @@
             font-size: 12px;
         }
 
+        .go-home {
+            color: #fff;
+            background: #28a7e9;
+            border: none;
+            padding: 10px 50px;
+            margin: 50px 10px;
+            border-radius: 30px;
+            text-transform: capitalize;
+            box-shadow: 0 10px 16px 1px rgba(174, 199, 251, 1);
+            text-decoration: none;
+        }
+
 
         @media (min-width:600px) {
             .content {
@@ -130,7 +142,6 @@
                     <div>
                         <h2 class="title">Payment required to have access to FULL meal plan</h2>
                         <h2 class="title">Amount to pay: &#8358;30,000</h2>
-                        {{$userDetails['email']}}
                     </div>
 
                     <div class="input">
@@ -146,6 +157,24 @@
                         <button type="submit" onclick="payWithPaystack(event)" class="btn btn2">Pay Now</button>
                     </div>
                 </form>
+                <div id="success-div" style="display:none;">
+                    <h1>Payment Successful</h1>
+                    <p>Your Free meal plan has been sent to your mail </p>
+                    <div style="margin-top: 20px">
+                        <a class="go-home" href="/">
+                            Home
+                        </a>
+                    </div>
+                </div>
+                <div id="error-div" style="display: none;">
+                    <h1 style="color:#FF9494;">Payment cannot be verified now</h1>
+                    <p>Please contact us to make complain. <a href="mailto:support@cmp.com" target="_blank">Contant us</a></p>
+                    <div style="margin-top: 20px">
+                        <a class="go-home" href="/">
+                            Home
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -154,6 +183,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     const paymentForm = document.getElementById('paymentForm');
+    const error_div = document.getElementById('error-div');
+    const success_div = document.getElementById('success-div');
     paymentForm.addEventListener("submit", payWithPaystack, false);
 
     function payWithPaystack(e) {
@@ -170,12 +201,19 @@
             },
             callback: function(response) {
                 let reference = response.reference
-
+                
                 $.ajax({
-                    type:"GET",
-                    url: "{{URL::to('verify-payment')}}/"+reference,
+                    type: "GET",
+                    url: "{{URL::to('verify-payment')}}/" + reference,
 
-                    success: function(response){
+                    success: function(response) {
+                        if (response == 1) {
+                            paymentForm.style.display = 'none'
+                            success_div.style.display = 'block'
+                        }else{
+                            paymentForm.style.display = 'none'
+                            success_div.style.display = 'block'
+                        }
                         console.log(response)
                     }
                 });

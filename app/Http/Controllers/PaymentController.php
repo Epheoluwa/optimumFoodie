@@ -90,20 +90,15 @@ class PaymentController extends Controller
                         'recieverName' => $userDetails['name'],
     
                     ];
-                    $file_path = public_path('pdf/' . $data['userId'] . $userDetails['name'] . '.pdf');
+                    $file_path = public_path('pdf/' . $userDetails['id'] . $userDetails['name'] . '.pdf');
                     $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName'], $file_path));;
-                    if ($sent) {
-                        return view('email-sent');
-                        // return "Email has been sent successfully.";
-                    }
-                    return "Oops! There was some error sending the email.";
                 } else {
                     return "Please turn on mobile date or connect to a wifi to continue.";
                 }
             }
         }
-
-        // return [$main_response];
+        // var_dump($main_response->status);
+        return $main_response->status;
     }
 
     public function isOnline($site = "https://youtube.com")
