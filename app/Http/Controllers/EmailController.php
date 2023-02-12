@@ -84,6 +84,7 @@ class EmailController extends Controller
                 }
                 return "Oops! There was some error sending the email.";
             } else {
+                return "Please turn on mobile date or connect to a wifi to continue.";
             }
         } else {
 
@@ -92,7 +93,7 @@ class EmailController extends Controller
             //     'footer-center' => 'Optimum'
             // ]);
             // return $pdf->inline();
-            
+
             //generate pdf and display for paid user
             $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal','month_par')->where('user_id', $data['userId'])->get();
 
