@@ -159,7 +159,7 @@
                 </form>
                 <div id="success-div" style="display:none;">
                     <h1>Payment Successful</h1>
-                    <p>Your Free meal plan has been sent to your mail </p>
+                    <p>Your complete meal plan has been sent to your mail </p>
                     <div style="margin-top: 20px">
                         <a class="go-home" href="/">
                             Home
@@ -201,7 +201,7 @@
             },
             callback: function(response) {
                 let reference = response.reference
-                
+
                 $.ajax({
                     type: "GET",
                     url: "{{URL::to('verify-payment')}}/" + reference,
