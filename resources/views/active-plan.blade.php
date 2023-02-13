@@ -117,23 +117,16 @@
   <div class=content>
     <div class="wrapper-1">
       <div class="wrapper-2">
-        <h1>Thank you !</h1>
-        <p>Thanks for using OptimumFoodie. </p>
-        <p>Your Free meal plan has been sent to your mail </p>
+        <h1>You have an active Meal Plan</h1>
+        <p>Check your mail for your meal plan or click the button below to view meal plan </p>
         <div style="margin-top: 20px">
           <a class="go-home" href="/">
             go home
           </a>
           <a class="go-home" href="selectplan">
-            Get full Meal Plan
+            View meal plan
           </a>
         </div>
-
-      </div>
-      <div class="footer-like">
-        <p>Email not received?
-          <a href="#">Click here to send again</a>
-        </p>
       </div>
     </div>
   </div>
