@@ -613,38 +613,37 @@ $perc = 20;
                                                             <h2 align="left">Trying to lose weight?
                                                             </h2>
                                                             <h4>What if I told you you could achieve your best body and maintain it, while still eating Nigerian meals 😋 </h4>
-                                                            <h5>Here's what we have to do:</h5>
+                                                            <h5 style="margin-bottom: 2rem;">Here's what we have to do:</h5>
                                                             <table class="table table-striped">
                                                                 <tr>
-                                                                    <td><span class="fa fa-user"></span>Step 1:</td>
+                                                                    <td>Step 1:</td>
                                                                     <td>Using our free calorie allowance calculator, we'll calculate how many calories you should be eating per day to reach your goal</td>
-                                                                    <td id="res-age"></td>
+                                                                   
                                                                 </tr>
-                                                                <tr>
-                                                                    <td><span class="fa fa-flask"></span>Step 2:</td>
+                                                                <tr> 
+                                                                    <td>Step 2:</td>
                                                                     <td>You'll select which foods you enjoy eating</td>
-                                                                    <td id="res-weight"></td>
+                                                                    
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><span class="fa fa-text-height"></span>Step 3: </td>
+                                                                    <td>Step 3: </td>
                                                                     <td>We'll use your food selection and calculated calorie allownace to create a CUSTOMISED meal plan for you!</td>
-                                                                    <td id="res-height"></td>
+                                                                    
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><span class="fa fa-sliders"></span>Step 4:</td>
+                                                                    <td>Step 4:</td>
                                                                     <td>The best part? .... We'll be sending you 2 days out of your 4 week plan to you absolutely FREE!</td>
-                                                                    <td id="res-activity"></td>
+                                                                    
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><span class="fa fa-sliders"></span> Step 5:</td>
-                                                                    <td>Level of Activity</td>
-                                                                    <td id="res-activity"></td>
+                                                                    <td> Step 5:</td>
+                                                                    <td>And if you'd like to get the complete plan, all you have to do is subscribe!</td>
                                                                 </tr>
                                                             </table>
                                                         </div>
                                                         <!-- <div class="col-md-2"></div> -->
                                                     </div>
-                                                    <a href="#myCarousel" class="btn btn-dark-outline whom-btn" data-slide="next">Next</a>
+                                                    <a href="#myCarousel" style="width: 60%; margin-top: 3rem;" class="btn btn-dark-outline whom-btn" data-slide="next">GET STARTED</a>
                                                 </div>
                                             </div>
                                         </div>
