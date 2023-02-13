@@ -602,7 +602,55 @@ $perc = 20;
 
                             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner" style="color:#000 !important;text-align:center;padding-top:4vh;">
-                                    <div class="item active firstest" style="height:100%;overflow-y:auto;">
+                                    <div class="item active firstest">
+                                        <div class="container">
+                                            <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
+                                                <div style="display:inline-block;" align="center">
+                                                    <hr class="valid-result">
+                                                    <div class="row valid-result">
+                                                        <!-- <div class="col-md-2"></div> -->
+                                                        <div class="col-md-12" align="center">
+                                                            <h2 align="left">Trying to lose weight?
+                                                            </h2>
+                                                            <h4>What if I told you you could achieve your best body and maintain it, while still eating Nigerian meals 😋 </h4>
+                                                            <h5>Here's what we have to do:</h5>
+                                                            <table class="table table-striped">
+                                                                <tr>
+                                                                    <td><span class="fa fa-user"></span>Step 1:</td>
+                                                                    <td>Using our free calorie allowance calculator, we'll calculate how many calories you should be eating per day to reach your goal</td>
+                                                                    <td id="res-age"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span class="fa fa-flask"></span>Step 2:</td>
+                                                                    <td>You'll select which foods you enjoy eating</td>
+                                                                    <td id="res-weight"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span class="fa fa-text-height"></span>Step 3: </td>
+                                                                    <td>We'll use your food selection and calculated calorie allownace to create a CUSTOMISED meal plan for you!</td>
+                                                                    <td id="res-height"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span class="fa fa-sliders"></span>Step 4:</td>
+                                                                    <td>The best part? .... We'll be sending you 2 days out of your 4 week plan to you absolutely FREE!</td>
+                                                                    <td id="res-activity"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span class="fa fa-sliders"></span> Step 5:</td>
+                                                                    <td>Level of Activity</td>
+                                                                    <td id="res-activity"></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                        <!-- <div class="col-md-2"></div> -->
+                                                    </div>
+                                                    <a href="#myCarousel" class="btn btn-dark-outline whom-btn" data-slide="next">Next</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="item" style="height:100%;overflow-y:auto;">
                                         <div class="container">
                                             @include('progress')
 
@@ -1099,18 +1147,18 @@ $perc = 20;
 
                                                                 <h3>
                                                                     <span class="calories"></span>cal per day<br>
-                                                                    <small class="min-calory">The recommended minimum is <b>1200cal</b> per day to meet your body’s nutritional needs.</small>
+                                                                    <small class="min-calory" style="color:#FF9494;">The recommended minimum is <b>1200cal</b> per day to meet your body’s nutritional needs.</small>
                                                                     <br>
-                                                                    <small class="min-calory">So you here are your options, you can increase the time it’ll take to reach your goal, and/ or increase your level of physical activity.</small>
+                                                                    <small class="min-calory" style="color:#FF9494;">So you here are your options, you can increase the time it’ll take to reach your goal, and/ or increase your level of physical activity.</small>
                                                                     <br>
-                                                                    <small class="min-calory">With this in mind, kindly click the button below to recalculate your calorie needs</small>
+                                                                    <small class="min-calory" style="color:#FF9494;">With this in mind, kindly click the button below to recalculate your calorie needs</small>
                                                                 </h3>
 
                                                                 <p class="recalc-next">
                                                                     Now that we’ve established your calorie needs to achieve your goal, let’s set-up your food preferences, and eating pattern.
                                                                 </p>
                                                                 <p>
-                                                                    <a href="javascript:void(0)" onclick="$('#myCarousel').carousel(5);" class="btn btn-dark valid-result" onclick="">Recalculate</a>&nbsp;&nbsp;
+                                                                    <a href="javascript:void(0)" onclick="$('#myCarousel').carousel(6);" class="btn btn-dark valid-result" onclick="">Recalculate</a>&nbsp;&nbsp;
 
                                                                     <span class="recalc-next">
                                                                         <a href="#myCarousel" class="btn btn-dark valid-result" onclick="nextGoal($(this))">Next</a>
@@ -1238,7 +1286,7 @@ $perc = 20;
                                                     <br>
                                                     <input class="bestest" placeholder="Best Email" type="email" name="best_email">
                                                     <br>
-                                                    
+
                                                     <button type="submit" style="width:240px;border-radius:3px;margin-top:20px;" class="btn btn-dark-outline whom-btn" onclick="">Save </button>
 
                                                     <!-- <a href="#myCarousel" style="width:200px;border-radius:3px;margin-top:20px;" class="btn btn-dark-outline whom-btn" >Send me my FREE PLAN</a> -->
@@ -1299,8 +1347,8 @@ $perc = 20;
         }).get();
 
         var ind = $('#myCarousel').find('.active').index();
-        if (goals.includes("Maintain Weight") && ind == 6) {
-            $('#myCarousel').carousel(4);
+        if (goals.includes("Maintain Weight") && ind == 7) {
+            $('#myCarousel').carousel(5);
         } else {
             $('#myCarousel').carousel('prev');
         }
@@ -1357,13 +1405,13 @@ $perc = 20;
     function nextGoal(e) {
         var ind = parseInt($('#myCarousel').find('.active').index());
         var datum = $('#calcForm').serializeObject();
-        if (ind == 4 && datum['goal[]'] == undefined) {
+        if (ind == 5 && datum['goal[]'] == undefined) {
             alert("Kindly pick an option to proceed");
             return false;
-        } else if (ind == 6 && (datum.workout == undefined || datum.workout == "")) {
+        } else if (ind == 7 && (datum.workout == undefined || datum.workout == "")) {
             alert("Kindly pick an activity to proceed");
             return false;
-        } else if (ind == 5) {
+        } else if (ind == 6) {
             if ($('#weightIN_aim').val() == "" || $('input[name="weight_time_aim"]').val() == "") {
                 alert("Kindly let us know how much you want to weigh and in how much time.");
                 return false;
@@ -1820,6 +1868,8 @@ $perc = 20;
         $('#caloriesField').val(roundToNearest50(calories));
         if (calories < 1200) {
             $('.min-calory').show();
+            $('.calories').hide();
+            $('.recalc-next').hide();
         }
 
         let caloryIndexes = {
