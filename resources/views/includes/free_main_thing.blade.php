@@ -29,4 +29,6 @@
 
 </table><br>
 
+<h2 style="font-weight: bolder;">Subscribe to have full access to the remaining meal plan</h2>
+
 @include('includes.snack1')
