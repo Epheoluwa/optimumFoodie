@@ -150,7 +150,7 @@
                                     <div class="col-md-12">
                                         <label>Email</label>
                                         <input type="email" name="email" class="form-control" required>
-                                        <input type="hidden" value="123456" name="password" class="form-control" required>
+                                         
                                     </div>
                                 </div>
                             </div>

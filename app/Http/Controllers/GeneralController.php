@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Cookie\CookieJar;
+use Illuminate\Support\Str;
 use PDF;
 
 use function PHPSTORM_META\type;
@@ -112,12 +113,13 @@ class GeneralController extends Controller
 
         //check user status and create new user if no status
         $emailwa = \App\Models\User::where('email', $data['data']['best_email'])->first();
+        $random_password = Str::random(10);
         if (!$emailwa) {
             $userData = [
                 'email' => $data['data']['best_email'],
                 'name' => $data['data']['best_name'],
                 'status' => 'free',
-                'password' => 123456
+                'password' => $random_password
             ];
             $update = \App\Models\User::create($userData);
             if ($update) {
@@ -130,19 +132,22 @@ class GeneralController extends Controller
         $userID = $emailwa2['id'];
         $activeMealPlan =  \App\Models\UserMealPlan::where('user_id', $userID)->first();
         if ($activeMealPlan) {
-            var_dump("active plan");
-            exit;
             return view('active-plan');
         } else {
+            //update user table
+            $userDataMeal = [
+                'sex' => $data['data']['sex'],
+                'age' => $data['data']['age'],
+                'height' => $data['data']['height'],
+                'weight' => $data['data']['weight'],
+            ];
+            \App\Models\User::where('id',$userID)->update($userDataMeal);
+
             $meal1ako = $data['meal1'];
             foreach ($meal1ako as $day => $mainmeals1eat) {
                 $userMealData = [
                     'days' => $day,
                     'user_id' => $userID,
-                    'sex' => $data['data']['sex'],
-                    'age' => $data['data']['age'],
-                    'height' => $data['data']['height'],
-                    'weight' => $data['data']['weight'],
                     'goal' => $data['data']['goal'],
                     'weight_aim' => $data['data']['weight_aim'],
                     'weight_time_aim' => $data['data']['weight_time_aim'],
@@ -153,7 +158,6 @@ class GeneralController extends Controller
                     'food_options' => $data['data']['food_options'],
                     'month_par' => '1_and_2',
                     'daymeal' => $mainmeals1eat,
-
                 ];
                 // save the data on each day loop
                 $saveMeal = \App\Models\UserMealPlan::create($userMealData);
@@ -164,10 +168,6 @@ class GeneralController extends Controller
                 $userMealData2 = [
                     'days' => $day2,
                     'user_id' => $userID,
-                    'sex' => $data['data']['sex'],
-                    'age' => $data['data']['age'],
-                    'height' => $data['data']['height'],
-                    'weight' => $data['data']['weight'],
                     'goal' => $data['data']['goal'],
                     'weight_aim' => $data['data']['weight_aim'],
                     'weight_time_aim' => $data['data']['weight_time_aim'],
@@ -186,6 +186,8 @@ class GeneralController extends Controller
 
             session(['activeUserID' => $userID]);
             if ($saveMeal) {
+                var_dump('saved');
+                exit;
                 return redirect('/getmail');
             }
         }
