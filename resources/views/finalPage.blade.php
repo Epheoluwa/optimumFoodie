@@ -1,494 +1,282 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Success</title>
-    <link rel="stylesheet" href="{{ url('assets/frontend') }}/css/animate.min.css">
-    <link rel="stylesheet" href="{{ url('assets/frontend') }}/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url('assets/frontend') }}/css/theme.css">
+    <script src="{{ url('assets/frontend') }}/js/popper.min.js"></script>
+    <script src="{{ url('assets/frontend') }}/js/smoothscroll.min.js"></script>
     <link rel="stylesheet" href="{{ url('assets/frontend') }}/css/font-awesome.min.css">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{{ url('assets/frontend') }}/css/templatemo-style.css">
-    <script src="{{ url('assets/frontend') }}/js/jquery.js"></script>
-    <script src="{{ url('assets/frontend') }}/js/bootstrap.min.js"></script>
-    <script src="{{ url('assets/frontend') }}/js/jquery.singlePageNav.min.js"></script>
-    <script src="{{ url('assets/frontend') }}/js/typed.js"></script>
-    <script src="{{ url('assets/frontend') }}/js/wow.min.js"></script>
-    <script src="{{ url('assets/frontend') }}/js/custom.js"></script>
-    <style>
-        /* .container {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    } */
-
-        .whom-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            justify-items: center;
-            outline-color: none;
-            height: 40px;
-            border-radius: 5px;
-            background-color: #28a7e9;
-            color: #fff;
-            cursor: pointer;
-            margin-top: 20px;
-            width: 240px;
-            border: 1px solid #28a7e9;
-        }
-
-        .whom-btn:hover,
-        .whom-btn:active,
-        .whom-btn:focus {
-            outline-color: none;
-            border-radius: 5px;
-            outline: none;
-            box-shadow: none;
-        }
-
-        .head2 {
-            text-align: center;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        }
-
-        .screen {
-            cursor: pointer;
-            position: absolute;
-            left: 50%;
-            top: 40%;
-            -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            overflow: hidden;
-            width: 500px;
-            height: 400px;
-            background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 2 12px 0 rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .screen #topIcon {
-            position: absolute;
-            left: 50%;
-            top: 30%;
-            -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-        }
-
-        .screen .border-top {
-            position: absolute;
-            top: 0;
-            height: 10px;
-            width: 100%;
-            background-color: #28a7e9;
-        }
-
-        .screen h3 {
-            font-weight: 700;
-            font-size: 24px;
-            color: #606060;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            letter-spacing: 0;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-        }
-
-        .screen p {
-            font-weight: 400;
-            font-size: 16px;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            color: #616161;
-            letter-spacing: 0.18px;
-            position: absolute;
-            left: 50%;
-            top: 68%;
-            width: 90%;
-            -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-        }
-
-        .screen button {
-            background: #28a7e9;
-            border: 1px solid #28a7e9;
-            box-shadow: 0 3px 20px 0 #28a7e9;
-            border-radius: 100px;
-            letter-spacing: 1.5px;
-            font-weight: 500;
-            color: #fff;
-            padding-top: 2px;
-            width: 186px;
-            height: 40px;
-            position: absolute;
-            bottom: 1%;
-            left: 30%;
-
-            /* -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        opacity: 0; */
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .screen button:focus {
-            outline: 0;
-        }
-
-        #Bubbles {
-            visibility: hidden;
-        }
-
-        .tr {
-            -webkit-transition: all 0.2s ease-in;
-            -moz-transition: all 0.2s ease-in;
-            -ms-transition: all 0.2s ease-in;
-            -o-transition: all 0.2s ease-in;
-            transition: all 0.2s ease-in;
-        }
-
-        .btn-overlay {
-
-            background-color: #43d0f1;
-            border: 0;
-            color: #fff;
-            opacity: 0.6;
-            padding: 10px 15px;
-            border-radius: 100px;
-            font-size: 12px;
-            letter-spacing: 0.8px;
-            z-index: 999;
-            width: 100px
-        }
-
-        .btn-overlay:hover {
-            opacity: 1;
-        }
-
-        #restart {
-            position: fixed;
-            right: 10px;
-            top: 10px;
-        }
-
-        #invert {
-            position: fixed;
-            right: 10px;
-            top: 55px;
-        }
-
-        :root {
-            --color-blue: #28a7e9;
-            --color-white: #fff;
-            --curve: cubic-bezier(0.42, 0, 0.275, 1.155);
-        }
-
-        *,
-        *:before,
-        *:after {
-            box-sizing: border-box;
-        }
-
-        body {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--color-white);
-        }
-
-        .star {
-            position: absolute;
-            animation: grow 3s infinite;
-            fill: var(--color-blue);
-            opacity: 0;
-        }
-
-        .star:nth-child(1) {
-            width: 12px;
-            height: 12px;
-            left: 12px;
-            top: 16px;
-        }
-
-        .star:nth-child(2) {
-            width: 18px;
-            height: 18px;
-            left: 168px;
-            top: 84px;
-        }
-
-        .star:nth-child(3) {
-            width: 10px;
-            height: 10px;
-            left: 32px;
-            top: 162px;
-        }
-
-        .star:nth-child(4) {
-            width: 20px;
-            height: 20px;
-            left: 82px;
-            top: -12px;
-        }
-
-        .star:nth-child(5) {
-            width: 14px;
-            height: 14px;
-            left: 125px;
-            top: 162px;
-        }
-
-        .star:nth-child(6) {
-            width: 10px;
-            height: 10px;
-            left: 16px;
-            top: 16px;
-        }
-
-        .star:nth-child(1) {
-            animation-delay: 1.5s;
-        }
-
-        .star:nth-child(2) {
-            animation-delay: 3s;
-        }
-
-        .star:nth-child(3) {
-            animation-delay: 4.5s;
-        }
-
-        .star:nth-child(4) {
-            animation-delay: 6s;
-        }
-
-        .star:nth-child(5) {
-            animation-delay: 7.5s;
-        }
-
-        .star:nth-child(6) {
-            animation-delay: 9s;
-        }
-
-        .checkmark {
-            position: relative;
-            padding: 30px;
-            animation: checkmark 5m var(--curve) both;
-        }
-
-        .checkmark__check {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            z-index: 10;
-            transform: translate3d(-50%, -50%, 0);
-            fill: var(--color-white);
-        }
-
-        .checkmark__background {
-            fill: var(--color-blue);
-            animation: rotate 35s linear both infinite;
-        }
-
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes grow {
-
-            0%,
-            100% {
-                transform: scale(0);
-                opacity: 0;
-            }
-
-            50% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        @keyframes checkmark {
-
-            0%,
-            100% {
-                opacity: 0;
-                transform: scale(0);
-            }
-
-            10%,
-            50%,
-            90% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-    </style>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/fontawesome.min.css" integrity="sha512-cHxvm20nkjOUySu7jdwiUxgGy11vuVPE9YeK89geLMLMMEOcKFyS2i+8wo0FOwyQO/bL8Bvq1KMsqK4bbOsPnA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <title>Optimum Foodie</title>
 </head>
 
 <body>
-    <section>
-        <!-- <div class="screen un">
-        <div class="border-top">
-        </div>
-        <div class="checkmark" id="topIcon">
-            <svg class="star" height="19" viewBox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                </path>
-            </svg>
-            <svg class="star" height="19" viewBox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                </path>
-            </svg>
-            <svg class="star" height="19" viewBox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                </path>
-            </svg>
-            <svg class="star" height="19" viewBox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                </path>
-            </svg>
-            <svg class="star" height="19" viewBox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                </path>
-            </svg>
-            <svg class="star" height="19" viewBox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                </path>
-            </svg>
-            <svg class="checkmark__check" height="36" viewBox="0 0 48 36" width="48" xmlns="http://www.w3.org/2000/svg">
-                <path d="M47.248 3.9L43.906.667a2.428 2.428 0 0 0-3.344 0l-23.63 23.09-9.554-9.338a2.432 2.432 0 0 0-3.345 0L.692 17.654a2.236 2.236 0 0 0 .002 3.233l14.567 14.175c.926.894 2.42.894 3.342.01L47.248 7.128c.922-.89.922-2.34 0-3.23">
-                </path>
-            </svg>
-            <svg class="checkmark__background" height="115" viewBox="0 0 120 115" width="120" xmlns="http://www.w3.org/2000/svg">
-                <path d="M107.332 72.938c-1.798 5.557 4.564 15.334 1.21 19.96-3.387 4.674-14.646 1.605-19.298 5.003-4.61 3.368-5.163 15.074-10.695 16.878-5.344 1.743-12.628-7.35-18.545-7.35-5.922 0-13.206 9.088-18.543 7.345-5.538-1.804-6.09-13.515-10.696-16.877-4.657-3.398-15.91-.334-19.297-5.002-3.356-4.627 3.006-14.404 1.208-19.962C10.93 67.576 0 63.442 0 57.5c0-5.943 10.93-10.076 12.668-15.438 1.798-5.557-4.564-15.334-1.21-19.96 3.387-4.674 14.646-1.605 19.298-5.003C35.366 13.73 35.92 2.025 41.45.22c5.344-1.743 12.628 7.35 18.545 7.35 5.922 0 13.206-9.088 18.543-7.345 5.538 1.804 6.09 13.515 10.696 16.877 4.657 3.398 15.91.334 19.297 5.002 3.356 4.627-3.006 14.404-1.208 19.962C109.07 47.424 120 51.562 120 57.5c0 5.943-10.93 10.076-12.668 15.438z">
-                </path>
-            </svg>
-        </div>
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-7 pt-5 mb-5 align-self-center">
+                    <div class="promo pe-md-3 pe-lg-5">
+                        <h4 class="subheadline" style="font-weight: 100;">What you eat on a daily basis is the most important aspect to getting the body you’ve always wanted</h4>
+                        <h1 class="headline mb-3">
+                            FINALLY GET THE BODY <br>YOU’VE BEEN WISHING FOR
+                        </h1><!--//headline-->
+                        <p>Without Ever Needing To Step In A GYM Or Give Up The Nigerian Meals You Enjoy!</p>
+                        <div class="subheadline mb-4">
+                            Get access to your own customized meal timetable! Specially created based for YOU based on your food likes, health and fitness goals, daily schedule, food allergies and so on!
+                        </div><!--//subheading-->
 
-        <h3>Yaaay! Your FREE Meal Plan is ready!!  </h3>
-        <p>We’ve just created your fully CUSTOMIZED 4 week meal plan!.</p>
+                        <!-- <div class="cta-holder row gx-md-3 gy-3 gy-md-0">
+                            <div class="col-12 col-md-auto">
+                                <a class="btn btn-primary w-100" href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/devbook-free-bootstrap-5-book-ebook-landing-page-template-for-developers/">Buy for $29</a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a class="btn btn-secondary scrollto w-100" href="#benefits-section">Learn More</a>
+                            </div>
+                        </div>//cta-holder -->
 
-        <button>GET PLAN!</button>
+                        <div class="hero-quotes mt-5">
+                            <div class="container">
+                                <h2 class="text-center">Progress report</h2>
+                                <div class="row">
+                                    <div class="col-12 col-md-4">
+                                        <div>
+                                            <img src="{{ url('assets/frontend/images/cmpw1.png') }}" class="img-responsive" width="100%" />
+                                        </div>
 
-    </div> -->
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <img src="{{ url('assets/frontend/images/cmpw3.png') }}" class="img-responsive" width="100%" />
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <img src="{{ url('assets/frontend/images/cmpw3.jpeg') }}" class="img-responsive" width="100%" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--//hero-quotes-->
+                    </div><!--//promo-->
+                </div><!--col-->
+                <div class="col-12 col-md-5 mb-5 align-self-center">
+                    <div class="book-cover-holder">
+                        <iframe width="550" height="445" src="https://www.youtube.com/embed/iiEK6csjMYo">
+                        </iframe>
+                    </div><!--//book-cover-holder-->
+                    <div class="text-center">A custom-made plan provides you with specific details of what to eat, how much to eat, and even if you can’t cook or travel a lot, we guide you on exactly what to buy at restaurants around you! </div>
+                </div><!--col-->
+            </div><!--//row-->
+        </div><!--//container-->
+    </section><!--//hero-section-->
 
-        {{$userDetails['status']}}
+    <section id="content-section" class="content-section mt-5">
+        <div class="container">
+            <div class="single-col-max mx-auto">
+                <h2 class="section-heading text-center mb-5">Does this sound familiar?</h2>
+                <div class="row">
+                    <div class="col-12 col-md-12 mb-5">
+                        <div class="key-points mb-4 text-center">
+                            <ul class="key-points-list list-unstyled mb-4 mx-auto d-inline-block text-start">
+                                <li><i class="fa fa-check-circle me-2"></i>You only eat may be once or twice a day....</li>
+                                <li><i class="fa fa-check-circle me-2"></i>You exercise 3, 4, 5 times a week, may be even lift weights.</li>
+                                <li><i class="fa fa-check-circle me-2"></i>You are religiously taking your lemon water or apple cider vinegar or slimming tea....</li>
+                                <li><i class="fa fa-check-circle me-2"></i>You've started eating healthier, including more fruits, healthier swaps from coconut flour to couscous.</li>
+                                <li><i class="fa fa-check-circle me-2"></i>In fact, you've painstakingly stopped eating past 7pm, still nothing is happening! You can't see the results of your labour. . </li>
+                                <li><i class="fa fa-check-circle me-2"></i>Kindle curabitur fermentum.</li>
+                                <li><i class="fa fa-check-circle me-2"></i>Kindle curabitur fermentum.</li>
+                                <li><i class="fa fa-check-circle me-2"></i>Kindle curabitur fermentum.</li>
+                            </ul>
 
-        @if ($userDetails['status']== 'free')
-        <div class="screen un">
-            <div class="border-top">
-            </div>
-            <div class="checkmark" id="topIcon">
-                <svg class="star" height="19" viewBox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                    </path>
-                </svg>
-                <svg class="star" height="19" viewBox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                    </path>
-                </svg>
-                <svg class="star" height="19" viewBox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                    </path>
-                </svg>
-                <svg class="star" height="19" viewBox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                    </path>
-                </svg>
-                <svg class="star" height="19" viewBox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                    </path>
-                </svg>
-                <svg class="star" height="19" viewBox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                    </path>
-                </svg>
-                <svg class="checkmark__check" height="36" viewBox="0 0 48 36" width="48" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M47.248 3.9L43.906.667a2.428 2.428 0 0 0-3.344 0l-23.63 23.09-9.554-9.338a2.432 2.432 0 0 0-3.345 0L.692 17.654a2.236 2.236 0 0 0 .002 3.233l14.567 14.175c.926.894 2.42.894 3.342.01L47.248 7.128c.922-.89.922-2.34 0-3.23">
-                    </path>
-                </svg>
-                <svg class="checkmark__background" height="115" viewBox="0 0 120 115" width="120" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M107.332 72.938c-1.798 5.557 4.564 15.334 1.21 19.96-3.387 4.674-14.646 1.605-19.298 5.003-4.61 3.368-5.163 15.074-10.695 16.878-5.344 1.743-12.628-7.35-18.545-7.35-5.922 0-13.206 9.088-18.543 7.345-5.538-1.804-6.09-13.515-10.696-16.877-4.657-3.398-15.91-.334-19.297-5.002-3.356-4.627 3.006-14.404 1.208-19.962C10.93 67.576 0 63.442 0 57.5c0-5.943 10.93-10.076 12.668-15.438 1.798-5.557-4.564-15.334-1.21-19.96 3.387-4.674 14.646-1.605 19.298-5.003C35.366 13.73 35.92 2.025 41.45.22c5.344-1.743 12.628 7.35 18.545 7.35 5.922 0 13.206-9.088 18.543-7.345 5.538 1.804 6.09 13.515 10.696 16.877 4.657 3.398 15.91.334 19.297 5.002 3.356 4.627-3.006 14.404-1.208 19.962C109.07 47.424 120 51.562 120 57.5c0 5.943-10.93 10.076-12.668 15.438z">
-                    </path>
-                </svg>
-            </div>
+                            <div class="" style="background-color: #000; padding: 15px 15px;">
+                                <p style="color: #fff;">Here’s the thing, when it comes to getting fitness results, your diet is KING! This right here is what has made the difference between frustration and absolute success for my clients!</p>
+                            </div>
 
-            <h3>Yaaay! Your FREE Meal Plan is ready!! </h3>
-            <p>We’ve just created your fully CUSTOMIZED 4 week meal plan!.</p>
-            <form action="{{ url('sendmail') }}" method="post">
-                {!! csrf_field() !!}
-                <input type="hidden" name="userId" value="{{$userDetails['id']}}">
-                <input type="hidden" name="cusType" value="free">
-                <button type="submit">GET FREE PLAN!</button>
-            </form>
-            
+                            <p class="mt-3">And the awesome news is that <b> you don’t have to stop eating your eba, rice, bread, beans and so on to get amazing results! </b> You can eat all your fave Nigerian meals and still crush your body goals!</p>
+                            <div class="text-center mt-5">
+                                <a class="btn btn-primary" href="">Get FREE Meal Plan</a>
+                                <a class="btn btn-primary" href="">Get FULL Meal Plan</a>
+                            </div>
+                        </div>
 
-        </div>
-        @else
-        <div class="screen un">
-            <div class="border-top">
-            </div>
-            <div class="checkmark" id="topIcon">
-                <svg class="star" height="19" viewBox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                    </path>
-                </svg>
-                <svg class="star" height="19" viewBox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                    </path>
-                </svg>
-                <svg class="star" height="19" viewBox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                    </path>
-                </svg>
-                <svg class="star" height="19" viewBox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                    </path>
-                </svg>
-                <svg class="star" height="19" viewBox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                    </path>
-                </svg>
-                <svg class="star" height="19" viewBox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                    </path>
-                </svg>
-                <svg class="checkmark__check" height="36" viewBox="0 0 48 36" width="48" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M47.248 3.9L43.906.667a2.428 2.428 0 0 0-3.344 0l-23.63 23.09-9.554-9.338a2.432 2.432 0 0 0-3.345 0L.692 17.654a2.236 2.236 0 0 0 .002 3.233l14.567 14.175c.926.894 2.42.894 3.342.01L47.248 7.128c.922-.89.922-2.34 0-3.23">
-                    </path>
-                </svg>
-                <svg class="checkmark__background" height="115" viewBox="0 0 120 115" width="120" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M107.332 72.938c-1.798 5.557 4.564 15.334 1.21 19.96-3.387 4.674-14.646 1.605-19.298 5.003-4.61 3.368-5.163 15.074-10.695 16.878-5.344 1.743-12.628-7.35-18.545-7.35-5.922 0-13.206 9.088-18.543 7.345-5.538-1.804-6.09-13.515-10.696-16.877-4.657-3.398-15.91-.334-19.297-5.002-3.356-4.627 3.006-14.404 1.208-19.962C10.93 67.576 0 63.442 0 57.5c0-5.943 10.93-10.076 12.668-15.438 1.798-5.557-4.564-15.334-1.21-19.96 3.387-4.674 14.646-1.605 19.298-5.003C35.366 13.73 35.92 2.025 41.45.22c5.344-1.743 12.628 7.35 18.545 7.35 5.922 0 13.206-9.088 18.543-7.345 5.538 1.804 6.09 13.515 10.696 16.877 4.657 3.398 15.91.334 19.297 5.002 3.356 4.627-3.006 14.404-1.208 19.962C109.07 47.424 120 51.562 120 57.5c0 5.943-10.93 10.076-12.668 15.438z">
-                    </path>
-                </svg>
-            </div>
+                    </div><!--//col-12-->
+                </div><!--//row-->
+            </div><!--//single-col-max-->
+        </div><!--//container-->
+    </section><!--//content-section-->
 
-            <h3>Yaaay! Your Meal Plan is ready!! </h3>
-            <p>We’ve just created your fully CUSTOMIZED 4 week meal plan!.</p>
+    <section id="reviews-section" class="reviews-section py-5">
+        <div class="container">
+            <h2 class="section-heading text-center">Review</h2>
+            <div class="section-intro text-center single-col-max mx-auto mb-5">Hear from Nigerian Nutrition Expert! </div>
+            <div class="row justify-content-center">
+                <div class="item col-12 col-lg-12 p-3 mb-4">
+                    <div class="item-inner theme-bg-light rounded p-4">
 
-            <form action="{{ url('sendmail') }}" method="post">
-                {!! csrf_field() !!}
-                <input type="hidden" name="userId" value="{{$userDetails['id']}}">
-                <input type="hidden" name="cusType" value="paid">
-                <button type="submit">GET PLAN!</button>
-            </form>
-           
+                        <blockquote class="quote">
+                            "
+                            I’m Odunayo Abdulai, a pharmacist, and US certified integrative nutrition coach! <b> I specialise in helping individuals like you smash their fitness goals eating the Nigerian meals they love!</b>
 
-        </div>
-        @endif
+                            And today I’m bringing my years of experience to <b>help you create a meal timetable that’s as unique as you are!</b> That makes sense for your schedule, your food likes and your specific health and fitness goals!
+
+                            But before I create yours, I want to tell the backstory of how I started creating them for my clients…
+                        </blockquote>
+                        <blockquote class="quote mt-4">
+                            <b>I’ve spent OVER 4 YEARS researching, practicing and honing the skills that have made my meal plans so result driven! </b>
+
+                            Years ago, I started getting conscious about my belly, I hated how my clothes fit
+
+                            At first, I’ll just suck belle, but damn, it was not enough…
+
+                            Then one day my ex makes this “not so funny” joke about me looking pregnant"
+
+                            <h5 class="mt-3" style="color:#4c527d;">“Arrrrghhh” that was it! Something had to be done!</h5>
 
 
-    </section>
+                            So the first thing I did…
+
+                            <b>I worked out like crazy,</b> I was doing at least 45min, 6 times a week!
+
+                            <b>I tried to fix my diet,</b> started including more fruits in general, then I added yoghurt too, threw in some sandwiches as well.
+
+                            <h4 class="mt-3" style="color:#4c527d;">But you see, after 15 months of not getting results I was fed up. I had given it my all, what was going on?</h4>
+                            That’s where the journey to me becoming the Calorie Queen started!
+
+                        </blockquote>
+                        <blockquote class="quote mt-4">
+                            <h5 class="text-center" style="color:#4c527d;">I found out my biggest mistake ever!</h5>
+                            <b>My diet was whack! </b>
+
+                            I discovered that I was not achieving something a CALORIE DEFICIT!
+
+                            Simply put, I was eating too many calories - and apparently, if you are consuming more calories than your body needs… <b>You’ll NEVER GET RESULTS </b>. There’s no magic you want to do.
+
+                            <b>It was honestly that simple!</b>
+
+                            <h6 class="mt-3" style="color: #4c527d;">MY MIND WAS BLOWN!</h6>
+                            <b>I could totally see why I had been struggling </b> and became so obsessed with nutrition and later became a US certified nutrition coach.
+
+                            Since then<b> I’ve perfected the process using Nigerian foods,</b> and even used it to <b> my dad reverse his pre-diabetes!</b> And his blood sugar has been normal ever since!
+
+                            This meal plan I’ll create for you will become your one stop for everything regarding your diet.
+
+                            You share your goals with me, <b>tell me the specific foods you enjoy eating,</b> and I’ll tell you exactly how to cook them and <b>how much to eat.</b> And that<b> includes snack time too!</b>
+
+                            I’m giving sharing the opportunity to reach your body goals, <b>along with the freedom to eat the foods you actually like, without ever stepping in a gym!</b>
+
+                            <ul class="mt-3">
+                                <li><i class="fa fa-check-circle me-2"></i> <b>Don’t</b> make the same mistakes I did</li>
+                                <li><i class="fa fa-check-circle me-2"></i> <b>Don’t</b> mscramble around wondering what is wrong, or what to do</li>
+                                <li><i class="fa fa-check-circle me-2"></i> <b>Don’t</b> waste precious time figuring out all the details</li>
+
+                            </ul>
+                            Let me help you achieve your fitness and health goals
+
+                            I’ll see you on the inside."
+                        </blockquote>
+                        <div class="source row gx-md-3 gy-3 gy-md-0">
+                            <div class="col-12 col-md-auto source-info text-center text-md-start">
+                                <div class="source-name">Odunayo Abdulai</div>
+                                <div class="soure-title">Your Nigerian Nutrition Expert!</div>
+                            </div><!--//col-->
+                        </div><!--//source-->
+                        <div class="icon-holder"><i class="fa fa-quote-right"></i></div>
+                    </div><!--//inner-->
+                </div><!--//item-->
+            </div><!--//row-->
+        </div><!--//container-->
+    </section><!--//reviews-section-->
+    <section id="benefits-section" class="benefits-section theme-bg-light-gradient py-5">
+        <div class="container py-5">
+            <h2 class="section-heading text-center mb-3">Here’s everything waiting for you when you order your own Meal Plan:</h2>
+            <div class="section-intro single-col-max mx-auto text-center mb-5">Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit consequat consequat. Orci varius natoque penatibus et magnis. </div>
+            <div class="row text-center">
+                <div class="item col-12 col-md-6 col-lg-4">
+                    <div class="item-inner p-3 p-lg-4">
+                        <div class="item-header mb-3">
+                            <div class="item-icon"> <i class="fa fa-cutlery"></i></div>
+
+                            <div class="item-desc">
+                                A new meal timetable every 2 weeks with new meal options to keep things interesting, and ensure you are consistently making progress
+                            </div>
+                        </div><!--//item-heading-->
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+                <div class="item col-12 col-md-6 col-lg-4">
+                    <div class="item-inner p-3 p-lg-4">
+                        <div class="item-header mb-3">
+                            <div class="item-icon"><i class="fa fa-lemon-o"></i></div>
+                            <div class="item-desc">
+                                Your plan will specifically help you with your problem areas, for example your belly, if you are hypertensive or diabetic, your meal plan will do wonders in helping you get them under control!
+                            </div>
+
+                        </div><!--//item-heading-->
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+                <div class="item col-12 col-md-6 col-lg-4">
+                    <div class="item-inner p-3 p-lg-4">
+                        <div class="item-header mb-3">
+                            <div class="item-icon"><i class="fa fa-cutlery"></i></div>
+                            <div class="item-desc">
+                                Breakfast, lunch, dinner and snack options (or whatever other meal schedule works for you, for example, some people don’t do breakfast!)
+                            </div>
+                        </div><!--//item-heading-->
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+                <div class="item col-12 col-md-6 col-lg-4">
+                    <div class="item-inner p-3 p-lg-4">
+                        <div class="item-header mb-3">
+                            <div class="item-icon"><i class="fa fa-users"></i></div>
+                            <div class="item-desc">
+                                Tasty Nigerian meal options with details on how much of each food item to have
+                            </div>
+                        </div><!--//item-heading-->
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+                <div class="item col-12 col-md-6 col-lg-4">
+                    <div class="item-inner p-3 p-lg-4">
+                        <div class="item-header mb-3">
+                            <div class="item-icon"><i class="fa fa-step-forward"></i></div>
+
+                            <div class="item-desc">
+                                Step-by-step recipe guide to help you eliminate any guess-work
+                            </div>
+                        </div><!--//item-heading-->
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+                <div class="item col-12 col-md-6 col-lg-4">
+                    <div class="item-inner p-3 p-lg-4">
+                        <div class="item-header mb-3">
+                            <div class="item-icon"><i class="fa fa-arrows-alt"></i></div>
+
+                            <div class="item-desc">
+                                Our Eat out guide to help you stay on track even when you are on the move or travelling
+                            </div>
+                        </div><!--//item-heading-->
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+                <div class="item col-12 col-md-6 col-lg-4">
+                    <div class="item-inner p-3 p-lg-4">
+                        <div class="item-header mb-3">
+                            <div class="item-icon"><i class="fa fa-glass"></i></div>
+                            <div class="item-desc">
+                                The list won’t be complete if I don’t ...guide you on your alcohol consumption for those night’s out with the girls and guys! So I’ll be helping you lay down simple rules to ensure your nights out don’t sabotage your results!
+                            </div>
+                        </div><!--//item-heading-->
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+                <div class="item col-12 col-md-6 col-lg-4">
+                    <div class="item-inner p-3 p-lg-4">
+                        <div class="item-header mb-3">
+                            <div class="item-icon"><i class="fa fa-thumbs-o-up"></i></div>
+                            <div class="item-desc">
+                                Tips on how to stay full, when to eat and measure your progress
+                            </div>
+                        </div><!--//item-heading-->
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+            </div><!--//row-->
+        </div><!--//container-->
+    </section><!--//benefits-section-->
 </body>
-<html>
+
+</html>

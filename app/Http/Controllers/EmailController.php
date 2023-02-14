@@ -10,14 +10,7 @@ use Illuminate\Support\Facades\DB;
 use PDF;
 
 class EmailController extends Controller
-{
-
-    public function pract()
-    {
-        return view('email-sent');
-    }
-   
-
+{   
     public function DisplayPage()
     {
         $activeUserId = session('activeUserID');

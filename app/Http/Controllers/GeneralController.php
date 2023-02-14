@@ -186,8 +186,6 @@ class GeneralController extends Controller
 
             session(['activeUserID' => $userID]);
             if ($saveMeal) {
-                var_dump('saved');
-                exit;
                 return redirect('/getmail');
             }
         }
