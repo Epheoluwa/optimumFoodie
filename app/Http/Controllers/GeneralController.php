@@ -132,7 +132,7 @@ class GeneralController extends Controller
         $userID = $emailwa2['id'];
         $activeMealPlan =  \App\Models\UserMealPlan::where('user_id', $userID)->first();
         if ($activeMealPlan) {
-            return view('active-plan');
+            return view('login');
         } else {
             //update user table
             $userDataMeal = [

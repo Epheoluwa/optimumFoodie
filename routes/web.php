@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\UserController as AdminUserController;
 
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +39,8 @@ Route::get('/pdfmail',[EmailController::class, 'pdfPage']);
 Route::get('/mealsData/pdf', [GeneralController::class, 'createPDF']);
 Route::get('/selectplan',[PaymentController::class, 'planview']);
 Route::get('/verify-payment/{reference}',[PaymentController::class, 'verify']);
+
+Route::get('/login', [LoginController::class, 'index']);
 
 // Admin Pages Routes
 Route::prefix('admin')->middleware(['admin-auth'])->group(function () {
