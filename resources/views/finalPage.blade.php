@@ -9,6 +9,8 @@
     <script src="{{ url('assets/frontend') }}/js/popper.min.js"></script>
     <script src="{{ url('assets/frontend') }}/js/smoothscroll.min.js"></script>
     <link rel="stylesheet" href="{{ url('assets/frontend') }}/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/fontawesome.min.css" integrity="sha512-cHxvm20nkjOUySu7jdwiUxgGy11vuVPE9YeK89geLMLMMEOcKFyS2i+8wo0FOwyQO/bL8Bvq1KMsqK4bbOsPnA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <title>Optimum Foodie</title>
 </head>
@@ -93,8 +95,8 @@
 
                             <p class="mt-3">And the awesome news is that <b> you don’t have to stop eating your eba, rice, bread, beans and so on to get amazing results! </b> You can eat all your fave Nigerian meals and still crush your body goals!</p>
                             <div class="text-center mt-5">
-                                <a class="btn btn-primary" href="">Get FREE Meal Plan</a>
-                                <a class="btn btn-primary" href="">Get FULL Meal Plan</a>
+                                <a class="btn btn-primary" href="" style="width: 40%; margin-right: 15px;">Get FREE Meal Plan</a>
+                                <a class="btn btn-primary" href="" style="width: 40%;">Get FULL Meal Plan</a>
                             </div>
                         </div>
 
@@ -277,6 +279,79 @@
             </div><!--//row-->
         </div><!--//container-->
     </section><!--//benefits-section-->
+    <section id="audience-section" class="audience-section py-5">
+        <div class="container">
+            <h2 class="section-heading text-center mb-4">FREQUENTLY ASKED QUESTIONS</h2>
+            <div class="section-intro single-col-max mx-auto text-center mb-5">
+                Finally go from frustrated to getting consistent results that will get to you to your ultimate health and body goal!
+            </div><!--//section-intro-->
+            <div class="audience mx-auto">
+                <div class="item row gx-3">
+                    <div class="col">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="width: 100%; background: #7FCDB8; border-color: #7FCDB8; display: flex;justify-content: space-between; color: #000;">
+                            If I make payment now, when will I get my plan?
+                            <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                        </button>
+                        <div class="item-desc collapse" id="collapseExample" style="padding: 20px; background-color:#dedfeb;">Following payment, you’ll fill a form where I’ll collect all your personal details, that’ll help me create your own unique plan. You’ll get your plan in your email 3 working days after you fill your form</div>
+                    </div><!--//col-->
+                </div><!--//item-->
+                <div class="item row gx-3">
+                    <div class="col">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1" style="width: 100%; background: #7FCDB8; border-color: #7FCDB8; display: flex;justify-content: space-between; color: #000;">
+                            What if I can’t cook?
+                            <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                        </button>
+                        <div class="item-desc collapse" id="collapseExample1" style="padding: 20px; background-color:#dedfeb;">Remember the meal plan is customised! We’ll work with the few things you might know how to prepare, stick to more options that require zero cooking, and options you can buy out.</div>
+                    </div><!--//col-->
+                </div><!--//item-->
+                <div class="item row gx-3">
+                    <div class="col">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2" style="width: 100%; background: #7FCDB8; border-color: #7FCDB8; display: flex;justify-content: space-between; color: #000;">
+                            Will I really be able to eat swallow and rice?
+                            <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                        </button>
+                        <div class="item-desc collapse" id="collapseExample2" style="padding: 20px; background-color:#dedfeb;">Yes, you will! Carbs are not the problem, they never were. With the meal plan I’ll create for you, I’ll show you exactly how to enjoy your Nigerian foods and still hit your fitness goals</div>
+                    </div><!--//col-->
+                </div><!--//item-->
+                <div class="item row gx-3">
+
+                    <div class="col">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3" style="width: 100%; background: #7FCDB8; border-color: #7FCDB8; display: flex;justify-content: space-between; color: #000;">
+                            What if there’s something about the plan I don’t particularly like?
+                            <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                        </button>
+                        <div class="item-desc collapse" id="collapseExample3" style="padding: 20px; background-color:#dedfeb;">After receiving your plan, you’ll be able to request a review within 2 weeks of receiving it, and I’ll be happy to make any necessary adjustments.</div>
+                    </div><!--//col-->
+                </div><!--//item-->
+                <div class="item row gx-3">
+
+                    <div class="col">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" style="width: 100%; background: #7FCDB8; border-color: #7FCDB8; display: flex;justify-content: space-between; color: #000;">
+                            How much is the meal plan?
+                            <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                        </button>
+                        <div class="item-desc collapse" id="collapseExample4" style="padding: 20px; background-color:#dedfeb;">
+                            The meal plan costs N20,000 per month. Your goal will determine how many months we might be working together.</div>
+                    </div><!--//col-->
+                </div><!--//item-->
+            </div><!--//audience-->
+        </div><!--//container-->
+    </section><!--//audience-section-->
+    <!-- <section>
+        <p>
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Link with href
+            </a>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Button with data-bs-target
+            </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+            </div>
+        </div>
+    </section> -->
 </body>
 
 </html>
