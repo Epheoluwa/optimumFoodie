@@ -89,6 +89,12 @@
             cursor: pointer;
         }
 
+        .alert {
+            background: #FF9494;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
         .signup-btn:active {
             background-color: #4f46e5;
             transition: all 0.3s ease;
@@ -134,11 +140,11 @@
             </div>
             @if ($message = Session::get('error'))
             <div class="alert alert-danger alert-block">
-                <strong>{{ $message }}</strong>
+                <strong style="color: #ffffff;">{{ $message }}</strong>
             </div>
             @endif
             <form method="post" action="{{ url('/loginlogic') }}">
-            {!! csrf_field() !!}
+                {!! csrf_field() !!}
                 <div class="input">
                     <i class="fa fa-envelope"></i>
                     <input type="email" placeholder="Email" name="email" />
