@@ -41,6 +41,7 @@ Route::get('/selectplan',[PaymentController::class, 'planview']);
 Route::get('/verify-payment/{reference}',[PaymentController::class, 'verify']);
 
 Route::get('/login', [LoginController::class, 'index']);
+Route::post('/loginlogic', [LoginController::class, 'loginLogic']);
 
 // Admin Pages Routes
 Route::prefix('admin')->middleware(['admin-auth'])->group(function () {

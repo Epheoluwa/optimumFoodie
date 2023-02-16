@@ -15,7 +15,7 @@ class EmailController extends Controller
     {
         $activeUserId = session('activeUserID');
         $userDetails = \App\Models\User::where('id', $activeUserId)->first();
-        // var_dump($userDetails);
+        // var_dump($userDetails); 
         return view('finalPage', compact('userDetails'));
     }
 

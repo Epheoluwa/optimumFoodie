@@ -26,7 +26,7 @@ class AdminAuth
         //         return redirect('/');
         //     }
             
-        //     \Session::put('admin_role', $admin->role);
+        //     \Session::put('admin_role', $admin->role);  
         //     \Session::put('admin_id', $admin->id);
         // }
         return $next($request);

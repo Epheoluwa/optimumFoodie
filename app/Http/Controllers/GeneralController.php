@@ -119,7 +119,7 @@ class GeneralController extends Controller
                 'email' => $data['data']['best_email'],
                 'name' => $data['data']['best_name'],
                 'status' => 'free',
-                'password' => $random_password
+                'password' => bcrypt($data['data']['best_name'])
             ];
             $update = \App\Models\User::create($userData);
             if ($update) {
@@ -301,17 +301,17 @@ class GeneralController extends Controller
         return $ret;
     }
 
-    // Generate PDF
-    public function createPDF()
-    {
-        // retreive all records from db
-        $data = $this->sentData;
-        var_dump($data);
-        exit;
-        // share data to view
-        view()->share('values', $data);
-        $pdf = PDF::loadView('pdf_view', $data);
-        // download PDF file with download method
-        return $pdf->download('pdf_file.pdf');
-    }
+    // // Generate PDF
+    // public function createPDF()
+    // {
+    //     // retreive all records from db
+    //     $data = $this->sentData;
+    //     var_dump($data);
+    //     exit;
+    //     // share data to view
+    //     view()->share('values', $data);
+    //     $pdf = PDF::loadView('pdf_view', $data);
+    //     // download PDF file with download method
+    //     return $pdf->download('pdf_file.pdf');
+    // }
 }

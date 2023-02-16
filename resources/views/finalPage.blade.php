@@ -216,7 +216,7 @@
                                 </div>
                             </div>
 
-                        </div><!--//col-12-->
+                        </div><!--//col-12-->  
                     </div><!--//row-->
                 </div><!--//single-col-max-->
             </div><!--//container-->

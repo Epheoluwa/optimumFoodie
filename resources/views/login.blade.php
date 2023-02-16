@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logic</title>
+    <title>Login</title>
     <link rel="stylesheet" href="{{ url('assets/frontend') }}/css/font-awesome.min.css">
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
@@ -132,14 +132,20 @@
                 <h1>Welcome Back</h1>
                 <p>Login to get your meal plan</p>
             </div>
-            <form>
+            @if ($message = Session::get('error'))
+            <div class="alert alert-danger alert-block">
+                <strong>{{ $message }}</strong>
+            </div>
+            @endif
+            <form method="post" action="{{ url('/loginlogic') }}">
+            {!! csrf_field() !!}
                 <div class="input">
                     <i class="fa fa-envelope"></i>
-                    <input type="email" placeholder="Email" />
+                    <input type="email" placeholder="Email" name="email" />
                 </div>
                 <div class="input">
                     <i class="fa fa-lock"></i>
-                    <input type="password" placeholder="Password" />
+                    <input type="password" placeholder="Password" name="password" />
                 </div>
                 <input class="signup-btn" type="submit" value="LOGIN" />
             </form>

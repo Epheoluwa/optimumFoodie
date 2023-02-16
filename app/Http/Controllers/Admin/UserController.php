@@ -24,13 +24,12 @@ class UserController extends Controller
             \Session::flash('error', $validator->errors()->first());
             return redirect()->back()->withInput();
         }
-        $random_password = Str::random(10);
         $data = $request->all();
         $userdetails = [
             'name' => $data['name'],
             'email' => $data['email'],
             'status' => $data['status'],
-            'password' => $random_password,
+            'password' => bcrypt($data['name']),
         ];
         
         $update = \App\Models\User::create($userdetails);
