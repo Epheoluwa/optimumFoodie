@@ -11,12 +11,6 @@ use Illuminate\Support\Facades\Mail;
 
 class PaymentController extends Controller
 {
-    public function planview()
-    {
-        $userID = session('activeUserID');
-        $userDetails = \App\Models\User::where('id', $userID)->first();
-        return view('payment/plans', compact('userDetails'));
-    }
 
     public function verify($reference)
     {
@@ -91,7 +85,7 @@ class PaymentController extends Controller
     
                     ];
                     $file_path = public_path('pdf/' . $userDetails['id'] . $userDetails['name'] . '.pdf');
-                    $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName'], $file_path));;
+                    $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName'], $file_path,  $userDetails['email']));;
                 } else {
                     return "Please turn on mobile date or connect to a wifi to continue.";
                 }

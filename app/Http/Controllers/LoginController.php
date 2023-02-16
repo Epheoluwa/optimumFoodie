@@ -10,6 +10,7 @@ class LoginController extends Controller
 {
     public function index()
     {
+        session()->forget('activeUserID');
         return view('login');
     }
 

@@ -37,7 +37,7 @@ Route::get('/getmail',[EmailController::class, 'DisplayPage']);
 Route::post('/sendmail',[EmailController::class, 'emailLogic']);
 Route::get('/pdfmail',[EmailController::class, 'pdfPage']);
 Route::get('/mealsData/pdf', [GeneralController::class, 'createPDF']);
-Route::get('/selectplan',[PaymentController::class, 'planview']);
+
 Route::get('/verify-payment/{reference}',[PaymentController::class, 'verify']);
 
 Route::get('/login', [LoginController::class, 'index']);

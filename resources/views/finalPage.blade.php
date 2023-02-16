@@ -70,16 +70,33 @@
             background: #a3cb38;
         }
 
+        .alert-styling {
+            width: 50%;
+            padding: 20px;
+            text-align: center;
+            align-self: center;
+            position: absolute;
+            top: 50%;
+            left: 25%;
+        }
+
+        .logout-style {
+            position: fixed;
+            right: 1%;
+            top: 2%;
+        }
 
         @keyframes animate {
             0% {
                 width: 100px;
                 height: 100px;
             }
+
             10% {
                 width: 100px;
                 height: 100px;
             }
+
             50% {
                 width: 150px;
                 height: 150px;
@@ -121,6 +138,11 @@
 </head>
 
 <body>
+    @if(Session::get('time'))
+    <div class="alert alert-{{Session::get('alert')}} alert-styling" role="alert">
+        {{Session::get('message')}}
+    </div>
+    @else
     <div class="main-loader">
         <h2>Creating meal plan...........</h2>
         <div class="loader">
@@ -130,8 +152,15 @@
             <div class="loader-item loader-item_4"></div>
         </div>
     </div>
+    @endif
+
 
     <div class="main" style="display: none;">
+        @if(isset(Auth::user()->email))
+        <div class="logout-style">
+            <a class="btn btn-primary" style="background: #ed4c67; width:100px; border-color: #ed4c67;" href="{{ url('/logout') }}">Logout</a>
+        </div>
+        @endif
         <section class="hero-section">
             <div class="container">
                 <div class="row">
@@ -210,13 +239,38 @@
                                 </div>
 
                                 <p class="mt-3">And the awesome news is that <b> you don’t have to stop eating your eba, rice, bread, beans and so on to get amazing results! </b> You can eat all your fave Nigerian meals and still crush your body goals!</p>
-                                <div class="text-center mt-5">
-                                    <a class="btn btn-primary" href="" style="width: 40%; margin-right: 15px;">Get FREE Meal Plan</a>
-                                    <a class="btn btn-primary" href="" style="width: 40%;">Get FULL Meal Plan</a>
+                                <div class="text-center mt-5" style=" justify-content: space-between; display: flex;">
+                                    @if ($userDetails['status']== 'free')
+                                    <form action="{{ url('sendmail') }}" method="post" style="width: 50%;">
+                                        {!! csrf_field() !!}
+                                        <input type="hidden" name="userId" value="{{$userDetails['id']}}">
+                                        <input type="hidden" name="cusType" value="{{$userDetails['status']}}">
+                                        <button type="submit" class="btn btn-primary" style="width: 90%; margin-right: 15px;">Get FREE Meal Plan</button>
+                                    </form>
+
+                                    <form id="paymentForm" style="width: 50%;">
+                                        <input type="hidden" id="name" name="name" value="{{$userDetails['name']}}" placeholder="Name:">
+                                        <input type="hidden" id="email-address" name="email-address" value="{{$userDetails['email']}}" placeholder="Email:" required>
+                                        <input type="hidden" id="amount" name="amount" placeholder="Amount:" value="20000" required>
+                                        <button type="submit" onclick="payWithPaystack(event)" class="btn btn-primary" style="width: 90%;">Get FULL Meal Plan</button>
+                                        <p id="success-div" style="display:none;">Your complete meal plan has been sent to your mail</p>
+                                        <p style="color:#FF9494; display: none;" id="error-div">Please contact us to make complain. <a href="mailto:support@cmp.com" target="_blank">Contant us</a></p>
+
+                                    </form>
+
+                                    @else
+                                    <form action="{{ url('sendmail') }}" method="post" style="width: 100%;">
+                                        {!! csrf_field() !!}
+                                        <input type="hidden" name="userId" value="{{$userDetails['id']}}">
+                                        <input type="hidden" name="cusType" value="{{ $userDetails['status']}}">
+                                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-right: 15px;">Get Meal Plan</button>
+                                    </form>
+                                    @endif
+
                                 </div>
                             </div>
 
-                        </div><!--//col-12-->  
+                        </div><!--//col-12-->
                     </div><!--//row-->
                 </div><!--//single-col-max-->
             </div><!--//container-->
@@ -456,15 +510,59 @@
     </div>
 
 </body>
+<script src="https://js.paystack.co/v1/inline.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js" integrity="sha512-nO7wgHUoWPYGCNriyGzcFwPSF+bPDOR+NvtOYy2wMcWkrnCNPKBcFEkU80XIN14UVja0Gdnff9EmydyLlOL7mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     $(window).on('load', function() {
         setTimeout(function() { // allowing 3 secs to fade out loader
             $('.main-loader').fadeOut('slow');
+            $('.alert').fadeOut('slow');
             $("body").css("background-color", "white");
             $('.main').fadeIn('slow');
         }, 3500);
+
     });
+
+    const paymentForm = document.getElementById('paymentForm');
+    const error_div = document.getElementById('error-div');
+    const success_div = document.getElementById('success-div');
+    paymentForm.addEventListener("submit", payWithPaystack, false);
+
+    function payWithPaystack(e) {
+        e.preventDefault();
+
+        let handler = PaystackPop.setup({
+            key: 'pk_test_35053dedc279e268b2132443c3ca9500ebe4b77a', // Replace with your public key
+            email: document.getElementById("email-address").value,
+            amount: document.getElementById("amount").value * 100,
+            // ref: '' + Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+            // // label: "Optional string that   replaces customer email"
+            onClose: function() {
+                alert('Window closed.');
+            },
+            callback: function(response) {
+                let reference = response.reference
+
+                $.ajax({
+                    type: "GET",
+                    url: "{{URL::to('verify-payment')}}/" + reference,
+
+                    success: function(response) {
+                        // console.log(response)
+                        if (response == 1) {
+                            paymentForm.style.display = 'none'
+                            success_div.style.display = 'block'
+                        } else {
+                            paymentForm.style.display = 'none'
+                            success_div.style.display = 'block'
+                        }
+                    }
+                });
+            }
+        });
+
+        handler.openIframe();
+    }
 </script>
 
 </html>
