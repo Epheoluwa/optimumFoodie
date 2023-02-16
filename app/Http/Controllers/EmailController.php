@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Mail\SentEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use PDF;
 
@@ -13,7 +14,16 @@ class EmailController extends Controller
 {   
     public function DisplayPage()
     {
-        $activeUserId = session('activeUserID');
+        if(Auth::user())
+        {
+            $activeUserId = Auth::user()->id;
+        }else{
+            $activeUserId = session('activeUserID');
+        }
+        if($activeUserId == '')
+        {
+            return redirect('/');
+        }
         $userDetails = \App\Models\User::where('id', $activeUserId)->first();
         // var_dump($userDetails); 
         return view('finalPage', compact('userDetails'));
@@ -48,13 +58,18 @@ class EmailController extends Controller
         // return view('free-time-table', compact('MealDetails', 'userDetails'));
 
         if ($data['cusType'] == 'free') {
+            $file_path = public_path('pdf/' . $data['userId'] . $userDetails['name'] . '.pdf');
 
-            $pdf = PDF::loadview('free-time-table', compact('MealDetails', 'userDetails'));
-            $pdf->setOptions([
-                'footer-center' => 'Optimum'
-            ]);
-            $pdfFilePath = public_path('pdf/' . $data['userId'] . $userDetails['name'] . '.pdf');
-            $pdf->save($pdfFilePath);
+            if(!file_exists($file_path))
+            {
+                $pdf = PDF::loadview('free-time-table', compact('MealDetails', 'userDetails'));
+                $pdf->setOptions([
+                    'footer-center' => 'Optimum'
+                ]);
+                $pdfFilePath = public_path('pdf/' . $data['userId'] . $userDetails['name'] . '.pdf');
+                $pdf->save($pdfFilePath);
+            }
+         
             if ($this->isOnline()) {
                 $mail_data = [
                     // 'reciever' => $userDetails['email'], this is the correct path when domain is ready
@@ -69,15 +84,30 @@ class EmailController extends Controller
                 //             ->from($mail_data['from'], $mail_data['fromName'])
                 //             ->subject($mail_data['subject']);
                 // });
-                $file_path = public_path('pdf/' . $data['userId'] . $userDetails['name'] . '.pdf');
-                $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName'], $file_path));;
+                
+                $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName'], $file_path, $userDetails['email']));;
                 if ($sent) {
-                    return view('email-sent');
-                    // return "Email has been sent successfully.";
+                    $notifcation = array(
+                        'message' => 'Mean Plan has been sent to your email successfully! ',
+                        'time' => 'second',
+                        'alert'=>'success'
+                    );
+                    return back()->with($notifcation);
+                }else{
+                    $notifcation = array(
+                        'message' => 'Seems to be an error when sending meal plan ',
+                        'time' => 'second',
+                        'alert'=>'danger'
+                    );
+                    return back()->with($notifcation);
                 }
-                return "Oops! There was some error sending the email.";
             } else {
-                return "Please turn on mobile date or connect to a wifi to continue.";
+                $notifcation = array(
+                    'message' => 'Please turn on mobile date or connect to a wifi to continue ',
+                    'time' => 'second',
+                    'alert'=>'danger'
+                );
+                return back()->with($notifcation);
             }
         } else {
 
@@ -90,7 +120,7 @@ class EmailController extends Controller
             //generate pdf and display for paid user
             $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal','month_par')->where('user_id', $data['userId'])->get();
 
-              $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails'));
+            $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails'));
             $pdf->setOptions([
                 'footer-center' => 'Optimum'
             ]);

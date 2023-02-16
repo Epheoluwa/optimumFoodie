@@ -17,7 +17,7 @@ class SentEmail extends Mailable
      *
      * @return void
      */
-    public function __construct(private $name, public $attachedfile)
+    public function __construct(private $name, public $attachedfile, private $email)
     {
         //
     }
@@ -39,6 +39,6 @@ class SentEmail extends Mailable
      */
     public function build()
     {
-        return $this->from("support@cmp.com")->view('mail.email-template')->with(['name' => $this->name])->subject('Meal plan')->attach($this->attachedfile);
+        return $this->from("support@cmp.com")->view('mail.email-template')->with(['name' => $this->name, 'email' => $this->email])->subject('Meal plan')->attach($this->attachedfile);
     }
 }
