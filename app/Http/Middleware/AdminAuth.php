@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class AdminAuth
 {
@@ -30,5 +31,21 @@ class AdminAuth
         //     \Session::put('admin_id', $admin->id);
         // }
         return $next($request);
+
+        if(Auth::check())
+        {
+            if(Auth::user()->role == '1')
+            {
+                return $next($request);
+            }
+            else
+            {
+                return redirect('/getmail');
+            }
+        }
+        else
+        {
+            return redirect('/login');
+        }
     }
 }

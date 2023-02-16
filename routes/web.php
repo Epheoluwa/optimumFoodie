@@ -42,9 +42,10 @@ Route::get('/verify-payment/{reference}',[PaymentController::class, 'verify']);
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/loginlogic', [LoginController::class, 'loginLogic']);
+Route::get('/logout', [LoginController::class, 'logoutLogic']);
 
 // Admin Pages Routes
-Route::prefix('admin')->middleware(['admin-auth'])->group(function () {
+Route::prefix('admin')->middleware(['admin-auth', 'auth'])->group(function () {
     Route::get('/', [AdminPagesController::class, 'dashboard']);
     Route::get('/dashboard', [AdminPagesController::class, 'dashboard']);
 

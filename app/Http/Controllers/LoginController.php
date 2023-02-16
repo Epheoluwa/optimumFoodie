@@ -38,9 +38,15 @@ class LoginController extends Controller
                 return redirect('/getmail');
             }
         }
-        // else
-        // {
-        //     return back()->with('error', 'Wrong Login Details');
-        // }
+        else
+        {
+            return back()->with('error', 'Wrong Login Details');
+        }
+    }
+
+    public function logoutLogic()
+    {
+        Auth::logout();
+        return redirect('/login');
     }
 }
