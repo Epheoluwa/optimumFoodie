@@ -27,12 +27,13 @@ class LoginController extends Controller
             'email'  => $request->get('email'),
             'password' => $request->get('password')
         );
-       var_dump(Auth::user());
+    //    var_dump(Auth::user());
         if(Auth::attempt($user_data))
         {
             if(Auth::user()->role == '1') //1 = Admin Login
             {
-                return redirect('admin');
+                return Auth::user();
+                // return redirect('admin');
             }
             elseif(Auth::user()->role == '2') // Normal or Default User Login
             {
