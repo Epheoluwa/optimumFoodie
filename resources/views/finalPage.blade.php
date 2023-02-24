@@ -17,10 +17,10 @@
         body {
             margin: 0;
             padding: 0;
-            background: #262626;
+            background: #212121;
         }
 
-        .loader {
+        /* .loader {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -28,16 +28,40 @@
             width: 100px;
             height: 100px;
             animation: animate 1s linear infinite;
-        }
+        } */
 
-        .main-loader h2 {
+        .main-loader .textp {
             color: #fff;
             text-align: center;
-            margin-top: 15rem;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            position: absolute;
+            top: 42%;
+            left: 48%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: lowercase;
+            font-weight: 500;
+            font-size: 16px;
+            letter-spacing: 0.2px;
+            animation: text-animation76 3.6s ease infinite;
+
         }
 
-        .loader-item {
+        @keyframes text-animation76 {
+            0% {
+                clip-path: inset(0 100% 0 0);
+            }
+
+            50% {
+                clip-path: inset(0);
+            }
+
+            100% {
+                clip-path: inset(0 0 0 100%);
+            }
+        }
+
+        /* .loader-item {
             position: absolute;
             width: 50px;
             height: 50px;
@@ -68,9 +92,9 @@
             bottom: 0;
             right: 0;
             background: #a3cb38;
-        }
+        } */
 
-        .alert-styling {
+        /* .alert-styling {
             width: 50%;
             padding: 20px;
             text-align: center;
@@ -133,6 +157,281 @@
             100% {
                 transform: rotate(90deg);
             }
+        } */
+        .alert-styling {
+            width: 50%;
+            padding: 20px;
+            text-align: center;
+            align-self: center;
+            position: absolute;
+            top: 50%;
+            left: 25%;
+        }
+
+        .logout-style {
+            position: fixed;
+            right: 1%;
+            top: 2%;
+        }
+
+        .typewriter {
+            --blue: #5C86FF;
+            --blue-dark: #275EFE;
+            --key: #fff;
+            --paper: #EEF0FD;
+            --text: #D3D4EC;
+            --tool: #FBC56C;
+            --duration: 3s;
+            /* position: relative; */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-animation: bounce05 var(--duration) linear infinite;
+            animation: bounce05 var(--duration) linear infinite;
+        }
+
+        .typewriter .slide {
+            width: 92px;
+            height: 20px;
+            border-radius: 3px;
+            margin-left: 14px;
+            transform: translateX(14px);
+            background: linear-gradient(var(--blue), var(--blue-dark));
+            -webkit-animation: slide05 var(--duration) ease infinite;
+            animation: slide05 var(--duration) ease infinite;
+        }
+
+        .typewriter .slide:before,
+        .typewriter .slide:after,
+        .typewriter .slide i:before {
+            content: "";
+            position: absolute;
+            background: var(--tool);
+        }
+
+        .typewriter .slide:before {
+            width: 2px;
+            height: 8px;
+            top: 6px;
+            left: 100%;
+        }
+
+        .typewriter .slide:after {
+            left: 94px;
+            top: 3px;
+            height: 14px;
+            width: 6px;
+            border-radius: 3px;
+        }
+
+        .typewriter .slide i {
+            display: block;
+            position: absolute;
+            right: 100%;
+            width: 6px;
+            height: 4px;
+            top: 4px;
+            background: var(--tool);
+        }
+
+        .typewriter .slide i:before {
+            right: 100%;
+            top: -2px;
+            width: 4px;
+            border-radius: 2px;
+            height: 14px;
+        }
+
+        .typewriter .paper {
+            position: absolute;
+            left: 24px;
+            top: -26px;
+            width: 40px;
+            height: 46px;
+            border-radius: 5px;
+            background: var(--paper);
+            transform: translateY(46px);
+            -webkit-animation: paper05 var(--duration) linear infinite;
+            animation: paper05 var(--duration) linear infinite;
+        }
+
+        .typewriter .paper:before {
+            content: "";
+            position: absolute;
+            left: 6px;
+            right: 6px;
+            top: 7px;
+            border-radius: 2px;
+            height: 4px;
+            transform: scaleY(0.8);
+            background: var(--text);
+            box-shadow: 0 12px 0 var(--text), 0 24px 0 var(--text), 0 36px 0 var(--text);
+        }
+
+        .typewriter .keyboard {
+            width: 120px;
+            height: 56px;
+            margin-top: -10px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .typewriter .keyboard:before,
+        .typewriter .keyboard:after {
+            content: "";
+            position: absolute;
+        }
+
+        .typewriter .keyboard:before {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 7px;
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+            transform: perspective(10px) rotateX(2deg);
+            transform-origin: 50% 100%;
+        }
+
+        .typewriter .keyboard:after {
+            left: 2px;
+            top: 25px;
+            width: 11px;
+            height: 4px;
+            border-radius: 2px;
+            box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+            -webkit-animation: keyboard05 var(--duration) linear infinite;
+            animation: keyboard05 var(--duration) linear infinite;
+        }
+
+        @keyframes bounce05 {
+
+            85%,
+            92%,
+            100% {
+                transform: translateY(0);
+            }
+
+            89% {
+                transform: translateY(-4px);
+            }
+
+            95% {
+                transform: translateY(2px);
+            }
+        }
+
+        @keyframes slide05 {
+            5% {
+                transform: translateX(14px);
+            }
+
+            15%,
+            30% {
+                transform: translateX(6px);
+            }
+
+            40%,
+            55% {
+                transform: translateX(0);
+            }
+
+            65%,
+            70% {
+                transform: translateX(-4px);
+            }
+
+            80%,
+            89% {
+                transform: translateX(-12px);
+            }
+
+            100% {
+                transform: translateX(14px);
+            }
+        }
+
+        @keyframes paper05 {
+            5% {
+                transform: translateY(46px);
+            }
+
+            20%,
+            30% {
+                transform: translateY(34px);
+            }
+
+            40%,
+            55% {
+                transform: translateY(22px);
+            }
+
+            65%,
+            70% {
+                transform: translateY(10px);
+            }
+
+            80%,
+            85% {
+                transform: translateY(0);
+            }
+
+            92%,
+            100% {
+                transform: translateY(46px);
+            }
+        }
+
+        @keyframes keyboard05 {
+
+            5%,
+            12%,
+            21%,
+            30%,
+            39%,
+            48%,
+            57%,
+            66%,
+            75%,
+            84% {
+                box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+            }
+
+            9% {
+                box-shadow: 15px 2px 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+            }
+
+            18% {
+                box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 2px 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+            }
+
+            27% {
+                box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 12px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+            }
+
+            36% {
+                box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 12px 0 var(--key), 60px 12px 0 var(--key), 68px 12px 0 var(--key), 83px 10px 0 var(--key);
+            }
+
+            45% {
+                box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 2px 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+            }
+
+            54% {
+                box-shadow: 15px 0 0 var(--key), 30px 2px 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+            }
+
+            63% {
+                box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 12px 0 var(--key);
+            }
+
+            72% {
+                box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 2px 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+            }
+
+            81% {
+                box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 12px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+            }
         }
     </style>
 </head>
@@ -144,13 +443,21 @@
     </div>
     @else
     <div class="main-loader">
-        <h2>Creating meal plan...........</h2>
+        <!-- <h2>Creating meal plan...........</h2>
         <div class="loader">
             <div class="loader-item loader-item_1"></div>
             <div class="loader-item loader-item_2"></div>
             <div class="loader-item loader-item_3"></div>
             <div class="loader-item loader-item_4"></div>
+        </div> -->
+        <p class="textp">Creating meal plan....</p>
+        <!-- <div class="textp" data-text="Creating meal plan..."></div> -->
+        <div class="typewriter">
+            <div class="slide"><i></i></div>
+            <div class="paper"></div>
+            <div class="keyboard"></div>
         </div>
+
     </div>
     @endif
 

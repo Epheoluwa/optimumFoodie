@@ -409,10 +409,12 @@ $perc = 20;
     }
 
     div.food-options {
-        border: 1px solid #ccc;
+        box-shadow: -5px -5px 15px rgb(255 255 255 / 80%), 5px 5px 15px rgb(0 0 0 / 10%);
+        border-radius: 20px;
+        /* border: 1px solid #ccc; */
         cursor: pointer;
         border-radius: 10px;
-        margin: 5px 0px;
+        margin: 10px 0px;
         height: 40px;
         padding: 7px;
         white-space: nowrap;
@@ -692,7 +694,7 @@ $perc = 20;
 
                                                 <div style="display:inline-block;" align="center">
                                                     <input id="age" type="number" name="age" min="18" max="120">
-                                                    <p id="error-p-tag" class="error-color"> </p>
+                                                    <p id="error-p-tag" class="error-color error-p-tag"> </p>
                                                     <p style="font-weight:bold; margin-top:3rem;">Valid age is between 18years - 120years</p>
                                                     <br>
 
@@ -736,6 +738,7 @@ $perc = 20;
                                                         </div>
 
                                                         <p id="heightMsg">Valid height is 2'-9'11"</p>
+                                                        <p id="error-p-tag2" class="error-color"> </p>
                                                     </div>
 
                                                     <br>
@@ -768,6 +771,7 @@ $perc = 20;
                                                         </div>
 
                                                         <p id="weightMsg" style="margin-top: 2rem;">Valid weight is 25kg - 230kg</p>
+                                                        <p id="error-p-tag3" class="error-color"> </p>
                                                     </div>
 
                                                     <br>
@@ -784,7 +788,7 @@ $perc = 20;
 
                                             <h4>Now tell us what you want to achieve...</h4>
                                             <h1 style="font-weight:bold;">What do you want to achieve?</h1>
-
+                                            <p id="error-p-tag4" class="error-color" style="font-size: 16px;"> </p>
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%; margin-top: 2rem">
 
                                                 <div style="display:inline-block;" align="center">
@@ -845,7 +849,7 @@ $perc = 20;
 
                                             <h4>Let's get really specific on this....</h4>
                                             <h1 style="font-weight:bold;">What’s your target weight?</h1>
-
+                                            <p id="error-p-tag6" class="error-color" style="font-size: 16px;"> </p>
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;padding-top:25px;">
 
                                                 <div style="display:inline-block;" align="center">
@@ -899,7 +903,7 @@ $perc = 20;
 
                                             <h4>Cool. Let's go a little deeper on exercise...</h4>
                                             <h1 style="font-weight:bold;">How physically active are you?</h1>
-
+                                            <p id="error-p-tag5" class="error-color" style="font-size: 16px;"> </p>
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
                                                 <div style="display:inline-block;" align="center">
@@ -1405,14 +1409,17 @@ $perc = 20;
         var ind = parseInt($('#myCarousel').find('.active').index());
         var datum = $('#calcForm').serializeObject();
         if (ind == 5 && datum['goal[]'] == undefined) {
-            alert("Kindly pick an option to proceed");
+            // alert("Kindly pick an option to proceed");
+            $('#error-p-tag4').text("Kindly pick an option to proceed").show()
             return false;
         } else if (ind == 7 && (datum.workout == undefined || datum.workout == "")) {
-            alert("Kindly pick an activity to proceed");
+            // alert("Kindly pick an activity to proceed");
+            $('#error-p-tag5').text("Kindly pick an activity to proceed").show()
             return false;
         } else if (ind == 6) {
             if ($('#weightIN_aim').val() == "" || $('input[name="weight_time_aim"]').val() == "") {
-                alert("Kindly let us know how much you want to weigh and in how much time.");
+                // alert("Kindly let us know how much you want to weigh and in how much time.");
+                $('#error-p-tag6').text("Kindly let us know how much you want to weight and in how much time.").show()
                 return false;
             }
             // TO DETERMINE THE WEIGHT LOSS TIME
@@ -1440,6 +1447,7 @@ $perc = 20;
                     return false;
                 } else {
                     $('#myCarousel').carousel('next');
+                    $('#error-p-tag6').hide();
                 }
             }
         } else {
@@ -1449,9 +1457,11 @@ $perc = 20;
                 }).get();
 
                 if (goals.includes("Maintain Weight"))
-                    $('#myCarousel').carousel(6);
+                    $('#myCarousel').carousel(7);
             }
             $('#myCarousel').carousel('next');
+            $('#error-p-tag4').hide();
+            $('#error-p-tag5').hide();
         }
     }
 
@@ -1463,18 +1473,39 @@ $perc = 20;
         var valC = count(val + '');
 
         if (e.val() == '' || e.val() == '0') {
+            // console.log(e.selector);
+            if (e.selector == '#age') {
+                $('#error-p-tag').text(msg).show()
+                e.addClass("error-input-border");
+            } else if(e.selector == '#height')
+            {
+                $('#error-p-tag2').text(msg).show()
+            }else{
+                $('#error-p-tag3').text(msg).show()
+            }
             // alert(msg);
-            $('#error-p-tag').text(msg).show()
-            e.addClass("error-input-border");
+            
         } else {
-            e.addClass("error-input-border");
+            // e.addClass("error-input-border");
             if ((val < min || val > max)) // && (valC >= minC))
+            {
                 // alert("Your input value must not be:\n\n-  Lesser than " + min + "\n-  Greater than " + max);
-                $('#error-p-tag').text("Your input value must not be:\n\n-  Lesser than " + min + "\n-  Greater than " + max).show();
+                if (e.selector == '#age') {
+                    $('#error-p-tag').text("Your input value must not be:\n\n-  Lesser than " + min + "\n-  Greater than " + max).show();
+                } else if(e.selector == '#height')
+                {
+                    $('#error-p-tag2').text("Your input value must not be:\n\n-  Lesser than " + min + "\n-  Greater than " + max).show();
+                }else{
+                    $('#error-p-tag3').text("Your input value must not be:\n\n-  Lesser than " + min + "\n-  Greater than " + max).show();
+                }
+                // $('#error-p-tag').text("Your input value must not be:\n\n-  Lesser than " + min + "\n-  Greater than " + max).show();
+            }
             else {
                 $('#myCarousel').carousel('next');
                 e.removeClass("error-input-border");
                 $('#error-p-tag').hide()
+                $('#error-p-tag2').hide()
+                $('#error-p-tag3').hide()
             }
         }
     }

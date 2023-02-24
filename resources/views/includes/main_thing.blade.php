@@ -20,7 +20,8 @@
         ?>
         @foreach($implo as $k=> $ml)
         <td style="min-width:90px;padding:5px">
-            {!! strlen($ml) > 3 ? $ml : 'Snack meal' !!}
+            <?php $newml = str_replace('\u00bd', '½', $ml); ?>
+            {!! strlen($newml) > 3 ? $newml : 'Snack meal' !!}
         </td>
         @endforeach
         @endif
@@ -54,7 +55,8 @@
         ?>
         @foreach($implo as $k=> $ml)
         <td style="min-width:90px;padding:5px">
-            {!! strlen($ml) > 3 ? $ml : 'Snack meal' !!}
+            <?php $newml = str_replace('\u00bd', '½', $ml); ?>
+            {!! strlen($newml) > 3 ? $newml : 'Snack meal' !!}
         </td>
         @endforeach
         @endif
