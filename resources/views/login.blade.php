@@ -128,6 +128,12 @@
             color: #6366f1;
             text-decoration: none;
         }
+
+        @media only screen and (max-width: 600px) {
+            .signup-form{
+                width: 350px;
+            }
+        }
     </style>
 </head>
 

@@ -1,6 +1,6 @@
 
                     <div>
-                        <h3 style="color:red;text-align:center">PLEASE READ THE INDEX BELOW TO UNDERSTAND THE MEANING OF SOME OF THE TERMS YOU’LL FIND IN THE TABLE. VERY IMPORTANT!</h3>
+                        <h3 style="color:red;text-align:center;margin-top: 10rem;">PLEASE READ THE INDEX BELOW TO UNDERSTAND THE MEANING OF SOME OF THE TERMS YOU’LL FIND IN THE TABLE. VERY IMPORTANT!</h3>
                         <h3>Index</h3>
                         <ul>
                             <li>Veggies= any combination of any of the following: carrots/cabbage/onions/spring onions/green, yellow, red pepper/tomatoes/spinach/lettuce and so on.</li>
@@ -12,5 +12,6 @@
                             <li>1 serving of any swallow, the size should look something like the picture below.</li>
                             <li>1 piece of fish is the tail or mid-piece of a medium croaker, tilapia, cote or titus fish</li>
                             <li>1 dressing = ½ tablespoon mayonnaise or 1 tablespoon regular salad dressing or 2 tablespoons of low-fat dressing</li>
+                            <img src="https://i.postimg.cc/9Qx6PCwh/Screen-Shot-2023-02-25-at-12-36-22-PM.png" height="300px" width="500px"/> 
                         </ul>
                     </div><br>

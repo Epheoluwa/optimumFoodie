@@ -1,6 +1,3 @@
-
-
-
 <div>
     <h3>Dear {{ $userDetails['name'] }}, </h3>
     <p>I’m super excited that you’ve chosen to take charge of your body and health. Throughout this journey with me, I’d like you to remember why you decided to join this program. What pushed you? What made you finally decide you needed a change, keep this reason(s) close to heart, because you’ll need to remember them frequently.</p>
@@ -22,11 +19,6 @@
     </p>
     <p>It won’t be easy, but it’ll be worth it. Whenever you want to cheat or give up please remember why you made the decision to do this, picture your end result and stay focused. You won’t be perfect, but so long as you stay on the path most of the time, you are definitely going to succeed! I’m rooting for you!</p>
 </div>
-<div style="height:300px;align-items:center;align-content:center;justify-items:center;justify-content:center;display:flex;">
-    <h1 align="center">So, let’s do this! 💪💪</h1>
-</div>
-
-
-<div style="height:300px;align-items:center;align-content:center;justify-items:center;justify-content:center;display:flex;">
-    <h1 align="center">So, let’s do this! 💪💪</h1>
+<div style="height:300px;align-items:center;align-content:center;justify-items:center;justify-content:center;display:flex; margin-top:3rem">
+    <h1 style="text-align: center;"> <img src="https://i.postimg.cc/VksZBmT6/Moderate.jpg" height="50px"/> So, let’s do this! <img src="https://i.postimg.cc/VksZBmT6/Moderate.jpg" height="50px"/>   </h1>
 </div>

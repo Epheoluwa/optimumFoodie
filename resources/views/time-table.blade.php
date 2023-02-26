@@ -120,6 +120,7 @@
             <tr>
               <td class="wrapper" style="font-family: sans-serif; font-size: 14px; vertical-align: top; box-sizing: border-box; padding: 50px;">
                 <p style="height:40px;">
+                <img src="https://i.postimg.cc/6QsgW18h/logo.png" height="120px" style="float:left;" />
                   <!-- <img src="{{ url('/client-assets/img/logo.png?tok='.rand(100,999)) }}" height="120px" style="float:left;" /> -->
                 </p>
                 <h1 align="center">Your Customized Meal Plan</h1><br>
@@ -141,7 +142,7 @@
           </table>
 
           <!-- START FOOTER -->
-          <div class="footer" style="clear: both; Margin-top: 10px; text-align: center; width: 100%;">
+          <!-- <div class="footer" style="clear: both; Margin-top: 10px; text-align: center; width: 100%;">
             <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
               <tr>
                 <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
@@ -154,7 +155,7 @@
                 </td>
               </tr>
             </table>
-          </div>
+          </div> -->
           <!-- END FOOTER -->
 
           <!-- END CENTERED WHITE CONTAINER -->

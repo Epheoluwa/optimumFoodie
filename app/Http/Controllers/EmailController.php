@@ -56,6 +56,7 @@ class EmailController extends Controller
         // var_dump($userDetails->UserMealPlan);
         $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal')->where('user_id', $data['userId'])->limit(2)->get();
         // return view('free-time-table', compact('MealDetails', 'userDetails'));
+        $presentYear = date("Y");
 
         if ($data['cusType'] == 'free') {
             $file_path = public_path('pdf/' . $data['userId'] . $userDetails['name'] . '.pdf');
@@ -64,7 +65,7 @@ class EmailController extends Controller
             {
                 $pdf = PDF::loadview('free-time-table', compact('MealDetails', 'userDetails'));
                 $pdf->setOptions([
-                    'footer-center' => 'Optimum'
+                    'footer-center' => 'Copyright Optimum Foodie '.$presentYear
                 ]);
                 $pdfFilePath = public_path('pdf/' . $data['userId'] . $userDetails['name'] . '.pdf');
                 $pdf->save($pdfFilePath);
@@ -122,7 +123,7 @@ class EmailController extends Controller
 
             $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails'));
             $pdf->setOptions([
-                'footer-center' => 'Optimum'
+                'footer-center' => 'Copyright Optimum Foodie '.$presentYear
             ]);
             return $pdf->inline();
         }
