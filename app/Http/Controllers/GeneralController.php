@@ -185,6 +185,16 @@ class GeneralController extends Controller
             }
 
             session(['activeUserID' => $userID]);
+
+            //save suggestions
+            if(!empty($data['data']["suggestions"]))
+            {
+                $Data = [
+                    'food_option' => $data['data']['suggestions'],
+                ];
+                $update = \App\Models\Suggestion::create($Data);
+            }
+
             if ($saveMeal) {
                 return redirect('/getmail');
             }
@@ -286,7 +296,6 @@ class GeneralController extends Controller
 
         $template = $request->main_meal . 'meal ' . $request->snack_meal . 'snacks';
         $cal = \App\Models\CaloryTemplateType::whereCalory($request->calories)->where('template_name', $template)->where('template_name', $template)->first();
-
         if (empty($cal)) {
             return 'A Meal Plan Does Not Exist For Your Daily Calory. Kindly Contact Us For More Info or Adjust Your Input For Result.';
         } else {

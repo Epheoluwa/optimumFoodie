@@ -54,6 +54,9 @@ Route::prefix('admin')->middleware(['admin-auth', 'auth'])->group(function () {
     Route::post('/create-new-user', [AdminUserController::class, 'Addnewusers']);
     Route::post('/edit-user/{id}', [AdminUserController::class, 'Editusers']);
 
+    //SUGGESTIONS ROUTE
+    Route::get('/suggestion',[AdminUserController::class, 'suggest']);
+
 
     // CATEGORIES ROUTES
     Route::get('/categories', [AdminPagesController::class, 'categories']);

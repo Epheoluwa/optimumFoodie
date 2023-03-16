@@ -54,4 +54,10 @@ class UserController extends Controller
         
         return redirect()->back();
     }
+
+    public function suggest()
+    {
+        $data['suggest'] = \App\Models\Suggestion::all();
+        return view('backend.suggestion', $data);
+    }
 }

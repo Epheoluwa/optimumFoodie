@@ -82,6 +82,12 @@
                     <span>Users</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('admin/suggestion') }}">
+                    <i class="fas fa-fw fa-lightbulb"></i>
+                    <span>Suggestions</span>
+                </a>
+            </li>
 
             <!-- <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"

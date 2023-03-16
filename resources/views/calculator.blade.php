@@ -1289,6 +1289,11 @@ $perc = 20;
                                                     <br>
                                                     <input class="bestest" placeholder="Best Email" type="email" name="best_email">
                                                     <br>
+                                                    <br>
+                                                    <label for="suggestions">List any other food option you will like us to add </label>
+                                                    <br>
+                                                    <input class="bestest" placeholder="List any other Food Option" type="text" name="suggestions">
+                                                   
 
                                                     <button type="submit" style="width:240px;border-radius:3px;margin-top:20px;" class="btn btn-dark-outline whom-btn" onclick="">Save </button>
 
@@ -1392,7 +1397,7 @@ $perc = 20;
 
         var rf = $(this).attr('href');
         var cont = $(rf).html();
-        console.log(cont);
+        // console.log(cont);
         $('#infoContent').html("");
         $('#infoContent').append(cont);
     });
@@ -1777,6 +1782,7 @@ $perc = 20;
             var ind = parseInt($('#myCarousel').find('.active').index());
             var datum = $('#calcForm').serializeObject();
             console.log(datum);
+            console.log('cal: ',datum['calories']);
 
             if (ind == 7 && datum['activity[]'] == undefined) {
                 alert("Kindly pick a minimum of one option to proceed");
