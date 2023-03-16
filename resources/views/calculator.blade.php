@@ -1854,7 +1854,10 @@ $perc = 20;
 
         if (datum['goal[]'].includes('Maintain Weight')) {
             calories = maintainWeight(datum, added, workoutIndex, KG);
-
+            if (calories > 2000) {
+                calories = 2000;
+            }
+            // console.log("maintain: ", calories);
             for (var ind in workoutIndexes) {
                 otherCalories.push(roundToNearest50(maintainWeight(datum, added, workoutIndexes[ind], KG)));
             }
@@ -1877,6 +1880,10 @@ $perc = 20;
                 $('.recalc-next').show();
             }
             calories = loseWeight(datum, added, workoutIndex, weightToLosex, timeToLoseWeight, KG);
+            if (calories > 2000) {
+                calories = 2000;
+            }
+            // console.log("Losee weight: ", calories);
 
             for (var ind in workoutIndexes) {
                 otherCalories.push(roundToNearest50(loseWeight(datum, added, workoutIndexes[ind], weightToLosex, timeToLoseWeight, KG)));

@@ -70,6 +70,9 @@
                         <a class="collapse-item" href="{{ url('admin/calories') }}">Calories Template</a>
                         <a class="collapse-item" href="{{ url('admin/meals') }}">Meal Plans</a>
                         <a class="collapse-item" href="{{ url('admin/meal-alternates') }}">Meals & Alternate</a>
+                        <h6 class="collapse-header">Recipe Composition:</h6>
+                        <a class="collapse-item" href="{{ url('admin/recipes') }}">Add Recipes</a>
+                        <a class="collapse-item" href="{{ url('admin/foodrecipes') }}">Food Recipes</a>
                     </div>
                 </div>
             </li>

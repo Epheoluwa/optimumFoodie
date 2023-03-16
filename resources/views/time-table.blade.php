@@ -133,7 +133,7 @@
 
                 @include('includes.main_thing')
 
-                {{-- @include('includes.recipes') --}}
+                @include('includes.recipes') 
 
               </td>
             </tr>

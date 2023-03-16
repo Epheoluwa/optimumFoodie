@@ -434,4 +434,115 @@ class PagesController extends Controller
         
         return redirect()->back();
     }
+
+
+    public function getRecipePage(){
+        $data['recipe'] = \App\Models\Recipe::all();
+        return view('backend.addrecipes', $data);
+    }
+    public function getRecipePagePost(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'recipe' => 'required',
+            // 'status' => 'required'
+        ]);
+        if ($validator->fails()) {
+            \Session::flash('error', $validator->errors()->first());
+            return redirect()->back()->withInput();
+        }
+
+        $data = $request->all();
+        $recipedetails = [
+            'recipe' => $data['recipe'],
+            // 'status' => $data['status'],
+        ];
+        $update = \App\Models\Recipe::create($recipedetails);
+        \Session::flash('success', 'Recipe created successfully!');
+        
+        return redirect()->back();
+    }
+
+    public function EditgetRecipePage(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'recipe' => 'required',
+        ]);
+        if ($validator->fails()) {
+            \Session::flash('error', $validator->errors()->first());
+            return redirect()->back()->withInput();
+        }
+
+        $update = \App\Models\Recipe::whereId($id)->update($request->except('_token'));
+        \Session::flash('success', 'Recipe updated successfully!');
+        return redirect()->back();
+    }
+
+
+
+    public function getFoodRecipePage()
+    {
+        $data = array();
+        $data['calories'] = \App\Models\CaloryTemplateType::whereStatus('active')->get();
+        $data['foods'] = \App\Models\Product::all();
+        $data['recipes'] = \App\Models\Recipe::all();
+
+        $data['foodrecipes'] = \App\Models\FoodRecipe::where('food_recipes.status', 'active')->join('calory_template_types','food_recipes.calory_template_type_id','=','calory_template_types.id')->join('foods','food_recipes.food_id','=','foods.id')->join('recipes','food_recipes.recipe_id','=','recipes.id')->get();
+
+
+        // $data['foodrecipes'] = \App\Models\FoodRecipe::where('status', 'active')->with('caloryTemplate')->with('foodOption')->with('recipes')->get();
+        // var_dump($data['foodrecipes']);
+        // exit;
+        return view('backend.recipes', $data );
+    }
+
+    public function getFoodRecipePagePost(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'calory_template_type_id' => 'required',
+            'food_option' => 'required',
+            'recipes' => 'required',
+            'status' => 'required'
+        ]);
+        if ($validator->fails()) {
+            \Session::flash('error', $validator->errors()->first());
+            return redirect()->back()->withInput();
+        }
+
+        $data = $request->all();
+        $recipedetails = [
+            'calory_template_type_id' => $data['calory_template_type_id'],
+            'status' => $data['status'],
+            'food_id' => $data['food_option'],
+            'recipe_id' => $data['recipes'],
+        ];
+        $update = \App\Models\FoodRecipe::create($recipedetails);
+        \Session::flash('success', 'Food Recipe created successfully!');
+        
+        return redirect()->back();
+    }
+
+    public function EditFoodRecipePage(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'calory_template_type_id' => 'required',
+            'food_option' => 'required',
+            'recipes' => 'required',
+            'status' => 'required'
+        ]);
+        if ($validator->fails()) {
+            \Session::flash('error', $validator->errors()->first());
+            return redirect()->back()->withInput();
+        }
+        $data = $request->all();
+        $recipedetails = [
+            'calory_template_type_id' => $data['calory_template_type_id'],
+            'status' => $data['status'],
+            'food_id' => $data['food_option'],
+            'recipe_id' => $data['recipes'],
+        ];
+
+        $update = \App\Models\FoodRecipe::whereId($id)->update($recipedetails);
+        \Session::flash('success', 'Food Recipe updated successfully!');
+        return redirect()->back();
+    }
 }

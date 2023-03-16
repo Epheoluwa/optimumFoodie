@@ -11,17 +11,15 @@ use Illuminate\Support\Facades\DB;
 use PDF;
 
 class EmailController extends Controller
-{   
+{
     public function DisplayPage()
     {
-        if(Auth::user())
-        {
+        if (Auth::user()) {
             $activeUserId = Auth::user()->id;
-        }else{
+        } else {
             $activeUserId = session('activeUserID');
         }
-        if($activeUserId == '')
-        {
+        if ($activeUserId == '') {
             return redirect('/');
         }
         $userDetails = \App\Models\User::where('id', $activeUserId)->first();
@@ -54,23 +52,59 @@ class EmailController extends Controller
         $userDetails = \App\Models\User::where('id', $data['userId'])->first();
 
         // var_dump($userDetails->UserMealPlan);
-        $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal')->where('user_id', $data['userId'])->limit(2)->get();
+        $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal', 'food_options', 'calories', 'main_meal', 'snack_meal')->where('user_id', $data['userId'])->limit(2)->get();
         // return view('free-time-table', compact('MealDetails', 'userDetails'));
         $presentYear = date("Y");
+
+        // var_dump($MealDetails);
+
+        foreach ($MealDetails as $meals) {
+            $mealsss = $meals->main_meal;
+            $snack = $meals->snack_meal;
+            $calories = $meals->calories;
+            $food_options = $meals->food_options;
+        }
+        $options_food = array();
+        $recipes = array();
+        $food_options = json_decode($food_options);
+        foreach ($food_options as $food) {
+            $onje = str_replace(['[', ']'], '', $food);
+            array_push($options_food, $onje);
+        }
+        $mealTem = $mealsss . 'meal' . ' ' . $snack . 'snacks';
+        foreach ($options_food as $key=> $foods) {
+            $v = \App\Models\FoodRecipe::where('foods.name', $foods)->where('calory_template_types.template_name', $mealTem)->where('calory_template_types.calory', $calories)->join('recipes', 'food_recipes.recipe_id', '=', 'recipes.id')->join('calory_template_types', 'food_recipes.calory_template_type_id', '=', 'calory_template_types.id')->join('foods', 'food_recipes.food_id', '=', 'foods.id')->select('recipes.recipe')->get();
+
+            if($v->count() !== 0){
+                array_push($recipes, $v);
+            }
+            
+            // array_push($recipes, $v);
+        }
+        // echo("<br />");
+        // echo("<br />");
+        // echo("<br />");
+        // echo("<br />");
+        // foreach($MealDetails as $meals)
+        // {
+        //     $yer = str_replace(['[', ']'], '', $meals->daymeal);
+        //     $implo = explode('",', $yer);
+        //     var_dump($implo);
+        // }
+        // // printf($this->float2rat(0.5));
 
         if ($data['cusType'] == 'free') {
             $file_path = public_path('pdf/' . $data['userId'] . $userDetails['name'] . '.pdf');
 
-            if(!file_exists($file_path))
-            {
-                $pdf = PDF::loadview('free-time-table', compact('MealDetails', 'userDetails'));
+            if (!file_exists($file_path)) {
+                $pdf = PDF::loadview('free-time-table', compact('MealDetails', 'userDetails','recipes'));
                 $pdf->setOptions([
-                    'footer-center' => 'Copyright Optimum Foodie '.$presentYear
+                    'footer-center' => 'Copyright Optimum Foodie ' . $presentYear
                 ]);
                 $pdfFilePath = public_path('pdf/' . $data['userId'] . $userDetails['name'] . '.pdf');
                 $pdf->save($pdfFilePath);
             }
-         
+
             if ($this->isOnline()) {
                 $mail_data = [
                     // 'reciever' => $userDetails['email'], this is the correct path when domain is ready
@@ -85,20 +119,20 @@ class EmailController extends Controller
                 //             ->from($mail_data['from'], $mail_data['fromName'])
                 //             ->subject($mail_data['subject']);
                 // });
-                
+
                 $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName'], $file_path, $userDetails['email']));;
                 if ($sent) {
                     $notifcation = array(
                         'message' => 'Mean Plan has been sent to your email successfully! ',
                         'time' => 'second',
-                        'alert'=>'success'
+                        'alert' => 'success'
                     );
                     return back()->with($notifcation);
-                }else{
+                } else {
                     $notifcation = array(
                         'message' => 'Seems to be an error when sending meal plan ',
                         'time' => 'second',
-                        'alert'=>'danger'
+                        'alert' => 'danger'
                     );
                     return back()->with($notifcation);
                 }
@@ -106,7 +140,7 @@ class EmailController extends Controller
                 $notifcation = array(
                     'message' => 'Please turn on mobile date or connect to a wifi to continue ',
                     'time' => 'second',
-                    'alert'=>'danger'
+                    'alert' => 'danger'
                 );
                 return back()->with($notifcation);
             }
@@ -119,11 +153,11 @@ class EmailController extends Controller
             // return $pdf->inline();
 
             //generate pdf and display for paid user
-            $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal','month_par')->where('user_id', $data['userId'])->get();
+            $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal', 'month_par')->where('user_id', $data['userId'])->get();
 
-            $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails'));
+            $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails', 'recipes'));
             $pdf->setOptions([
-                'footer-center' => 'Copyright Optimum Foodie '.$presentYear
+                'footer-center' => 'Copyright Optimum Foodie ' . $presentYear
             ]);
             return $pdf->inline();
         }
@@ -136,5 +170,27 @@ class EmailController extends Controller
         } else {
             return false;
         }
+    }
+
+    private function float2rat($n, $tolerance = 1.e-6)
+    {
+        $h1 = 1;
+        $h2 = 0;
+        $k1 = 0;
+        $k2 = 1;
+        $b = 1 / $n;
+        do {
+            $b = 1 / $b;
+            $a = floor($b);
+            $aux = $h1;
+            $h1 = $a * $h1 + $h2;
+            $h2 = $aux;
+            $aux = $k1;
+            $k1 = $a * $k1 + $k2;
+            $k2 = $aux;
+            $b = $b - $a;
+        } while (abs($n - $h1 / $k1) > $n * $tolerance);
+
+        return "$h1/$k1";
     }
 }

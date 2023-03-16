@@ -89,6 +89,15 @@ Route::prefix('admin')->middleware(['admin-auth', 'auth'])->group(function () {
     Route::get('/meal-alternate-deactivate/{id}', [AdminPagesController::class, 'mealAlternateDeactivate']);
     Route::post('/create-meal-alternate', [AdminPagesController::class, 'createMealAlternate']);
     Route::post('/edit-meal-alternate/{id}', [AdminPagesController::class, 'editMealAlternate']);
+
+
+    //RECIPES ROUTES
+    Route::get('/recipes', [AdminPagesController::class, 'getRecipePage']);
+    Route::post('/addrecipepost', [AdminPagesController::class, 'getRecipePagePost']);
+    Route::post('/edit-recipe/{id}', [AdminPagesController::class, 'EditgetRecipePage']);
+    Route::get('/foodrecipes', [AdminPagesController::class, 'getFoodRecipePage']);
+    Route::post('/create-new-foodrecipe', [AdminPagesController::class, 'getFoodRecipePagePost']);
+    Route::post('/edit-foodrecipe/{id}', [AdminPagesController::class, 'EditFoodRecipePage']);
 });
 
 

@@ -32,8 +32,8 @@ class LoginController extends Controller
         {
             if(Auth::user()->role == '1') //1 = Admin Login
             {
-                return Auth::user();
-                // return redirect('admin');
+                // return Auth::user();
+                return redirect('admin');
             }
             elseif(Auth::user()->role == '2') // Normal or Default User Login
             {

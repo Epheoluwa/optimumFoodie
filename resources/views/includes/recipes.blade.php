@@ -2,11 +2,18 @@
                     <div><br><br>
                         <h1 align="center">Recipes</h1><br>
 
-                        <h3>Fish Sauce Recipe (3 servings)</h3>
+                        <!-- <h3>Fish Sauce Recipe (3 servings)</h3> -->
                         <b>Ingredients</b>
                         <ul>
-                            <li>Smoked or boiled Titus (Mackerel Fish) –  1 large whole fish (OR 5 pieces of croaker or cote or hake or tilapia fish)</li>
-                            <li>Tomatoes – 3 medium</li>
+                            @foreach($recipes as $rec)
+                                @foreach($rec as $r)
+                                <li>{{$r->recipe}} </li>
+                               
+                                @endforeach
+                            <!-- <li>{$rec->recipe}</li> -->
+                            
+                            @endforeach
+                            <!-- <li>Tomatoes – 3 medium</li>
                             <li>Red pepper (Tatashe) - 2 large</li>
                             <li>Scotch bonnet (ata-rodo) – 2 small</li>
                             <li>Mixed veggies (fresh or frozen) - 2 to 3 cups</li>
@@ -17,7 +24,7 @@
                             <li>Seasoning cube - 1</li>
                             <li>Garlic powder- ½ teaspoon</li>
                             <li>Cooking oil - 30mls (2 tablespoons)</li>
-                            <li>Mixed veggies - a mix of any vegetables of your choice, such as carrots, bell peppers (green, red, yellow), green beans, spinach, broccoli, cauliflower and so on</li>
+                            <li>Mixed veggies - a mix of any vegetables of your choice, such as carrots, bell peppers (green, red, yellow), green beans, spinach, broccoli, cauliflower and so on</li> -->
                         </ul><br>
 
                         <b>Instructions</b>
