@@ -107,8 +107,8 @@ class EmailController extends Controller
 
             if ($this->isOnline()) {
                 $mail_data = [
-                    // 'reciever' => $userDetails['email'], this is the correct path when domain is ready
-                    'reciever' => 'sunmolasolomon@gmail.com',
+                    'reciever' => $userDetails['email'], 
+                    // 'reciever' => 'solomonepheoluwa@gmail.com',
                     'from' => 'solomon@testing.com',
                     'fromName' => 'Salo',
                     'recieverName' => $userDetails['name'],
@@ -153,7 +153,7 @@ class EmailController extends Controller
             // return $pdf->inline();
 
             //generate pdf and display for paid user
-            $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal', 'month_par')->where('user_id', $data['userId'])->get();
+            $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal', 'month_par','food_options', 'calories', 'main_meal', 'snack_meal')->where('user_id', $data['userId'])->get();
 
             $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails', 'recipes'));
             $pdf->setOptions([

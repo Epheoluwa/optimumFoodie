@@ -48,8 +48,8 @@
                             <li>Take your weight and measurements every Saturday morning. Take your readings first thing in the morning, before eating or drinking anything. If you feel like moving your bowel, do so before taking your measurements. </li>
                             <li>Record your readings side-by side similar to the photo below. Please note that your weight might not move on some weeks, but as long as your inches are shrinking, then you are sure you are making progress! </li>
                             <li>Don’t forget to also celebrate your non-scale victories, success is more than just numbers! </li>
-                            <li>Click HERE to download your progress worksheet, you can directly fill in the soft copy or print it and fill in the hardcopy. See a sample below.</li>
-                            <li>In 4 weeks, you’ll be taking pictures to compare with those you took at the start, to visually appreciate the progress made. Please feel free to share them with me via WhatsApp by clicking HERE.</li>
+                            <li> <a href="https://optimumfoodie.com/wp-content/uploads/2022/10/Progress-Report-Sheet-by-OptimumFoodie.pdf">Click HERE to download your progress worksheet,</a>   you can directly fill in the soft copy or print it and fill in the hardcopy. See a sample below.</li>
+                            <li>In 4 weeks, you’ll be taking pictures to compare with those you took at the start, to visually appreciate the progress made. Please feel free to share them with me via WhatsApp by clicking <a href="https://api.whatsapp.com/send?phone=2348080471993">HERE</a></li>
                             <img src="https://i.postimg.cc/dtdb3Yhm/Screen-Shot-2023-02-25-at-12-34-39-PM.png" height="350px" width="350px"/> 
                         </ul>
                     </div><br>

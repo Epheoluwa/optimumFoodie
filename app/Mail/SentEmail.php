@@ -39,6 +39,6 @@ class SentEmail extends Mailable
      */
     public function build()
     {
-        return $this->from("support@cmp.com")->view('mail.email-template')->with(['name' => $this->name, 'email' => $this->email])->subject('Meal plan')->attach($this->attachedfile);
+        return $this->from("Optimumfoodie@gmail.com")->view('mail.email-template')->with(['name' => $this->name, 'email' => $this->email])->subject('Meal plan')->attach($this->attachedfile);
     }
 }
