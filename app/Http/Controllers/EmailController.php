@@ -114,12 +114,6 @@ class EmailController extends Controller
                     'recieverName' => $userDetails['name'],
 
                 ];
-                // Mail::send('mail/email-template', $mail_data, function($message) use($mail_data){
-                //     $message->to($mail_data['reciever'])
-                //             ->from($mail_data['from'], $mail_data['fromName'])
-                //             ->subject($mail_data['subject']);
-                // });
-
                 $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName'], $file_path, $userDetails['email']));;
                 if ($sent) {
                     $notifcation = array(

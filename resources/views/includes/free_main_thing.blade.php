@@ -30,6 +30,6 @@
 
 </table><br>
 
-<h2 style="font-weight: bolder; color:red"> SUBSCRIBE TO HAVE ACCESS TO FULL MEAL PLAN</h2>
+<h2 style="font-weight: bolder; color:red; font-family: 'Sora', sans-serif;"> SUBSCRIBE TO HAVE ACCESS TO FULL MEAL PLAN</h2>
 
 @include('includes.snack1')

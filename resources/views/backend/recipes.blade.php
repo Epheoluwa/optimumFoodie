@@ -174,10 +174,10 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <label for="food_option">Select Food Option</label>
-                                    <select class="form-control" name="food_option" id="food_option" required>
-                                        <option value="">Select Food Option</option>
+                                    <select class="form-control" name="food_option" id="food_option" data-placeholder="Select Food Option"  required>
                                         @foreach($foods as $value)
                                         <option value="{{ $value->id }}">{{ $value->name }}</option>
+                                        <hr>
                                         @endforeach
                                     </select>
                                 </div>
@@ -217,5 +217,7 @@
         </div>
     </div>
 </div>
+
+
 
 @endsection

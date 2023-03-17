@@ -18,6 +18,10 @@
     <link href="{{ url('client-assets') }}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="{{ url('client-assets') }}/css/sb-adminx-2.min.css?toke={{ rand(100,999) }}" rel="stylesheet">
 
@@ -158,7 +162,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                                {{ Auth::user()->name }}
+                                    {{ Auth::user()->name }}
                                 </span>
                                 <img class="img-profile rounded-circle" src="{{ url('client-assets') }}/img/undraw_profile.svg">
                             </a>

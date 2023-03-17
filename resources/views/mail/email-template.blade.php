@@ -15,6 +15,8 @@
         <h3>Login Details</h3>
         <p> Email : {{$email}}</p>
         <p>Password: {{$name}}</p>
+
+        <a href="http://{{ env('APP_URL') }}/login ">Login Here</a> 
     </div>
 
 

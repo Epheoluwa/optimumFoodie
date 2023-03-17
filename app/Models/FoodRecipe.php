@@ -10,6 +10,9 @@ class FoodRecipe extends Model
     use HasFactory;
     protected $table = "food_recipes";
     protected $fillable = ['calory_template_type_id','food_id','recipe_id','status'];
+    // protected $casts = [
+    //     'food_id' => 'array'
+    //  ];
 
 
     public function caloryTemplate(){

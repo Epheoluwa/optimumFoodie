@@ -1,3 +1,4 @@
+<!-- calculator old blade start -->
 <?php
 $perc = 20;
 ?>
@@ -14,7 +15,6 @@ $perc = 20;
     .h1,
     h1 {
         font-size: 32px;
-        font-family: 'Sora', sans-serif;
     }
 
     .btn-dark {
@@ -31,18 +31,16 @@ $perc = 20;
     }
 
     .btn-dark-outline {
-        background-color: #ff0000 !important;
-        /* background-color: #ff0000 !important; */
+        background-color: #05a1c4 !important;
         color: #fff !important;
-        border: 1px solid #ff0000 !important;
-        /* border: 1px solid #ff0000 !important; */
+        border: 1px solid #05a1c4 !important;
         border-radius: 5px;
     }
 
     .btn-dark-outline:hover {
         background-color: #fff !important;
-        color: #ff0000 !important;
-        border: 1px solid #ff0000 !important;
+        color: #05a1c4 !important;
+        border: 1px solid #05a1c4 !important;
         border-radius: 5px;
     }
 
@@ -60,7 +58,7 @@ $perc = 20;
         /* width: 200px; */
         height: 40px;
         border-radius: 5px;
-        background-color: #ff0000;
+        background-color: #05a1c4;
         color: #fff;
     }
 
@@ -78,7 +76,6 @@ $perc = 20;
         height: 50px;
         width: 200px;
         font-size: 25px;
-        font-family: 'Sora', sans-serif;
         text-align: center;
         font-weight: bold;
         outline: none;
@@ -118,11 +115,10 @@ $perc = 20;
         margin: -2px;
         border: 0px;
         font-weight: bold;
-        font-family: 'Sora', sans-serif;
     }
 
     .ft-cm.activer {
-        background-color: #ff0000;
+        background-color: #05a1c4;
     }
 
     #ftBtn {
@@ -137,7 +133,6 @@ $perc = 20;
         height: 60px;
         width: 200px;
         font-size: 120px;
-        font-family: 'Sora', sans-serif;
         text-align: center;
         font-weight: bold;
         outline: none;
@@ -161,7 +156,6 @@ $perc = 20;
     #weightMsg,
     #weightMsg_aim {
         font-weight: bold;
-        font-family: 'Sora', sans-serif;
     }
 
     .lbs-kg {
@@ -176,15 +170,14 @@ $perc = 20;
         margin: -2px;
         border: 0px;
         font-weight: bold;
-        font-family: 'Sora', sans-serif;
     }
 
     .lbs-kg.activer {
-        background-color: #ff0000;
+        background-color: #05a1c4;
     }
 
     .lbs-kg.activeree {
-        background-color: #ff0000;
+        background-color: #05a1c4;
     }
 
     #lbsBtn,
@@ -207,7 +200,7 @@ $perc = 20;
     }
 
     div.goal-cards.greyed-bg {
-        background-color: #d0d0d0;
+        background-color: #c2eff9;
     }
 
     div.food-cards {
@@ -220,7 +213,7 @@ $perc = 20;
     }
 
     div.food-cards.greyed-bg {
-        background-color: #d0d0d0;
+        background-color: #c2eff9;
     }
 
     .ratio-btn,
@@ -250,7 +243,6 @@ $perc = 20;
         width: 230px;
         font-size: 120px;
         text-align: center;
-        font-family: 'Sora', sans-serif;
         font-weight: bold;
         outline: none;
         background-color: #f2f2f2;
@@ -272,7 +264,7 @@ $perc = 20;
     }
 
     div.activity-cards.greyed-bg {
-        background-color: #d0d0d0;
+        background-color: #c2eff9;
     }
 
     div.workout-cards {
@@ -280,21 +272,19 @@ $perc = 20;
         cursor: pointer;
         border-radius: 10px;
         margin: 15px 0px;
-        height: 120px;
+        height: 320px;
         padding: 7px;
         overflow: hidden;
     }
 
     div.workout-cards div {
-        height: 120px;
+        height: 280px;
         overflow: hidden;
         font-size: 11px;
-        font-family: 'Sora', sans-serif;
     }
 
     div.workout-cards div h4 {
         font-size: 13px;
-        font-family: 'Sora', sans-serif;
     }
 
     div.workout-cards div img {
@@ -304,7 +294,7 @@ $perc = 20;
     }
 
     div.workout-cards.greyed-bg {
-        background-color: #d0d0d0;
+        background-color: #c2eff9;
     }
 
     .myprogress .table>tbody>tr>td,
@@ -314,8 +304,6 @@ $perc = 20;
     .myprogress .table>thead>tr>td,
     .myprogress .table>thead>tr>th {
         border-top: none !important;
-        background-color: #d0d0d0;
-        border-radius: 5px;
     }
 
     .table-container {
@@ -325,8 +313,7 @@ $perc = 20;
 
     .progress-bar {
         border-radius: 20px;
-        /* background-image:url("{{ url('assets/frontend/images/progress.png') }}"); */
-        background-color: #ff0000;
+        background-image:url("{{ url('assets/frontend/images/progress.png') }}");
         height: 33.14px;
         position: absolute;
     }
@@ -334,19 +321,16 @@ $perc = 20;
     .myprogress .table td {
         text-align: center;
         font-size: 12px;
-        font-family: 'Sora', sans-serif;
         color: #c3c0c0;
         font-weight: bold;
     }
 
     .myprogress .table td.active-bar {
         color: #fff;
-        background-color: #ff0000;
     }
 
     .myprogress .table td.inactive-bar {
         color: #d8d8d8;
-        background-color: #ff0000;
     }
 
     small.direction-right img,
@@ -358,7 +342,6 @@ $perc = 20;
     small.direction-right {
         display: inline-block;
         font-size: 9px;
-        font-family: 'Sora', sans-serif;
         text-align: center;
         float: right;
     }
@@ -366,7 +349,6 @@ $perc = 20;
     small.direction-left {
         display: inline-block;
         font-size: 9px;
-        font-family: 'Sora', sans-serif;
         text-align: center;
         float: left;
     }
@@ -379,14 +361,12 @@ $perc = 20;
         background: #000000;
         color: #fff;
         font-weight: bold;
-        font-family: 'Sora', sans-serif;
     }
 
     .triggerInfo {
         font-weight: bold;
-        color: #ff0000;
+        color: #337ab7;
         font-size: 12px;
-        font-family: 'Sora', sans-serif;
     }
 
     .calory-box {
@@ -405,7 +385,6 @@ $perc = 20;
     .calory-box h2 {
         text-align: center;
         font-size: 22px;
-        font-family: 'Sora', sans-serif;
         padding-bottom: 0px;
         margin-bottom: 0px;
         margin-top: 10px;
@@ -422,7 +401,6 @@ $perc = 20;
     #main-meal,
     #snack-meal {
         font-size: 45px;
-        font-family: 'Sora', sans-serif;
         width: 120px;
         text-align: center;
         margin-bottom: 60px;
@@ -432,12 +410,10 @@ $perc = 20;
     }
 
     div.food-options {
-        box-shadow: -5px -5px 15px rgb(255 255 255 / 80%), 5px 5px 15px rgb(0 0 0 / 10%);
-        /* border-radius: 20px; */
         border: 1px solid #ccc;
         cursor: pointer;
         border-radius: 10px;
-        margin: 10px 0px;
+        margin: 5px 0px;
         height: 40px;
         padding: 7px;
         white-space: nowrap;
@@ -446,14 +422,13 @@ $perc = 20;
     }
 
     div.food-options.greyed-bg {
-        background-color: #d0d0d0;
+        background-color: #c2eff9;
     }
 
     .bestest {
         text-align: center;
         color: black;
         font-size: 18px;
-        font-family: 'Sora', sans-serif;
         height: 45px;
         width: 250px;
         margin-top: 15px;
@@ -499,7 +474,6 @@ $perc = 20;
         border-radius: 12px;
         color: #444;
         font-size: 18px;
-        font-family: 'Sora', sans-serif;
         box-shadow: -3px 3px 5px 0px rgba(0, 0, 0, 0.10);
         margin-top: 3rem;
         margin-bottom: 3rem;
@@ -585,24 +559,6 @@ $perc = 20;
             opacity: 0;
         }
     }
-
-    .physical-actw {
-        width: 50%;
-    }
-
-    .physical-actM {
-        margin-left: 15px;
-    }
-
-    @media only screen and (max-width: 600px) {
-        .physical-actw {
-            width: 80%;
-        }
-
-        .physical-actM {
-            margin-left: 5px;
-        }
-    }
 </style>
 
 <section id="home">
@@ -636,11 +592,10 @@ $perc = 20;
                                         Previous
                                     </small>
                                 </a>
-                                <p style="font-size: 20px; font-weight:800; font-family: 'Sora', sans-serif;">{{ env('APP_NAME') }}</p>
-
+                                {{ env('APP_NAME') }}
                                 <a href="javascript:void(0)" data-dismiss="modal">
                                     <small class="direction-right">
-                                        <img src="{{ url('assets/frontend/images/cancel.png') }}" style="height:34px;" />
+                                        <img src="{{ url('assets/frontend/images/close.png') }}" style="height:34px;" />
                                         Cancel
                                     </small>
                                 </a>
@@ -655,38 +610,34 @@ $perc = 20;
                                                     <hr class="valid-result">
                                                     <div class="row valid-result">
                                                         <!-- <div class="col-md-2"></div> -->
-
-                                                        <div style="display: flex; justify-content: space-between;">
-                                                            <h3 align="left">Trying to lose weight?
-                                                            </h3>
-                                                            <h5 style="width: 40%;">What if I told you you could achieve your best body and maintain it, while still eating Nigerian meals 😋 </h5>
-                                                        </div>
-
-                                                        <div class="col-md-12" style="margin-top: 15px;" align="center">
-                                                            <h3 style="margin-bottom: 2rem;">Here's what we have to do:</h3>
+                                                        <div class="col-md-12" align="center">
+                                                            <h2 align="left">Trying to lose weight?
+                                                            </h2>
+                                                            <h4>What if I told you you could achieve your best body and maintain it, while still eating Nigerian meals 😋 </h4>
+                                                            <h5 style="margin-bottom: 2rem;">Here's what we have to do:</h5>
                                                             <table class="table table-striped">
                                                                 <tr>
-                                                                    <td> <i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px; "></i>Step 1:</td>
+                                                                    <td>Step 1:</td>
                                                                     <td>Using our free calorie allowance calculator, we'll calculate how many calories you should be eating per day to reach your goal</td>
-
+                                                                   
                                                                 </tr>
-                                                                <tr>
-                                                                    <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i>Step 2:</td>
+                                                                <tr> 
+                                                                    <td>Step 2:</td>
                                                                     <td>You'll select which foods you enjoy eating</td>
-
+                                                                    
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i>Step 3: </td>
+                                                                    <td>Step 3: </td>
                                                                     <td>We'll use your food selection and calculated calorie allownace to create a CUSTOMISED meal plan for you!</td>
-
+                                                                    
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i>Step 4:</td>
+                                                                    <td>Step 4:</td>
                                                                     <td>The best part? .... We'll be sending you 2 days out of your 4 week plan to you absolutely FREE!</td>
-
+                                                                    
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i> Step 5:</td>
+                                                                    <td> Step 5:</td>
                                                                     <td>And if you'd like to get the complete plan, all you have to do is subscribe!</td>
                                                                 </tr>
                                                             </table>
@@ -704,7 +655,7 @@ $perc = 20;
                                             @include('progress')
 
                                             <h4>Very good. Let's keep moving...</h4>
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">What’s your gender?</h1>
+                                            <h1 style="font-weight:bold;">What’s your gender?</h1>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%; margin-top:3rem;">
 
@@ -712,14 +663,14 @@ $perc = 20;
                                                     <input type="hidden" name="sex">
                                                     <div class="row">
                                                         <div class="col-xs-6" align="center">
-                                                            <img src="{{ url('assets/frontend/images/m3.png') }}" class="img-responsive" style="max-height:200px;" />
+                                                            <img src="{{ url('assets/frontend/images/m1.jpg') }}" class="img-responsive" style="max-height:200px;" />
 
                                                             &nbsp;&nbsp;&nbsp;
                                                             <br>
                                                             <a href="#myCarousel" class="btn btn-dark-outline sex-btn" onclick="clickSexBtn(this, 'male')" data-slide="next">Male</a>
                                                         </div>
                                                         <div class="col-xs-6" align="center">
-                                                            <img src="{{ url('assets/frontend/images/w3.png') }}" class="img-responsive" style="max-height:200px;" />
+                                                            <img src="{{ url('assets/frontend/images/w2.jpg') }}" class="img-responsive" style="max-height:186px;" />
 
                                                             &nbsp;&nbsp;&nbsp;
                                                             <br>
@@ -736,14 +687,14 @@ $perc = 20;
                                             @include('progress')
 
                                             <h5>Don’t worry we won’t tell 😉</h5>
-                                            <h3 style="font-weight:bold; font-size:30px; font-family: 'Sora', sans-serif;">How old are you?</h3>
+                                            <h3 style="font-weight:bold; font-size:30px;">How old are you?</h3>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
                                                 <div style="display:inline-block;" align="center">
                                                     <input id="age" type="number" name="age" min="18" max="120">
-                                                    <p id="error-p-tag" class="error-color error-p-tag"> </p>
-                                                    <p style="font-weight:bold; margin-top:3rem; font-family: 'Sora', sans-serif;">Valid age is between 18years - 120years</p>
+                                                    <p id="error-p-tag" class="error-color"> </p>
+                                                    <p style="font-weight:bold; margin-top:3rem;">Valid age is between 18years - 120years</p>
                                                     <br>
 
                                                     <a href="#myCarousel" class="btn btn-dark-outline whom-btn" onclick="nextSlide($('#age'), 'Please enter your age!')">Next</a>
@@ -757,7 +708,7 @@ $perc = 20;
                                             @include('progress')
 
                                             <h4>Got it. Next question...</h4>
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">What’s your height?</h1>
+                                            <h1 style="font-weight:bold;">What’s your height?</h1>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
@@ -769,27 +720,24 @@ $perc = 20;
                                                         <input id="height" type="hidden" name="height" min="60" max="300">
                                                     </div>
 
-                                                    <div id="ft-con" style="margin-bottom:10px; display:flex;justify-content: center;">
+                                                    <div id="ft-con" style="margin-bottom:10px">
                                                         <div class="input-group" id="heightFTcon">
-                                                            <input id="heightFT" type="number" id="weightIN" class="height" style="font-size:50px;margin-right:-5px; font-family: 'Sora', sans-serif;" onkeyup="keyPressTall()" min="2" max="9">
-                                                            <span class="input-group-addon" style="padding-left: 15px; padding-top: 20px;padding-right: 20px;  font-size:16px; font-family: 'Sora', sans-serif;">ft</span>
+                                                            <input id="heightFT" type="number" id="weightIN" class="height" style="font-size:50px;margin-right:-5px;" onkeyup="keyPressTall()" min="2" max="9">
+                                                            <span class="input-group-addon" style="padding-left: 15px; padding-top: 20px;padding-right: 20px;  font-size:16px">ft</span>
                                                         </div>
                                                         <div class="input-group" id="heightINcon">
-                                                            <input id="heightIN" type="number" class="height" style="font-size:50px;margin-right:-5px; font-family: 'Sora', sans-serif;" onkeyup="keyPressTall()" min="0" max="11">
-                                                            <span class="input-group-addon" style="padding-left: 15px; padding-top: 20px; padding-right: 20px;font-size:16px; font-family: 'Sora', sans-serif;">in</span>
+                                                            <input id="heightIN" type="number" class="height" style="font-size:50px;margin-right:-5px;" onkeyup="keyPressTall()" min="0" max="11">
+                                                            <span class="input-group-addon" style="padding-left: 15px; padding-top: 20px; padding-right: 20px;font-size:16px">in</span>
                                                         </div>
 
 
                                                         <div class="input-group" id="heightCMcon">
-                                                            <input id="heightCM" type="number" class="height heightHide" style="font-size:50px;margin-right:-5px; font-family: 'Sora', sans-serif;" onkeyup="keyPressTall()" min="60" max="300">
-                                                            <span class="input-group-addon" style="padding-left: 10px; padding-top: 20px; padding-right: 30px;font-size:16px; font-family: 'Sora', sans-serif;">cm</span>
+                                                            <input id="heightCM" type="number" class="height heightHide" style="font-size:50px;margin-right:-5px;" onkeyup="keyPressTall()" min="60" max="300">
+                                                            <span class="input-group-addon" style="padding-left: 10px; padding-top: 20px; padding-right: 30px;font-size:16px">cm</span>
                                                         </div>
 
+                                                        <p id="heightMsg">Valid height is 2'-9'11"</p>
                                                     </div>
-                                                    <br>
-                                                    <p id="heightMsg">Valid height is 2'-9'11"</p>
-                                                    <p id="error-p-tag2" class="error-color"> </p>
-
 
                                                     <br>
                                                     <a href="#myCarousel" style="width: 225px; height: 40px;" class="btn btn-dark-outline whom-btn" onclick="nextSlide($('#height'), 'Please enter your height in feets or centimeter!')">Next</a>
@@ -803,7 +751,7 @@ $perc = 20;
                                             @include('progress')
 
                                             <h4>Great. Last personal detail...</h4>
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">How much do you weigh right now?</h1>
+                                            <h1 style="font-weight:bold;">How much do you weigh right now?</h1>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
@@ -814,14 +762,13 @@ $perc = 20;
                                                     <div id="ft-con" style="margin-bottom:10px">
                                                         <input id="weight" type="hidden" name="weight" min="23" max="227">
 
-                                                        <input type="number" id="weightIN" class="height" style="display:initial;font-size:50px;text-align:right;padding-right:15px;width:150px; font-family: 'Sora', sans-serif;" onkeyup="keyPressFat()" min="25" max="230">
+                                                        <input type="number" id="weightIN" class="height" style="display:initial;font-size:50px;text-align:right;padding-right:15px;width:150px;" onkeyup="keyPressFat()" min="25" max="230">
                                                         <div style="display:inline;top:-13.5px;left:-7px;position:relative;">
                                                             <button type="button" class="lbs-kg activer" id="kgBtn" onclick="clickFatBtn(this)">kg</button>
                                                             <button type="button" class="lbs-kg" id="lbsBtn" onclick="clickFatBtn(this)">lbs</button>
                                                         </div>
 
                                                         <p id="weightMsg" style="margin-top: 2rem;">Valid weight is 25kg - 230kg</p>
-                                                        <p id="error-p-tag3" class="error-color"> </p>
                                                     </div>
 
                                                     <br>
@@ -837,8 +784,8 @@ $perc = 20;
                                             @include('progress')
 
                                             <h4>Now tell us what you want to achieve...</h4>
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">What do you want to achieve?</h1>
-                                            <p id="error-p-tag4" class="error-color" style="font-size: 16px; font-family: 'Sora', sans-serif;"> </p>
+                                            <h1 style="font-weight:bold;">What do you want to achieve?</h1>
+
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%; margin-top: 2rem">
 
                                                 <div style="display:inline-block;" align="center">
@@ -850,7 +797,7 @@ $perc = 20;
                                                                 <input type="checkbox" name="goal[]" value="Lose Weight">
 
                                                                 <div class="goal-cards3">
-                                                                    <img src="{{ url('assets/frontend/images/weight-loss.png') }}" class="img-responsive" style="max-height:100px;" />
+                                                                    <img src="{{ url('assets/frontend/images/lose-weight.png') }}" class="img-responsive" style="max-height:100px;" />
                                                                     <h4>Lose Weight</h4>
 
                                                                     <p>They'd like to lose at least 10 to 15 pounds (or more).</p>
@@ -863,7 +810,7 @@ $perc = 20;
                                                                 <input type="checkbox" name="goal[]" value="Maintain Weight">
 
                                                                 <div class="goal-cards2">
-                                                                    <img src="{{ url('assets/frontend/images/weight-scale.png') }}" class="img-responsive" style="max-height:100px;" />
+                                                                    <img src="{{ url('assets/frontend/images/athletic-performance.png') }}" class="img-responsive" style="max-height:100px;" />
                                                                     <h4>Maintain Weight</h4>
 
                                                                     <p>You want to maintain optimal health to support long and intense athletic training. (Minimal to no weight change desired.)</p>
@@ -876,7 +823,7 @@ $perc = 20;
                                                                 <input type="checkbox" name="goal[]" value="Improve Health">
 
                                                                 <div class="goal-cards1">
-                                                                    <img src="{{ url('assets/frontend/images/health.png') }}" class="img-responsive" style="max-height:100px;" />
+                                                                    <img src="{{ url('assets/frontend/images/improve-health.png') }}" class="img-responsive" style="max-height:100px;" />
                                                                     <h4>Improve Health</h4>
 
                                                                     <p>They want to improve their nutrition and overall health, while maintaining their current weight.</p>
@@ -898,8 +845,8 @@ $perc = 20;
                                             @include('progress')
 
                                             <h4>Let's get really specific on this....</h4>
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">What’s your target weight?</h1>
-                                            <p id="error-p-tag6" class="error-color" style="font-size: 16px; font-family: 'Sora', sans-serif;"> </p>
+                                            <h1 style="font-weight:bold;">What’s your target weight?</h1>
+
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;padding-top:25px;">
 
                                                 <div style="display:inline-block;" align="center">
@@ -907,7 +854,7 @@ $perc = 20;
                                                         <input id="weight_aim" type="hidden" name="weight_aim" min="25" max="230">
 
 
-                                                        <input type="number" id="weightIN_aim" class="height" style="display:initial;font-size:50px;text-align:right;padding-right:15px;width:150px; font-family: 'Sora', sans-serif;" onkeyup="keyPressFat_aim()" min="23" max="227">
+                                                        <input type="number" id="weightIN_aim" class="height" style="display:initial;font-size:50px;text-align:right;padding-right:15px;width:150px;" onkeyup="keyPressFat_aim()" min="23" max="227">
                                                         <div style="display:inline;top:-13.5px;left:-5px;position:relative;">
                                                             <button type="button" class="lbs-kg activeree" id="kgBtn_aim" onclick="clickFatBtn_aim(this)">kg</button>
                                                             <button type="button" class="lbs-kg" id="lbsBtn_aim" onclick="clickFatBtn_aim(this)">lbs</button>
@@ -919,15 +866,15 @@ $perc = 20;
                                                     <div class="row">
                                                         <div class="col-lg-2"></div>
                                                         <div class="col-lg-8">
-                                                            <h3 style="font-weight:bold;margin-top:42px; font-family: 'Sora', sans-serif;">In how many months will you like to achieve this goal?</h3>
+                                                            <h3 style="font-weight:bold;margin-top:42px;">In how many months will you like to achieve this goal?</h3>
                                                         </div>
                                                         <div class="col-lg-2"></div>
                                                     </div>
 
                                                     <div id="ft-con_aim" style="margin-bottom:10px;padding-top:15px;">
 
-                                                        <input type="number" name="weight_time_aim" class="height" style="display:initial;font-size:30px;text-align:center;padding-right:15px;width:170px; font-family: 'Sora', sans-serif;">
-                                                        <small style="display:block;margin-top:15px;width:70vw;font-size:16px;font-weight:bold; font-family: 'Sora', sans-serif;">Please let's be realistic here. Extreme weight loss is not usually sustainable. We recommend a target of 4 - 5kg per month.</small>
+                                                        <input type="number" name="weight_time_aim" class="height" style="display:initial;font-size:30px;text-align:center;padding-right:15px;width:170px;">
+                                                        <small style="display:block;margin-top:15px;width:70vw;font-size:16px;font-weight:bold;">Please let's be realistic here. Extreme weight loss is not usually sustainable. We recommend a target of 4 - 5kg per month.</small>
                                                     </div>
 
                                                     <div id="myModalInfo" class="modal fade" role="dialog">
@@ -952,8 +899,8 @@ $perc = 20;
                                             @include('progress')
 
                                             <h4>Cool. Let's go a little deeper on exercise...</h4>
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">How physically active are you?</h1>
-                                            <p id="error-p-tag5" class="error-color" style="font-size: 16px; font-family: 'Sora', sans-serif;"> </p>
+                                            <h1 style="font-weight:bold;">How physically active are you?</h1>
+
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
                                                 <div style="display:inline-block;" align="center">
@@ -962,95 +909,60 @@ $perc = 20;
                                                     <div class="row">
                                                         <div class="col-md-1"></div>
 
-                                                        <div class="col-md-12 col-sm-6" align="center">
-                                                            <div class="physical-actw">
-                                                                <div class="workout-cards" align="center" onclick="clickWorkoutBtn(this, 'Sedentary')">
-                                                                    <div class="workout-cards0" style="display: flex; justify-content:space-between;">
-                                                                        <div class="physical-actM">
-                                                                            <h4>Sedentary</h4>
-                                                                            <p>Little to no regular exercise.</p>
-                                                                            <a href=".workout-cards0" class="triggerInfo">...learn more</a>
-                                                                        </div>
-                                                                        <img src="{{ url('assets/frontend/images/_Very Light.png') }}" class="img-responsive" style="max-height:100px;" />
-                                                                    </div>
+                                                        <div class="col-md-2 col-sm-6" align="center">
+                                                            <div class="workout-cards" align="center" onclick="clickWorkoutBtn(this, 'Sedentary')">
+                                                                <div class="workout-cards0">
+                                                                    <img src="{{ url('assets/frontend/images/_Very Light.png') }}" class="img-responsive" style="max-height:100px;" />
 
+                                                                    <h4>Sedentary</h4>
+                                                                    <p>Little to no regular exercise.</p>
                                                                 </div>
+                                                                <a href=".workout-cards0" class="triggerInfo">...learn more</a>
                                                             </div>
-
                                                         </div>
-                                                        <div class="col-md-12 col-sm-6" align="center">
-                                                            <div class="physical-actw">
-                                                                <div class="workout-cards" align="center" onclick="clickWorkoutBtn(this, 'Mildly Active')">
-                                                                    <div class="workout-cards1" style="display: flex; justify-content:space-between;">
-                                                                        <div class="physical-actM">
-                                                                            <h4>Mild Activity</h4>
-                                                                            <p style="
-    font-size: 9px;">Intense exercise for at least 20 minutes 1-3 times per week. This may include things like brisk walking, bicycling, jogging, basketball, swimming etc. If you do not exercise regularly, but you maintain a busy life that requires you to walk frequently for long periods, you meet the requirements for this level.</p>
-                                                                            <a href=".workout-cards1" class="triggerInfo">...learn more</a>
-                                                                        </div>
-                                                                        <img src="{{ url('assets/frontend/images/_Light.png') }}" class="img-responsive" style="max-height:100px;" />
+                                                        <div class="col-md-2 col-sm-6" align="center">
+                                                            <div class="workout-cards" align="center" onclick="clickWorkoutBtn(this, 'Mildly Active')">
+                                                                <div class="workout-cards1">
+                                                                    <img src="{{ url('assets/frontend/images/_Light.png') }}" class="img-responsive" style="max-height:100px;" />
 
-
-                                                                    </div>
-
+                                                                    <h4>Mild Activity</h4>
+                                                                    <p>Intense exercise for at least 20 minutes 1-3 times per week. This may include things like brisk walking, bicycling, jogging, basketball, swimming etc. If you do not exercise regularly, but you maintain a busy life that requires you to walk frequently for long periods, you meet the requirements for this level.</p>
                                                                 </div>
+                                                                <a href=".workout-cards1" class="triggerInfo">...learn more</a>
                                                             </div>
-
                                                         </div>
-                                                        <div class="col-md-12 col-sm-6" align="center">
-                                                            <div class="physical-actw">
-                                                                <div class="workout-cards" align="center" onclick="clickWorkoutBtn(this, 'Moderately Active')">
-                                                                    <div class="workout-cards2" style="display: flex; justify-content:space-between;">
-                                                                        <div class="physical-actM">
-                                                                            <h4>Moderate Activity</h4>
-                                                                            <p>Intense exercise for 60min 3 to 4 times per week. Any of the activities listed above will qualify.</p>
-                                                                            <a href=".workout-cards2" class="triggerInfo">...learn more</a>
-                                                                        </div>
-                                                                        <img src="{{ url('assets/frontend/images/_Moderate.png') }}" class="img-responsive" style="max-height:100px;" />
+                                                        <div class="col-md-2 col-sm-6" align="center">
+                                                            <div class="workout-cards" align="center" onclick="clickWorkoutBtn(this, 'Moderately Active')">
+                                                                <div class="workout-cards2">
+                                                                    <img src="{{ url('assets/frontend/images/_Moderate.png') }}" class="img-responsive" style="max-height:100px;" />
 
-
-                                                                    </div>
-
+                                                                    <h4>Moderate Activity</h4>
+                                                                    <p>Intense exercise for 60min 3 to 4 times per week. Any of the activities listed above will qualify.</p>
                                                                 </div>
+                                                                <a href=".workout-cards2" class="triggerInfo">...learn more</a>
                                                             </div>
-
                                                         </div>
-                                                        <div class="col-md-12 col-sm-6" align="center">
-                                                            <div class="physical-actw">
-                                                                <div class="workout-cards" align="center" onclick="clickWorkoutBtn(this, 'Heavily Active')">
-                                                                    <div class="workout-cards3" style="display: flex; justify-content:space-between;">
-                                                                        <div class="physical-actM">
-                                                                            <h4>Heavy or Labour Intensive Activity</h4>
-                                                                            <p >Intense exercise for 60min or greater, 5 to 7 days per week. Labour intensive occupations also qualify for this level, such as bricklaying, carpentry, general labour, farming etc.</p>
-                                                                            <a href=".workout-cards3" class="triggerInfo">...learn more</a>
-                                                                        </div>
-                                                                        <img src="{{ url('assets/frontend/images/_Intense.png') }}" class="img-responsive" style="max-height:100px;" />
+                                                        <div class="col-md-2 col-sm-6" align="center">
+                                                            <div class="workout-cards" align="center" onclick="clickWorkoutBtn(this, 'Heavily Active')">
+                                                                <div class="workout-cards3">
+                                                                    <img src="{{ url('assets/frontend/images/_Intense.png') }}" class="img-responsive" style="max-height:100px;" />
 
-
-                                                                    </div>
-
+                                                                    <h4>Heavy or Labour Intensive Activity</h4>
+                                                                    <p>Intense exercise for 60min or greater, 5 to 7 days per week. Labour intensive occupations also qualify for this level, such as bricklaying, carpentry, general labour, farming etc.</p>
                                                                 </div>
+                                                                <a href=".workout-cards3" class="triggerInfo">...learn more</a>
                                                             </div>
-
                                                         </div>
-                                                        <div class="col-md-12 col-sm-6" align="center">
-                                                            <div class="physical-actw">
-                                                                <div class="workout-cards" align="center" onclick="clickWorkoutBtn(this, 'Extremely Active')">
-                                                                    <div class="workout-cards4" style="display: flex; justify-content:space-between;">
-                                                                        <div class="physical-actM">
-                                                                            <h4>Extreme Activity</h4>
-                                                                            <p style="
-    font-size: 9px;">Exceedingly active and/ or very demanding activities, such as athlete with an almost unstoppable training schedule, very demanding jobs such as shovelling coal or working long hours on an assembly line.</p>
-                                                                            <a href=".workout-cards4" class="triggerInfo">...learn more</a>
-                                                                        </div>
-                                                                        <img src="{{ url('assets/frontend/images/_Very Intense.png') }}" class="img-responsive" style="max-height:100px;" />
+                                                        <div class="col-md-2 col-sm-6" align="center">
+                                                            <div class="workout-cards" align="center" onclick="clickWorkoutBtn(this, 'Extremely Active')">
+                                                                <div class="workout-cards4">
+                                                                    <img src="{{ url('assets/frontend/images/_Very Intense.png') }}" class="img-responsive" style="max-height:100px;" />
 
-
-                                                                    </div>
-
+                                                                    <h4>Extreme Activity</h4>
+                                                                    <p>Exceedingly active and/ or very demanding activities, such as athlete with an almost unstoppable training schedule, very demanding jobs such as shovelling coal or working long hours on an assembly line.</p>
                                                                 </div>
+                                                                <a href=".workout-cards4" class="triggerInfo">...learn more</a>
                                                             </div>
-
                                                         </div>
 
                                                         <div class="col-md-1"></div>
@@ -1068,7 +980,7 @@ $perc = 20;
                                             @include('progress')
 
                                             <h4>Now tell us what you want to achieve...</h4>
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">Are you managing any of this health conditions?</h1>
+                                            <h1 style="font-weight:bold;">Are you managing any of this health conditions?</h1>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%; margin-top:2rem">
 
@@ -1081,40 +993,40 @@ $perc = 20;
                                                             <div class="activity-cards" align="center" onclick="clickActivityBtn(this, 'Very Light')">
                                                                 <input type="checkbox" name="activity[]" value="High Cholesterol">
 
-                                                                <img src="{{ url('assets/frontend/images/glucosemeter.png') }}" class="img-responsive" style="max-height:100px; height: 60px;" />
-                                                                <h4 style="font-size: 15px;">High Cholesterol</h4>
+                                                                <img src="{{ url('assets/frontend/images/Very Light.png') }}" class="img-responsive" style="max-height:100px;" />
+                                                                <h4>High Cholesterol</h4>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-2 col-sm-6" align="center">
                                                             <div class="activity-cards" align="center" onclick="clickActivityBtn(this, 'Light')">
                                                                 <input type="checkbox" name="activity[]" value="Hypertension">
 
-                                                                <img src="{{ url('assets/frontend/images/hypertension.png') }}" class="img-responsive" style="max-height:100px;  height: 60px;" />
-                                                                <h4 style="font-size: 12px;">Hypertension</h4>
+                                                                <img src="{{ url('assets/frontend/images/Light.png') }}" class="img-responsive" style="max-height:100px;" />
+                                                                <h4>Hypertension</h4>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-2 col-sm-6" align="center">
                                                             <div class="activity-cards" align="center" onclick="clickActivityBtn(this, 'Moderate')">
                                                                 <input type="checkbox" name="activity[]" value="Diabetes">
 
-                                                                <img src="{{ url('assets/frontend/images/blood-test.png') }}" class="img-responsive" style="max-height:100px; height: 60px;" />
-                                                                <h4 style="font-size: 15px;">Diabetes</h4>
+                                                                <img src="{{ url('assets/frontend/images/Moderate.png') }}" class="img-responsive" style="max-height:100px;" />
+                                                                <h4>Diabetes</h4>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-2 col-sm-6" align="center">
                                                             <div class="activity-cards" align="center" onclick="clickActivityBtn(this, 'Heavy')">
                                                                 <input type="checkbox" name="activity[]" value="Pre-diabetes">
 
-                                                                <img src="{{ url('assets/frontend/images/blood-vessel.png') }}" class="img-responsive" style="max-height:100px; height: 60px;" />
-                                                                <h4 style="font-size: 15px;">Pre-diabetes</h4>
+                                                                <img src="{{ url('assets/frontend/images/Heavy.png') }}" class="img-responsive" style="max-height:100px;" />
+                                                                <h4>Pre-diabetes</h4>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-2 col-sm-6" align="center">
                                                             <div class="activity-cards" align="center" onclick="clickActivityBtn(this, 'None')">
                                                                 <input type="checkbox" name="activity[]" value="None">
 
-                                                                <img src="{{ url('assets/frontend/images/Heavy.png') }}" class="img-responsive" style="max-height:100px; height: 60px;" />
-                                                                <h4 style="font-size: 15px;">None</h4>
+                                                                <img src="{{ url('assets/frontend/images/Heavy.png') }}" class="img-responsive" style="max-height:100px;" />
+                                                                <h4>None</h4>
                                                             </div>
                                                         </div>
 
@@ -1149,22 +1061,22 @@ $perc = 20;
                                                             <h2 align="left">Brief Summary</h2>
                                                             <table class="table table-striped">
                                                                 <tr>
-                                                                    <td><span> <img src="{{ url('assets/frontend/images/age-group.png') }}" class="img-responsive" style="width: 20px" /></span></td>
+                                                                    <td><span class="fa fa-user"></span></td>
                                                                     <td>Age</td>
                                                                     <td id="res-age"></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><span><img src="{{ url('assets/frontend/images/weight.png') }}" class="img-responsive" style="width: 20px" /></span></td>
+                                                                    <td><span class="fa fa-flask"></span></td>
                                                                     <td>Current Weight</td>
                                                                     <td id="res-weight"></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><span><img src="{{ url('assets/frontend/images/height.png') }}" class="img-responsive" style="width: 20px" /></span></td>
+                                                                    <td><span class="fa fa-text-height"></span></td>
                                                                     <td>Height</td>
                                                                     <td id="res-height"></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><span><img src="{{ url('assets/frontend/images/exercise.png') }}" class="img-responsive" style="width: 20px" /></span></td>
+                                                                    <td><span class="fa fa-sliders"></span></td>
                                                                     <td>Level of Activity</td>
                                                                     <td id="res-activity"></td>
                                                                 </tr>
@@ -1278,7 +1190,7 @@ $perc = 20;
 
                                     <div class="item" style="height:100%;overflow-y:auto;">
                                         <div class="container">
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">How many main meals do you eat a day?</h1>
+                                            <h1 style="font-weight:bold;">How many main meals do you eat a day?</h1>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
@@ -1297,7 +1209,7 @@ $perc = 20;
 
                                     <div class="item" style="height:100%;overflow-y:auto;">
                                         <div class="container">
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">And how many times do you snack?</h1>
+                                            <h1 style="font-weight:bold;">And how many times do you snack?</h1>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
@@ -1320,8 +1232,7 @@ $perc = 20;
                                     <?php $rf++; ?>
                                     <div class="item" style="height:100%;overflow-y:auto;">
                                         <div class="container">
-                                            <h4 style="font-weight:bold; font-family: 'Sora', sans-serif;">Now it’s time to choose the foods you enjoy. Don’t worry if you consider them healthy or not, just choose the options you enjoy eating</h4>
-                                            <h4 style="font-weight:bold; font-family: 'Sora', sans-serif;">Don’t worry if you consider them healthy or not, just choose the options you enjoy eating</h4>
+                                            <h4 style="font-weight:bold;">Now it’s time to choose the foods you enjoy. Don’t worry if you consider them healthy or not, just choose the options you enjoy eating</h4>
                                             <h1>{{ $typ }}</h1><br>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
@@ -1340,10 +1251,10 @@ $perc = 20;
                                                     @if($typ=='Sweetners and Others')
                                                     <div style="display:inline-block;" align="center">
                                                         <br><br>
-                                                        <p style="font-weight:bold; font-family: 'Sora', sans-serif;">
+                                                        <p style="font-weight:bold;">
                                                             Others (List any other food you would like me to include)
                                                         </p>
-                                                        <textarea style="margin-top:20px;width:350px;height:155px;font-size:18px;padding:8px;resize:none; font-family: 'Sora', sans-serif;" name="food_options[]"></textarea>
+                                                        <textarea style="margin-top:20px;width:350px;height:155px;font-size:18px;padding:8px;resize:none;" name="food_options[]"></textarea>
                                                     </div>
                                                     @endif
 
@@ -1362,7 +1273,7 @@ $perc = 20;
 
                                     <div class="item" style="height:100%;overflow-y:auto;">
                                         <div class="container">
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">Yaaay! Your FREE Meal Plan is ready!</h1>
+                                            <h1 style="font-weight:bold;">Yaaay! Your FREE Meal Plan is ready!</h1>
                                             <h3 align="center">We have just created your fully CUSTOMIZED 30 day meal plan!</h3>
 
                                             <h4>Enter your name and best email below to get 2 FULL days of the meal plan completely FREE!</h4>
@@ -1375,11 +1286,6 @@ $perc = 20;
                                                     <br>
                                                     <input class="bestest" placeholder="Best Email" type="email" name="best_email">
                                                     <br>
-                                                    <br>
-                                                    <label for="suggestions">List any other food option you will like us to add </label>
-                                                    <br>
-                                                    <input class="bestest" placeholder="List any other Food Option" type="text" name="suggestions">
-
 
                                                     <button type="submit" style="width:240px;border-radius:3px;margin-top:20px;" class="btn btn-dark-outline whom-btn" onclick="">Save </button>
 
@@ -1393,7 +1299,7 @@ $perc = 20;
                                     <div class="item" style="height:100%;overflow-y:auto;">
                                         <div class="container">
                                             <h4>Yay! Your 2-day FREE PLAN has been sent to your provided email.</h4>
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">If you would like to get the complete 30-day plan, click below</h1>
+                                            <h1 style="font-weight:bold;">If you would like to get the complete 30-day plan, click below</h1>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
@@ -1419,7 +1325,7 @@ $perc = 20;
             <div class="modal-header" style="border-bottom:0px;">
                 <a href="javascript:void(0)" onclick="$('#infoModal').modal('hide')" style="color:#000">
                     <small class="direction-right" id="closeInfo">
-                        <img src="{{ url('assets/frontend/images/cancel.png') }}" style="height:24px;" />
+                        <img src="{{ url('assets/frontend/images/close.png') }}" style="height:24px;" />
                         Cancel
                     </small>
                 </a>
@@ -1483,7 +1389,7 @@ $perc = 20;
 
         var rf = $(this).attr('href');
         var cont = $(rf).html();
-        // console.log(cont);
+        console.log(cont);
         $('#infoContent').html("");
         $('#infoContent').append(cont);
     });
@@ -1500,17 +1406,14 @@ $perc = 20;
         var ind = parseInt($('#myCarousel').find('.active').index());
         var datum = $('#calcForm').serializeObject();
         if (ind == 5 && datum['goal[]'] == undefined) {
-            // alert("Kindly pick an option to proceed");
-            $('#error-p-tag4').text("Kindly pick an option to proceed").show()
+            alert("Kindly pick an option to proceed");
             return false;
         } else if (ind == 7 && (datum.workout == undefined || datum.workout == "")) {
-            // alert("Kindly pick an activity to proceed");
-            $('#error-p-tag5').text("Kindly pick an activity to proceed").show()
+            alert("Kindly pick an activity to proceed");
             return false;
         } else if (ind == 6) {
             if ($('#weightIN_aim').val() == "" || $('input[name="weight_time_aim"]').val() == "") {
-                // alert("Kindly let us know how much you want to weigh and in how much time.");
-                $('#error-p-tag6').text("Kindly let us know how much you want to weight and in how much time.").show()
+                alert("Kindly let us know how much you want to weigh and in how much time.");
                 return false;
             }
             // TO DETERMINE THE WEIGHT LOSS TIME
@@ -1538,7 +1441,6 @@ $perc = 20;
                     return false;
                 } else {
                     $('#myCarousel').carousel('next');
-                    $('#error-p-tag6').hide();
                 }
             }
         } else {
@@ -1548,11 +1450,9 @@ $perc = 20;
                 }).get();
 
                 if (goals.includes("Maintain Weight"))
-                    $('#myCarousel').carousel(7);
+                    $('#myCarousel').carousel(6);
             }
             $('#myCarousel').carousel('next');
-            $('#error-p-tag4').hide();
-            $('#error-p-tag5').hide();
         }
     }
 
@@ -1564,36 +1464,18 @@ $perc = 20;
         var valC = count(val + '');
 
         if (e.val() == '' || e.val() == '0') {
-            // console.log(e.selector);
-            if (e.selector == '#age') {
-                $('#error-p-tag').text(msg).show()
-                e.addClass("error-input-border");
-            } else if (e.selector == '#height') {
-                $('#error-p-tag2').text(msg).show()
-            } else {
-                $('#error-p-tag3').text(msg).show()
-            }
             // alert(msg);
-
+            $('#error-p-tag').text(msg).show()
+            e.addClass("error-input-border");
         } else {
-            // e.addClass("error-input-border");
+            e.addClass("error-input-border");
             if ((val < min || val > max)) // && (valC >= minC))
-            {
                 // alert("Your input value must not be:\n\n-  Lesser than " + min + "\n-  Greater than " + max);
-                if (e.selector == '#age') {
-                    $('#error-p-tag').text("Your input value must not be:\n\n-  Lesser than " + min + "\n-  Greater than " + max).show();
-                } else if (e.selector == '#height') {
-                    $('#error-p-tag2').text("Your input value must not be:\n\n-  Lesser than " + min + "\n-  Greater than " + max).show();
-                } else {
-                    $('#error-p-tag3').text("Your input value must not be:\n\n-  Lesser than " + min + "\n-  Greater than " + max).show();
-                }
-                // $('#error-p-tag').text("Your input value must not be:\n\n-  Lesser than " + min + "\n-  Greater than " + max).show();
-            } else {
+                $('#error-p-tag').text("Your input value must not be:\n\n-  Lesser than " + min + "\n-  Greater than " + max).show();
+            else {
                 $('#myCarousel').carousel('next');
                 e.removeClass("error-input-border");
                 $('#error-p-tag').hide()
-                $('#error-p-tag2').hide()
-                $('#error-p-tag3').hide()
             }
         }
     }
@@ -1865,7 +1747,6 @@ $perc = 20;
             var ind = parseInt($('#myCarousel').find('.active').index());
             var datum = $('#calcForm').serializeObject();
             console.log(datum);
-            console.log('cal: ', datum['calories']);
 
             if (ind == 7 && datum['activity[]'] == undefined) {
                 alert("Kindly pick a minimum of one option to proceed");
@@ -1943,10 +1824,7 @@ $perc = 20;
 
         if (datum['goal[]'].includes('Maintain Weight')) {
             calories = maintainWeight(datum, added, workoutIndex, KG);
-            if (calories > 2000) {
-                calories = 2000;
-            }
-            // console.log("maintain: ", calories);
+
             for (var ind in workoutIndexes) {
                 otherCalories.push(roundToNearest50(maintainWeight(datum, added, workoutIndexes[ind], KG)));
             }
@@ -1969,10 +1847,6 @@ $perc = 20;
                 $('.recalc-next').show();
             }
             calories = loseWeight(datum, added, workoutIndex, weightToLosex, timeToLoseWeight, KG);
-            if (calories > 2000) {
-                calories = 2000;
-            }
-            // console.log("Losee weight: ", calories);
 
             for (var ind in workoutIndexes) {
                 otherCalories.push(roundToNearest50(loseWeight(datum, added, workoutIndexes[ind], weightToLosex, timeToLoseWeight, KG)));
@@ -2081,3 +1955,853 @@ $perc = 20;
     }
 </script>
 @endsection
+
+<!-- calculator end -->
+<!-- final page blade start  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url('assets/frontend') }}/css/theme.css">
+    <script src="{{ url('assets/frontend') }}/js/popper.min.js"></script>
+    <script src="{{ url('assets/frontend') }}/js/smoothscroll.min.js"></script>
+    <link rel="stylesheet" href="{{ url('assets/frontend') }}/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/fontawesome.min.css" integrity="sha512-cHxvm20nkjOUySu7jdwiUxgGy11vuVPE9YeK89geLMLMMEOcKFyS2i+8wo0FOwyQO/bL8Bvq1KMsqK4bbOsPnA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <title>Optimum Foodie</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #262626;
+        }
+
+        .loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            width: 100px;
+            height: 100px;
+            animation: animate 1s linear infinite;
+        }
+
+        .main-loader h2 {
+            color: #fff;
+            text-align: center;
+            margin-top: 15rem;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .loader-item {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: #f00;
+            box-shadow: 2px 2px 5px 1px #000;
+            animation: rotate 1s linear infinite;
+        }
+
+        .loader-item_1 {
+            top: 0;
+            left: 0;
+            background: #f79f1f;
+        }
+
+        .loader-item_2 {
+            top: 0;
+            right: 0;
+            background: #12cbc4;
+        }
+
+        .loader-item_3 {
+            bottom: 0;
+            left: 0;
+            background: #ed4c67;
+        }
+
+        .loader-item_4 {
+            bottom: 0;
+            right: 0;
+            background: #a3cb38;
+        }
+
+        .alert-styling {
+            width: 50%;
+            padding: 20px;
+            text-align: center;
+            align-self: center;
+            position: absolute;
+            top: 50%;
+            left: 25%;
+        }
+
+        .logout-style {
+            position: fixed;
+            right: 1%;
+            top: 2%;
+        }
+
+        @keyframes animate {
+            0% {
+                width: 100px;
+                height: 100px;
+            }
+
+            10% {
+                width: 100px;
+                height: 100px;
+            }
+
+            50% {
+                width: 150px;
+                height: 150px;
+            }
+
+            90% {
+                width: 100px;
+                height: 100px;
+            }
+
+            100% {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            10% {
+                transform: rotate(0deg);
+            }
+
+            60% {
+                transform: rotate(90deg);
+            }
+
+            90% {
+                transform: rotate(90deg);
+            }
+
+            100% {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    @if(Session::get('time'))
+    <div class="alert alert-{{Session::get('alert')}} alert-styling" role="alert">
+        {{Session::get('message')}}
+    </div>
+    @else
+    <div class="main-loader">
+        <h2>Creating meal plan...........</h2>
+        <div class="loader">
+            <div class="loader-item loader-item_1"></div>
+            <div class="loader-item loader-item_2"></div>
+            <div class="loader-item loader-item_3"></div>
+            <div class="loader-item loader-item_4"></div>
+        </div>
+    </div>
+    @endif
+
+
+    <div class="main" style="display: none;">
+        @if(isset(Auth::user()->email))
+        <div class="logout-style">
+            <a class="btn btn-primary" style="background: #ed4c67; width:100px; border-color: #ed4c67;" href="{{ url('/logout') }}">Logout</a>
+        </div>
+        @endif
+        <section class="hero-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-7 pt-5 mb-5 align-self-center">
+                        <div class="promo pe-md-3 pe-lg-5">
+                            <h4 class="subheadline" style="font-weight: 100;">What you eat on a daily basis is the most important aspect to getting the body you’ve always wanted</h4>
+                            <h1 class="headline mb-3">
+                                FINALLY GET THE BODY <br>YOU’VE BEEN WISHING FOR
+                            </h1><!--//headline-->
+                            <p>Without Ever Needing To Step In A GYM Or Give Up The Nigerian Meals You Enjoy!</p>
+                            <div class="subheadline mb-4">
+                                Get access to your own customized meal timetable! Specially created based for YOU based on your food likes, health and fitness goals, daily schedule, food allergies and so on!
+                            </div><!--//subheading-->
+
+                            <!-- <div class="cta-holder row gx-md-3 gy-3 gy-md-0">
+                            <div class="col-12 col-md-auto">
+                                <a class="btn btn-primary w-100" href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/devbook-free-bootstrap-5-book-ebook-landing-page-template-for-developers/">Buy for $29</a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a class="btn btn-secondary scrollto w-100" href="#benefits-section">Learn More</a>
+                            </div>
+                        </div>//cta-holder -->
+
+                            <div class="hero-quotes mt-5">
+                                <div class="container">
+                                    <h2 class="text-center">Progress report</h2>
+                                    <div class="row">
+                                        <div class="col-12 col-md-4">
+                                            <div>
+                                                <img src="{{ url('assets/frontend/images/cmpw1.png') }}" class="img-responsive" width="100%" />
+                                            </div>
+
+                                        </div>
+                                        <div class="col-12 col-md-4">
+                                            <img src="{{ url('assets/frontend/images/cmpw3.png') }}" class="img-responsive" width="100%" />
+                                        </div>
+                                        <div class="col-12 col-md-4">
+                                            <img src="{{ url('assets/frontend/images/cmpw3.jpeg') }}" class="img-responsive" width="100%" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--//hero-quotes-->
+                        </div><!--//promo-->
+                    </div><!--col-->
+                    <div class="col-12 col-md-5 mb-5 align-self-center">
+                        <div class="book-cover-holder">
+                            <iframe width="550" height="445" src="https://www.youtube.com/embed/iiEK6csjMYo">
+                            </iframe>
+                        </div><!--//book-cover-holder-->
+                        <div class="text-center">A custom-made plan provides you with specific details of what to eat, how much to eat, and even if you can’t cook or travel a lot, we guide you on exactly what to buy at restaurants around you! </div>
+                    </div><!--col-->
+                </div><!--//row-->
+            </div><!--//container-->
+        </section><!--//hero-section-->
+
+        <section id="content-section" class="content-section mt-5">
+            <div class="container">
+                <div class="single-col-max mx-auto">
+                    <h2 class="section-heading text-center mb-5">Does this sound familiar?</h2>
+                    <div class="row">
+                        <div class="col-12 col-md-12 mb-5">
+                            <div class="key-points mb-4 text-center">
+                                <ul class="key-points-list list-unstyled mb-4 mx-auto d-inline-block text-start">
+                                    <li><i class="fa fa-check-circle me-2"></i>You only eat may be once or twice a day....</li>
+                                    <li><i class="fa fa-check-circle me-2"></i>You exercise 3, 4, 5 times a week, may be even lift weights.</li>
+                                    <li><i class="fa fa-check-circle me-2"></i>You are religiously taking your lemon water or apple cider vinegar or slimming tea....</li>
+                                    <li><i class="fa fa-check-circle me-2"></i>You've started eating healthier, including more fruits, healthier swaps from coconut flour to couscous.</li>
+                                    <li><i class="fa fa-check-circle me-2"></i>In fact, you've painstakingly stopped eating past 7pm, still nothing is happening! You can't see the results of your labour. . </li>
+                                    <li><i class="fa fa-check-circle me-2"></i>Kindle curabitur fermentum.</li>
+                                    <li><i class="fa fa-check-circle me-2"></i>Kindle curabitur fermentum.</li>
+                                    <li><i class="fa fa-check-circle me-2"></i>Kindle curabitur fermentum.</li>
+                                </ul>
+
+                                <div class="" style="background-color: #000; padding: 15px 15px;">
+                                    <p style="color: #fff;">Here’s the thing, when it comes to getting fitness results, your diet is KING! This right here is what has made the difference between frustration and absolute success for my clients!</p>
+                                </div>
+
+                                <p class="mt-3">And the awesome news is that <b> you don’t have to stop eating your eba, rice, bread, beans and so on to get amazing results! </b> You can eat all your fave Nigerian meals and still crush your body goals!</p>
+                                <div class="text-center mt-5" style=" justify-content: space-between; display: flex;">
+                                    @if ($userDetails['status']== 'free')
+                                    <form action="{{ url('sendmail') }}" method="post" style="width: 50%;">
+                                        {!! csrf_field() !!}
+                                        <input type="hidden" name="userId" value="{{$userDetails['id']}}">
+                                        <input type="hidden" name="cusType" value="{{$userDetails['status']}}">
+                                        <button type="submit" class="btn btn-primary" style="width: 90%; margin-right: 15px;">Get FREE Meal Plan</button>
+                                    </form>
+
+                                    <form id="paymentForm" style="width: 50%;">
+                                        <input type="hidden" id="name" name="name" value="{{$userDetails['name']}}" placeholder="Name:">
+                                        <input type="hidden" id="email-address" name="email-address" value="{{$userDetails['email']}}" placeholder="Email:" required>
+                                        <input type="hidden" id="amount" name="amount" placeholder="Amount:" value="20000" required>
+                                        <button type="submit" onclick="payWithPaystack(event)" class="btn btn-primary" style="width: 90%;">Get FULL Meal Plan</button>
+                                        <p id="success-div" style="display:none;">Your complete meal plan has been sent to your mail</p>
+                                        <p style="color:#FF9494; display: none;" id="error-div">Please contact us to make complain. <a href="mailto:support@cmp.com" target="_blank">Contant us</a></p>
+
+                                    </form>
+
+                                    @else
+                                    <form action="{{ url('sendmail') }}" method="post" style="width: 100%;">
+                                        {!! csrf_field() !!}
+                                        <input type="hidden" name="userId" value="{{$userDetails['id']}}">
+                                        <input type="hidden" name="cusType" value="{{ $userDetails['status']}}">
+                                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-right: 15px;">Get Meal Plan</button>
+                                    </form>
+                                    @endif
+
+                                </div>
+                            </div>
+
+                        </div><!--//col-12-->
+                    </div><!--//row-->
+                </div><!--//single-col-max-->
+            </div><!--//container-->
+        </section><!--//content-section-->
+
+        <section id="reviews-section" class="reviews-section py-5">
+            <div class="container">
+                <h2 class="section-heading text-center">Review</h2>
+                <div class="section-intro text-center single-col-max mx-auto mb-5">Hear from Nigerian Nutrition Expert! </div>
+                <div class="row justify-content-center">
+                    <div class="item col-12 col-lg-12 p-3 mb-4">
+                        <div class="item-inner theme-bg-light rounded p-4">
+
+                            <blockquote class="quote">
+                                "
+                                I’m Odunayo Abdulai, a pharmacist, and US certified integrative nutrition coach! <b> I specialise in helping individuals like you smash their fitness goals eating the Nigerian meals they love!</b>
+
+                                And today I’m bringing my years of experience to <b>help you create a meal timetable that’s as unique as you are!</b> That makes sense for your schedule, your food likes and your specific health and fitness goals!
+
+                                But before I create yours, I want to tell the backstory of how I started creating them for my clients…
+                            </blockquote>
+                            <blockquote class="quote mt-4">
+                                <b>I’ve spent OVER 4 YEARS researching, practicing and honing the skills that have made my meal plans so result driven! </b>
+
+                                Years ago, I started getting conscious about my belly, I hated how my clothes fit
+
+                                At first, I’ll just suck belle, but damn, it was not enough…
+
+                                Then one day my ex makes this “not so funny” joke about me looking pregnant"
+
+                                <h5 class="mt-3" style="color:#4c527d;">“Arrrrghhh” that was it! Something had to be done!</h5>
+
+
+                                So the first thing I did…
+
+                                <b>I worked out like crazy,</b> I was doing at least 45min, 6 times a week!
+
+                                <b>I tried to fix my diet,</b> started including more fruits in general, then I added yoghurt too, threw in some sandwiches as well.
+
+                                <h4 class="mt-3" style="color:#4c527d;">But you see, after 15 months of not getting results I was fed up. I had given it my all, what was going on?</h4>
+                                That’s where the journey to me becoming the Calorie Queen started!
+
+                            </blockquote>
+                            <blockquote class="quote mt-4">
+                                <h5 class="text-center" style="color:#4c527d;">I found out my biggest mistake ever!</h5>
+                                <b>My diet was whack! </b>
+
+                                I discovered that I was not achieving something a CALORIE DEFICIT!
+
+                                Simply put, I was eating too many calories - and apparently, if you are consuming more calories than your body needs… <b>You’ll NEVER GET RESULTS </b>. There’s no magic you want to do.
+
+                                <b>It was honestly that simple!</b>
+
+                                <h6 class="mt-3" style="color: #4c527d;">MY MIND WAS BLOWN!</h6>
+                                <b>I could totally see why I had been struggling </b> and became so obsessed with nutrition and later became a US certified nutrition coach.
+
+                                Since then<b> I’ve perfected the process using Nigerian foods,</b> and even used it to <b> my dad reverse his pre-diabetes!</b> And his blood sugar has been normal ever since!
+
+                                This meal plan I’ll create for you will become your one stop for everything regarding your diet.
+
+                                You share your goals with me, <b>tell me the specific foods you enjoy eating,</b> and I’ll tell you exactly how to cook them and <b>how much to eat.</b> And that<b> includes snack time too!</b>
+
+                                I’m giving sharing the opportunity to reach your body goals, <b>along with the freedom to eat the foods you actually like, without ever stepping in a gym!</b>
+
+                                <ul class="mt-3">
+                                    <li><i class="fa fa-check-circle me-2"></i> <b>Don’t</b> make the same mistakes I did</li>
+                                    <li><i class="fa fa-check-circle me-2"></i> <b>Don’t</b> mscramble around wondering what is wrong, or what to do</li>
+                                    <li><i class="fa fa-check-circle me-2"></i> <b>Don’t</b> waste precious time figuring out all the details</li>
+
+                                </ul>
+                                Let me help you achieve your fitness and health goals
+
+                                I’ll see you on the inside."
+                            </blockquote>
+                            <div class="source row gx-md-3 gy-3 gy-md-0">
+                                <div class="col-12 col-md-auto source-info text-center text-md-start">
+                                    <div class="source-name">Odunayo Abdulai</div>
+                                    <div class="soure-title">Your Nigerian Nutrition Expert!</div>
+                                </div><!--//col-->
+                            </div><!--//source-->
+                            <div class="icon-holder"><i class="fa fa-quote-right"></i></div>
+                        </div><!--//inner-->
+                    </div><!--//item-->
+                </div><!--//row-->
+            </div><!--//container-->
+        </section><!--//reviews-section-->
+        <section id="benefits-section" class="benefits-section theme-bg-light-gradient py-5">
+            <div class="container py-5">
+                <h2 class="section-heading text-center mb-3">Here’s everything waiting for you when you order your own Meal Plan:</h2>
+                <div class="section-intro single-col-max mx-auto text-center mb-5">Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit consequat consequat. Orci varius natoque penatibus et magnis. </div>
+                <div class="row text-center">
+                    <div class="item col-12 col-md-6 col-lg-4">
+                        <div class="item-inner p-3 p-lg-4">
+                            <div class="item-header mb-3">
+                                <div class="item-icon"> <i class="fa fa-cutlery"></i></div>
+
+                                <div class="item-desc">
+                                    A new meal timetable every 2 weeks with new meal options to keep things interesting, and ensure you are consistently making progress
+                                </div>
+                            </div><!--//item-heading-->
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                    <div class="item col-12 col-md-6 col-lg-4">
+                        <div class="item-inner p-3 p-lg-4">
+                            <div class="item-header mb-3">
+                                <div class="item-icon"><i class="fa fa-lemon-o"></i></div>
+                                <div class="item-desc">
+                                    Your plan will specifically help you with your problem areas, for example your belly, if you are hypertensive or diabetic, your meal plan will do wonders in helping you get them under control!
+                                </div>
+
+                            </div><!--//item-heading-->
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                    <div class="item col-12 col-md-6 col-lg-4">
+                        <div class="item-inner p-3 p-lg-4">
+                            <div class="item-header mb-3">
+                                <div class="item-icon"><i class="fa fa-cutlery"></i></div>
+                                <div class="item-desc">
+                                    Breakfast, lunch, dinner and snack options (or whatever other meal schedule works for you, for example, some people don’t do breakfast!)
+                                </div>
+                            </div><!--//item-heading-->
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                    <div class="item col-12 col-md-6 col-lg-4">
+                        <div class="item-inner p-3 p-lg-4">
+                            <div class="item-header mb-3">
+                                <div class="item-icon"><i class="fa fa-users"></i></div>
+                                <div class="item-desc">
+                                    Tasty Nigerian meal options with details on how much of each food item to have
+                                </div>
+                            </div><!--//item-heading-->
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                    <div class="item col-12 col-md-6 col-lg-4">
+                        <div class="item-inner p-3 p-lg-4">
+                            <div class="item-header mb-3">
+                                <div class="item-icon"><i class="fa fa-step-forward"></i></div>
+
+                                <div class="item-desc">
+                                    Step-by-step recipe guide to help you eliminate any guess-work
+                                </div>
+                            </div><!--//item-heading-->
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                    <div class="item col-12 col-md-6 col-lg-4">
+                        <div class="item-inner p-3 p-lg-4">
+                            <div class="item-header mb-3">
+                                <div class="item-icon"><i class="fa fa-arrows-alt"></i></div>
+
+                                <div class="item-desc">
+                                    Our Eat out guide to help you stay on track even when you are on the move or travelling
+                                </div>
+                            </div><!--//item-heading-->
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                    <div class="item col-12 col-md-6 col-lg-4">
+                        <div class="item-inner p-3 p-lg-4">
+                            <div class="item-header mb-3">
+                                <div class="item-icon"><i class="fa fa-glass"></i></div>
+                                <div class="item-desc">
+                                    The list won’t be complete if I don’t ...guide you on your alcohol consumption for those night’s out with the girls and guys! So I’ll be helping you lay down simple rules to ensure your nights out don’t sabotage your results!
+                                </div>
+                            </div><!--//item-heading-->
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                    <div class="item col-12 col-md-6 col-lg-4">
+                        <div class="item-inner p-3 p-lg-4">
+                            <div class="item-header mb-3">
+                                <div class="item-icon"><i class="fa fa-thumbs-o-up"></i></div>
+                                <div class="item-desc">
+                                    Tips on how to stay full, when to eat and measure your progress
+                                </div>
+                            </div><!--//item-heading-->
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                </div><!--//row-->
+            </div><!--//container-->
+        </section><!--//benefits-section-->
+        <section id="audience-section" class="audience-section py-5">
+            <div class="container">
+                <h2 class="section-heading text-center mb-4">FREQUENTLY ASKED QUESTIONS</h2>
+                <div class="section-intro single-col-max mx-auto text-center mb-5">
+                    Finally go from frustrated to getting consistent results that will get to you to your ultimate health and body goal!
+                </div><!--//section-intro-->
+                <div class="audience mx-auto">
+                    <div class="item row gx-3">
+                        <div class="col">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="width: 100%; background: #7FCDB8; border-color: #7FCDB8; display: flex;justify-content: space-between; color: #000;">
+                                If I make payment now, when will I get my plan?
+                                <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                            </button>
+                            <div class="item-desc collapse" id="collapseExample" style="padding: 20px; background-color:#dedfeb;">Following payment, you’ll fill a form where I’ll collect all your personal details, that’ll help me create your own unique plan. You’ll get your plan in your email 3 working days after you fill your form</div>
+                        </div><!--//col-->
+                    </div><!--//item-->
+                    <div class="item row gx-3">
+                        <div class="col">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1" style="width: 100%; background: #7FCDB8; border-color: #7FCDB8; display: flex;justify-content: space-between; color: #000;">
+                                What if I can’t cook?
+                                <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                            </button>
+                            <div class="item-desc collapse" id="collapseExample1" style="padding: 20px; background-color:#dedfeb;">Remember the meal plan is customised! We’ll work with the few things you might know how to prepare, stick to more options that require zero cooking, and options you can buy out.</div>
+                        </div><!--//col-->
+                    </div><!--//item-->
+                    <div class="item row gx-3">
+                        <div class="col">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2" style="width: 100%; background: #7FCDB8; border-color: #7FCDB8; display: flex;justify-content: space-between; color: #000;">
+                                Will I really be able to eat swallow and rice?
+                                <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                            </button>
+                            <div class="item-desc collapse" id="collapseExample2" style="padding: 20px; background-color:#dedfeb;">Yes, you will! Carbs are not the problem, they never were. With the meal plan I’ll create for you, I’ll show you exactly how to enjoy your Nigerian foods and still hit your fitness goals</div>
+                        </div><!--//col-->
+                    </div><!--//item-->
+                    <div class="item row gx-3">
+
+                        <div class="col">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3" style="width: 100%; background: #7FCDB8; border-color: #7FCDB8; display: flex;justify-content: space-between; color: #000;">
+                                What if there’s something about the plan I don’t particularly like?
+                                <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                            </button>
+                            <div class="item-desc collapse" id="collapseExample3" style="padding: 20px; background-color:#dedfeb;">After receiving your plan, you’ll be able to request a review within 2 weeks of receiving it, and I’ll be happy to make any necessary adjustments.</div>
+                        </div><!--//col-->
+                    </div><!--//item-->
+                    <div class="item row gx-3">
+
+                        <div class="col">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" style="width: 100%; background: #7FCDB8; border-color: #7FCDB8; display: flex;justify-content: space-between; color: #000;">
+                                How much is the meal plan?
+                                <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                            </button>
+                            <div class="item-desc collapse" id="collapseExample4" style="padding: 20px; background-color:#dedfeb;">
+                                The meal plan costs N20,000 per month. Your goal will determine how many months we might be working together.</div>
+                        </div><!--//col-->
+                    </div><!--//item-->
+                </div><!--//audience-->
+            </div><!--//container-->
+        </section><!--//audience-section-->
+    </div>
+
+</body>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js" integrity="sha512-nO7wgHUoWPYGCNriyGzcFwPSF+bPDOR+NvtOYy2wMcWkrnCNPKBcFEkU80XIN14UVja0Gdnff9EmydyLlOL7mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(window).on('load', function() {
+        setTimeout(function() { // allowing 3 secs to fade out loader
+            $('.main-loader').fadeOut('slow');
+            $('.alert').fadeOut('slow');
+            $("body").css("background-color", "white");
+            $('.main').fadeIn('slow');
+        }, 3500);
+
+    });
+
+    const paymentForm = document.getElementById('paymentForm');
+    const error_div = document.getElementById('error-div');
+    const success_div = document.getElementById('success-div');
+    paymentForm.addEventListener("submit", payWithPaystack, false);
+
+    function payWithPaystack(e) {
+        e.preventDefault();
+
+        let handler = PaystackPop.setup({
+            key: 'pk_test_35053dedc279e268b2132443c3ca9500ebe4b77a', // Replace with your public key
+            email: document.getElementById("email-address").value,
+            amount: document.getElementById("amount").value * 100,
+            // ref: '' + Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+            // // label: "Optional string that   replaces customer email"
+            onClose: function() {
+                alert('Window closed.');
+            },
+            callback: function(response) {
+                let reference = response.reference
+
+                $.ajax({
+                    type: "GET",
+                    url: "{{URL::to('verify-payment')}}/" + reference,
+
+                    success: function(response) {
+                        // console.log(response)
+                        if (response == 1) {
+                            paymentForm.style.display = 'none'
+                            success_div.style.display = 'block'
+                        } else {
+                            paymentForm.style.display = 'none'
+                            success_div.style.display = 'block'
+                        }
+                    }
+                });
+            }
+        });
+
+        handler.openIframe();
+    }
+</script>
+
+</html>
+<!-- final page blade end  -->
+
+<!-- free main things bladew start  -->
+<h3>Meal Plan (Week 1 and 2)</h3>
+<table width="100%" cellspacing="1" cellpadding="1" border="1">
+    <tr>
+        <th>Day</th>
+        <th>Breakfast</th>
+        <th>Brunch</th>
+        <th>Lunch</th>
+        <th>Dinner</th>
+    </tr>
+    @foreach($MealDetails as $m)
+    <tr>
+
+        <td style="min-width:90px;padding:5px">
+            {{$m->days}}
+        </td>
+        <?php
+
+        $yer = str_replace(['[', ']'], '', $m->daymeal);
+        $implo = explode('",', $yer);
+        ?>
+        @foreach($implo as $k=> $ml)
+        <td style="min-width:90px;padding:5px">
+            {!! strlen($ml) > 3 ? $ml : 'Snack meal' !!}
+        </td>
+        @endforeach
+ 
+    </tr>
+    @endforeach
+
+</table><br>
+
+<h2 style="font-weight: bolder; color:red"> SUBSCRIBE TO HAVE ACCESS TO FULL MEAL PLAN</h2>
+
+@include('includes.snack1')
+
+<!-- free main things bladew end -->
+<!-- main things start  -->
+<h3>Meal Plan (Week 1 and 2)</h3>
+<table width="100%" cellspacing="1" cellpadding="1" border="1">
+    <tr>
+        <th>Day</th>
+        <th>Breakfast</th>
+        <th>Brunch</th>
+        <th>Lunch</th>
+        <th>Dinner</th>
+    </tr>
+    @foreach($MealDetails as $m)
+    <tr>
+        @if($m->month_par == '1_and_2')
+        <td style="min-width:90px;padding:5px">
+            {{$m->days}}
+        </td>
+        <?php
+
+        $yer = str_replace(['[', ']'], '', $m->daymeal);
+        $implo = explode('",', $yer);
+        ?>
+        @foreach($implo as $k=> $ml)
+        <td style="min-width:90px;padding:5px">
+            {!! strlen($ml) > 3 ? $ml : 'Snack meal' !!}
+        </td>
+        @endforeach
+        @endif
+    </tr>
+    @endforeach
+</table><br>
+
+@include('includes.snack1')
+
+<br><br>
+
+<h3>Meal Plan (Week 3 and 4)</h3>
+<table width="100%" cellspacing="1" cellpadding="1" border="1">
+    <tr>
+        <th>Day</th>
+        <th>Breakfast</th>
+        <th>Brunch</th>
+        <th>Lunch</th>
+        <th>Dinner</th>
+    </tr>
+    @foreach($MealDetails as $m)
+    <tr>
+        @if($m->month_par == '3_and_4')
+        <td style="min-width:90px;padding:5px">
+            {{$m->days}}
+        </td>
+        <?php
+
+        $yer = str_replace(['[', ']'], '', $m->daymeal);
+        $implo = explode('",', $yer);
+        ?>
+        @foreach($implo as $k=> $ml)
+        <td style="min-width:90px;padding:5px">
+            {!! strlen($ml) > 3 ? $ml : 'Snack meal' !!}
+        </td>
+        @endforeach
+        @endif
+    </tr>
+    @endforeach
+</table><br>
+
+@include('includes.snack2')
+<!-- main things end -->
+
+<!-- login blade start  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url('assets/frontend') }}/css/font-awesome.min.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            outline-color: #a5b4fc;
+        }
+
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background-color: #e2e8f0;
+        }
+
+        p {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .signup-form {
+            width: 480px;
+            padding: 32px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 2px 4px 8px #6b728040;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 48px;
+        }
+
+        .header h1 {
+            font-weight: bolder;
+            font-size: 28px;
+            color: #6366f1;
+        }
+
+        .input {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .input input {
+            width: 100%;
+            border: none;
+            padding: 8px 40px;
+            border-radius: 4px;
+            background-color: #f3f4f6;
+            color: #1f2937;
+            font-size: 16px;
+        }
+
+        .input input::placeholder {
+            color: #6b7280;
+        }
+
+        .input i {
+            top: 50%;
+            width: 36px;
+            position: absolute;
+            transform: translateY(-50%);
+            color: #6b7280;
+            font-size: 16px;
+        }
+
+        .signup-btn {
+            width: 100%;
+            border: none;
+            padding: 8px 0;
+            margin: 24px 0;
+            border-radius: 4px;
+            background-color: #6366f1;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .alert {
+            background: #FF9494;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
+        .signup-btn:active {
+            background-color: #4f46e5;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons i {
+            height: 36px;
+            width: 36px;
+            line-height: 36px;
+            border-radius: 50%;
+            margin: 24px 8px 48px 8px;
+            background-color: gray;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        i.fa-facebook-f {
+            background-color: #3b5998;
+        }
+
+        i.fa-twitter {
+            background-color: #1da1f2;
+        }
+
+        i.fa-google {
+            background-color: #dd4b39;
+        }
+
+        a {
+            color: #6366f1;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="signup-form">
+        <div class="container">
+            <div class="header">
+                <h1>Welcome Back</h1>
+                <p>Login to get your meal plan</p>
+            </div>
+            @if ($message = Session::get('error'))
+            <div class="alert alert-danger alert-block">
+                <strong style="color: #ffffff;">{{ $message }}</strong>
+            </div>
+            @endif
+            <form method="post" action="{{ url('/loginlogic') }}">
+                {!! csrf_field() !!}
+                <div class="input">
+                    <i class="fa fa-envelope"></i>
+                    <input type="email" placeholder="Email" name="email" />
+                </div>
+                <div class="input">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" placeholder="Password" name="password" />
+                </div>
+                <input class="signup-btn" type="submit" value="LOGIN" />
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+<!-- login blade end -->
+
+<!-- intro talk deleted part \ -->
+
+<div style="height:300px;align-items:center;align-content:center;justify-items:center;justify-content:center;display:flex;">
+    <h1 align="center">So, let’s do this! 💪💪</h1>
+</div>
+
+<!-- ennd  -->
