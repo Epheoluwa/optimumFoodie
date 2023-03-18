@@ -621,7 +621,7 @@
                             {!! csrf_field() !!}
                             <input type="hidden" name="userId" value="{{$userDetails['id']}}">
                             <input type="hidden" name="cusType" value="{{ $userDetails['status']}}">
-                            <button type="submit" class="btn btn-primary" style="width: 100%; margin-right: 15px; background-color:#ff0000; height: 50px;">Get Meal Plan</button>
+                            <button type="submit" class="btn btn-primary" style="width: 100%; margin-right: 15px; background-color:#ff0000; border-color:#ff0000; height: 50px;">Get Meal Plan</button>
                         </form>
                         @endif
 

@@ -93,6 +93,7 @@ class EmailController extends Controller
         $recipes = array_unique($rough);
      
         // return view('free-time-table', compact('MealDetails', 'userDetails', 'recipes'));
+        // exit;
 
         if ($data['cusType'] == 'free') {
             $file_path = public_path('pdf/' . $data['userId'] . $userDetails['name'] . '.pdf');
