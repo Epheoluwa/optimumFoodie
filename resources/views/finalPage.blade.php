@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="{{ url('assets/frontend') }}/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/fontawesome.min.css" integrity="sha512-cHxvm20nkjOUySu7jdwiUxgGy11vuVPE9YeK89geLMLMMEOcKFyS2i+8wo0FOwyQO/bL8Bvq1KMsqK4bbOsPnA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <title>Optimum Foodie</title>
     <style>
@@ -35,13 +38,14 @@
             text-align: center;
             position: absolute;
             top: 42%;
-            left: 48%;
+            left: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             text-transform: lowercase;
             font-weight: 500;
             font-size: 16px;
+            font-family: 'Sora', sans-serif;
             letter-spacing: 0.2px;
             animation: text-animation76 3.6s ease infinite;
 
@@ -433,6 +437,40 @@
                 box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 12px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
             }
         }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+            font-family: 'Sora', sans-serif;
+        }
+
+        .left-firststyle {
+            border: 1px solid;
+        }
+
+        .left-firststyle h3 {
+            text-align: center;
+            padding: 20px 20px;
+            margin-top: 20px;
+        }
+
+        .left-firststyle .divvvv {
+            font-family: 'Sora', sans-serif;
+            text-align: center;
+            padding: 20px 20px;
+            margin-top: 50px;
+        }
+
+        .meailplanpart {
+            background-color: #d0d0d0;
+            display: flex;
+            justify-content: center;
+            height: 400px;
+        }
     </style>
 </head>
 
@@ -468,17 +506,20 @@
             <a class="btn btn-primary" style="background: #ed4c67; width:100px; border-color: #ed4c67;" href="{{ url('/logout') }}">Logout</a>
         </div>
         @endif
-        <section class="hero-section">
+        <section class="hero-section mt-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-md-7 pt-5 mb-5 align-self-center">
-                        <div class="promo pe-md-3 pe-lg-5">
-                            <h4 class="subheadline" style="font-weight: 100;">What you eat on a daily basis is the most important aspect to getting the body you’ve always wanted</h4>
-                            <h1 class="headline mb-3">
-                                FINALLY GET THE BODY <br>YOU’VE BEEN WISHING FOR
-                            </h1><!--//headline-->
-                            <p>Without Ever Needing To Step In A GYM Or Give Up The Nigerian Meals You Enjoy!</p>
-                            <div class="subheadline mb-4">
+                    <div class="col-md-12" style="text-align: center;">
+                        <p class="subheadline" style="font-weight: 100; font-family: 'Sora', sans-serif;">What you eat on a daily basis is the most important aspect to getting the body you’ve always wanted</p>
+                        <h1 class="headline mb-3">
+                            FINALLY GET THE BODY <br>YOU’VE BEEN WISHING FOR
+                        </h1>
+                    </div>
+                    <div class="col-12 col-md-6 align-self-center" style="height: 560px;">
+                        <div class="promo left-firststyle" style="height: 440px;">
+                            <!--//headline-->
+                            <h3>Without Ever Needing To Step In A GYM Or Give Up The Nigerian Meals You Enjoy!</h3>
+                            <div class="subheadline mb-4 divvvv">
                                 Get access to your own customized meal timetable! Specially created based for YOU based on your food likes, health and fitness goals, daily schedule, food allergies and so on!
                             </div><!--//subheading-->
 
@@ -491,7 +532,7 @@
                             </div>
                         </div>//cta-holder -->
 
-                            <div class="hero-quotes mt-5">
+                            <!-- <div class="hero-quotes mt-5">
                                 <div class="container">
                                     <h2 class="text-center">Progress report</h2>
                                     <div class="row">
@@ -509,15 +550,15 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div><!--//hero-quotes-->
+                            </div> -->
                         </div><!--//promo-->
                     </div><!--col-->
-                    <div class="col-12 col-md-5 mb-5 align-self-center">
+                    <div class="col-12 col-md-6 mb-5 align-self-center">
                         <div class="book-cover-holder">
                             <iframe width="550" height="445" src="https://www.youtube.com/embed/iiEK6csjMYo">
                             </iframe>
                         </div><!--//book-cover-holder-->
-                        <div class="text-center">A custom-made plan provides you with specific details of what to eat, how much to eat, and even if you can’t cook or travel a lot, we guide you on exactly what to buy at restaurants around you! </div>
+                        <div class="text-center" style="font-family: 'Sora', sans-serif;">A custom-made plan provides you with specific details of what to eat, how much to eat, and even if you can’t cook or travel a lot, we guide you on exactly what to buy at restaurants around you! </div>
                     </div><!--col-->
                 </div><!--//row-->
             </div><!--//container-->
@@ -526,12 +567,12 @@
         <section id="content-section" class="content-section mt-5">
             <div class="container">
                 <div class="single-col-max mx-auto">
-                    <h2 class="section-heading text-center mb-5">Does this sound familiar?</h2>
+                    <h1 class="section-heading text-center mb-5" style="font-weight: 900;">Does this sound familiar?</h1>
                     <div class="row">
                         <div class="col-12 col-md-12 mb-5">
                             <div class="key-points mb-4 text-center">
                                 <ul class="key-points-list list-unstyled mb-4 mx-auto d-inline-block text-start">
-                                    <li><i class="fa fa-check-circle me-2"></i>You only eat may be once or twice a day....</li>
+                                    <li><i class="fa fa-check-circle me-2"></i >You only eat may be once or twice a day....</li>
                                     <li><i class="fa fa-check-circle me-2"></i>You exercise 3, 4, 5 times a week, may be even lift weights.</li>
                                     <li><i class="fa fa-check-circle me-2"></i>You are religiously taking your lemon water or apple cider vinegar or slimming tea....</li>
                                     <li><i class="fa fa-check-circle me-2"></i>You've started eating healthier, including more fruits, healthier swaps from coconut flour to couscous.</li>
@@ -541,40 +582,6 @@
                                     <li><i class="fa fa-check-circle me-2"></i>Kindle curabitur fermentum.</li>
                                 </ul>
 
-                                <div class="" style="background-color: #000; padding: 15px 15px;">
-                                    <p style="color: #fff;">Here’s the thing, when it comes to getting fitness results, your diet is KING! This right here is what has made the difference between frustration and absolute success for my clients!</p>
-                                </div>
-
-                                <p class="mt-3">And the awesome news is that <b> you don’t have to stop eating your eba, rice, bread, beans and so on to get amazing results! </b> You can eat all your fave Nigerian meals and still crush your body goals!</p>
-                                <div class="text-center mt-5" style=" justify-content: space-between; display: flex;">
-                                    @if ($userDetails['status']== 'free')
-                                    <form action="{{ url('sendmail') }}" method="post" style="width: 50%;">
-                                        {!! csrf_field() !!}
-                                        <input type="hidden" name="userId" value="{{$userDetails['id']}}">
-                                        <input type="hidden" name="cusType" value="{{$userDetails['status']}}">
-                                        <button type="submit" class="btn btn-primary" style="width: 90%; margin-right: 15px;">Get FREE Meal Plan</button>
-                                    </form>
-
-                                    <form id="paymentForm" style="width: 50%;">
-                                        <input type="hidden" id="name" name="name" value="{{$userDetails['name']}}" placeholder="Name:">
-                                        <input type="hidden" id="email-address" name="email-address" value="{{$userDetails['email']}}" placeholder="Email:" required>
-                                        <input type="hidden" id="amount" name="amount" placeholder="Amount:" value="20000" required>
-                                        <button type="submit" onclick="payWithPaystack(event)" class="btn btn-primary" style="width: 90%;">Get FULL Meal Plan</button>
-                                        <p id="success-div" style="display:none;">Your complete meal plan has been sent to your mail</p>
-                                        <p style="color:#FF9494; display: none;" id="error-div">Please contact us to make complain. <a href="mailto:support@cmp.com" target="_blank">Contant us</a></p>
-
-                                    </form>
-
-                                    @else
-                                    <form action="{{ url('sendmail') }}" method="post" style="width: 100%;">
-                                        {!! csrf_field() !!}
-                                        <input type="hidden" name="userId" value="{{$userDetails['id']}}">
-                                        <input type="hidden" name="cusType" value="{{ $userDetails['status']}}">
-                                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-right: 15px;">Get Meal Plan</button>
-                                    </form>
-                                    @endif
-
-                                </div>
                             </div>
 
                         </div><!--//col-12-->
@@ -583,15 +590,58 @@
             </div><!--//container-->
         </section><!--//content-section-->
 
+        <section>
+            <div class="meailplanpart" style="background-color: #d0d0d0;">
+                <div class="">
+                    <div class="" style="padding: 15px 15px;">
+                        <p class="text-center" style="font-size: 20px;">Here’s the thing, when it comes to getting fitness results, <br> your diet is KING! This right here is what has made the difference between frustration and absolute success for my clients!</p>
+                    </div>
+                    <p class="mt-3 text-center" style="font-size: 20px;">And the awesome news is that <b> you don’t have to stop eating your eba, rice, bread, beans and so on to get amazing results! <br> </b> You can eat all your fave Nigerian meals and still crush your body goals!</p>
+                    <div class="text-center" style=" justify-content: space-between; display: flex; margin-top: 100px;">
+                        @if ($userDetails['status']== 'free')
+                        <form action="{{ url('sendmail') }}" method="post" style="width: 50%;">
+                            {!! csrf_field() !!}
+                            <input type="hidden" name="userId" value="{{$userDetails['id']}}">
+                            <input type="hidden" name="cusType" value="{{$userDetails['status']}}">
+                            <button type="submit" class="btn btn-primary" style="width: 90%; margin-right: 15px; background-color:#000; border-color:#000; font-family: 'Sora', sans-serif; height: 50px;">Get FREE Meal Plan</button>
+                        </form>
+
+                        <form id="paymentForm" style="width: 50%;">
+                            <input type="hidden" id="name" name="name" value="{{$userDetails['name']}}" placeholder="Name:">
+                            <input type="hidden" id="email-address" name="email-address" value="{{$userDetails['email']}}" placeholder="Email:" required>
+                            <input type="hidden" id="amount" name="amount" placeholder="Amount:" value="20000" required>
+                            <button type="submit" onclick="payWithPaystack(event)" class="btn btn-primary" style="width: 90%; background-color:#ff0000;  border-color:#ff0000;  font-family: 'Sora', sans-serif; height: 50px;">Get FULL Meal Plan</button>
+                            <p id="success-div" style="display:none;">Your complete meal plan has been sent to your mail</p>
+                            <p style="color:#FF9494; display: none;" id="error-div">Please contact us to make complain. <a href="mailto:support@cmp.com" target="_blank">Contant us</a></p>
+
+                        </form>
+
+                        @else
+                        <form action="{{ url('sendmail') }}" method="post" style="width: 100%;">
+                            {!! csrf_field() !!}
+                            <input type="hidden" name="userId" value="{{$userDetails['id']}}">
+                            <input type="hidden" name="cusType" value="{{ $userDetails['status']}}">
+                            <button type="submit" class="btn btn-primary" style="width: 100%; margin-right: 15px; background-color:#ff0000; height: 50px;">Get Meal Plan</button>
+                        </form>
+                        @endif
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </section>
+
         <section id="reviews-section" class="reviews-section py-5">
             <div class="container">
                 <h2 class="section-heading text-center">Review</h2>
-                <div class="section-intro text-center single-col-max mx-auto mb-5">Hear from Nigerian Nutrition Expert! </div>
+                <div class="section-intro text-center single-col-max mx-auto mb-5 "> <h4>Hear from Nigerian Nutrition Expert!</h4> </div>
                 <div class="row justify-content-center">
-                    <div class="item col-12 col-lg-12 p-3 mb-4">
+                    <div class="item col-12 col-lg-6 col-md-6 p-3 mb-4">
                         <div class="item-inner theme-bg-light rounded p-4">
 
-                            <blockquote class="quote">
+                            <blockquote class="quote" style="font-family: 'Sora', sans-serif;">
                                 "
                                 I’m Odunayo Abdulai, a pharmacist, and US certified integrative nutrition coach! <b> I specialise in helping individuals like you smash their fitness goals eating the Nigerian meals they love!</b>
 
@@ -620,7 +670,11 @@
                                 <h4 class="mt-3" style="color:#4c527d;">But you see, after 15 months of not getting results I was fed up. I had given it my all, what was going on?</h4>
                                 That’s where the journey to me becoming the Calorie Queen started!
 
-                            </blockquote>
+                            <div class="icon-holder"><i class="fa fa-quote-right"></i></div>
+                        </div><!--//inner-->
+                    </div><!--//item-->
+                    <div class="item col-12 col-lg-6 col-md-6 p-3 mb-4">
+                        <div class="item-inner theme-bg-light rounded p-4">
                             <blockquote class="quote mt-4">
                                 <h5 class="text-center" style="color:#4c527d;">I found out my biggest mistake ever!</h5>
                                 <b>My diet was whack! </b>
@@ -765,27 +819,27 @@
                 <div class="audience mx-auto">
                     <div class="item row gx-3">
                         <div class="col">
-                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="width: 100%; background: #7FCDB8; border-color: #7FCDB8; display: flex;justify-content: space-between; color: #000;">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="width: 100%; background: white; border-color: #ff0000; display: flex;justify-content: space-between; color: #000;">
                                 If I make payment now, when will I get my plan?
-                                <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                                <span><i class="fa fa-plus-circle" style="color: #ff0000;" aria-hidden="true"></i></span>
                             </button>
                             <div class="item-desc collapse" id="collapseExample" style="padding: 20px; background-color:#dedfeb;">Following payment, you’ll fill a form where I’ll collect all your personal details, that’ll help me create your own unique plan. You’ll get your plan in your email 3 working days after you fill your form</div>
                         </div><!--//col-->
                     </div><!--//item-->
                     <div class="item row gx-3">
                         <div class="col">
-                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1" style="width: 100%; background: #7FCDB8; border-color: #7FCDB8; display: flex;justify-content: space-between; color: #000;">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1" style="width: 100%; background: white; border-color: #ff0000; display: flex;justify-content: space-between; color: #000;">
                                 What if I can’t cook?
-                                <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                                <span><i class="fa fa-plus-circle" style="color: #ff0000;" aria-hidden="true"></i></span>
                             </button>
                             <div class="item-desc collapse" id="collapseExample1" style="padding: 20px; background-color:#dedfeb;">Remember the meal plan is customised! We’ll work with the few things you might know how to prepare, stick to more options that require zero cooking, and options you can buy out.</div>
                         </div><!--//col-->
                     </div><!--//item-->
                     <div class="item row gx-3">
                         <div class="col">
-                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2" style="width: 100%; background: #7FCDB8; border-color: #7FCDB8; display: flex;justify-content: space-between; color: #000;">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2" style="width: 100%; background: white; border-color: #ff0000; display: flex;justify-content: space-between; color: #000;">
                                 Will I really be able to eat swallow and rice?
-                                <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                                <span><i class="fa fa-plus-circle" style="color: #ff0000;" aria-hidden="true"></i></span>
                             </button>
                             <div class="item-desc collapse" id="collapseExample2" style="padding: 20px; background-color:#dedfeb;">Yes, you will! Carbs are not the problem, they never were. With the meal plan I’ll create for you, I’ll show you exactly how to enjoy your Nigerian foods and still hit your fitness goals</div>
                         </div><!--//col-->
@@ -793,9 +847,9 @@
                     <div class="item row gx-3">
 
                         <div class="col">
-                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3" style="width: 100%; background: #7FCDB8; border-color: #7FCDB8; display: flex;justify-content: space-between; color: #000;">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3" style="width: 100%; background: white; border-color: #ff0000; display: flex;justify-content: space-between; color: #000;">
                                 What if there’s something about the plan I don’t particularly like?
-                                <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                                <span><i class="fa fa-plus-circle" style="color: #ff0000;" aria-hidden="true"></i></span>
                             </button>
                             <div class="item-desc collapse" id="collapseExample3" style="padding: 20px; background-color:#dedfeb;">After receiving your plan, you’ll be able to request a review within 2 weeks of receiving it, and I’ll be happy to make any necessary adjustments.</div>
                         </div><!--//col-->
@@ -803,9 +857,9 @@
                     <div class="item row gx-3">
 
                         <div class="col">
-                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" style="width: 100%; background: #7FCDB8; border-color: #7FCDB8; display: flex;justify-content: space-between; color: #000;">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" style="width: 100%; background: white; border-color: #ff0000; display: flex;justify-content: space-between; color: #000;">
                                 How much is the meal plan?
-                                <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                                <span><i class="fa fa-plus-circle" style="color: #ff0000;" aria-hidden="true"></i></span>
                             </button>
                             <div class="item-desc collapse" id="collapseExample4" style="padding: 20px; background-color:#dedfeb;">
                                 The meal plan costs N20,000 per month. Your goal will determine how many months we might be working together.</div>

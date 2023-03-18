@@ -21,6 +21,7 @@ $perc = 20;
         background-color: #000 !important;
         color: #fff !important;
         border: 1px solid #000 !important;
+        font-family: 'Sora', sans-serif;
     }
 
     .btn-dark:hover {
@@ -37,6 +38,7 @@ $perc = 20;
         border: 1px solid #ff0000 !important;
         /* border: 1px solid #ff0000 !important; */
         border-radius: 5px;
+        font-family: 'Sora', sans-serif;
     }
 
     .btn-dark-outline:hover {
@@ -62,6 +64,7 @@ $perc = 20;
         border-radius: 5px;
         background-color: #ff0000;
         color: #fff;
+        font-family: 'Sora', sans-serif;
     }
 
     .whom-btn:hover,
@@ -314,7 +317,7 @@ $perc = 20;
     .myprogress .table>thead>tr>td,
     .myprogress .table>thead>tr>th {
         border-top: none !important;
-        background-color: #d0d0d0;
+        /* background-color: #d0d0d0; */
         border-radius: 5px;
     }
 
@@ -325,8 +328,8 @@ $perc = 20;
 
     .progress-bar {
         border-radius: 20px;
-        /* background-image:url("{{ url('assets/frontend/images/progress.png') }}"); */
-        background-color: #ff0000;
+        background-image:url("{{ url('assets/frontend/images/progress2.png') }}");
+        /* background-color: #ff0000; */
         height: 33.14px;
         position: absolute;
     }
@@ -340,13 +343,14 @@ $perc = 20;
     }
 
     .myprogress .table td.active-bar {
-        color: #fff;
-        background-color: #ff0000;
+        color: #000000;
+        /* background-color: #ff0000; */
     }
 
     .myprogress .table td.inactive-bar {
-        color: #d8d8d8;
-        background-color: #ff0000;
+        color: #000000;
+        /* color: #d8d8d8; */
+        /* background-color: #ff0000; */
     }
 
     small.direction-right img,
@@ -369,6 +373,7 @@ $perc = 20;
         font-family: 'Sora', sans-serif;
         text-align: center;
         float: left;
+        color: black;
     }
 
     .input-group-addon:last-child {
@@ -398,7 +403,7 @@ $perc = 20;
     }
 
     .calory-box.active {
-        background: #099abd;
+        background: #ff0000;
         color: #fff;
     }
 
@@ -607,6 +612,55 @@ $perc = 20;
 
 <section id="home">
     <div class="container">
+        <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
+            <div style="display:inline-block;" align="center">
+                <hr class="valid-result">
+                <div class="row valid-result">
+                    <!-- <div class="col-md-2"></div> -->
+
+                    <div style="display: flex; justify-content: space-between;">
+                        <h2 align="left" style="font-family: 'Sora', sans-serif;">Trying to lose weight?
+                        </h2>
+                        <h5 style="width: 40%; font-family: 'Sora', sans-serif;">What if I told you you could achieve your best body and maintain it, while still eating Nigerian meals 😋 </h5>
+                    </div>
+
+                    <div class="col-md-12" style="margin-top: 10px;" align="center">
+                        <h3 style="margin-bottom: 2rem; font-family: 'Sora', sans-serif;">Here's what we have to do:</h3>
+                        <table class="table table-striped">
+                            <tr>
+                                <td> <i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px; "></i>Step 1:</td>
+                                <td style="font-family: 'Sora', sans-serif;">Using our free calorie allowance calculator, we'll calculate how many calories you should be eating per day to reach your goal</td>
+
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i>Step 2:</td>
+                                <td style="font-family: 'Sora', sans-serif;">You'll select which foods you enjoy eating</td>
+
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i>Step 3: </td>
+                                <td style="font-family: 'Sora', sans-serif;">We'll use your food selection and calculated calorie allownace to create a CUSTOMISED meal plan for you!</td>
+
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i>Step 4:</td>
+                                <td style="font-family: 'Sora', sans-serif;">The best part? .... We'll be sending you 2 days out of your 4 week plan to you absolutely FREE!</td>
+
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i> Step 5:</td>
+                                <td style="font-family: 'Sora', sans-serif;">And if you'd like to get the complete plan, all you have to do is subscribe!</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!-- <div class="col-md-2"></div> -->
+                </div>
+                <a data-scroll href="javascript:void(0)" style="width: 60%; margin-top: 3rem;" class="btn btn-dark-outline whom-btn" data-toggle="modal" data-target="#calculatorModal">GET STARTED</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="container">
         <div class="row">
             <div class="col-md-offset-2 col-md-8">
                 <h1 class="">We make body weight <span>awesome</span></h1>
@@ -618,7 +672,7 @@ $perc = 20;
                 <a data-scroll href="javascript:void(0)" class="btn btn-default" data-toggle="modal" data-target="#calculatorModal">GET STARTED</a>
             </div>
         </div>
-    </div>
+    </div> -->
 </section>
 
 <form action="{{ url('post-calculator-data') }}" method="POST" id="calcForm">
@@ -636,7 +690,7 @@ $perc = 20;
                                         Previous
                                     </small>
                                 </a>
-                                <p style="font-size: 20px; font-weight:800; font-family: 'Sora', sans-serif;">{{ env('APP_NAME') }}</p>
+                                <p style="font-size: 40px; font-weight:800; font-family: 'Sora', sans-serif;">{{ env('APP_NAME') }}</p>
 
                                 <a href="javascript:void(0)" data-dismiss="modal">
                                     <small class="direction-right">
@@ -654,43 +708,42 @@ $perc = 20;
                                                 <div style="display:inline-block;" align="center">
                                                     <hr class="valid-result">
                                                     <div class="row valid-result">
-                                                        <!-- <div class="col-md-2"></div> -->
-
-                                                        <div style="display: flex; justify-content: space-between;">
-                                                            <h3 align="left">Trying to lose weight?
-                                                            </h3>
-                                                            <h5 style="width: 40%;">What if I told you you could achieve your best body and maintain it, while still eating Nigerian meals 😋 </h5>
+                                    
+                                                        <div style="display: flex; justify-content: center;">
+                                                            <h2 align="left" style="font-family: 'Sora', sans-serif;">Become The Better Version Of Yourself
+                                                            </h2>
+                                                            <!-- <h5 style="width: 40%; font-family: 'Sora', sans-serif;">What if I told you you could achieve your best body and maintain it, while still eating Nigerian meals 😋 </h5> -->
                                                         </div>
 
-                                                        <div class="col-md-12" style="margin-top: 15px;" align="center">
-                                                            <h3 style="margin-bottom: 2rem;">Here's what we have to do:</h3>
+                                                        <!-- <div class="col-md-12" style="margin-top: 10px;" align="center">
+                                                            <h3 style="margin-bottom: 2rem; font-family: 'Sora', sans-serif;">Here's what we have to do:</h3>
                                                             <table class="table table-striped">
                                                                 <tr>
                                                                     <td> <i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px; "></i>Step 1:</td>
-                                                                    <td>Using our free calorie allowance calculator, we'll calculate how many calories you should be eating per day to reach your goal</td>
+                                                                    <td style="font-family: 'Sora', sans-serif;">Using our free calorie allowance calculator, we'll calculate how many calories you should be eating per day to reach your goal</td>
 
                                                                 </tr>
                                                                 <tr>
                                                                     <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i>Step 2:</td>
-                                                                    <td>You'll select which foods you enjoy eating</td>
+                                                                    <td style="font-family: 'Sora', sans-serif;">You'll select which foods you enjoy eating</td>
 
                                                                 </tr>
                                                                 <tr>
                                                                     <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i>Step 3: </td>
-                                                                    <td>We'll use your food selection and calculated calorie allownace to create a CUSTOMISED meal plan for you!</td>
+                                                                    <td style="font-family: 'Sora', sans-serif;">We'll use your food selection and calculated calorie allownace to create a CUSTOMISED meal plan for you!</td>
 
                                                                 </tr>
                                                                 <tr>
                                                                     <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i>Step 4:</td>
-                                                                    <td>The best part? .... We'll be sending you 2 days out of your 4 week plan to you absolutely FREE!</td>
+                                                                    <td style="font-family: 'Sora', sans-serif;">The best part? .... We'll be sending you 2 days out of your 4 week plan to you absolutely FREE!</td>
 
                                                                 </tr>
                                                                 <tr>
                                                                     <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i> Step 5:</td>
-                                                                    <td>And if you'd like to get the complete plan, all you have to do is subscribe!</td>
+                                                                    <td style="font-family: 'Sora', sans-serif;">And if you'd like to get the complete plan, all you have to do is subscribe!</td>
                                                                 </tr>
                                                             </table>
-                                                        </div>
+                                                        </div> -->
                                                         <!-- <div class="col-md-2"></div> -->
                                                     </div>
                                                     <a href="#myCarousel" style="width: 60%; margin-top: 3rem;" class="btn btn-dark-outline whom-btn" data-slide="next">GET STARTED</a>
@@ -703,7 +756,7 @@ $perc = 20;
                                         <div class="container">
                                             @include('progress')
 
-                                            <h4>Very good. Let's keep moving...</h4>
+                                            <h4 style="font-family: 'Sora', sans-serif;">Very good. Let's keep moving...</h4>
                                             <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">What’s your gender?</h1>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%; margin-top:3rem;">
@@ -735,7 +788,7 @@ $perc = 20;
                                         <div class="container">
                                             @include('progress')
 
-                                            <h5>Don’t worry we won’t tell 😉</h5>
+                                            <h5 style="font-family: 'Sora', sans-serif;">Don’t worry we won’t tell 😉</h5>
                                             <h3 style="font-weight:bold; font-size:30px; font-family: 'Sora', sans-serif;">How old are you?</h3>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
@@ -756,12 +809,12 @@ $perc = 20;
                                         <div class="container">
                                             @include('progress')
 
-                                            <h4>Got it. Next question...</h4>
+                                            <h4 style="font-family: 'Sora', sans-serif;">Got it. Next question...</h4>
                                             <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">What’s your height?</h1>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
-                                                <div style="display:inline-block; background: aliceblue; width: 60%;margin-top: 3rem;" align="center">
+                                                <div style="display:inline-block; width: 60%;margin-top: 3rem;" align="center">
                                                     <div style="display:inline-block;margin:25px;">
                                                         <button type="button" class="ft-cm activer" id="ftBtn" onclick="clickTallBtn(this)">ft</button>
                                                         <button type="button" class="ft-cm" id="cmBtn" onclick="clickTallBtn(this)">cm</button>
@@ -802,7 +855,7 @@ $perc = 20;
                                         <div class="container">
                                             @include('progress')
 
-                                            <h4>Great. Last personal detail...</h4>
+                                            <h4 style="font-family: 'Sora', sans-serif;">Great. Last personal detail...</h4>
                                             <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">How much do you weigh right now?</h1>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
@@ -836,7 +889,7 @@ $perc = 20;
                                             @php $perc = 50; @endphp
                                             @include('progress')
 
-                                            <h4>Now tell us what you want to achieve...</h4>
+                                            <h4 style="font-family: 'Sora', sans-serif;">Now tell us what you want to achieve...</h4>
                                             <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">What do you want to achieve?</h1>
                                             <p id="error-p-tag4" class="error-color" style="font-size: 16px; font-family: 'Sora', sans-serif;"> </p>
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%; margin-top: 2rem">
@@ -897,7 +950,7 @@ $perc = 20;
                                         <div class="container">
                                             @include('progress')
 
-                                            <h4>Let's get really specific on this....</h4>
+                                            <h4 style="font-family: 'Sora', sans-serif;">Let's get really specific on this....</h4>
                                             <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">What’s your target weight?</h1>
                                             <p id="error-p-tag6" class="error-color" style="font-size: 16px; font-family: 'Sora', sans-serif;"> </p>
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;padding-top:25px;">
@@ -951,7 +1004,7 @@ $perc = 20;
                                             @php $perc = 75; @endphp
                                             @include('progress')
 
-                                            <h4>Cool. Let's go a little deeper on exercise...</h4>
+                                            <h4 style="font-family: 'Sora', sans-serif;">Cool. Let's go a little deeper on exercise...</h4>
                                             <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">How physically active are you?</h1>
                                             <p id="error-p-tag5" class="error-color" style="font-size: 16px; font-family: 'Sora', sans-serif;"> </p>
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
@@ -966,7 +1019,7 @@ $perc = 20;
                                                             <div class="physical-actw">
                                                                 <div class="workout-cards" align="center" onclick="clickWorkoutBtn(this, 'Sedentary')">
                                                                     <div class="workout-cards0" style="display: flex; justify-content:space-between;">
-                                                                        <div class="physical-actM">
+                                                                        <div class="physical-actM" style="width: 60%;">
                                                                             <h4>Sedentary</h4>
                                                                             <p>Little to no regular exercise.</p>
                                                                             <a href=".workout-cards0" class="triggerInfo">...learn more</a>
@@ -1021,7 +1074,7 @@ $perc = 20;
                                                                     <div class="workout-cards3" style="display: flex; justify-content:space-between;">
                                                                         <div class="physical-actM">
                                                                             <h4>Heavy or Labour Intensive Activity</h4>
-                                                                            <p >Intense exercise for 60min or greater, 5 to 7 days per week. Labour intensive occupations also qualify for this level, such as bricklaying, carpentry, general labour, farming etc.</p>
+                                                                            <p>Intense exercise for 60min or greater, 5 to 7 days per week. Labour intensive occupations also qualify for this level, such as bricklaying, carpentry, general labour, farming etc.</p>
                                                                             <a href=".workout-cards3" class="triggerInfo">...learn more</a>
                                                                         </div>
                                                                         <img src="{{ url('assets/frontend/images/_Intense.png') }}" class="img-responsive" style="max-height:100px;" />
@@ -1067,12 +1120,13 @@ $perc = 20;
                                         <div class="container">
                                             @include('progress')
 
-                                            <h4>Now tell us what you want to achieve...</h4>
+                                            <h4 style="font-family: 'Sora', sans-serif;">Now tell us what you want to achieve...</h4>
                                             <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">Are you managing any of this health conditions?</h1>
 
-                                            <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%; margin-top:2rem">
+                                            <div>
+                                                <!-- <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%; margin-top:2rem"> -->
 
-                                                <div style="display:inline-block;" align="center">
+                                                <div align="center">
 
                                                     <div class="row">
                                                         <div class="col-md-1"></div>
@@ -1081,7 +1135,7 @@ $perc = 20;
                                                             <div class="activity-cards" align="center" onclick="clickActivityBtn(this, 'Very Light')">
                                                                 <input type="checkbox" name="activity[]" value="High Cholesterol">
 
-                                                                <img src="{{ url('assets/frontend/images/glucosemeter.png') }}" class="img-responsive" style="max-height:100px; height: 60px;" />
+                                                                <img src="{{ url('assets/frontend/images/blood-vessel.png') }}" class="img-responsive" style="max-height:100px; height: 60px;" />
                                                                 <h4 style="font-size: 15px;">High Cholesterol</h4>
                                                             </div>
                                                         </div>
@@ -1105,7 +1159,7 @@ $perc = 20;
                                                             <div class="activity-cards" align="center" onclick="clickActivityBtn(this, 'Heavy')">
                                                                 <input type="checkbox" name="activity[]" value="Pre-diabetes">
 
-                                                                <img src="{{ url('assets/frontend/images/blood-vessel.png') }}" class="img-responsive" style="max-height:100px; height: 60px;" />
+                                                                <img src="{{ url('assets/frontend/images/glucosemeter.png') }}" class="img-responsive" style="max-height:100px; height: 60px;" />
                                                                 <h4 style="font-size: 15px;">Pre-diabetes</h4>
                                                             </div>
                                                         </div>
@@ -1113,7 +1167,7 @@ $perc = 20;
                                                             <div class="activity-cards" align="center" onclick="clickActivityBtn(this, 'None')">
                                                                 <input type="checkbox" name="activity[]" value="None">
 
-                                                                <img src="{{ url('assets/frontend/images/Heavy.png') }}" class="img-responsive" style="max-height:100px; height: 60px;" />
+                                                                <img src="{{ url('assets/frontend/images/cancel.png') }}" class="img-responsive" style="max-height:100px; height: 60px;" />
                                                                 <h4 style="font-size: 15px;">None</h4>
                                                             </div>
                                                         </div>
@@ -1142,50 +1196,50 @@ $perc = 20;
                                                         </div>
                                                         <div class="col-md-3"></div>
                                                     </div>
-                                                    <hr class="valid-result">
+                                                    <hr class="valid-result" style="margin-top: 0px; margin-bottom: 0px">
                                                     <div class="row valid-result">
                                                         <div class="col-md-2"></div>
                                                         <div class="col-md-8" align="center">
-                                                            <h2 align="left">Brief Summary</h2>
+                                                            <h2 align="left" style="font-family: 'Sora', sans-serif;">Brief Summary</h2>
                                                             <table class="table table-striped">
                                                                 <tr>
                                                                     <td><span> <img src="{{ url('assets/frontend/images/age-group.png') }}" class="img-responsive" style="width: 20px" /></span></td>
-                                                                    <td>Age</td>
-                                                                    <td id="res-age"></td>
+                                                                    <td style="font-family: 'Sora', sans-serif;">Age</td>
+                                                                    <td style="font-family: 'Sora', sans-serif;" id="res-age"></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td><span><img src="{{ url('assets/frontend/images/weight.png') }}" class="img-responsive" style="width: 20px" /></span></td>
-                                                                    <td>Current Weight</td>
-                                                                    <td id="res-weight"></td>
+                                                                    <td style="font-family: 'Sora', sans-serif;"> Current Weight</td>
+                                                                    <td id="res-weight" style="font-family: 'Sora', sans-serif;"></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td><span><img src="{{ url('assets/frontend/images/height.png') }}" class="img-responsive" style="width: 20px" /></span></td>
-                                                                    <td>Height</td>
-                                                                    <td id="res-height"></td>
+                                                                    <td style="font-family: 'Sora', sans-serif;">Height</td>
+                                                                    <td id="res-height" style="font-family: 'Sora', sans-serif;"></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td><span><img src="{{ url('assets/frontend/images/exercise.png') }}" class="img-responsive" style="width: 20px" /></span></td>
-                                                                    <td>Level of Activity</td>
-                                                                    <td id="res-activity"></td>
+                                                                    <td style="font-family: 'Sora', sans-serif;">Level of Activity</td>
+                                                                    <td id="res-activity" style="font-family: 'Sora', sans-serif;"></td>
                                                                 </tr>
                                                             </table>
 
                                                             <div class="weightMaintainResult">
-                                                                <p>
+                                                                <p style="font-family: 'Sora', sans-serif;">
                                                                     Here’s the number of calories you need to consume to maintain your current weight::
                                                                 </p>
 
                                                                 <h3>
-                                                                    <span class="calories"></span>cal<br>
-                                                                    <small class="min-calory">The recommended minimum is <b>1200cal</b> per day to meet your body’s nutritional needs.</small>
+                                                                    <span class="calories" style="font-family: 'Sora', sans-serif;"></span>cal<br>
+                                                                    <small class="min-calory" style="font-family: 'Sora', sans-serif;">The recommended minimum is <b>1200cal</b> per day to meet your body’s nutritional needs.</small>
                                                                     <br>
-                                                                    <small class="min-calory">So you here are your options, you can increase the time it’ll take to reach your goal, and/ or increase your level of physical activity.</small>
+                                                                    <small class="min-calory" style="font-family: 'Sora', sans-serif;">So you here are your options, you can increase the time it’ll take to reach your goal, and/ or increase your level of physical activity.</small>
                                                                     <br>
-                                                                    <small class="min-calory">With this in mind, kindly click the button below to recalculate your calorie needs</small>
+                                                                    <small class="min-calory" style="font-family: 'Sora', sans-serif;">With this in mind, kindly click the button below to recalculate your calorie needs</small>
                                                                     <br>
                                                                 </h3>
                                                                 <div class="">
-                                                                    <p>See how the number changes based on your level of activity.</p>
+                                                                    <p style="font-family: 'Sora', sans-serif;">See how the number changes based on your level of activity.</p>
                                                                     <table cellpadding="2" cellspacing="2">
                                                                         <tr>
                                                                             <td id="SedentaryCalory">
@@ -1229,11 +1283,11 @@ $perc = 20;
                                                             </div>
 
                                                             <div class="weightLossResult"><br>
-                                                                <p>
+                                                                <p style="font-family: 'Sora', sans-serif;">
                                                                     To lose <b id="res-weight-text">28kg</b> over the next <b id="res-period-text">28kg</b>, at your current level of activity and weight, you’ll need to consume:
                                                                 </p>
 
-                                                                <h3>
+                                                                <h3 style="font-family: 'Sora', sans-serif;">
                                                                     <span class="calories"></span>cal per day<br>
                                                                     <small class="min-calory" style="color:#FF9494;">The recommended minimum is <b>1200cal</b> per day to meet your body’s nutritional needs.</small>
                                                                     <br>
@@ -1242,7 +1296,7 @@ $perc = 20;
                                                                     <small class="min-calory" style="color:#FF9494;">With this in mind, kindly click the button below to recalculate your calorie needs</small>
                                                                 </h3>
 
-                                                                <p class="recalc-next">
+                                                                <p class="recalc-next" style="font-family: 'Sora', sans-serif;">
                                                                     Now that we’ve established your calorie needs to achieve your goal, let’s set-up your food preferences, and eating pattern.
                                                                 </p>
                                                                 <p>
@@ -1262,7 +1316,7 @@ $perc = 20;
                                                     </div>
 
                                                     <div class="weightMaintainResult" style="margin-top: 3rem">
-                                                        <p>
+                                                        <p style="font-family: 'Sora', sans-serif;">
                                                             Now that we’ve established your calorie needs to achieve your goal, let’s set-up your food preferences, and eating pattern.
                                                         </p>
                                                         <br>
@@ -1320,8 +1374,8 @@ $perc = 20;
                                     <?php $rf++; ?>
                                     <div class="item" style="height:100%;overflow-y:auto;">
                                         <div class="container">
-                                            <h4 style="font-weight:bold; font-family: 'Sora', sans-serif;">Now it’s time to choose the foods you enjoy. Don’t worry if you consider them healthy or not, just choose the options you enjoy eating</h4>
-                                            <h4 style="font-weight:bold; font-family: 'Sora', sans-serif;">Don’t worry if you consider them healthy or not, just choose the options you enjoy eating</h4>
+                                            <h4 style="font-weight:bold; font-size: 15px; font-family: 'Sora', sans-serif;">Now it’s time to choose the foods you enjoy. Don’t worry if you consider them healthy or not, just choose the options you enjoy eating</h4>
+                                            <h4 style="font-weight:bold; font-size: 15px; font-family: 'Sora', sans-serif;">Don’t worry if you consider them healthy or not, just choose the options you enjoy eating</h4>
                                             <h1>{{ $typ }}</h1><br>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
@@ -1363,9 +1417,9 @@ $perc = 20;
                                     <div class="item" style="height:100%;overflow-y:auto;">
                                         <div class="container">
                                             <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">Yaaay! Your FREE Meal Plan is ready!</h1>
-                                            <h3 align="center">We have just created your fully CUSTOMIZED 30 day meal plan!</h3>
+                                            <h3 align="center" style="font-family: 'Sora', sans-serif;">We have just created your fully CUSTOMIZED 30 day meal plan!</h3>
 
-                                            <h4>Enter your name and best email below to get 2 FULL days of the meal plan completely FREE!</h4>
+                                            <h4 style="font-family: 'Sora', sans-serif;">Enter your name and best email below to get 2 FULL days of the meal plan completely FREE!</h4>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
@@ -1376,9 +1430,9 @@ $perc = 20;
                                                     <input class="bestest" placeholder="Best Email" type="email" name="best_email">
                                                     <br>
                                                     <br>
-                                                    <label for="suggestions">List any other food option you will like us to add </label>
+                                                    <label for="suggestions" style="font-family: 'Sora', sans-serif;">List any other food option you will like us to add </label>
                                                     <br>
-                                                    <input class="bestest" placeholder="List any other Food Option" type="text" name="suggestions">
+                                                    <input class="bestest" type="text" name="suggestions">
 
 
                                                     <button type="submit" style="width:240px;border-radius:3px;margin-top:20px;" class="btn btn-dark-outline whom-btn" onclick="">Save </button>
@@ -2030,8 +2084,10 @@ $perc = 20;
         else
             KGx = parseInt(htALL[0]);
 
-        return (KGx >= KG) ? `Your current weight must be greater than your target weight in other to lose some pounds. Kindly go back and adjust your numbers.<br><br>
-                <a href="javascript:void(0)" onclick="$('#myCarousel').carousel(5);" class="btn btn-dark" onclick="">Adjust Your Numbers</a><br><br><br><br>` : (KG - KGx);
+        return (KGx >= KG) ? `Your current weight must be greater than your target weight in other to lose some pounds. Kindly go back and adjust your numbers.` : (KG - KGx);
+
+        // <br><br>
+        //         <a href="javascript:void(0)" onclick="$('#myCarousel').carousel(5);" class="btn btn-dark" onclick="">Adjust Your Numbers</a><br><br><br><br>
     }
 
     function loseWeight(datum, added, workoutIndex, weightToLose, timeToLoseWeight, KG) {

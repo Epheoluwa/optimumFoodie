@@ -29,7 +29,7 @@
 </head>
 
 <body id="top">
-    <header>
+    <!-- <header>
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-4 col-xs-12">
@@ -49,9 +49,9 @@
                 </div>
             </div>
         </div>
-    </header>
+    </header> -->
 
-    <nav class="navbar navbar-default templatemo-nav" role="navigation">
+    <!-- <nav class="navbar navbar-default templatemo-nav" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -65,15 +65,11 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#top">HOME</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#calculatorModal">CALCULATOR</a></li>
-                    <!-- <li><a href="#about">ABOUT</a></li>
-                        <li><a href="#team">TEAM</a></li>
-                        <li><a href="#service">SERVICE</a></li>
-                        <li><a href="#portfolio">PORTFOLIO</a></li> -->
                     <li><a href="#contact">CONTACT</a></li>
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
     @if($errors->any())
     <div class="alert alert-danger">
@@ -102,7 +98,7 @@
 
     @yield('main_content')
 
-    <section id="contact">
+    <!-- <section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -141,11 +137,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- end contact -->
 
     <!-- start copyright -->
-    <footer id="copyright">
+    <!-- <footer id="copyright">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -154,7 +150,7 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> -->
     <!-- end copyright -->
 
     @yield('footer_js')

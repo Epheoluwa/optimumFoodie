@@ -5,9 +5,9 @@ http://www.templatemo.com/preview/templatemo_450_awesome
 
 body
 	{
- 		background: #303030;
- 		color: #ffffff;
-		font-family: 'Open Sans', sans-serif;
+ 		/* background: #303030;
+ 		color: #ffffff; */
+		 font-family: 'Sora', sans-serif;
 		font-weight: 300;
 		overflow-x: hidden; /* prevent horizontal scrollbar from appearing */
 	}
@@ -204,11 +204,11 @@ header .social-icon li a
 /* start home */
 #home
 	{
-		background: url('../images/home-bg.jpg') no-repeat;
-		background-size: cover;
-		padding-top: 160px;
-		padding-bottom: 100px;
-		min-height: 650px;
+		/* background: url('../images/home-bg.jpg') no-repeat;
+		background-size: cover; */
+		padding-top: 20px;
+		/* padding-bottom: 100px;
+		min-height: 650px; */
 	}
 #home h1
 	{

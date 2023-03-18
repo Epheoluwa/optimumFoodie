@@ -486,32 +486,15 @@ class PagesController extends Controller
         $data['foods'] = \App\Models\Product::all();
         $data['recipes'] = \App\Models\Recipe::all();
 
-        // $val = \App\Models\FoodRecipe::all();
-
-        // foreach($val as $v)
-        // {
-        //     // echo($v);
-        //     foreach($v['food_id'] as $fid)
-        //     {
-        //         echo "<br />";
-        //         echo($fid);
-        //         $data['foodrecipes'] = \App\Models\FoodRecipe::where('food_recipes.status', 'active')->join('calory_template_types','food_recipes.calory_template_type_id','=','calory_template_types.id')->join('foods', 'food_recipes.food_id','=','foods.id')->join('recipes','food_recipes.recipe_id','=','recipes.id')->get();
-        //         print_r($data['foodrecipes']);
-        //     }
-        // }
-        // // print_r($val);
-        // exit;
-        $data['foodrecipes'] = \App\Models\FoodRecipe::where('food_recipes.status', 'active')->join('calory_template_types','food_recipes.calory_template_type_id','=','calory_template_types.id')->join('foods','food_recipes.food_id','=','foods.id')->join('recipes','food_recipes.recipe_id','=','recipes.id')->get();
-
-
-        // $data['foodrecipes'] = \App\Models\FoodRecipe::where('status', 'active')->with('caloryTemplate')->with('foodOption')->with('recipes')->get();
-        // var_dump($data['foodrecipes']);
-        // exit;
+        $data['foodrecipes'] = \App\Models\FoodRecipe::all();
+        
+        // $data['foodrecipes'] = \App\Models\FoodRecipe::where('food_recipes.status', 'active')->join('calory_template_types','food_recipes.calory_template_type_id','=','calory_template_types.id')->join('foods','food_recipes.food_id','=','foods.id')->join('recipes','food_recipes.recipe_id','=','recipes.id')->get();
         return view('backend.recipes', $data );
     }
 
     public function getFoodRecipePagePost(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'calory_template_type_id' => 'required',
             'food_option' => 'required',

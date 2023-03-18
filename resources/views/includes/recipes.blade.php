@@ -5,11 +5,8 @@
                         <!-- <h3>Fish Sauce Recipe (3 servings)</h3> -->
                         <b>Ingredients</b>
                         <ul>
-                            @foreach($recipes as $rec)
-                                @foreach($rec as $r)
-                                <li>{{$r->recipe}} </li>
-                               
-                                @endforeach
+                            @foreach($recipes as $rec)  
+                                <li>{{$rec}} </li>
                             <!-- <li>{$rec->recipe}</li> -->
                             
                             @endforeach

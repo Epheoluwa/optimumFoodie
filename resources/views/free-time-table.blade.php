@@ -120,7 +120,8 @@
             <tr>
               <td class="wrapper" style="font-family: sans-serif; font-size: 14px; vertical-align: top; box-sizing: border-box; padding: 50px;">
                 <p style="height:40px;">
-                  <img src="https://i.postimg.cc/6QsgW18h/logo.png" height="120px" style="float:left;" />
+                  <img src="{{ url('assets/frontend/images/optimumfoodie.fw_.png') }}" height="120px" style="float:left;" />
+                  <!-- <img src="https://i.postimg.cc/6QsgW18h/logo.png" height="120px" style="float:left;" /> -->
                   <!-- <img src="{{ url('/client-assets/img/logo.png?tok='.rand(100,999)) }}" height="120px" style="float:left;" /> -->  
                 </p>
                 <h1 align="center">Your Customized Meal Plan</h1><br>

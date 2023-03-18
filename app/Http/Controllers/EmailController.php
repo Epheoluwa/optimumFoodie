@@ -66,38 +66,39 @@ class EmailController extends Controller
         }
         $options_food = array();
         $recipes = array();
+        $rough = array();
         $food_options = json_decode($food_options);
         foreach ($food_options as $food) {
             $onje = str_replace(['[', ']'], '', $food);
             array_push($options_food, $onje);
         }
         $mealTem = $mealsss . 'meal' . ' ' . $snack . 'snacks';
-        foreach ($options_food as $key=> $foods) {
-            $v = \App\Models\FoodRecipe::where('foods.name', $foods)->where('calory_template_types.template_name', $mealTem)->where('calory_template_types.calory', $calories)->join('recipes', 'food_recipes.recipe_id', '=', 'recipes.id')->join('calory_template_types', 'food_recipes.calory_template_type_id', '=', 'calory_template_types.id')->join('foods', 'food_recipes.food_id', '=', 'foods.id')->select('recipes.recipe')->get();
+        $calTem = $calories . 'cal ' . $mealTem;
 
-            if($v->count() !== 0){
-                array_push($recipes, $v);
+        foreach ($options_food as $key => $foods) {
+            // $v = \App\Models\FoodRecipe::where('foods.name', $foods)->where('calory_template_types.template_name', $mealTem)->where('calory_template_types.calory', $calories)->join('recipes', 'food_recipes.recipe_id', '=', 'recipes.id')->join('calory_template_types', 'food_recipes.calory_template_type_id', '=', 'calory_template_types.id')->join('foods', 'food_recipes.food_id', '=', 'foods.id')->select('recipes.recipe')->get();
+            // echo $foods;
+            $v = \App\Models\FoodRecipe::select('food_id','recipe_id')->where('calory_template_type_id', $calTem)->get();
+            foreach ($v as $new) {
+                if (in_array($foods, $new['food_id'])) {
+                    array_push($rough, $new['recipe_id']);
+                }
             }
-            
-            // array_push($recipes, $v);
+            // if($v->count() !== 0){
+            //     array_push($recipes, $v);
+            // }
+            // var_dump($v);
         }
-        // echo("<br />");
-        // echo("<br />");
-        // echo("<br />");
-        // echo("<br />");
-        // foreach($MealDetails as $meals)
-        // {
-        //     $yer = str_replace(['[', ']'], '', $meals->daymeal);
-        //     $implo = explode('",', $yer);
-        //     var_dump($implo);
-        // }
-        // // printf($this->float2rat(0.5));
+
+        $recipes = array_unique($rough);
+     
+        // return view('free-time-table', compact('MealDetails', 'userDetails', 'recipes'));
 
         if ($data['cusType'] == 'free') {
             $file_path = public_path('pdf/' . $data['userId'] . $userDetails['name'] . '.pdf');
 
             if (!file_exists($file_path)) {
-                $pdf = PDF::loadview('free-time-table', compact('MealDetails', 'userDetails','recipes'));
+                $pdf = PDF::loadview('free-time-table', compact('MealDetails', 'userDetails', 'recipes'));
                 $pdf->setOptions([
                     'footer-center' => 'Copyright Optimum Foodie ' . $presentYear
                 ]);
@@ -107,7 +108,7 @@ class EmailController extends Controller
 
             if ($this->isOnline()) {
                 $mail_data = [
-                    'reciever' => $userDetails['email'], 
+                    'reciever' => $userDetails['email'],
                     // 'reciever' => 'solomonepheoluwa@gmail.com',
                     'from' => 'solomon@testing.com',
                     'fromName' => 'Salo',
@@ -147,7 +148,7 @@ class EmailController extends Controller
             // return $pdf->inline();
 
             //generate pdf and display for paid user
-            $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal', 'month_par','food_options', 'calories', 'main_meal', 'snack_meal')->where('user_id', $data['userId'])->get();
+            $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal', 'month_par', 'food_options', 'calories', 'main_meal', 'snack_meal')->where('user_id', $data['userId'])->get();
 
             $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails', 'recipes'));
             $pdf->setOptions([

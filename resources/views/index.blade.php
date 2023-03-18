@@ -3,7 +3,7 @@
 @section('main_content')
     
         <!-- start home -->
-        <section id="home">
+        <!-- <section id="home">
             <div class="container">
                 <div class="row">
                     <div class="col-md-offset-2 col-md-8">
@@ -17,11 +17,11 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- end home -->
 
         <!-- start about -->
-        <section id="about">
+        <!-- <section id="about">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -68,11 +68,11 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- end about -->
 
         <!-- start team -->
-        <section id="team">
+        <!-- <section id="team">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -120,11 +120,11 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- end team -->
 
         <!-- start service -->
-        <section id="service">
+        <!-- <section id="service">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -147,11 +147,11 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- end servie -->
 
         <!-- start portfolio -->
-        <section id="portfolio">
+        <!-- <section id="portfolio">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -239,6 +239,6 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- end portfolio -->
 @endsection

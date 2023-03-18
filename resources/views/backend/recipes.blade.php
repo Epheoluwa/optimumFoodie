@@ -50,13 +50,14 @@
                             <tr class="warning">
                                 <td><?= ++$sn ?></td>
                                 <td>
-                                    {{ $frec->calory }} cal {{ $frec->template_name }}
+                                    {{ $frec->calory_template_type_id }}
                                 </td>
                                 <td>
-                                    {{ $frec->name }}
+                                    <?php $foodOpt = implode(" and ",$frec->food_id  ) ?>
+                                    {{ $foodOpt }}
                                 </td>
                                 <td>
-                                    {{ $frec->recipe }}
+                                    {{ $frec->recipe_id }}
                                 </td>
                                 <td>
                                     <button class="btn btn-sm btn-success">Active</button>
@@ -91,17 +92,17 @@
                                                                     <select class="form-control" name="calory_template_type_id" id="calory_template_type_id" required>
                                                                         <option value="">Select a Template</option>
                                                                         @foreach($calories as $value)
-                                                                        <option value="{{ $value->id }}" {{ ($frec->calory_template_type_id==$value->id)?' selected':'' }}>{{ $value->calory }}cal {{ $value->template_name }}</option>
+                                                                        <option value="{{ $value->calory }}cal {{ $value->template_name }}" {{ ($frec->calory_template_type_id==($value->calory . 'cal ' . $value->template_name))?' selected':'' }}>{{ $value->calory }}cal {{ $value->template_name }}</option>
                                                                         @endforeach
                                                                     </select>
                                                                 </div>
 
                                                                 <div class="col-md-12">
                                                                     <label for="food_option">Select Food Option</label>
-                                                                    <select class="form-control" name="food_option" id="food_option" required>
+                                                                    <select class="form-control" name="food_option[]" multiple id="food_option" required>
                                                                         <option value="">Select Food Option</option>
                                                                         @foreach($foods as $value)
-                                                                        <option value="{{ $value->id }}" {{ ($frec->food_id==$value->id)?' selected':'' }}>{{ $value->name }}</option>
+                                                                        <option value="{{ $value->name }}" {{ ($frec->food_id==$value->name)?' selected':'' }}>{{ $value->name }}</option>
                                                                         @endforeach
                                                                     </select>
                                                                 </div>
@@ -110,7 +111,7 @@
                                                                     <select class="form-control" name="recipes" id="recipes" required>
                                                                         <option value="">Select Recipe</option>
                                                                         @foreach($recipes as $value)
-                                                                        <option value="{{ $value->id }}" value="{{ $value->id }}" {{ ($frec->recipe_id==$value->id)?' selected':'' }}>{{ $value->recipe }}</option>
+                                                                        <option value="{{ $value->recipe }}" {{ ($frec->recipe_id==$value->recipe)?' selected':'' }}>{{ $value->recipe }}</option>
                                                                         @endforeach
                                                                     </select>
                                                                 </div>
@@ -164,7 +165,7 @@
                                     <select class="form-control" name="calory_template_type_id" id="calory_template_type_id" required>
                                         <option value="">Select a Template</option>
                                         @foreach($calories as $value)
-                                        <option value="{{ $value->id }}">{{ $value->calory }}cal {{ $value->template_name }}</option>
+                                        <option value="{{ $value->calory }}cal {{ $value->template_name }}">{{ $value->calory }}cal {{ $value->template_name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -174,9 +175,9 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <label for="food_option">Select Food Option</label>
-                                    <select class="form-control" name="food_option" id="food_option" data-placeholder="Select Food Option"  required>
+                                    <select class="form-control" name="food_option[]" id="food_option" multiple data-placeholder="Select Food Option"  required>
                                         @foreach($foods as $value)
-                                        <option value="{{ $value->id }}">{{ $value->name }}</option>
+                                        <option value="{{ $value->name }}">{{ $value->name }}</option>
                                         <hr>
                                         @endforeach
                                     </select>
@@ -190,7 +191,7 @@
                                     <select class="form-control" name="recipes" id="recipes" required>
                                         <option value="">Select Recipe</option>
                                         @foreach($recipes as $value)
-                                        <option value="{{ $value->id }}">{{ $value->recipe }}</option>
+                                        <option value="{{ $value->recipe }}">{{ $value->recipe }}</option>
                                         @endforeach
                                     </select>
                                 </div>
