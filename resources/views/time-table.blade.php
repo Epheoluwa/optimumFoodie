@@ -4,9 +4,7 @@
 <head>
   <meta name="viewport" content="width=device-width">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <title>Transactional Email</title>
   <style>
     @media only screen and (max-width: 620px) {
@@ -126,7 +124,7 @@
             <tr>
               <td class="wrapper" style="font-family: 'Sora', sans-serif; font-size: 14px; vertical-align: top; box-sizing: border-box; padding: 50px;">
                 <p style="height:40px;">
-                <img src="{{ url('assets/frontend/images/optimumfoodie.fw_.png') }}" height="120px" style="float:left;" />
+                <img src="{{ public_path('assets/frontend/images/optimumfoodie.png') }}" height="120px" style="float:left;" />
                 <!-- <img src="https://i.postimg.cc/6QsgW18h/logo.png" height="120px" style="float:left;" /> -->
                   <!-- <img src="{{ url('/client-assets/img/logo.png?tok='.rand(100,999)) }}" height="120px" style="float:left;" /> -->
                 </p>

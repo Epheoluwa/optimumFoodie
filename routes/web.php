@@ -53,6 +53,8 @@ Route::prefix('admin')->middleware(['admin-auth', 'auth'])->group(function () {
     Route::get('/usersAdd', [AdminUserController::class, 'usersAdd']);
     Route::post('/create-new-user', [AdminUserController::class, 'Addnewusers']);
     Route::post('/edit-user/{id}', [AdminUserController::class, 'Editusers']);
+    Route::get('/admin-view-meal-plan/{id}', [AdminUserController::class, 'AdminPreviewuserMeal']);
+    Route::post('/uploadedmealplan/{id}', [AdminUserController::class, 'AdminUploaduserMeal']);
 
     //SUGGESTIONS ROUTE
     Route::get('/suggestion',[AdminUserController::class, 'suggest']);

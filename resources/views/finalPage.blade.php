@@ -612,8 +612,7 @@
                             <input type="hidden" id="amount" name="amount" placeholder="Amount:" value="20000" required>
                             <button type="submit" onclick="payWithPaystack(event)" class="btn btn-primary" style="width: 90%; background-color:#ff0000;  border-color:#ff0000;  font-family: 'Sora', sans-serif; height: 50px;">Get FULL Meal Plan</button>
                             <p id="success-div" style="display:none;">Your complete meal plan has been sent to your mail</p>
-                            <p style="color:#FF9494; display: none;" id="error-div">Please contact us to make complain. <a href="mailto:support@cmp.com" target="_blank">Contant us</a></p>
-
+                            <p style="color:#FF9494; display: none;" id="error-div">Please contact us to make complain. <a href="mailto:support@cmp.com" target="_blank">Contant us</a></p> 
                         </form>
 
                         @else

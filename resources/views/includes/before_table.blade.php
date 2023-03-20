@@ -12,7 +12,7 @@
                             <li>1 serving of any swallow, the size should look something like the picture below.</li>
                             <li>1 piece of fish is the tail or mid-piece of a medium croaker, tilapia, cote or titus fish</li>
                             <li>1 dressing = ½ tablespoon mayonnaise or 1 tablespoon regular salad dressing or 2 tablespoons of low-fat dressing</li>
-                            <img src="{{ url('assets/frontend/images/truk.png') }}" height="300px" width="500px"/> 
+                            <img src="{{ public_path('assets/frontend/images/truk.png') }}" height="300px" width="500px"/> 
                             <!-- <img src="https://i.postimg.cc/9Qx6PCwh/Screen-Shot-2023-02-25-at-12-36-22-PM.png" height="300px" width="500px"/>  -->
                         </ul>
                     </div><br>

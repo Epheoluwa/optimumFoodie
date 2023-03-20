@@ -15,6 +15,6 @@ class UserMealPlan extends Model
      ];
 
      public function User(){
-        return $this->belongsTo('App\Models\User', 'user_id');
+        return $this->belongsTo('App\Models\User', 'id','user_id');
     }
 }

@@ -39,7 +39,7 @@
                             <li>I advise making meals in bulk and pre-packing them in your fridge. Cook your protein and vegetables in bulk and keep in the freezer.</li>
                             <li>I also advise chopping vegetables needed for certain meals and shredding your coleslaw over the weekend. Chopping or shredding helps keep them fresh and saves plenty of time during the week. Keep them in freezer bags in your REFRIGERATOR</li>
                             <li>You’ll need the food measuring cups to measure certain foods, as outlined in your meal plan. Here’s what they look like below. </li>
-                            <img src="{{ url('assets/frontend/images/keys.png') }}" height="350px" width="350px"/> 
+                            <img src="{{ public_path('assets/frontend/images/keys.png') }}" height="350px" width="350px"/> 
                             <!-- <img src="https://i.postimg.cc/nzZRDWVm/Screen-Shot-2023-02-25-at-12-34-00-PM.png" height="350px" width="350px"/>  -->
                             
                         </ul>
@@ -51,7 +51,7 @@
                             <li>Don’t forget to also celebrate your non-scale victories, success is more than just numbers! </li>
                             <li> <a href="https://optimumfoodie.com/wp-content/uploads/2022/10/Progress-Report-Sheet-by-OptimumFoodie.pdf">Click HERE to download your progress worksheet,</a>   you can directly fill in the soft copy or print it and fill in the hardcopy. See a sample below.</li>
                             <li>In 4 weeks, you’ll be taking pictures to compare with those you took at the start, to visually appreciate the progress made. Please feel free to share them with me via WhatsApp by clicking <a href="https://api.whatsapp.com/send?phone=2348080471993">HERE</a></li>
-                            <img src="{{ url('assets/frontend/images/report.png') }}" height="300px" width="300px"/> 
+                            <img src="{{ public_path('assets/frontend/images/report.png') }}" height="300px" width="300px"/> 
                             <!-- <img src="https://i.postimg.cc/dtdb3Yhm/Screen-Shot-2023-02-25-at-12-34-39-PM.png" height="350px" width="350px"/>  -->
                         </ul>
                     </div><br>

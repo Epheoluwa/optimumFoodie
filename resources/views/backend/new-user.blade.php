@@ -62,6 +62,21 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item btn-sm" style="cursor:pointer" data-toggle="modal" data-target="#editModal{{$user->id}}">Edit User</a>
+                                                <?php foreach($mealUserid as $userId)
+                                                {
+                                                    if ($user->id == $userId['user_id']) {
+                                                        $exist = 'yes';
+                                                        if ($exist == 'yes') {
+                                                            break;
+                                                        }
+                                                    }else{
+                                                        $exist = 'No';
+                                                    }
+                                                } ?>
+                                                @if($exist == 'yes')
+                                                <a class="dropdown-item btn-sm" style="cursor:pointer" href="{{url('/admin/admin-view-meal-plan', $user->id)}}">View User Meal Plan</a>
+                                                <a class="dropdown-item btn-sm" style="cursor:pointer" data-toggle="modal" data-target="#editedmealModal{{$user->id}}" >Upload Update Meal Plan</a>
+                                                @endif
                                             </div>
                                         </div>
 
@@ -108,6 +123,35 @@
                                                         <div class="modal-footer">
                                                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                                                             <button class="btn btn-primary" id="pay" type="submit">Update User</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Upload edited meal plan Modal-->
+                                        <div class="modal fade" id="editedmealModal{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Upload Edited User Meal Plan</h5>
+                                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                                                        </button>
+                                                    </div>
+                                                    <form id="credit-form" action="{{url('/admin/uploadedmealplan', $user->id)}}" method="post" enctype="multipart/form-data">
+                                                        <div class="modal-body">
+                                                            {{ csrf_field() }}
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <label for="amount">Upload Document [Please note that only pdf format is allowed]</label>
+                                                                        <input type="file" name="mealplan" class="form-control" required >
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                                            <button class="btn btn-primary" id="pay" type="submit">Upload Document</button>
                                                         </div>
                                                     </form>
                                                 </div>

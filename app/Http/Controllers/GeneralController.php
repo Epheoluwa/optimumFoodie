@@ -141,8 +141,8 @@ class GeneralController extends Controller
                 'height' => $data['data']['height'],
                 'weight' => $data['data']['weight'],
             ];
-            \App\Models\User::where('id',$userID)->update($userDataMeal);
-
+            \App\Models\User::where('id', $userID)->update($userDataMeal);
+         
             $meal1ako = $data['meal1'];
             foreach ($meal1ako as $day => $mainmeals1eat) {
                 $userMealData = [
@@ -187,8 +187,7 @@ class GeneralController extends Controller
             session(['activeUserID' => $userID]);
 
             //save suggestions
-            if(!empty($data['data']["suggestions"]))
-            {
+            if (!empty($data['data']["suggestions"])) {
                 $Data = [
                     'food_option' => $data['data']['suggestions'],
                 ];
