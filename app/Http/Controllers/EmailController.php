@@ -78,7 +78,7 @@ class EmailController extends Controller
         foreach ($options_food as $key => $foods) {
             // $v = \App\Models\FoodRecipe::where('foods.name', $foods)->where('calory_template_types.template_name', $mealTem)->where('calory_template_types.calory', $calories)->join('recipes', 'food_recipes.recipe_id', '=', 'recipes.id')->join('calory_template_types', 'food_recipes.calory_template_type_id', '=', 'calory_template_types.id')->join('foods', 'food_recipes.food_id', '=', 'foods.id')->select('recipes.recipe')->get();
             // echo $foods;
-            $v = \App\Models\FoodRecipe::select('food_id','recipe_id')->where('calory_template_type_id', $calTem)->get();
+            $v = \App\Models\FoodRecipe::select('food_id', 'recipe_id')->where('calory_template_type_id', $calTem)->get();
             foreach ($v as $new) {
                 if (in_array($foods, $new['food_id'])) {
                     array_push($rough, $new['recipe_id']);
@@ -91,7 +91,7 @@ class EmailController extends Controller
         }
 
         $recipes = array_unique($rough);
-     
+
         // return view('free-time-table', compact('MealDetails', 'userDetails', 'recipes'));
         // exit;
 
@@ -110,9 +110,8 @@ class EmailController extends Controller
             if ($this->isOnline()) {
                 $mail_data = [
                     'reciever' => $userDetails['email'],
-                    // 'reciever' => 'solomonepheoluwa@gmail.com',
-                    'from' => 'solomon@testing.com',
-                    'fromName' => 'Salo',
+                    'from' => 'Optimumfoodie@gmail.com',
+                    'fromName' => 'Optimum Foodie',
                     'recieverName' => $userDetails['name'],
 
                 ];
@@ -148,7 +147,7 @@ class EmailController extends Controller
             // ]);
             // return $pdf->inline();
 
-            //generate pdf and display for paid user
+            // generate pdf and display for paid user
             $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal', 'month_par', 'food_options', 'calories', 'main_meal', 'snack_meal')->where('user_id', $data['userId'])->get();
 
             $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails', 'recipes'));
@@ -156,6 +155,7 @@ class EmailController extends Controller
                 'footer-center' => 'Copyright Optimum Foodie ' . $presentYear
             ]);
             return $pdf->inline();
+           
         }
     }
 

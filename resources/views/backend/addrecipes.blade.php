@@ -36,6 +36,7 @@
                         <thead>
                             <tr>
                                 <th>SN</th>
+                                <th>Title</th>
                                 <th>Recipe</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -46,6 +47,9 @@
                             @foreach($recipe as $rec)
                             <tr class="warning">
                                 <td><?= ++$sn ?></td>
+                                <td>
+                                    {{ $rec->title }}
+                                </td>
                                 <td>
                                     {{ $rec->recipe }}
                                 </td>
@@ -77,6 +81,10 @@
                                                         {{ csrf_field() }}
                                                         <div class="form-group">
                                                             <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <label for="amount">Title</label>
+                                                                    <input type="text" name="title" class="form-control" required value="{{ $rec->title }}">
+                                                                </div>
                                                                 <div class="col-md-12">
                                                                     <label for="amount">Recipe</label>
                                                                     <input type="text" name="recipe" class="form-control" required value="{{ $rec->recipe }}">
@@ -117,6 +125,12 @@
                     <div class="modal-body">
                         {{ csrf_field() }}
                         <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="calory_template_type_id"> Title</label>
+                                    <input type="text" class="form-control" name="title" />
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <label for="calory_template_type_id">Recipe Details</label>

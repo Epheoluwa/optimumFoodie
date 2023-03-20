@@ -191,7 +191,7 @@
                                     <select class="form-control" name="recipes" id="recipes" required>
                                         <option value="">Select Recipe</option>
                                         @foreach($recipes as $value)
-                                        <option value="{{ $value->recipe }}">{{ $value->recipe }}</option>
+                                        <option value="{{ $value->recipe }}">{{ $value->title }}</option>
                                         @endforeach
                                     </select>
                                 </div>

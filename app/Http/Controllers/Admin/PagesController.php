@@ -444,6 +444,7 @@ class PagesController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'recipe' => 'required',
+            'title' => 'required',
             // 'status' => 'required'
         ]);
         if ($validator->fails()) {
@@ -454,7 +455,8 @@ class PagesController extends Controller
         $data = $request->all();
         $recipedetails = [
             'recipe' => $data['recipe'],
-            // 'status' => $data['status'],
+            'title' => $data['title'],
+
         ];
         $update = \App\Models\Recipe::create($recipedetails);
         \Session::flash('success', 'Recipe created successfully!');

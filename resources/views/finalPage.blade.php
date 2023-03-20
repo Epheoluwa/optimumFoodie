@@ -469,7 +469,7 @@
             background-color: #d0d0d0;
             display: flex;
             justify-content: center;
-            height: 400px;
+            height: 430px;
         }
     </style>
 </head>
@@ -593,7 +593,7 @@
         <section>
             <div class="meailplanpart" style="background-color: #d0d0d0;">
                 <div class="">
-                    <div class="" style="padding: 15px 15px;">
+                    <div class="" style="padding: 20px 20px;">
                         <p class="text-center" style="font-size: 20px;">Here’s the thing, when it comes to getting fitness results, <br> your diet is KING! This right here is what has made the difference between frustration and absolute success for my clients!</p>
                     </div>
                     <p class="mt-3 text-center" style="font-size: 20px;">And the awesome news is that <b> you don’t have to stop eating your eba, rice, bread, beans and so on to get amazing results! <br> </b> You can eat all your fave Nigerian meals and still crush your body goals!</p>
@@ -620,7 +620,7 @@
                             {!! csrf_field() !!}
                             <input type="hidden" name="userId" value="{{$userDetails['id']}}">
                             <input type="hidden" name="cusType" value="{{ $userDetails['status']}}">
-                            <button type="submit" class="btn btn-primary" style="width: 100%; margin-right: 15px; background-color:#ff0000; border-color:#ff0000; height: 50px;">Get Meal Plan</button>
+                            <button type="submit" class="btn btn-primary" style="width: 70%; background-color:#ff0000; border-color:#ff0000; height: 50px;">Get Meal Plan</button>
                         </form>
                         @endif
 

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use PDF;
 use Illuminate\Support\Facades\DB;
+use App\Mail\SentEmail;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -130,9 +132,22 @@ class UserController extends Controller
         $userDetails = \App\Models\User::where('id', $id)->first();
         $filename =  $userDetails['id'] . $userDetails['name'] . '.pdf';
 
-        $request->mealplan->move(public_path('pdf'),$filename);
+        $uploaded = $request->mealplan->move(public_path('pdf'),$filename);
 
-        \Session::flash('success', 'Meal Plan uploaded successfully!');
+        if($uploaded)
+        {
+            $file_path = public_path('pdf/' . $userDetails['id'] . $userDetails['name'] . '.pdf');
+            $mail_data = [
+                'reciever' => $userDetails['email'],
+                'from' => 'Optimumfoodie@gmail.com',
+                'fromName' => 'Optimum Foodie',
+                'recieverName' => $userDetails['name'],
+
+            ];
+            $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName'], $file_path, $userDetails['email']));;
+        }
+
+        \Session::flash('success', 'Meal Plan uploaded successfully! ');
 
         return redirect()->back();
     }

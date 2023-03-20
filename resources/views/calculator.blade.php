@@ -618,10 +618,10 @@ $perc = 20;
                 <div class="row valid-result">
                     <!-- <div class="col-md-2"></div> -->
 
-                    <div style="display: flex; justify-content: space-between;">
+                    <div >
                         <h2 align="left" style="font-family: 'Sora', sans-serif;">Trying to lose weight?
                         </h2>
-                        <h5 style="width: 40%; font-family: 'Sora', sans-serif;">What if I told you you could achieve your best body and maintain it, while still eating Nigerian meals 😋 </h5>
+                        <h5 style="width: 40%; font-family: 'Sora', sans-serif; margin-bottom:10px">What if I told you you could achieve your best body and maintain it, while still eating Nigerian meals 😋 </h5>
                     </div>
 
                     <div class="col-md-12" style="margin-top: 10px;" align="center">
@@ -683,7 +683,7 @@ $perc = 20;
                 <div class="modal-body" style="padding:0px !important">
                     <div class="container">
                         <div class="pt-3">
-                            <h3 class="text-center text-dark" style="color:#000;">
+                            <h3 class="text-center text-dark" style="color:#000; margin-top:40px;">
                                 <a href="#myCarousel" id="backBtn">
                                     <small class="direction-left">
                                         <img src="{{ url('assets/frontend/images/back.png') }}" style="height:34px;" />
@@ -692,12 +692,12 @@ $perc = 20;
                                 </a>
                                 <p style="font-size: 40px; font-weight:800; font-family: 'Sora', sans-serif;">{{ env('APP_NAME') }}</p>
 
-                                <a href="javascript:void(0)" data-dismiss="modal">
+                                <!-- <a href="javascript:void(0)" data-dismiss="modal">
                                     <small class="direction-right">
                                         <img src="{{ url('assets/frontend/images/cancel.png') }}" style="height:34px;" />
                                         Cancel
                                     </small>
-                                </a>
+                                </a> -->
                             </h3>
 
                             <div id="myCarousel" class="carousel slide" data-ride="carousel">
