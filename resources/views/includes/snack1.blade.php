@@ -1,5 +1,5 @@
 
-                    <div>
+                    <div class="topPadding">
                         <h3>Snack Options</h3>
                         <p>You can pick any of the following options:</p>
                         <ul>
@@ -16,7 +16,6 @@
                             <li>2 boiled eggs + 1 small orange (or 1 plum) </li>
                             <li>Coffee + 200cal of creamer</li>
                         </ul><br>
-
                         <p>You can add the following to any of the options you choose above</p>
                         <ul>
                             <li>Cucumbers, carrots, garden eggs</li>

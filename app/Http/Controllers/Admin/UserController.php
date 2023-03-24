@@ -113,9 +113,8 @@ class UserController extends Controller
         //  return view('time-table', compact('MealDetails', 'userDetails', 'recipes'));
         // exit;
         $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails', 'recipes'));
-        // $pdf->setTimeout(300);
         $pdf->setOptions([
-            'footer-center' => 'Copyright Optimum Foodie ' . $presentYear
+            'footer-html' => view('pdf.footer')
         ]);
         return $pdf->inline();
     }
@@ -148,6 +147,93 @@ class UserController extends Controller
         }
 
         \Session::flash('success', 'Meal Plan uploaded successfully! ');
+
+        return redirect()->back();
+    }
+
+    public function AdminApproveuserMeal(Request $request, $id)
+    {
+        $presentYear = date("Y");
+        $validator = Validator::make($request->all(), [
+            'useid' => 'required',
+        ]);
+        if ($validator->fails()) {
+            \Session::flash('error', $validator->errors()->first());
+            return redirect()->back()->withInput();
+        }
+
+        $userDetails = \App\Models\User::where('id', $id)->first();
+        $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal', 'month_par', 'food_options', 'calories', 'main_meal', 'snack_meal')->where('user_id', $id)->get();
+
+        foreach ($MealDetails as $meals) {
+            $mealsss = $meals->main_meal;
+            $snack = $meals->snack_meal;
+            $calories = $meals->calories;
+            $food_options = $meals->food_options;
+        }
+        $options_food = array();
+        $recipes = array();
+        $rough = array();
+        $food_options = json_decode($food_options);
+        foreach ($food_options as $food) {
+            $onje = str_replace(['[', ']'], '', $food);
+            array_push($options_food, $onje);
+        }
+        $mealTem = $mealsss . 'meal' . ' ' . $snack . 'snacks';
+        $calTem = $calories . 'cal ' . $mealTem;
+
+        foreach ($options_food as $key => $foods) {
+            $v = \App\Models\FoodRecipe::select('food_id', 'recipe_id')->where('calory_template_type_id', $calTem)->get();
+            foreach ($v as $new) {
+                if (in_array($foods, $new['food_id'])) {
+                    array_push($rough, $new['recipe_id']);
+                }
+            }
+        }
+        $recipes = array_unique($rough);
+        $file_path = public_path('pdf/' . $userDetails['id'] . $userDetails['name'] . '.pdf');
+        if (!file_exists($file_path)) {
+            $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails', 'recipes'));
+            $pdf->setOptions([
+                'footer-center' => 'Copyright Optimum Foodie ' . $presentYear
+            ]);
+            $pdfFilePath = public_path('pdf/' . $userDetails['id'] . $userDetails['name'] . '.pdf');
+            $pdf->save($pdfFilePath);
+        }
+
+        $mail_data = [
+            'reciever' => $userDetails['email'],
+            'from' => 'Optimumfoodie@gmail.com',
+            'fromName' => 'Optimum Foodie',
+            'recieverName' => $userDetails['name'],
+
+        ];
+        $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName'], $file_path, $userDetails['email']));;
+        if($sent)
+        {
+            \Session::flash('success', 'Meal Plan Approved successfully! ');
+
+            return redirect()->back();
+        }
+    }
+
+    public function AdminDeleteUserdetails($id)
+    {
+        $userDetails = \App\Models\User::find($id);
+        $userMealDetails = \App\Models\UserMealPlan::find($id);
+        $file_path = public_path('pdf/' . $userDetails['id'] . $userDetails['name'] . '.pdf');
+        if(file_exists($file_path))
+        {
+            unlink($file_path);
+        }
+
+        $userDetails->delete();
+        if($userMealDetails)
+        {
+            $userMealDetails->delete();
+        }
+        
+        \Session::flash('success', 'User Details Deleted successfully! ');
 
         return redirect()->back();
     }

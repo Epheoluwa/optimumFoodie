@@ -44,6 +44,9 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::post('/loginlogic', [LoginController::class, 'loginLogic']);
 Route::get('/logout', [LoginController::class, 'logoutLogic']);
 
+//notification controller
+
+
 // Admin Pages Routes
 Route::prefix('admin')->middleware(['admin-auth', 'auth'])->group(function () {
     Route::get('/', [AdminPagesController::class, 'dashboard']);
@@ -55,6 +58,9 @@ Route::prefix('admin')->middleware(['admin-auth', 'auth'])->group(function () {
     Route::post('/edit-user/{id}', [AdminUserController::class, 'Editusers']);
     Route::get('/admin-view-meal-plan/{id}', [AdminUserController::class, 'AdminPreviewuserMeal']);
     Route::post('/uploadedmealplan/{id}', [AdminUserController::class, 'AdminUploaduserMeal']);
+    Route::get('/admin-view-meal-plan/{id}', [AdminUserController::class, 'AdminPreviewuserMeal']);
+    Route::post('/approvemealplan/{id}', [AdminUserController::class, 'AdminApproveuserMeal']);
+    Route::post('/deleteuserDetails/{id}', [AdminUserController::class, 'AdminDeleteUserdetails']);
 
     //SUGGESTIONS ROUTE
     Route::get('/suggestion',[AdminUserController::class, 'suggest']);

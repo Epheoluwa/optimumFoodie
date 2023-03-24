@@ -18,10 +18,9 @@
     <link href="{{ url('client-assets') }}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&display=swap" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="{{ url('client-assets') }}/css/sb-adminx-2.min.css?toke={{ rand(100,999) }}" rel="stylesheet">
 
@@ -153,7 +152,7 @@
                         @include('backend.includes.alerts')
 
                         <!-- Nav Item - Messages -->
-                        @include('backend.includes.messages')
+                  
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 

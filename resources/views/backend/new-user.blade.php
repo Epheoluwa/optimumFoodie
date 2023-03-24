@@ -62,20 +62,24 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item btn-sm" style="cursor:pointer" data-toggle="modal" data-target="#editModal{{$user->id}}">Edit User</a>
-                                                <?php foreach($mealUserid as $userId)
-                                                {
+                                                <a class="dropdown-item btn-sm" style="cursor:pointer; background: red;
+    color: white;" data-target="#DeleteModal{{$user->id}}" data-toggle="modal">Delete User</a>
+                                                <?php foreach ($mealUserid as $userId) {
                                                     if ($user->id == $userId['user_id']) {
                                                         $exist = 'yes';
                                                         if ($exist == 'yes') {
                                                             break;
                                                         }
-                                                    }else{
+                                                    } else {
                                                         $exist = 'No';
                                                     }
                                                 } ?>
                                                 @if($exist == 'yes')
                                                 <a class="dropdown-item btn-sm" style="cursor:pointer" href="{{url('/admin/admin-view-meal-plan', $user->id)}}">View User Meal Plan</a>
-                                                <a class="dropdown-item btn-sm" style="cursor:pointer" data-toggle="modal" data-target="#editedmealModal{{$user->id}}" >Upload Update Meal Plan</a>
+                                                <a class="dropdown-item btn-sm" style="cursor:pointer" data-toggle="modal" data-target="#editedmealModal{{$user->id}}">Upload Update Meal Plan</a>
+                                                @if($user->status == 'paid')
+                                                <a class="dropdown-item btn-sm" style="cursor:pointer" data-toggle="modal" data-target="#approveModal{{$user->id}}">Approve Meal Plan</a>
+                                                @endif
                                                 @endif
                                             </div>
                                         </div>
@@ -144,7 +148,7 @@
                                                                 <div class="row">
                                                                     <div class="col-md-12">
                                                                         <label for="amount">Upload Document [Please note that only pdf format is allowed]</label>
-                                                                        <input type="file" name="mealplan" class="form-control" required >
+                                                                        <input type="file" name="mealplan" class="form-control" required>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -152,6 +156,76 @@
                                                         <div class="modal-footer">
                                                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                                                             <button class="btn btn-primary" id="pay" type="submit">Upload Document</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Approve meal plan Modal-->
+                                        <div class="modal fade" id="approveModal{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Approve User Meal Plan</h5>
+                                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                                                        </button>
+                                                    </div>
+                                                    <form id="credit-form" action="{{url('/admin/approvemealplan', $user->id)}}" method="post" enctype="multipart/form-data">
+                                                        <div class="modal-body">
+                                                            {{ csrf_field() }}
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        Name: {{ $user->name }}
+                                                                        <input type="hidden" name="useid" value="{{$user->id}}">
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        Email: {{ $user->email }}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                                            <button class="btn btn-primary" id="pay" type="submit">Approve</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Delete User Modal-->
+                                        <div class="modal fade" id="DeleteModal{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete this user?</h5>
+                                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">×</span>
+                                                        </button>
+                                                    </div>
+                                                    <form id="credit-form" action="{{url('/admin/deleteuserDetails', $user->id)}}" method="post" enctype="multipart/form-data">
+                                                        <div class="modal-body">
+                                                            {{ csrf_field() }}
+                                                            <div class="form-group">
+
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <h4>Click "Delete" to erase user details and all meal plans.</h4>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        Name: {{ $user->name }}
+                                                                        <input type="hidden" name="useid" value="{{$user->id}}">
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        Email: {{ $user->email }}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                                            <button class="btn btn-danger" id="pay" type="submit">Delete</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -194,7 +268,7 @@
                                     <div class="col-md-12">
                                         <label>Email</label>
                                         <input type="email" name="email" class="form-control" required>
-                                         
+
                                     </div>
                                 </div>
                             </div>

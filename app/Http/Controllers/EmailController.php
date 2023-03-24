@@ -12,6 +12,7 @@ use PDF;
 
 class EmailController extends Controller
 {
+
     public function DisplayPage()
     {
         if (Auth::user()) {
@@ -34,7 +35,7 @@ class EmailController extends Controller
         // exit;
         $pdf = PDF::loadview('free-time-table', compact('MealDetails'));
         $pdf->setOptions([
-            'footer-center' => 'Optimum'
+            'footer-html' => view('pdf.footer')
         ]);
         $pdfFilePath = public_path('pdf/' . uniqid() . '.pdf');
         $pdfdone = $pdf->save($pdfFilePath);
@@ -52,7 +53,7 @@ class EmailController extends Controller
         $userDetails = \App\Models\User::where('id', $data['userId'])->first();
 
         // var_dump($userDetails->UserMealPlan);
-        $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal', 'food_options', 'calories', 'main_meal', 'snack_meal')->where('user_id', $data['userId'])->limit(2)->get();
+        $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal', 'food_options', 'calories', 'main_meal', 'snack_meal','weight_aim', 'calories', 'weight_time_aim')->where('user_id', $data['userId'])->limit(2)->get();
         // return view('free-time-table', compact('MealDetails', 'userDetails'));
         $presentYear = date("Y");
 
@@ -91,6 +92,48 @@ class EmailController extends Controller
         }
 
         $recipes = array_unique($rough);
+        // $did = " ";
+        // $oldget = " ";
+        // $still = array();
+        // foreach ($MealDetails as $meals) {
+        //     // var_dump($meals->daymeal);
+        //     $newval = explode('",', $meals->daymeal);
+
+        //     foreach ($newval as $nn) {
+        //         $count = 0;
+        //         // echo $nn;
+        //         if (strpos($nn, '+')) {
+        //             $newarrr = explode('+', $nn);
+        //             foreach ($newarrr as $get) {
+        //                 $pos = substr($get, 1, 4);
+        //                 if (floatval($pos)) {
+        //                     if (strpos($pos, '.') !== false) {
+        //                         $oldget = $get;
+        //                         $decimal = floatval($pos);
+        //                         $fracValue = $this->float2rat($decimal);
+        //                         $did = str_replace($decimal, $fracValue, $get);
+        //                     }
+        //                 }                        
+        //                 $nnn = str_replace($oldget, $did, $get);
+        //               array_push($still, $nnn);                        
+        //             }
+        //         }
+        //         array_unique($still);
+        //         $nnw = implode("+", $still);
+        //         echo ("the nnw: ".$nnw);
+        //         // echo ("the main: ". $nn);
+        //         echo "<br />";
+        //         echo "<br />";
+        //         // var_dump($newarrr);
+        //         // var_dump($newarrr[1][1]);
+
+        //         // $position = strpos($nn,'+');
+        //         // // echo $position+2;
+        //         // echo substr($nn, $position+2, 3);
+        //         echo "<br />";
+        //         echo "<br />";
+        //     }
+        // }
 
         // return view('free-time-table', compact('MealDetails', 'userDetails', 'recipes'));
         // exit;
@@ -101,7 +144,8 @@ class EmailController extends Controller
             if (!file_exists($file_path)) {
                 $pdf = PDF::loadview('free-time-table', compact('MealDetails', 'userDetails', 'recipes'));
                 $pdf->setOptions([
-                    'footer-center' => 'Copyright Optimum Foodie ' . $presentYear
+                    'footer-html' => view('pdf.footer')
+                    // 'footer-center' => 'Copyright Optimum Foodie ' . $presentYear
                 ]);
                 $pdfFilePath = public_path('pdf/' . $data['userId'] . $userDetails['name'] . '.pdf');
                 $pdf->save($pdfFilePath);
@@ -146,16 +190,38 @@ class EmailController extends Controller
             //     'footer-center' => 'Optimum'
             // ]);
             // return $pdf->inline();
+            $file_path = public_path('pdf/' . $data['userId'] . $userDetails['name'] . '.pdf');
 
+          
+            if(file_exists($file_path))
+            {
+             
+                if ($this->isOnline()) {
+                    $mail_data = [
+                        'reciever' => $userDetails['email'],
+                        'from' => 'Optimumfoodie@gmail.com',
+                        'fromName' => 'Optimum Foodie',
+                        'recieverName' => $userDetails['name'],
+    
+                    ];
+                    $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName'], $file_path, $userDetails['email']));;
+                }
+
+                return back();
+            }else{
+                echo "Please wait..... Your meal Plan need Final Approval";
+            }
+            
             // generate pdf and display for paid user
-            $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal', 'month_par', 'food_options', 'calories', 'main_meal', 'snack_meal')->where('user_id', $data['userId'])->get();
+            // $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal', 'month_par', 'food_options', 'calories', 'main_meal', 'snack_meal','weight_aim', 'calories', 'weight_time_aim')->where('user_id', $data['userId'])->get();
 
-            $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails', 'recipes'));
-            $pdf->setOptions([
-                'footer-center' => 'Copyright Optimum Foodie ' . $presentYear
-            ]);
-            return $pdf->inline();
-           
+            // $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails', 'recipes'));
+            // $pdf->setOptions([
+            //     'footer-html' => view('pdf.footer')
+            //     // 'footer-center' => 'Copyright Optimum Foodie ' . $presentYear,
+            //     // 'footer-line' => true
+            // ]);
+            // return $pdf->inline();
         }
     }
 

@@ -9,5 +9,5 @@ class Suggestion extends Model
 {
     use HasFactory;
     protected $table = "suggestions";
-    protected $fillable = ['food_option'];
+    protected $fillable = ['food_option','name', 'email'];
 }

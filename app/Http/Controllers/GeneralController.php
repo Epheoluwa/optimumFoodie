@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Cookie\CookieJar;
 use Illuminate\Support\Str;
 use PDF;
+use App\Mail\Notification;
+use Illuminate\Support\Facades\Mail;
 
 use function PHPSTORM_META\type;
 
@@ -130,6 +132,9 @@ class GeneralController extends Controller
         //save meal to DB linking it to the user account
         $emailwa2 = \App\Models\User::where('email', $data['data']['best_email'])->first();
         $userID = $emailwa2['id'];
+        $userIDstatus = $emailwa2['status'];
+        $userIDname = $emailwa2['name'];
+        $userIDemail = $emailwa2['email'];
         $activeMealPlan =  \App\Models\UserMealPlan::where('user_id', $userID)->first();
         if ($activeMealPlan) {
             return view('login');
@@ -190,8 +195,17 @@ class GeneralController extends Controller
             if (!empty($data['data']["suggestions"])) {
                 $Data = [
                     'food_option' => $data['data']['suggestions'],
+                    'name' => $data['data']['best_name'],
+                    'email' => $data['data']['best_email'],
+
                 ];
                 $update = \App\Models\Suggestion::create($Data);
+            }
+
+            if($userIDstatus == 'paid')
+            {
+                $adminemail = 'solomonepheoluwa@gmail.com';
+                $sent = Mail::to($adminemail)->send(new Notification($userIDname, $userIDemail));;
             }
 
             if ($saveMeal) {

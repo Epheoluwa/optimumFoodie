@@ -7,6 +7,15 @@
   
   <title>Transactional Email</title>
   <style>
+    .page-break{
+      page-break-after: always;
+    }
+    .topPadding{
+      padding: 20px;
+    }
+    p{
+      font-size: 25px;
+    }
     @media only screen and (max-width: 620px) {
       table[class=body] h1 {
         font-size: 28px !important;
@@ -20,7 +29,7 @@
       table[class=body] span,
       table[class=body] a {
         font-size: 16px !important;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
       }
 
       table[class=body] .wrapper,
@@ -90,7 +99,7 @@
         text-decoration: none;
         font-size: inherit;
         /* font-family: inherit; */
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
         font-weight: inherit;
         line-height: inherit;
       }
@@ -107,11 +116,11 @@
   </style>
 </head>
 
-<body class="" style="background-color: #f6f6f6; font-family: 'Sora', sans-serif; -webkit-font-smoothing: antialiased; font-size: 14px; line-height: 1.4; margin: 0; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+<body class="" style="background-color: #f6f6f6; font-family: 'Be Vietnam Pro', sans-serif; -webkit-font-smoothing: antialiased; font-size: 14px; line-height: 1.4; margin: 0; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
   <table border="0" cellpadding="0" cellspacing="0" class="body" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #f6f6f6;">
     <tr>
-      <td style="font-family: 'Sora', sans-serif; font-size: 14px; vertical-align: top;">&nbsp;</td>
-      <td class="container" style="font-family: 'Sora', sans-serif; font-size: 14px; vertical-align: top; display: block; Margin: 0 auto; max-width: 920px; padding: 10px; width: 920px;">
+      <td style="font-family: 'Be Vietnam Pro', sans-serif; font-size: 14px; vertical-align: top;">&nbsp;</td>
+      <td class="container" style="font-family: 'Be Vietnam Pro', sans-serif; font-size: 14px; vertical-align: top; display: block; Margin: 0 auto; max-width: 920px; padding: 10px; width: 920px;">
         <div class="content" style="box-sizing: border-box; display: block; Margin: 0 auto; max-width: 920px; padding: 10px;">
 
           <!-- START CENTERED WHITE CONTAINER -->
@@ -122,14 +131,13 @@
 
             <!-- START MAIN CONTENT AREA -->
             <tr>
-              <td class="wrapper" style="font-family: 'Sora', sans-serif; font-size: 14px; vertical-align: top; box-sizing: border-box; padding: 50px;">
+              <td class="wrapper" style="font-family: 'Be Vietnam Pro', sans-serif; font-size: 14px; vertical-align: top; box-sizing: border-box; padding: 50px;">
                 <p style="height:40px;">
-                <img src="{{ public_path('assets/frontend/images/optimumfoodie.png') }}" height="120px" style="float:left;" />
+                <!-- <img src="{{ public_path('assets/frontend/images/optimumfoodie.png') }}" height="120px" style="float:left;" /> -->
                 <!-- <img src="https://i.postimg.cc/6QsgW18h/logo.png" height="120px" style="float:left;" /> -->
                   <!-- <img src="{{ url('/client-assets/img/logo.png?tok='.rand(100,999)) }}" height="120px" style="float:left;" /> -->
                 </p>
                 <h1 align="center">Your Customized Meal Plan</h1><br>
-
                 @include('includes.intro_talks')
 
                 @include('includes.guideline')
@@ -139,6 +147,7 @@
                 @include('includes.main_thing')
 
                 @include('includes.recipes') 
+
 
               </td>
             </tr>
@@ -150,12 +159,12 @@
           <!-- <div class="footer" style="clear: both; Margin-top: 10px; text-align: center; width: 100%;">
             <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
               <tr>
-                <td class="content-block" style="font-family: 'Sora', sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
+                <td class="content-block" style="font-family: 'Be Vietnam Pro', sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
                   <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Copyright &copy; {{ env('APP_NAME') }}</span>
                 </td>
               </tr>
               <tr>
-                <td class="content-block powered-by" style="font-family: 'Sora', sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
+                <td class="content-block powered-by" style="font-family: 'Be Vietnam Pro', sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
                   Powered by <a href="mailto:peter.okachie@gmail.com" style="color: #999999; font-size: 12px; text-align: center; text-decoration: none;">{{ env('APP_NAME') }}</a>.
                 </td>
               </tr>
@@ -166,7 +175,7 @@
           <!-- END CENTERED WHITE CONTAINER -->
         </div>
       </td>
-      <td style="font-family: 'Sora', sans-serif; font-size: 14px; vertical-align: top;">&nbsp;</td>
+      <td style="font-family: 'Be Vietnam Pro', sans-serif; font-size: 14px; vertical-align: top;">&nbsp;</td>
     </tr>
   </table>
 </body>

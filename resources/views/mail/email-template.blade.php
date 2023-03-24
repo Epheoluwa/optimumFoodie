@@ -1,14 +1,30 @@
 <div class="container" style="padding: 1rem; background: #f5f5f5;">
-    <p>Good Day {{$name}}!</p>
+    <p>Dear {{$name}}!</p>
 
-    <h4 style="text-align: center;">⚡Congratulations!!!⚡</h4>
+    <!-- <h4 style="text-align: center;">⚡Congratulations!!!⚡</h4> -->
     <p>
-        Thank you so much for signing up for Counting Calories Like A Pro!
-
-        Be sure this is one the best decisions you’ll make for the body and slay that you’ve always wanted! 🔥
-
-        Head over to the email you provided for further details. Please ensure you check your spam and promotions folder, if you don’t see the email in your primary inbox.
-
+        I'm super excited you've decided to reclaim your health and confidence, by taking
+        care of your body!😍 <b> I applaud you for the courage and commitment </b> it took to
+        start this plan and I encourage you to stay the path. The results are entirely worth
+        it and more.
+    </p>
+    <p>
+        Please <b> find your meal plan attached</b>. Ask me questions if anything is unclear,
+        please don't assume anything. The <b> window for a review of the meal plan is 2
+            weeks after receiving it.</b> So please ensure you share any concerns within this
+        time frame.
+    </p>
+    <p>
+        As you begin to lose shed the fat, I highly recommend you increase your level of
+        physical activity for better results
+    </p>
+    <p>
+        <b> Please share with me your results over the next 4 weeks, I'll really love to
+            hear about your progress, and if you have questions, please send an email. </b>
+    </p>
+    <p>
+        I'm looking forward to an amazing relationship between us. Thank you for
+        choosing OptimumFoodie.
     </p>
 
     <div style="text-align: center;">
@@ -16,13 +32,13 @@
         <p> Email : {{$email}}</p>
         <p>Password: {{$name}}</p>
 
-        <a href="http://{{ env('APP_URL') }}/login ">Login Here</a> 
+        <a href=" {{ url('/login') }}">Login Here</a>
     </div>
 
 
     <div style="margin-top: 7px;">
         <p>
-            Lots of love and anticipation,
+            With much excitement,,
         </p>
         <p> Odunayo “The Calorie Queen 👑” Abdulai</p>
 

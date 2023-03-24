@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PDF;
 use App\Mail\SentEmail;
+use App\Mail\Notification;
 use Illuminate\Support\Facades\Mail;
+
 
 class PaymentController extends Controller
 {
@@ -58,38 +60,72 @@ class PaymentController extends Controller
         ];
         $save = \App\Models\Payment::create($paymentDetails);
         if ($save) {
+
+            $paidUser = \App\Models\User::where('id', $paymentDetails['user_id'])->first();
+            //send email to admin about new paid user nneeding approval
+            $user = 'solomonepheoluwa@gmail.com';
+            $sent = Mail::to($user)->send(new Notification($paidUser['name'], $paidUser['email']));;
+
             //update user to paid user
             \App\Models\User::where('id', $paymentDetails['user_id'])->update(array('status' => 'paid'));
             // Delete old and generate new pdf file and send to user mail.
             $file_path = public_path('pdf/' . $userDetails['id'] . $userDetails['name'] . '.pdf');
-            $unlinked = unlink($file_path);
-            if ($unlinked) {
-                //Generate pdf
-                //generate pdf and display for paid user
-                $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal', 'month_par')->where('user_id', $userDetails['id'])->get();
-
-                $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails'));
-                $pdf->setOptions([
-                    'footer-center' => 'Optimum'
-                ]);
-                $pdfFilePath = public_path('pdf/' . $userDetails['id'] . $userDetails['name'] . '.pdf');
-                $pdf->save($pdfFilePath);
-
-                //send email
-                if ($this->isOnline()) {
-                    $mail_data = [
-                        'reciever' => 'sunmolasolomon@gmail.com', //chnage this to the correct user email after live
-                        'from' => 'solomon@testing.com',
-                        'fromName' => 'Salo',
-                        'recieverName' => $userDetails['name'],
-    
-                    ];
-                    $file_path = public_path('pdf/' . $userDetails['id'] . $userDetails['name'] . '.pdf');
-                    $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName'], $file_path,  $userDetails['email']));;
-                } else {
-                    return "Please turn on mobile date or connect to a wifi to continue.";
-                }
+            if(file_exists($file_path))
+            {
+                unlink($file_path);
             }
+            //     //Generate pdf
+            //     //generate pdf and display for paid user
+            //     $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal', 'month_par', 'food_options', 'calories', 'main_meal', 'snack_meal','weight_aim', 'calories', 'weight_time_aim')->where('user_id', $userDetails['id'])->get();
+            //     foreach ($MealDetails as $meals) {
+            //         $mealsss = $meals->main_meal;
+            //         $snack = $meals->snack_meal;
+            //         $calories = $meals->calories;
+            //         $food_options = $meals->food_options;
+            //     }
+            //     $options_food = array();
+            //     $recipes = array();
+            //     $rough = array();
+            //     $food_options = json_decode($food_options);
+            //     foreach ($food_options as $food) {
+            //         $onje = str_replace(['[', ']'], '', $food);
+            //         array_push($options_food, $onje);
+            //     }
+            //     $mealTem = $mealsss . 'meal' . ' ' . $snack . 'snacks';
+            //     $calTem = $calories . 'cal ' . $mealTem;
+        
+            //     foreach ($options_food as $key => $foods) {
+            //         $v = \App\Models\FoodRecipe::select('food_id', 'recipe_id')->where('calory_template_type_id', $calTem)->get();
+            //         foreach ($v as $new) {
+            //             if (in_array($foods, $new['food_id'])) {
+            //                 array_push($rough, $new['recipe_id']);
+            //             }
+            //         }
+            //     }
+            //     $recipes = array_unique($rough);
+
+            //     $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails','recipes'));
+            //     $pdf->setOptions([
+            //         'footer-html' => view('pdf.footer')
+            //     ]);
+            //     $pdfFilePath = public_path('pdf/' . $userDetails['id'] . $userDetails['name'] . '.pdf');
+            //     $pdf->save($pdfFilePath);
+
+            //     //send email
+            //     if ($this->isOnline()) {
+            //         $mail_data = [
+            //             'reciever' => $userDetails['email'], //chnage this to the correct user email after live
+            //             'from' => 'solomon@testing.com',
+            //             'fromName' => 'Salo',
+            //             'recieverName' => $userDetails['name'],
+    
+            //         ];
+            //         $file_path = public_path('pdf/' . $userDetails['id'] . $userDetails['name'] . '.pdf');
+            //         $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName'], $file_path,  $userDetails['email']));;
+            //     } else {
+            //         return "Please turn on mobile date or connect to a wifi to continue.";
+            //     }
+         
         }
         // var_dump($main_response->status);
         return $main_response->status;

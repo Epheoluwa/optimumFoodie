@@ -30,6 +30,8 @@
                                 <tr>
                                     <th>SN</th>
                                     <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Food Suggestion</th>
                                     
                                 </tr>
                             </thead>
@@ -38,6 +40,12 @@
                                 @foreach($suggest as $sug)
                                 <tr class="warning">
                                     <td><?= ++$sn ?></td>
+                                    <td>
+                                        {{ $sug->name }}
+                                    </td>
+                                    <td>
+                                        {{ $sug->email }}
+                                    </td>
                                     <td>
                                         {{ $sug->food_option }}
                                     </td>

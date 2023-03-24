@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/fontawesome.min.css" integrity="sha512-cHxvm20nkjOUySu7jdwiUxgGy11vuVPE9YeK89geLMLMMEOcKFyS2i+8wo0FOwyQO/bL8Bvq1KMsqK4bbOsPnA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <title>Optimum Foodie</title>
     <style>
@@ -45,7 +45,7 @@
             text-transform: lowercase;
             font-weight: 500;
             font-size: 16px;
-            font-family: 'Sora', sans-serif;
+            font-family: 'Be Vietnam Pro', sans-serif;
             letter-spacing: 0.2px;
             animation: text-animation76 3.6s ease infinite;
 
@@ -445,7 +445,7 @@
         h5,
         h6,
         p {
-            font-family: 'Sora', sans-serif;
+            font-family: 'Be Vietnam Pro', sans-serif;
         }
 
         .left-firststyle {
@@ -459,14 +459,14 @@
         }
 
         .left-firststyle .divvvv {
-            font-family: 'Sora', sans-serif;
+            font-family: 'Be Vietnam Pro', sans-serif;
             text-align: center;
             padding: 20px 20px;
             margin-top: 50px;
         }
 
         .meailplanpart {
-            background-color: #d0d0d0;
+            /* background-color: #d0d0d0; */
             display: flex;
             justify-content: center;
             height: 430px;
@@ -510,7 +510,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12" style="text-align: center;">
-                        <p class="subheadline" style="font-weight: 100; font-family: 'Sora', sans-serif;">What you eat on a daily basis is the most important aspect to getting the body you’ve always wanted</p>
+                        <p class="subheadline" style="font-weight: 100; font-family: 'Be Vietnam Pro', sans-serif;">What you eat on a daily basis is the most important aspect to getting the body you’ve always wanted</p>
                         <h1 class="headline mb-3">
                             FINALLY GET THE BODY <br>YOU’VE BEEN WISHING FOR
                         </h1>
@@ -558,40 +558,44 @@
                             <iframe width="550" height="445" src="https://www.youtube.com/embed/iiEK6csjMYo">
                             </iframe>
                         </div><!--//book-cover-holder-->
-                        <div class="text-center" style="font-family: 'Sora', sans-serif;">A custom-made plan provides you with specific details of what to eat, how much to eat, and even if you can’t cook or travel a lot, we guide you on exactly what to buy at restaurants around you! </div>
+                        <div class="text-center" style="font-family: 'Be Vietnam Pro', sans-serif;">A custom-made plan provides you with specific details of what to eat, how much to eat, and even if you can’t cook or travel a lot, we guide you on exactly what to buy at restaurants around you! </div>
                     </div><!--col-->
                 </div><!--//row-->
             </div><!--//container-->
         </section><!--//hero-section-->
 
         <section id="content-section" class="content-section mt-5">
-            <div class="container">
-                <div class="single-col-max mx-auto">
-                    <h1 class="section-heading text-center mb-5" style="font-weight: 900;">Does this sound familiar?</h1>
-                    <div class="row">
-                        <div class="col-12 col-md-12 mb-5">
-                            <div class="key-points mb-4 text-center">
-                                <ul class="key-points-list list-unstyled mb-4 mx-auto d-inline-block text-start">
-                                    <li><i class="fa fa-check-circle me-2"></i >You only eat may be once or twice a day....</li>
-                                    <li><i class="fa fa-check-circle me-2"></i>You exercise 3, 4, 5 times a week, may be even lift weights.</li>
-                                    <li><i class="fa fa-check-circle me-2"></i>You are religiously taking your lemon water or apple cider vinegar or slimming tea....</li>
-                                    <li><i class="fa fa-check-circle me-2"></i>You've started eating healthier, including more fruits, healthier swaps from coconut flour to couscous.</li>
-                                    <li><i class="fa fa-check-circle me-2"></i>In fact, you've painstakingly stopped eating past 7pm, still nothing is happening! You can't see the results of your labour. . </li>
-                                    <li><i class="fa fa-check-circle me-2"></i>Kindle curabitur fermentum.</li>
-                                    <li><i class="fa fa-check-circle me-2"></i>Kindle curabitur fermentum.</li>
-                                    <li><i class="fa fa-check-circle me-2"></i>Kindle curabitur fermentum.</li>
-                                </ul>
+            <div class="" style="background-color: #d0d0d0;">
+                <div class="container mt-5">
+                    <div class="single-col-max mx-auto">
 
-                            </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12 mb-5 mt-5">
+                                <div class="key-points mb-4 text-center">
+                                    <h1 class="section-heading text-center mb-5" style="font-weight: 900;">Does this sound familiar?</h1>
+                                    <ul class="key-points-list list-unstyled mb-4 mx-auto d-inline-block text-start">
+                                        <li><i class="fa fa-check-circle me-2"></i>You only eat may be once or twice a day....</li>
+                                        <li><i class="fa fa-check-circle me-2"></i>You exercise 3, 4, 5 times a week, may be even lift weights.</li>
+                                        <li><i class="fa fa-check-circle me-2"></i>You are religiously taking your lemon water or apple cider vinegar or slimming tea....</li>
+                                        <li><i class="fa fa-check-circle me-2"></i>You've started eating healthier, including more fruits, healthier swaps from coconut flour to couscous.</li>
+                                        <li><i class="fa fa-check-circle me-2"></i>In fact, you've painstakingly stopped eating past 7pm, still nothing is happening! You can't see the results of your labour. . </li>
+                                        <li><i class="fa fa-check-circle me-2"></i>Kindle curabitur fermentum.</li>
+                                        <li><i class="fa fa-check-circle me-2"></i>Kindle curabitur fermentum.</li>
+                                        <li><i class="fa fa-check-circle me-2"></i>Kindle curabitur fermentum.</li>
+                                    </ul>
 
-                        </div><!--//col-12-->
-                    </div><!--//row-->
-                </div><!--//single-col-max-->
-            </div><!--//container-->
+                                </div>
+
+                            </div><!--//col-12-->
+                        </div><!--//row-->
+                    </div><!--//single-col-max-->
+                </div><!--//container-->
+            </div>
+
         </section><!--//content-section-->
 
         <section>
-            <div class="meailplanpart" style="background-color: #d0d0d0;">
+            <div class="meailplanpart">
                 <div class="">
                     <div class="" style="padding: 20px 20px;">
                         <p class="text-center" style="font-size: 20px;">Here’s the thing, when it comes to getting fitness results, <br> your diet is KING! This right here is what has made the difference between frustration and absolute success for my clients!</p>
@@ -603,16 +607,16 @@
                             {!! csrf_field() !!}
                             <input type="hidden" name="userId" value="{{$userDetails['id']}}">
                             <input type="hidden" name="cusType" value="{{$userDetails['status']}}">
-                            <button type="submit" class="btn btn-primary" style="width: 90%; margin-right: 15px; background-color:#000; border-color:#000; font-family: 'Sora', sans-serif; height: 50px;">Get FREE Meal Plan</button>
+                            <button type="submit" class="btn btn-primary" style="width: 90%; margin-right: 15px; background-color:#000; border-color:#000; font-family: 'Be Vietnam Pro', sans-serif; height: 50px;">Get FREE Meal Plan</button>
                         </form>
 
                         <form id="paymentForm" style="width: 50%;">
                             <input type="hidden" id="name" name="name" value="{{$userDetails['name']}}" placeholder="Name:">
                             <input type="hidden" id="email-address" name="email-address" value="{{$userDetails['email']}}" placeholder="Email:" required>
                             <input type="hidden" id="amount" name="amount" placeholder="Amount:" value="20000" required>
-                            <button type="submit" onclick="payWithPaystack(event)" class="btn btn-primary" style="width: 90%; background-color:#ff0000;  border-color:#ff0000;  font-family: 'Sora', sans-serif; height: 50px;">Get FULL Meal Plan</button>
+                            <button type="submit" onclick="payWithPaystack(event)" class="btn btn-primary" style="width: 90%; background-color:#ff0000;  border-color:#ff0000;  font-family: 'Be Vietnam Pro', sans-serif; height: 50px;">Get FULL Meal Plan</button>
                             <p id="success-div" style="display:none;">Your complete meal plan has been sent to your mail</p>
-                            <p style="color:#FF9494; display: none;" id="error-div">Please contact us to make complain. <a href="mailto:support@cmp.com" target="_blank">Contant us</a></p> 
+                            <p style="color:#FF9494; display: none;" id="error-div">Please contact us to make complain. <a href="mailto:support@cmp.com" target="_blank">Contant us</a></p>
                         </form>
 
                         @else
@@ -632,15 +636,17 @@
 
         </section>
 
-        <section id="reviews-section" class="reviews-section py-5">
+        <section id="reviews-section" class="reviews-section py-5" style="background-color: #d0d0d0;">
             <div class="container">
                 <h2 class="section-heading text-center">Review</h2>
-                <div class="section-intro text-center single-col-max mx-auto mb-5 "> <h4>Hear from Nigerian Nutrition Expert!</h4> </div>
+                <div class="section-intro text-center single-col-max mx-auto mb-5 ">
+                    <h4>Hear from Nigerian Nutrition Expert!</h4>
+                </div>
                 <div class="row justify-content-center">
                     <div class="item col-12 col-lg-6 col-md-6 p-3 mb-4">
                         <div class="item-inner theme-bg-light rounded p-4">
 
-                            <blockquote class="quote" style="font-family: 'Sora', sans-serif;">
+                            <blockquote class="quote" style="font-family: 'Be Vietnam Pro', sans-serif;">
                                 "
                                 I’m Odunayo Abdulai, a pharmacist, and US certified integrative nutrition coach! <b> I specialise in helping individuals like you smash their fitness goals eating the Nigerian meals they love!</b>
 
@@ -669,7 +675,7 @@
                                 <h4 class="mt-3" style="color:#4c527d;">But you see, after 15 months of not getting results I was fed up. I had given it my all, what was going on?</h4>
                                 That’s where the journey to me becoming the Calorie Queen started!
 
-                            <div class="icon-holder"><i class="fa fa-quote-right"></i></div>
+                                <div class="icon-holder"><i class="fa fa-quote-right"></i></div>
                         </div><!--//inner-->
                     </div><!--//item-->
                     <div class="item col-12 col-lg-6 col-md-6 p-3 mb-4">
@@ -809,7 +815,7 @@
                 </div><!--//row-->
             </div><!--//container-->
         </section><!--//benefits-section-->
-        <section id="audience-section" class="audience-section py-5">
+        <section id="audience-section" class="audience-section py-5" style="background-color: #d0d0d0;">
             <div class="container">
                 <h2 class="section-heading text-center mb-4">FREQUENTLY ASKED QUESTIONS</h2>
                 <div class="section-intro single-col-max mx-auto text-center mb-5">
@@ -867,6 +873,29 @@
                 </div><!--//audience-->
             </div><!--//container-->
         </section><!--//audience-section-->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div id="success-div">
+                            <h4 style="color: #ff0000;">Well done!!! 🎉</h4>
+                            <P>Your meal plan has been created and our Nutrition experts are now giving it one last look before we ship it off to your email! </P>
+                            <P>You can expect your customised meal plan in your inbox in one working day or less!
+                            </P>
+
+                            <h3><strong>Cheers to your future fitness! 🙌🏽</strong></h3>
+
+                        </div>
+                        <p id="error" style="color: #ed4c67;">Error while trying to process your payment please try again or contact our support team</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>
@@ -880,12 +909,11 @@
             $("body").css("background-color", "white");
             $('.main').fadeIn('slow');
         }, 3500);
-
     });
 
     const paymentForm = document.getElementById('paymentForm');
-    const error_div = document.getElementById('error-div');
-    const success_div = document.getElementById('success-div');
+    // const error_div = document.getElementById('error-div');
+    // const success_div = document.getElementById('success-div');
     paymentForm.addEventListener("submit", payWithPaystack, false);
 
     function payWithPaystack(e) {
@@ -908,13 +936,22 @@
                     url: "{{URL::to('verify-payment')}}/" + reference,
 
                     success: function(response) {
-                        // console.log(response)
+                        console.log(response)
                         if (response == 1) {
                             paymentForm.style.display = 'none'
-                            success_div.style.display = 'block'
+                            $('#exampleModal').modal('show');
+                            $('#error').hide();
+                            setTimeout(function() {
+                                location.reload();
+                            }, 6000);
                         } else {
                             paymentForm.style.display = 'none'
-                            success_div.style.display = 'block'
+                            $('#exampleModal').modal('show');
+                            $('#success-div').hide();
+                            setTimeout(function() {
+                                location.reload();
+                            }, 6000);
+
                         }
                     }
                 });

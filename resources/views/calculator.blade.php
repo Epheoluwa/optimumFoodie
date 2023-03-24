@@ -14,14 +14,14 @@ $perc = 20;
     .h1,
     h1 {
         font-size: 32px;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
     }
 
     .btn-dark {
         background-color: #000 !important;
         color: #fff !important;
         border: 1px solid #000 !important;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
     }
 
     .btn-dark:hover {
@@ -38,7 +38,7 @@ $perc = 20;
         border: 1px solid #ff0000 !important;
         /* border: 1px solid #ff0000 !important; */
         border-radius: 5px;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
     }
 
     .btn-dark-outline:hover {
@@ -64,7 +64,7 @@ $perc = 20;
         border-radius: 5px;
         background-color: #ff0000;
         color: #fff;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
     }
 
     .whom-btn:hover,
@@ -81,7 +81,7 @@ $perc = 20;
         height: 50px;
         width: 200px;
         font-size: 25px;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
         text-align: center;
         font-weight: bold;
         outline: none;
@@ -121,7 +121,7 @@ $perc = 20;
         margin: -2px;
         border: 0px;
         font-weight: bold;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
     }
 
     .ft-cm.activer {
@@ -140,7 +140,7 @@ $perc = 20;
         height: 60px;
         width: 200px;
         font-size: 120px;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
         text-align: center;
         font-weight: bold;
         outline: none;
@@ -164,7 +164,7 @@ $perc = 20;
     #weightMsg,
     #weightMsg_aim {
         font-weight: bold;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
     }
 
     .lbs-kg {
@@ -179,7 +179,7 @@ $perc = 20;
         margin: -2px;
         border: 0px;
         font-weight: bold;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
     }
 
     .lbs-kg.activer {
@@ -253,7 +253,7 @@ $perc = 20;
         width: 230px;
         font-size: 120px;
         text-align: center;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
         font-weight: bold;
         outline: none;
         background-color: #f2f2f2;
@@ -292,12 +292,12 @@ $perc = 20;
         height: 120px;
         overflow: hidden;
         font-size: 11px;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
     }
 
     div.workout-cards div h4 {
         font-size: 13px;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
     }
 
     div.workout-cards div img {
@@ -337,7 +337,7 @@ $perc = 20;
     .myprogress .table td {
         text-align: center;
         font-size: 12px;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
         color: #c3c0c0;
         font-weight: bold;
     }
@@ -362,7 +362,7 @@ $perc = 20;
     small.direction-right {
         display: inline-block;
         font-size: 9px;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
         text-align: center;
         float: right;
     }
@@ -370,7 +370,7 @@ $perc = 20;
     small.direction-left {
         display: inline-block;
         font-size: 9px;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
         text-align: center;
         float: left;
         color: black;
@@ -384,14 +384,14 @@ $perc = 20;
         background: #000000;
         color: #fff;
         font-weight: bold;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
     }
 
     .triggerInfo {
         font-weight: bold;
         color: #ff0000;
         font-size: 12px;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
     }
 
     .calory-box {
@@ -410,7 +410,7 @@ $perc = 20;
     .calory-box h2 {
         text-align: center;
         font-size: 22px;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
         padding-bottom: 0px;
         margin-bottom: 0px;
         margin-top: 10px;
@@ -427,7 +427,7 @@ $perc = 20;
     #main-meal,
     #snack-meal {
         font-size: 45px;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
         width: 120px;
         text-align: center;
         margin-bottom: 60px;
@@ -458,7 +458,7 @@ $perc = 20;
         text-align: center;
         color: black;
         font-size: 18px;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
         height: 45px;
         width: 250px;
         margin-top: 15px;
@@ -504,7 +504,7 @@ $perc = 20;
         border-radius: 12px;
         color: #444;
         font-size: 18px;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
         box-shadow: -3px 3px 5px 0px rgba(0, 0, 0, 0.10);
         margin-top: 3rem;
         margin-bottom: 3rem;
@@ -619,37 +619,37 @@ $perc = 20;
                     <!-- <div class="col-md-2"></div> -->
 
                     <div >
-                        <h2 align="left" style="font-family: 'Sora', sans-serif;">Trying to lose weight?
+                        <h2 align="left" style="font-family: 'Be Vietnam Pro', sans-serif; padding-bottom: 5px;">Trying to lose weight?
                         </h2>
-                        <h5 style="width: 40%; font-family: 'Sora', sans-serif; margin-bottom:10px">What if I told you you could achieve your best body and maintain it, while still eating Nigerian meals 😋 </h5>
+                        <h5 style="width: 40%; font-family: 'Be Vietnam Pro', sans-serif; margin-bottom:10px;line-height: inherit; ">What if I told you you could achieve your best body and maintain it, while still eating Nigerian meals 😋 </h5>
                     </div>
 
                     <div class="col-md-12" style="margin-top: 10px;" align="center">
-                        <h3 style="margin-bottom: 2rem; font-family: 'Sora', sans-serif;">Here's what we have to do:</h3>
+                        <h3 style="margin-bottom: 2rem; font-family: 'Be Vietnam Pro', sans-serif;">Here's what we have to do:</h3>
                         <table class="table table-striped">
                             <tr>
-                                <td> <i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px; "></i>Step 1:</td>
-                                <td style="font-family: 'Sora', sans-serif;">Using our free calorie allowance calculator, we'll calculate how many calories you should be eating per day to reach your goal</td>
+                                <td> Step 1:</td>
+                                <td style="font-family: 'Be Vietnam Pro', sans-serif;">Using our free calorie allowance calculator, we'll calculate how many calories you should be eating per day to reach your goal</td>
 
                             </tr>
                             <tr>
-                                <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i>Step 2:</td>
-                                <td style="font-family: 'Sora', sans-serif;">You'll select which foods you enjoy eating</td>
+                                <td>Step 2:</td>
+                                <td style="font-family: 'Be Vietnam Pro', sans-serif;">You'll select which foods you enjoy eating</td>
 
                             </tr>
                             <tr>
-                                <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i>Step 3: </td>
-                                <td style="font-family: 'Sora', sans-serif;">We'll use your food selection and calculated calorie allownace to create a CUSTOMISED meal plan for you!</td>
+                                <td>Step 3: </td>
+                                <td style="font-family: 'Be Vietnam Pro', sans-serif;">We'll use your food selection and calculated calorie allownace to create a CUSTOMISED meal plan for you!</td>
 
                             </tr>
                             <tr>
-                                <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i>Step 4:</td>
-                                <td style="font-family: 'Sora', sans-serif;">The best part? .... We'll be sending you 2 days out of your 4 week plan to you absolutely FREE!</td>
+                                <td>Step 4:</td>
+                                <td style="font-family: 'Be Vietnam Pro', sans-serif;">The best part? .... We'll be sending you 2 days out of your 4 week plan to you absolutely FREE!</td>
 
                             </tr>
                             <tr>
-                                <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i> Step 5:</td>
-                                <td style="font-family: 'Sora', sans-serif;">And if you'd like to get the complete plan, all you have to do is subscribe!</td>
+                                <td> Step 5:</td>
+                                <td style="font-family: 'Be Vietnam Pro', sans-serif;">And if you'd like to get the complete plan, all you have to do is subscribe!</td>
                             </tr>
                         </table>
                     </div>
@@ -690,7 +690,7 @@ $perc = 20;
                                         Previous
                                     </small>
                                 </a>
-                                <p style="font-size: 40px; font-weight:800; font-family: 'Sora', sans-serif;">{{ env('APP_NAME') }}</p>
+                                <p style="font-size: 40px; font-weight:800; font-family: 'Be Vietnam Pro', sans-serif;">{{ env('APP_NAME') }}</p>
 
                                 <!-- <a href="javascript:void(0)" data-dismiss="modal">
                                     <small class="direction-right">
@@ -710,37 +710,37 @@ $perc = 20;
                                                     <div class="row valid-result">
                                     
                                                         <div style="display: flex; justify-content: center;">
-                                                            <h2 align="left" style="font-family: 'Sora', sans-serif;">Become The Better Version Of Yourself
+                                                            <h2 align="left" style="font-family: 'Be Vietnam Pro', sans-serif;">Become The Better Version Of Yourself
                                                             </h2>
-                                                            <!-- <h5 style="width: 40%; font-family: 'Sora', sans-serif;">What if I told you you could achieve your best body and maintain it, while still eating Nigerian meals 😋 </h5> -->
+                                                            <!-- <h5 style="width: 40%; font-family: 'Be Vietnam Pro', sans-serif;">What if I told you you could achieve your best body and maintain it, while still eating Nigerian meals 😋 </h5> -->
                                                         </div>
 
                                                         <!-- <div class="col-md-12" style="margin-top: 10px;" align="center">
-                                                            <h3 style="margin-bottom: 2rem; font-family: 'Sora', sans-serif;">Here's what we have to do:</h3>
+                                                            <h3 style="margin-bottom: 2rem; font-family: 'Be Vietnam Pro', sans-serif;">Here's what we have to do:</h3>
                                                             <table class="table table-striped">
                                                                 <tr>
                                                                     <td> <i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px; "></i>Step 1:</td>
-                                                                    <td style="font-family: 'Sora', sans-serif;">Using our free calorie allowance calculator, we'll calculate how many calories you should be eating per day to reach your goal</td>
+                                                                    <td style="font-family: 'Be Vietnam Pro', sans-serif;">Using our free calorie allowance calculator, we'll calculate how many calories you should be eating per day to reach your goal</td>
 
                                                                 </tr>
                                                                 <tr>
                                                                     <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i>Step 2:</td>
-                                                                    <td style="font-family: 'Sora', sans-serif;">You'll select which foods you enjoy eating</td>
+                                                                    <td style="font-family: 'Be Vietnam Pro', sans-serif;">You'll select which foods you enjoy eating</td>
 
                                                                 </tr>
                                                                 <tr>
                                                                     <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i>Step 3: </td>
-                                                                    <td style="font-family: 'Sora', sans-serif;">We'll use your food selection and calculated calorie allownace to create a CUSTOMISED meal plan for you!</td>
+                                                                    <td style="font-family: 'Be Vietnam Pro', sans-serif;">We'll use your food selection and calculated calorie allownace to create a CUSTOMISED meal plan for you!</td>
 
                                                                 </tr>
                                                                 <tr>
                                                                     <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i>Step 4:</td>
-                                                                    <td style="font-family: 'Sora', sans-serif;">The best part? .... We'll be sending you 2 days out of your 4 week plan to you absolutely FREE!</td>
+                                                                    <td style="font-family: 'Be Vietnam Pro', sans-serif;">The best part? .... We'll be sending you 2 days out of your 4 week plan to you absolutely FREE!</td>
 
                                                                 </tr>
                                                                 <tr>
                                                                     <td><i class="fa fa-circle" style="color:#ff0000; font-size: 10px;margin: 2px 2px"></i> Step 5:</td>
-                                                                    <td style="font-family: 'Sora', sans-serif;">And if you'd like to get the complete plan, all you have to do is subscribe!</td>
+                                                                    <td style="font-family: 'Be Vietnam Pro', sans-serif;">And if you'd like to get the complete plan, all you have to do is subscribe!</td>
                                                                 </tr>
                                                             </table>
                                                         </div> -->
@@ -756,8 +756,8 @@ $perc = 20;
                                         <div class="container">
                                             @include('progress')
 
-                                            <h4 style="font-family: 'Sora', sans-serif;">Very good. Let's keep moving...</h4>
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">What’s your gender?</h1>
+                                            <h4 style="font-family: 'Be Vietnam Pro', sans-serif;">Very good. Let's keep moving...</h4>
+                                            <h1 style="font-weight:bold; font-family: 'Be Vietnam Pro', sans-serif;">What’s your gender?</h1>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%; margin-top:3rem;">
 
@@ -788,15 +788,15 @@ $perc = 20;
                                         <div class="container">
                                             @include('progress')
 
-                                            <h5 style="font-family: 'Sora', sans-serif;">Don’t worry we won’t tell 😉</h5>
-                                            <h3 style="font-weight:bold; font-size:30px; font-family: 'Sora', sans-serif;">How old are you?</h3>
+                                            <h5 style="font-family: 'Be Vietnam Pro', sans-serif;">Don’t worry we won’t tell 😉</h5>
+                                            <h3 style="font-weight:bold; font-size:30px; font-family: 'Be Vietnam Pro', sans-serif;">How old are you?</h3>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
                                                 <div style="display:inline-block;" align="center">
                                                     <input id="age" type="number" name="age" min="18" max="120">
                                                     <p id="error-p-tag" class="error-color error-p-tag"> </p>
-                                                    <p style="font-weight:bold; margin-top:3rem; font-family: 'Sora', sans-serif;">Valid age is between 18years - 120years</p>
+                                                    <p style="font-weight:bold; margin-top:3rem; font-family: 'Be Vietnam Pro', sans-serif;">Valid age is between 18years - 120years</p>
                                                     <br>
 
                                                     <a href="#myCarousel" class="btn btn-dark-outline whom-btn" onclick="nextSlide($('#age'), 'Please enter your age!')">Next</a>
@@ -809,8 +809,8 @@ $perc = 20;
                                         <div class="container">
                                             @include('progress')
 
-                                            <h4 style="font-family: 'Sora', sans-serif;">Got it. Next question...</h4>
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">What’s your height?</h1>
+                                            <h4 style="font-family: 'Be Vietnam Pro', sans-serif;">Got it. Next question...</h4>
+                                            <h1 style="font-weight:bold; font-family: 'Be Vietnam Pro', sans-serif;">What’s your height?</h1>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
@@ -824,18 +824,18 @@ $perc = 20;
 
                                                     <div id="ft-con" style="margin-bottom:10px; display:flex;justify-content: center;">
                                                         <div class="input-group" id="heightFTcon">
-                                                            <input id="heightFT" type="number" id="weightIN" class="height" style="font-size:50px;margin-right:-5px; font-family: 'Sora', sans-serif;" onkeyup="keyPressTall()" min="2" max="9">
-                                                            <span class="input-group-addon" style="padding-left: 15px; padding-top: 20px;padding-right: 20px;  font-size:16px; font-family: 'Sora', sans-serif;">ft</span>
+                                                            <input id="heightFT" type="number" id="weightIN" class="height" style="font-size:50px;margin-right:-5px; font-family: 'Be Vietnam Pro', sans-serif;" onkeyup="keyPressTall()" min="2" max="9">
+                                                            <span class="input-group-addon" style="padding-left: 15px; padding-top: 20px;padding-right: 20px;  font-size:16px; font-family: 'Be Vietnam Pro', sans-serif;">ft</span>
                                                         </div>
                                                         <div class="input-group" id="heightINcon">
-                                                            <input id="heightIN" type="number" class="height" style="font-size:50px;margin-right:-5px; font-family: 'Sora', sans-serif;" onkeyup="keyPressTall()" min="0" max="11">
-                                                            <span class="input-group-addon" style="padding-left: 15px; padding-top: 20px; padding-right: 20px;font-size:16px; font-family: 'Sora', sans-serif;">in</span>
+                                                            <input id="heightIN" type="number" class="height" style="font-size:50px;margin-right:-5px; font-family: 'Be Vietnam Pro', sans-serif;" onkeyup="keyPressTall()" min="0" max="11">
+                                                            <span class="input-group-addon" style="padding-left: 15px; padding-top: 20px; padding-right: 20px;font-size:16px; font-family: 'Be Vietnam Pro', sans-serif;">in</span>
                                                         </div>
 
 
                                                         <div class="input-group" id="heightCMcon">
-                                                            <input id="heightCM" type="number" class="height heightHide" style="font-size:50px;margin-right:-5px; font-family: 'Sora', sans-serif;" onkeyup="keyPressTall()" min="60" max="300">
-                                                            <span class="input-group-addon" style="padding-left: 10px; padding-top: 20px; padding-right: 30px;font-size:16px; font-family: 'Sora', sans-serif;">cm</span>
+                                                            <input id="heightCM" type="number" class="height heightHide" style="font-size:50px;margin-right:-5px; font-family: 'Be Vietnam Pro', sans-serif;" onkeyup="keyPressTall()" min="60" max="300">
+                                                            <span class="input-group-addon" style="padding-left: 10px; padding-top: 20px; padding-right: 30px;font-size:16px; font-family: 'Be Vietnam Pro', sans-serif;">cm</span>
                                                         </div>
 
                                                     </div>
@@ -855,8 +855,8 @@ $perc = 20;
                                         <div class="container">
                                             @include('progress')
 
-                                            <h4 style="font-family: 'Sora', sans-serif;">Great. Last personal detail...</h4>
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">How much do you weigh right now?</h1>
+                                            <h4 style="font-family: 'Be Vietnam Pro', sans-serif;">Great. Last personal detail...</h4>
+                                            <h1 style="font-weight:bold; font-family: 'Be Vietnam Pro', sans-serif;">How much do you weigh right now?</h1>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
@@ -867,7 +867,7 @@ $perc = 20;
                                                     <div id="ft-con" style="margin-bottom:10px">
                                                         <input id="weight" type="hidden" name="weight" min="23" max="227">
 
-                                                        <input type="number" id="weightIN" class="height" style="display:initial;font-size:50px;text-align:right;padding-right:15px;width:150px; font-family: 'Sora', sans-serif;" onkeyup="keyPressFat()" min="25" max="230">
+                                                        <input type="number" id="weightIN" class="height" style="display:initial;font-size:50px;text-align:right;padding-right:15px;width:150px; font-family: 'Be Vietnam Pro', sans-serif;" onkeyup="keyPressFat()" min="25" max="230">
                                                         <div style="display:inline;top:-13.5px;left:-7px;position:relative;">
                                                             <button type="button" class="lbs-kg activer" id="kgBtn" onclick="clickFatBtn(this)">kg</button>
                                                             <button type="button" class="lbs-kg" id="lbsBtn" onclick="clickFatBtn(this)">lbs</button>
@@ -889,9 +889,9 @@ $perc = 20;
                                             @php $perc = 50; @endphp
                                             @include('progress')
 
-                                            <h4 style="font-family: 'Sora', sans-serif;">Now tell us what you want to achieve...</h4>
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">What do you want to achieve?</h1>
-                                            <p id="error-p-tag4" class="error-color" style="font-size: 16px; font-family: 'Sora', sans-serif;"> </p>
+                                            <h4 style="font-family: 'Be Vietnam Pro', sans-serif;">Now tell us what you want to achieve...</h4>
+                                            <h1 style="font-weight:bold; font-family: 'Be Vietnam Pro', sans-serif;">What do you want to achieve?</h1>
+                                            <p id="error-p-tag4" class="error-color" style="font-size: 16px; font-family: 'Be Vietnam Pro', sans-serif;"> </p>
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%; margin-top: 2rem">
 
                                                 <div style="display:inline-block;" align="center">
@@ -950,9 +950,9 @@ $perc = 20;
                                         <div class="container">
                                             @include('progress')
 
-                                            <h4 style="font-family: 'Sora', sans-serif;">Let's get really specific on this....</h4>
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">What’s your target weight?</h1>
-                                            <p id="error-p-tag6" class="error-color" style="font-size: 16px; font-family: 'Sora', sans-serif;"> </p>
+                                            <h4 style="font-family: 'Be Vietnam Pro', sans-serif;">Let's get really specific on this....</h4>
+                                            <h1 style="font-weight:bold; font-family: 'Be Vietnam Pro', sans-serif;">What’s your target weight?</h1>
+                                            <p id="error-p-tag6" class="error-color" style="font-size: 16px; font-family: 'Be Vietnam Pro', sans-serif;"> </p>
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;padding-top:25px;">
 
                                                 <div style="display:inline-block;" align="center">
@@ -960,7 +960,7 @@ $perc = 20;
                                                         <input id="weight_aim" type="hidden" name="weight_aim" min="25" max="230">
 
 
-                                                        <input type="number" id="weightIN_aim" class="height" style="display:initial;font-size:50px;text-align:right;padding-right:15px;width:150px; font-family: 'Sora', sans-serif;" onkeyup="keyPressFat_aim()" min="23" max="227">
+                                                        <input type="number" id="weightIN_aim" class="height" style="display:initial;font-size:50px;text-align:right;padding-right:15px;width:150px; font-family: 'Be Vietnam Pro', sans-serif;" onkeyup="keyPressFat_aim()" min="23" max="227">
                                                         <div style="display:inline;top:-13.5px;left:-5px;position:relative;">
                                                             <button type="button" class="lbs-kg activeree" id="kgBtn_aim" onclick="clickFatBtn_aim(this)">kg</button>
                                                             <button type="button" class="lbs-kg" id="lbsBtn_aim" onclick="clickFatBtn_aim(this)">lbs</button>
@@ -972,15 +972,15 @@ $perc = 20;
                                                     <div class="row">
                                                         <div class="col-lg-2"></div>
                                                         <div class="col-lg-8">
-                                                            <h3 style="font-weight:bold;margin-top:42px; font-family: 'Sora', sans-serif;">In how many months will you like to achieve this goal?</h3>
+                                                            <h3 style="font-weight:bold;margin-top:42px; font-family: 'Be Vietnam Pro', sans-serif;">In how many months will you like to achieve this goal?</h3>
                                                         </div>
                                                         <div class="col-lg-2"></div>
                                                     </div>
 
                                                     <div id="ft-con_aim" style="margin-bottom:10px;padding-top:15px;">
 
-                                                        <input type="number" name="weight_time_aim" class="height" style="display:initial;font-size:30px;text-align:center;padding-right:15px;width:170px; font-family: 'Sora', sans-serif;">
-                                                        <small style="display:block;margin-top:15px;width:70vw;font-size:16px;font-weight:bold; font-family: 'Sora', sans-serif;">Please let's be realistic here. Extreme weight loss is not usually sustainable. We recommend a target of 4 - 5kg per month.</small>
+                                                        <input type="number" name="weight_time_aim" class="height" style="display:initial;font-size:30px;text-align:center;padding-right:15px;width:170px; font-family: 'Be Vietnam Pro', sans-serif;">
+                                                        <small style="display:block;margin-top:15px;width:70vw;font-size:16px;font-weight:bold; font-family: 'Be Vietnam Pro', sans-serif;">Please let's be realistic here. Extreme weight loss is not usually sustainable. We recommend a target of 4 - 5kg per month.</small>
                                                     </div>
 
                                                     <div id="myModalInfo" class="modal fade" role="dialog">
@@ -1004,9 +1004,9 @@ $perc = 20;
                                             @php $perc = 75; @endphp
                                             @include('progress')
 
-                                            <h4 style="font-family: 'Sora', sans-serif;">Cool. Let's go a little deeper on exercise...</h4>
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">How physically active are you?</h1>
-                                            <p id="error-p-tag5" class="error-color" style="font-size: 16px; font-family: 'Sora', sans-serif;"> </p>
+                                            <h4 style="font-family: 'Be Vietnam Pro', sans-serif;">Cool. Let's go a little deeper on exercise...</h4>
+                                            <h1 style="font-weight:bold; font-family: 'Be Vietnam Pro', sans-serif;">How physically active are you?</h1>
+                                            <p id="error-p-tag5" class="error-color" style="font-size: 16px; font-family: 'Be Vietnam Pro', sans-serif;"> </p>
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
                                                 <div style="display:inline-block;" align="center">
@@ -1120,8 +1120,8 @@ $perc = 20;
                                         <div class="container">
                                             @include('progress')
 
-                                            <h4 style="font-family: 'Sora', sans-serif;">Now tell us what you want to achieve...</h4>
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">Are you managing any of this health conditions?</h1>
+                                            <h4 style="font-family: 'Be Vietnam Pro', sans-serif;">Now tell us what you want to achieve...</h4>
+                                            <h1 style="font-weight:bold; font-family: 'Be Vietnam Pro', sans-serif;">Are you managing any of this health conditions?</h1>
 
                                             <div>
                                                 <!-- <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%; margin-top:2rem"> -->
@@ -1200,46 +1200,46 @@ $perc = 20;
                                                     <div class="row valid-result">
                                                         <div class="col-md-2"></div>
                                                         <div class="col-md-8" align="center">
-                                                            <h2 align="left" style="font-family: 'Sora', sans-serif;">Brief Summary</h2>
+                                                            <h2 align="left" style="font-family: 'Be Vietnam Pro', sans-serif;">Brief Summary</h2>
                                                             <table class="table table-striped">
                                                                 <tr>
                                                                     <td><span> <img src="{{ url('assets/frontend/images/age-group.png') }}" class="img-responsive" style="width: 20px" /></span></td>
-                                                                    <td style="font-family: 'Sora', sans-serif;">Age</td>
-                                                                    <td style="font-family: 'Sora', sans-serif;" id="res-age"></td>
+                                                                    <td style="font-family: 'Be Vietnam Pro', sans-serif;">Age</td>
+                                                                    <td style="font-family: 'Be Vietnam Pro', sans-serif;" id="res-age"></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td><span><img src="{{ url('assets/frontend/images/weight.png') }}" class="img-responsive" style="width: 20px" /></span></td>
-                                                                    <td style="font-family: 'Sora', sans-serif;"> Current Weight</td>
-                                                                    <td id="res-weight" style="font-family: 'Sora', sans-serif;"></td>
+                                                                    <td style="font-family: 'Be Vietnam Pro', sans-serif;"> Current Weight</td>
+                                                                    <td id="res-weight" style="font-family: 'Be Vietnam Pro', sans-serif;"></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td><span><img src="{{ url('assets/frontend/images/height.png') }}" class="img-responsive" style="width: 20px" /></span></td>
-                                                                    <td style="font-family: 'Sora', sans-serif;">Height</td>
-                                                                    <td id="res-height" style="font-family: 'Sora', sans-serif;"></td>
+                                                                    <td style="font-family: 'Be Vietnam Pro', sans-serif;">Height</td>
+                                                                    <td id="res-height" style="font-family: 'Be Vietnam Pro', sans-serif;"></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td><span><img src="{{ url('assets/frontend/images/exercise.png') }}" class="img-responsive" style="width: 20px" /></span></td>
-                                                                    <td style="font-family: 'Sora', sans-serif;">Level of Activity</td>
-                                                                    <td id="res-activity" style="font-family: 'Sora', sans-serif;"></td>
+                                                                    <td style="font-family: 'Be Vietnam Pro', sans-serif;">Level of Activity</td>
+                                                                    <td id="res-activity" style="font-family: 'Be Vietnam Pro', sans-serif;"></td>
                                                                 </tr>
                                                             </table>
 
                                                             <div class="weightMaintainResult">
-                                                                <p style="font-family: 'Sora', sans-serif;">
+                                                                <p style="font-family: 'Be Vietnam Pro', sans-serif;">
                                                                     Here’s the number of calories you need to consume to maintain your current weight::
                                                                 </p>
 
                                                                 <h3>
-                                                                    <span class="calories" style="font-family: 'Sora', sans-serif;"></span>cal<br>
-                                                                    <small class="min-calory" style="font-family: 'Sora', sans-serif;">The recommended minimum is <b>1200cal</b> per day to meet your body’s nutritional needs.</small>
+                                                                    <span class="calories" style="font-family: 'Be Vietnam Pro', sans-serif;"></span>cal<br>
+                                                                    <small class="min-calory" style="font-family: 'Be Vietnam Pro', sans-serif;">The recommended minimum is <b>1200cal</b> per day to meet your body’s nutritional needs.</small>
                                                                     <br>
-                                                                    <small class="min-calory" style="font-family: 'Sora', sans-serif;">So you here are your options, you can increase the time it’ll take to reach your goal, and/ or increase your level of physical activity.</small>
+                                                                    <small class="min-calory" style="font-family: 'Be Vietnam Pro', sans-serif;">So you here are your options, you can increase the time it’ll take to reach your goal, and/ or increase your level of physical activity.</small>
                                                                     <br>
-                                                                    <small class="min-calory" style="font-family: 'Sora', sans-serif;">With this in mind, kindly click the button below to recalculate your calorie needs</small>
+                                                                    <small class="min-calory" style="font-family: 'Be Vietnam Pro', sans-serif;">With this in mind, kindly click the button below to recalculate your calorie needs</small>
                                                                     <br>
                                                                 </h3>
                                                                 <div class="">
-                                                                    <p style="font-family: 'Sora', sans-serif;">See how the number changes based on your level of activity.</p>
+                                                                    <p style="font-family: 'Be Vietnam Pro', sans-serif;">See how the number changes based on your level of activity.</p>
                                                                     <table cellpadding="2" cellspacing="2">
                                                                         <tr>
                                                                             <td id="SedentaryCalory">
@@ -1283,11 +1283,11 @@ $perc = 20;
                                                             </div>
 
                                                             <div class="weightLossResult"><br>
-                                                                <p style="font-family: 'Sora', sans-serif;">
+                                                                <p style="font-family: 'Be Vietnam Pro', sans-serif;">
                                                                     To lose <b id="res-weight-text">28kg</b> over the next <b id="res-period-text">28kg</b>, at your current level of activity and weight, you’ll need to consume:
                                                                 </p>
 
-                                                                <h3 style="font-family: 'Sora', sans-serif;">
+                                                                <h3 style="font-family: 'Be Vietnam Pro', sans-serif;">
                                                                     <span class="calories"></span>cal per day<br>
                                                                     <small class="min-calory" style="color:#FF9494;">The recommended minimum is <b>1200cal</b> per day to meet your body’s nutritional needs.</small>
                                                                     <br>
@@ -1296,7 +1296,7 @@ $perc = 20;
                                                                     <small class="min-calory" style="color:#FF9494;">With this in mind, kindly click the button below to recalculate your calorie needs</small>
                                                                 </h3>
 
-                                                                <p class="recalc-next" style="font-family: 'Sora', sans-serif;">
+                                                                <p class="recalc-next" style="font-family: 'Be Vietnam Pro', sans-serif;">
                                                                     Now that we’ve established your calorie needs to achieve your goal, let’s set-up your food preferences, and eating pattern.
                                                                 </p>
                                                                 <p>
@@ -1316,7 +1316,7 @@ $perc = 20;
                                                     </div>
 
                                                     <div class="weightMaintainResult" style="margin-top: 3rem">
-                                                        <p style="font-family: 'Sora', sans-serif;">
+                                                        <p style="font-family: 'Be Vietnam Pro', sans-serif;">
                                                             Now that we’ve established your calorie needs to achieve your goal, let’s set-up your food preferences, and eating pattern.
                                                         </p>
                                                         <br>
@@ -1332,7 +1332,7 @@ $perc = 20;
 
                                     <div class="item" style="height:100%;overflow-y:auto;">
                                         <div class="container">
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">How many main meals do you eat a day?</h1>
+                                            <h1 style="font-weight:bold; font-family: 'Be Vietnam Pro', sans-serif;">How many main meals do you eat a day?</h1>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
@@ -1351,7 +1351,7 @@ $perc = 20;
 
                                     <div class="item" style="height:100%;overflow-y:auto;">
                                         <div class="container">
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">And how many times do you snack?</h1>
+                                            <h1 style="font-weight:bold; font-family: 'Be Vietnam Pro', sans-serif;">And how many times do you snack?</h1>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
@@ -1374,8 +1374,8 @@ $perc = 20;
                                     <?php $rf++; ?>
                                     <div class="item" style="height:100%;overflow-y:auto;">
                                         <div class="container">
-                                            <h4 style="font-weight:bold; font-size: 15px; font-family: 'Sora', sans-serif;">Now it’s time to choose the foods you enjoy. Don’t worry if you consider them healthy or not, just choose the options you enjoy eating</h4>
-                                            <h4 style="font-weight:bold; font-size: 15px; font-family: 'Sora', sans-serif;">Don’t worry if you consider them healthy or not, just choose the options you enjoy eating</h4>
+                                            <h4 style="font-weight:bold; font-size: 15px; font-family: 'Be Vietnam Pro', sans-serif;">Now it’s time to choose the foods you enjoy, and have easy access to. Don’t worry if you consider them healthy or not, let us worry about that. If you like it, and it's available around you, tick it!</h4>
+                                            <!-- <h4 style="font-weight:bold; font-size: 15px; font-family: 'Be Vietnam Pro', sans-serif;">Don’t worry if you consider them healthy or not, just choose the options you enjoy eating</h4> -->
                                             <h1>{{ $typ }}</h1><br>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
@@ -1394,10 +1394,10 @@ $perc = 20;
                                                     @if($typ=='Sweetners and Others')
                                                     <div style="display:inline-block;" align="center">
                                                         <br><br>
-                                                        <p style="font-weight:bold; font-family: 'Sora', sans-serif;">
+                                                        <p style="font-weight:bold; font-family: 'Be Vietnam Pro', sans-serif;">
                                                             Others (List any other food you would like me to include)
                                                         </p>
-                                                        <textarea style="margin-top:20px;width:350px;height:155px;font-size:18px;padding:8px;resize:none; font-family: 'Sora', sans-serif;" name="food_options[]"></textarea>
+                                                        <textarea style="margin-top:20px;width:350px;height:155px;font-size:18px;padding:8px;resize:none; font-family: 'Be Vietnam Pro', sans-serif;" name="food_options[]"></textarea>
                                                     </div>
                                                     @endif
 
@@ -1416,10 +1416,10 @@ $perc = 20;
 
                                     <div class="item" style="height:100%;overflow-y:auto;">
                                         <div class="container">
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">Yaaay! Your FREE Meal Plan is ready!</h1>
-                                            <h3 align="center" style="font-family: 'Sora', sans-serif;">We have just created your fully CUSTOMIZED 30 day meal plan!</h3>
+                                            <h1 style="font-weight:bold; font-family: 'Be Vietnam Pro', sans-serif;">Yaaay! Your FREE Meal Plan is ready!</h1>
+                                            <h3 align="center" style="font-family: 'Be Vietnam Pro', sans-serif;">We have just created your fully CUSTOMIZED 30 day meal plan!</h3>
 
-                                            <h4 style="font-family: 'Sora', sans-serif;">Enter your name and best email below to get 2 FULL days of the meal plan completely FREE!</h4>
+                                            <h4 style="font-family: 'Be Vietnam Pro', sans-serif;">Enter your name and best email below to get 2 FULL days of the meal plan completely FREE!</h4>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
@@ -1430,7 +1430,7 @@ $perc = 20;
                                                     <input class="bestest" placeholder="Best Email" type="email" name="best_email">
                                                     <br>
                                                     <br>
-                                                    <label for="suggestions" style="font-family: 'Sora', sans-serif;">List any other food option you will like us to add </label>
+                                                    <label for="suggestions" style="font-family: 'Be Vietnam Pro', sans-serif;">List any other food option you will like us to add </label>
                                                     <br>
                                                     <input class="bestest" type="text" name="suggestions">
 
@@ -1447,7 +1447,7 @@ $perc = 20;
                                     <div class="item" style="height:100%;overflow-y:auto;">
                                         <div class="container">
                                             <h4>Yay! Your 2-day FREE PLAN has been sent to your provided email.</h4>
-                                            <h1 style="font-weight:bold; font-family: 'Sora', sans-serif;">If you would like to get the complete 30-day plan, click below</h1>
+                                            <h1 style="font-weight:bold; font-family: 'Be Vietnam Pro', sans-serif;">If you would like to get the complete 30-day plan, click below</h1>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
@@ -2051,6 +2051,7 @@ $perc = 20;
             $('.calories').hide();
             $('.recalc-next').hide();
         }
+        $('.calories').show();
 
         let caloryIndexes = {
             'Sedentary': 'SedentaryCalory',
