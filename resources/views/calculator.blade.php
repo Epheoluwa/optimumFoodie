@@ -626,7 +626,7 @@ $perc = 20;
 
                     <div class="col-md-12" style="margin-top: 10px;" align="center">
                         <h3 style="margin-bottom: 2rem; font-family: 'Be Vietnam Pro', sans-serif;">Here's what we have to do:</h3>
-                        <table class="table table-striped">
+                        <table class="table table-striped" style="border-collapse: separate; border-spacing: 1em;">
                             <tr>
                                 <td> Step 1:</td>
                                 <td style="font-family: 'Be Vietnam Pro', sans-serif;">Using our free calorie allowance calculator, we'll calculate how many calories you should be eating per day to reach your goal</td>

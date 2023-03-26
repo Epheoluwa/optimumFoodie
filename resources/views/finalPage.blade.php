@@ -286,6 +286,11 @@
             position: absolute;
         }
 
+        .styleLiInBennefit {
+            padding: 10px;
+            font-size: 20px;
+        }
+
         .typewriter .keyboard:before {
             top: 0;
             left: 0;
@@ -506,24 +511,68 @@
             <a class="btn btn-primary" style="background: #ed4c67; width:100px; border-color: #ed4c67;" href="{{ url('/logout') }}">Logout</a>
         </div>
         @endif
+        <section class="mt-5">
+            <div class="meailplanpart">
+                <div class="" style="width:60%">
+                    <div class="" style="padding: 20px 20px;">
+                        <p class="text-center" style="font-size: 20px;">What you eat on a daily basis is the most important <br>
+                            aspect to getting the body you’ve always wanted</p>
+                        <!-- <p class="text-center" style="font-size: 20px;">Here’s the thing, when it comes to getting fitness results, <br> your diet is KING! This right here is what has made the difference between frustration and absolute success for my clients!</p> -->
+                    </div>
+                    <h1 class="mt-3 text-center" style="font-size: 30px;">FINALLY GET THE BODY YOU’VE BEEN WISHING FOR</h1>
+                    <p class="mt-3 text-center" style="font-size: 20px; font-style:italic; font-weight:bold">Without Ever Needing To Step In A GYM Or Give Up The Nigerian Meals You Enjoy!</p>
+                    <!-- <p class="mt-3 text-center" style="font-size: 20px;">And the awesome news is that <b> you don’t have to stop eating your eba, rice, bread, beans and so on to get amazing results! <br> </b> You can eat all your fave Nigerian meals and still crush your body goals!</p> -->
+                    <div class="text-center" style=" justify-content: space-between; display: flex; margin-top: 100px;">
+                        @if ($userDetails['status']== 'free')
+                        <form action="{{ url('sendmail') }}" method="post" style="width: 50%;">
+                            {!! csrf_field() !!}
+                            <input type="hidden" name="userId" value="{{$userDetails['id']}}">
+                            <input type="hidden" name="cusType" value="{{$userDetails['status']}}">
+                            <button type="submit" class="btn btn-primary" style="width: 90%; margin-right: 15px; background-color:#000; border-color:#000; font-family: 'Be Vietnam Pro', sans-serif; height: 50px; font-size:20px;">Get FREE 2-Day Plan</button>
+                        </form>
+
+                        <form id="paymentForm" style="width: 50%;">
+                            <input type="hidden" id="name" name="name" value="{{$userDetails['name']}}" placeholder="Name:">
+                            <input type="hidden" id="email-address" name="email-address" value="{{$userDetails['email']}}" placeholder="Email:" required>
+                            <input type="hidden" id="amount" name="amount" placeholder="Amount:" value="20000" required>
+                            <button type="submit" onclick="payWithPaystack(event)" class="btn btn-primary" style="width: 90%; background-color:#ff0000;  border-color:#ff0000;  font-family: 'Be Vietnam Pro', sans-serif; height: 50px; font-size:20px;">Get the FULL 4-week Plan</button>
+                            <p id="success-div" style="display:none;">Your complete meal plan has been sent to your mail</p>
+                            <p style="color:#FF9494; display: none;" id="error-div">Please contact us to make complain. <a href="mailto:support@cmp.com" target="_blank">Contant us</a></p>
+                        </form>
+
+                        @else
+                        <form action="{{ url('sendmail') }}" method="post" style="width: 100%;">
+                            {!! csrf_field() !!}
+                            <input type="hidden" name="userId" value="{{$userDetails['id']}}">
+                            <input type="hidden" name="cusType" value="{{ $userDetails['status']}}">
+                            <button type="submit" class="btn btn-primary" style="width: 70%; background-color:#ff0000; border-color:#ff0000; height: 50px; font-size:20px;">Get the FULL 4-week Plan</button>
+                        </form>
+                        @endif
+
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
         <section class="hero-section mt-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12" style="text-align: center;">
+                    <!-- <div class="col-md-12" style="text-align: center;">
                         <p class="subheadline" style="font-weight: 100; font-family: 'Be Vietnam Pro', sans-serif;">What you eat on a daily basis is the most important aspect to getting the body you’ve always wanted</p>
                         <h1 class="headline mb-3">
                             FINALLY GET THE BODY <br>YOU’VE BEEN WISHING FOR
                         </h1>
-                    </div>
-                    <div class="col-12 col-md-6 align-self-center" style="height: 560px;">
-                        <div class="promo left-firststyle" style="height: 440px;">
-                            <!--//headline-->
-                            <h3>Without Ever Needing To Step In A GYM Or Give Up The Nigerian Meals You Enjoy!</h3>
+                    </div> -->
+                    <!-- <div class="promo left-firststyle" style="height: 440px;"> -->
+                    <!--//headline-->
+                    <!-- <h3>Without Ever Needing To Step In A GYM Or Give Up The Nigerian Meals You Enjoy!</h3>
                             <div class="subheadline mb-4 divvvv">
                                 Get access to your own customized meal timetable! Specially created based for YOU based on your food likes, health and fitness goals, daily schedule, food allergies and so on!
-                            </div><!--//subheading-->
+                            </div> -->
 
-                            <!-- <div class="cta-holder row gx-md-3 gy-3 gy-md-0">
+                    <!-- <div class="cta-holder row gx-md-3 gy-3 gy-md-0">
                             <div class="col-12 col-md-auto">
                                 <a class="btn btn-primary w-100" href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/devbook-free-bootstrap-5-book-ebook-landing-page-template-for-developers/">Buy for $29</a>
                             </div>
@@ -532,7 +581,7 @@
                             </div>
                         </div>//cta-holder -->
 
-                            <!-- <div class="hero-quotes mt-5">
+                    <!-- <div class="hero-quotes mt-5">
                                 <div class="container">
                                     <h2 class="text-center">Progress report</h2>
                                     <div class="row">
@@ -551,21 +600,59 @@
                                     </div>
                                 </div>
                             </div> -->
-                        </div><!--//promo-->
-                    </div><!--col-->
-                    <div class="col-12 col-md-6 mb-5 align-self-center">
+                    <!-- </div>//promo -->
+                    <div class="col-12 col-md-12 mb-5 align-self-center">
                         <div class="book-cover-holder">
-                            <iframe width="550" height="445" src="https://www.youtube.com/embed/iiEK6csjMYo">
+                            <iframe style="width: 100%;" height="600" src="https://www.youtube.com/embed/iiEK6csjMYo">
                             </iframe>
                         </div><!--//book-cover-holder-->
-                        <div class="text-center" style="font-family: 'Be Vietnam Pro', sans-serif;">A custom-made plan provides you with specific details of what to eat, how much to eat, and even if you can’t cook or travel a lot, we guide you on exactly what to buy at restaurants around you! </div>
+                        <div class="text-center mt-3" style="font-family: 'Be Vietnam Pro', sans-serif;">
+                            <h4 style="line-height: inherit;">
+                                Get access to your own customized meal timetable! <br>
+                                Specially created based for YOU based on your food likes, <br>
+                                health and fitness goals, daily schedule, food allergies and so on!
+                            </h4>
+                        </div>
+                    </div><!--col-->
+                    <div class="col-12 col-md-12 mb-5 align-self-center">
+                        <div class="text-center mt-3" style="font-family: 'Be Vietnam Pro', sans-serif;">
+                            @if ($userDetails['status']== 'free')
+                            <div style="display: flex; justify-content: center;">
+
+                                <form id="paymentForm" style="width: 50%;">
+                                    <input type="hidden" id="name" name="name" value="{{$userDetails['name']}}" placeholder="Name:">
+                                    <input type="hidden" id="email-address" name="email-address" value="{{$userDetails['email']}}" placeholder="Email:" required>
+                                    <input type="hidden" id="amount" name="amount" placeholder="Amount:" value="20000" required>
+                                    <button type="submit" onclick="payWithPaystack(event)" class="btn btn-primary" style="width: 90%; background-color:#ff0000;  border-color:#ff0000;  font-family: 'Be Vietnam Pro', sans-serif; height: 100px; font-size:20px;">
+                                        Never worry again about wwhat to eat to get fit <br>
+                                        Get the FULL 4-week Plan
+                                    </button>
+                                    <p id="success-div" style="display:none;">Your complete meal plan has been sent to your mail</p>
+                                    <p style="color:#FF9494; display: none;" id="error-div">Please contact us to make complain. <a href="mailto:support@cmp.com" target="_blank">Contant us</a></p>
+                                </form>
+                            </div>
+                            @endif
+
+                            <h4 style="line-height: inherit;" class="mt-5">
+                                A custom-made plan provides you with specific details of what to eat,<br>
+                                how much to eat, and even if you can’t cook or travel a lot, we guide <br>
+                                you on exactly what to buy at restaurants around you!
+                            </h4>
+                            <h4 style="line-height: inherit;" class="mt-5">
+                                Lt. Emmanuel followed the Nigeran meal plan I created for him, look at
+                                the message he sent me after his first month
+                            </h4>
+                            <div class="col-12 col-md-12 mt-5">
+                                <img src="{{ url('assets/frontend/images/chart.jpeg') }}" class="img-responsive" width="50%" />
+                            </div>
+                        </div>
                     </div><!--col-->
                 </div><!--//row-->
             </div><!--//container-->
         </section><!--//hero-section-->
 
-        <section id="content-section" class="content-section mt-5">
-            <div class="" style="background-color: #d0d0d0;">
+        <section id="content-section" class="content-section mt-5" style="background-color: #FAFAFA;">
+            <div class="">
                 <div class="container mt-5">
                     <div class="single-col-max mx-auto">
 
@@ -573,16 +660,41 @@
                             <div class="col-12 col-md-12 mb-5 mt-5">
                                 <div class="key-points mb-4 text-center">
                                     <h1 class="section-heading text-center mb-5" style="font-weight: 900;">Does this sound familiar?</h1>
+
                                     <ul class="key-points-list list-unstyled mb-4 mx-auto d-inline-block text-start">
-                                        <li><i class="fa fa-check-circle me-2"></i>You only eat may be once or twice a day....</li>
-                                        <li><i class="fa fa-check-circle me-2"></i>You exercise 3, 4, 5 times a week, may be even lift weights.</li>
-                                        <li><i class="fa fa-check-circle me-2"></i>You are religiously taking your lemon water or apple cider vinegar or slimming tea....</li>
-                                        <li><i class="fa fa-check-circle me-2"></i>You've started eating healthier, including more fruits, healthier swaps from coconut flour to couscous.</li>
-                                        <li><i class="fa fa-check-circle me-2"></i>In fact, you've painstakingly stopped eating past 7pm, still nothing is happening! You can't see the results of your labour. . </li>
-                                        <li><i class="fa fa-check-circle me-2"></i>Kindle curabitur fermentum.</li>
-                                        <li><i class="fa fa-check-circle me-2"></i>Kindle curabitur fermentum.</li>
-                                        <li><i class="fa fa-check-circle me-2"></i>Kindle curabitur fermentum.</li>
-                                    </ul>
+                                        <li><i class="fa fa-dot-circle-o me-2"></i>You hit the gym 3, 4, 5 times a week!</li>
+                                        <li><i class="fa fa-dot-circle-o me-2"></i>You are lifting the weights, doing all the walking and running.</li>
+                                        <li><i class="fa fa-dot-circle-o me-2"></i>Maybe you even started trying to eat healthier
+                                        <li>
+                                        <li><i class="fa fa-dot-circle-o me-2"></i>Every now and then, you try to add fruits, smoothies, juices to your diet.</li>
+                                        <li><i class="fa fa-dot-circle-o me-2"></i>You even try to stop eating past 7pm…. </li>
+                                        <li><i class="fa fa-dot-circle-o me-2"></i>…still, nothing is happening! Hooowww???</li>
+
+                                        <h4 style="line-height: inherit;" class="mt-5">
+                                            Here’s the thing, when it comes to getting fitness results, your diet,
+                                            is KING! This right here is what has made the difference between
+                                            frustration and absolute success for our clients!
+                                        </h4>
+                                        <h4 style="line-height: inherit;" class="mt-5">
+                                            And the awesome news is that you don’t have to stop eating your,
+                                            eba, rice, bread, beans and so on to get amazing results! You can
+                                            eat all your fave Nigerian meals and still crush your body goals!
+                                        </h4>
+                                        @if ($userDetails['status']== 'free')
+                                        <div style="display: flex; justify-content: center;">
+
+                                            <form id="paymentForm" style="width: 50%;">
+                                                <input type="hidden" id="name" name="name" value="{{$userDetails['name']}}" placeholder="Name:">
+                                                <input type="hidden" id="email-address" name="email-address" value="{{$userDetails['email']}}" placeholder="Email:" required>
+                                                <input type="hidden" id="amount" name="amount" placeholder="Amount:" value="20000" required>
+                                                <button type="submit" onclick="payWithPaystack(event)" class="btn btn-primary" style="width: 90%; background-color:#ff0000;  border-color:#ff0000;  font-family: 'Be Vietnam Pro', sans-serif; height: 50px; font-size:20px;">
+                                                    Get started HERE
+                                                </button>
+                                                <p id="success-div" style="display:none;">Your complete meal plan has been sent to your mail</p>
+                                                <p style="color:#FF9494; display: none;" id="error-div">Please contact us to make complain. <a href="mailto:support@cmp.com" target="_blank">Contant us</a></p>
+                                            </form>
+                                        </div>
+                                        @endif
 
                                 </div>
 
@@ -594,49 +706,53 @@
 
         </section><!--//content-section-->
 
-        <section>
-            <div class="meailplanpart">
-                <div class="">
-                    <div class="" style="padding: 20px 20px;">
-                        <p class="text-center" style="font-size: 20px;">Here’s the thing, when it comes to getting fitness results, <br> your diet is KING! This right here is what has made the difference between frustration and absolute success for my clients!</p>
-                    </div>
-                    <p class="mt-3 text-center" style="font-size: 20px;">And the awesome news is that <b> you don’t have to stop eating your eba, rice, bread, beans and so on to get amazing results! <br> </b> You can eat all your fave Nigerian meals and still crush your body goals!</p>
-                    <div class="text-center" style=" justify-content: space-between; display: flex; margin-top: 100px;">
-                        @if ($userDetails['status']== 'free')
-                        <form action="{{ url('sendmail') }}" method="post" style="width: 50%;">
-                            {!! csrf_field() !!}
-                            <input type="hidden" name="userId" value="{{$userDetails['id']}}">
-                            <input type="hidden" name="cusType" value="{{$userDetails['status']}}">
-                            <button type="submit" class="btn btn-primary" style="width: 90%; margin-right: 15px; background-color:#000; border-color:#000; font-family: 'Be Vietnam Pro', sans-serif; height: 50px;">Get FREE Meal Plan</button>
-                        </form>
 
-                        <form id="paymentForm" style="width: 50%;">
-                            <input type="hidden" id="name" name="name" value="{{$userDetails['name']}}" placeholder="Name:">
-                            <input type="hidden" id="email-address" name="email-address" value="{{$userDetails['email']}}" placeholder="Email:" required>
-                            <input type="hidden" id="amount" name="amount" placeholder="Amount:" value="20000" required>
-                            <button type="submit" onclick="payWithPaystack(event)" class="btn btn-primary" style="width: 90%; background-color:#ff0000;  border-color:#ff0000;  font-family: 'Be Vietnam Pro', sans-serif; height: 50px;">Get FULL Meal Plan</button>
-                            <p id="success-div" style="display:none;">Your complete meal plan has been sent to your mail</p>
-                            <p style="color:#FF9494; display: none;" id="error-div">Please contact us to make complain. <a href="mailto:support@cmp.com" target="_blank">Contant us</a></p>
-                        </form>
 
-                        @else
-                        <form action="{{ url('sendmail') }}" method="post" style="width: 100%;">
-                            {!! csrf_field() !!}
-                            <input type="hidden" name="userId" value="{{$userDetails['id']}}">
-                            <input type="hidden" name="cusType" value="{{ $userDetails['status']}}">
-                            <button type="submit" class="btn btn-primary" style="width: 70%; background-color:#ff0000; border-color:#ff0000; height: 50px;">Get Meal Plan</button>
-                        </form>
-                        @endif
-
-                    </div>
+        <section id="reviews-section" class="reviews-section py-5">
+            <div class="container">
+                <h2 class="section-heading text-center">With the right meal plan made specially
+                    for you, your results will blow your mind!</h2>
+                <div class="section-intro text-center single-col-max mx-auto mb-5 mt-5 ">
+                    <h4>See what happened for Omojie, he went</h4>
                 </div>
 
 
-            </div>
+                <div class="row justify-content-center">
+                    <div class="d-flex justify-content-around">
+                        <img src="{{ url('assets/frontend/images/fromthis.jpeg') }}" class="img-responsive" width="50%" />
 
-        </section>
+                        <img src="{{ url('assets/frontend/images/tothis.jpeg') }}" class="img-responsive" width="50%" />
+                    </div>
 
-        <section id="reviews-section" class="reviews-section py-5" style="background-color: #d0d0d0;">
+                    <div class="item col-12 col-lg-6 col-md-6 p-3 mb-4">
+                       
+                            <h3 class="mt-3 mb-5">See what happened for Victoria and her family
+                            </h3>
+                            <img src="{{ url('assets/frontend/images/victoriaandfamily.jpeg') }}" class="img-responsive" width="50%" />
+                            <h3 class="mt-3 mb-5">Get your own CUSTOMISED Nigerian fitness meal plan
+                            </h3>
+
+
+                            @if ($userDetails['status']== 'free')
+                            <div style="display: flex; justify-content: center;">
+
+                                <form id="paymentForm" style="width: 50%;">
+                                    <input type="hidden" id="name" name="name" value="{{$userDetails['name']}}" placeholder="Name:">
+                                    <input type="hidden" id="email-address" name="email-address" value="{{$userDetails['email']}}" placeholder="Email:" required>
+                                    <input type="hidden" id="amount" name="amount" placeholder="Amount:" value="20000" required>
+                                    <button type="submit" onclick="payWithPaystack(event)" class="btn btn-primary" style="width: 90%; background-color:#ff0000;  border-color:#ff0000;  font-family: 'Be Vietnam Pro', sans-serif; height: 50px; font-size:20px;">
+                                        Get started HERE
+                                    </button>
+                                    <p id="success-div" style="display:none;">Your complete meal plan has been sent to your mail</p>
+                                    <p style="color:#FF9494; display: none;" id="error-div">Please contact us to make complain. <a href="mailto:support@cmp.com" target="_blank">Contant us</a></p>
+                                </form>
+                            </div>
+                            @endif
+                    </div><!--//item-->
+                </div><!--//row-->
+            </div><!--//container-->
+        </section><!--//reviews-section-->
+        <!-- <section id="reviews-section" class="reviews-section py-5" style="background-color: #d0d0d0;">
             <div class="container">
                 <h2 class="section-heading text-center">Review</h2>
                 <div class="section-intro text-center single-col-max mx-auto mb-5 ">
@@ -676,8 +792,8 @@
                                 That’s where the journey to me becoming the Calorie Queen started!
 
                                 <div class="icon-holder"><i class="fa fa-quote-right"></i></div>
-                        </div><!--//inner-->
-                    </div><!--//item-->
+                        </div>
+                    </div>
                     <div class="item col-12 col-lg-6 col-md-6 p-3 mb-4">
                         <div class="item-inner theme-bg-light rounded p-4">
                             <blockquote class="quote mt-4">
@@ -715,20 +831,41 @@
                                 <div class="col-12 col-md-auto source-info text-center text-md-start">
                                     <div class="source-name">Odunayo Abdulai</div>
                                     <div class="soure-title">Your Nigerian Nutrition Expert!</div>
-                                </div><!--//col-->
-                            </div><!--//source-->
+                                </div>
+                            </div>
                             <div class="icon-holder"><i class="fa fa-quote-right"></i></div>
-                        </div><!--//inner-->
-                    </div><!--//item-->
-                </div><!--//row-->
-            </div><!--//container-->
-        </section><!--//reviews-section-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
         <section id="benefits-section" class="benefits-section theme-bg-light-gradient py-5">
             <div class="container py-5">
                 <h2 class="section-heading text-center mb-3">Here’s everything waiting for you when you order your own Meal Plan:</h2>
-                <div class="section-intro single-col-max mx-auto text-center mb-5">Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit consequat consequat. Orci varius natoque penatibus et magnis. </div>
-                <div class="row text-center">
-                    <div class="item col-12 col-md-6 col-lg-4">
+                <div class="row">
+                    <div class="col-12 col-md-12 mb-5 mt-5">
+                        <div class="key-points mb-4 text-center">
+                            <ul class="key-points-list list-unstyled mb-4 mx-auto d-inline-block text-start">
+                                <li class="styleLiInBennefit"><i class="fa fa-dot-circle-o me-2"></i>A <strong>new meal timetable every 2 weeks with new meal options</strong>to keep things interesting, and ensure you are consistently</li>
+                                <li class="styleLiInBennefit"><i class="fa fa-dot-circle-o me-2"></i>Your plan will not only you <strong>help you with your problem areas,</strong>for example your belly, if you are <strong>hypertensive or diabetic,</strong> your meal plan will do wonders in helping you get them under control!</li>
+                                <li class="styleLiInBennefit"><i class="fa fa-dot-circle-o me-2"></i><strong>Breakfast, lunch, dinner and snack options</strong>(or whatever other meal schedule works for you, for example, some people don’t do breakfast!) </li>
+                                <li class="styleLiInBennefit"><i class="fa fa-dot-circle-o me-2"></i><strong>Tasty Nigerian meal options</strong> with details on how much of each food item to have </li>
+                                <li class="styleLiInBennefit"><i class="fa fa-dot-circle-o me-2"></i><strong>Step-by-step recipe guide</strong>to help you eliminate any guess-work</li>
+                                <li class="styleLiInBennefit"><i class="fa fa-dot-circle-o me-2"></i>Our <strong>Eat out guide</strong>to help you stay on track even when you are on the move or travelling</li>
+                                <li class="styleLiInBennefit"><i class="fa fa-dot-circle-o me-2"></i><strong>Tips on how to stay full, when to eat</strong> and <strong>measure your progress</strong></li>
+                                <li class="styleLiInBennefit"><i class="fa fa-dot-circle-o me-2"></i>The list won’t be complete if I don’t <strong>guide you on your alcohol consumption for those night’s out with the guys! </strong>So I’ll be helping you lay down simple rules to ensure your nights out don’t sabotage your results!
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div><!--//col-12-->
+                </div><!--//row-->
+
+                <!-- <div class="row text-center">
+                    <div class="item col-12 col-md-12 col-lg-12">
+
                         <div class="item-inner p-3 p-lg-4">
                             <div class="item-header mb-3">
                                 <div class="item-icon"> <i class="fa fa-cutlery"></i></div>
@@ -736,9 +873,9 @@
                                 <div class="item-desc">
                                     A new meal timetable every 2 weeks with new meal options to keep things interesting, and ensure you are consistently making progress
                                 </div>
-                            </div><!--//item-heading-->
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
+                            </div>
+                        </div>
+                    </div>
                     <div class="item col-12 col-md-6 col-lg-4">
                         <div class="item-inner p-3 p-lg-4">
                             <div class="item-header mb-3">
@@ -747,9 +884,9 @@
                                     Your plan will specifically help you with your problem areas, for example your belly, if you are hypertensive or diabetic, your meal plan will do wonders in helping you get them under control!
                                 </div>
 
-                            </div><!--//item-heading-->
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
+                            </div>
+                        </div>
+                    </div>
                     <div class="item col-12 col-md-6 col-lg-4">
                         <div class="item-inner p-3 p-lg-4">
                             <div class="item-header mb-3">
@@ -757,9 +894,9 @@
                                 <div class="item-desc">
                                     Breakfast, lunch, dinner and snack options (or whatever other meal schedule works for you, for example, some people don’t do breakfast!)
                                 </div>
-                            </div><!--//item-heading-->
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
+                            </div>
+                        </div>
+                    </div>
                     <div class="item col-12 col-md-6 col-lg-4">
                         <div class="item-inner p-3 p-lg-4">
                             <div class="item-header mb-3">
@@ -767,9 +904,9 @@
                                 <div class="item-desc">
                                     Tasty Nigerian meal options with details on how much of each food item to have
                                 </div>
-                            </div><!--//item-heading-->
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
+                            </div>
+                        </div>
+                    </div>
                     <div class="item col-12 col-md-6 col-lg-4">
                         <div class="item-inner p-3 p-lg-4">
                             <div class="item-header mb-3">
@@ -778,9 +915,9 @@
                                 <div class="item-desc">
                                     Step-by-step recipe guide to help you eliminate any guess-work
                                 </div>
-                            </div><!--//item-heading-->
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
+                            </div>
+                        </div>
+                    </div>
                     <div class="item col-12 col-md-6 col-lg-4">
                         <div class="item-inner p-3 p-lg-4">
                             <div class="item-header mb-3">
@@ -789,9 +926,9 @@
                                 <div class="item-desc">
                                     Our Eat out guide to help you stay on track even when you are on the move or travelling
                                 </div>
-                            </div><!--//item-heading-->
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
+                            </div>
+                        </div>
+                    </div>
                     <div class="item col-12 col-md-6 col-lg-4">
                         <div class="item-inner p-3 p-lg-4">
                             <div class="item-header mb-3">
@@ -799,9 +936,9 @@
                                 <div class="item-desc">
                                     The list won’t be complete if I don’t ...guide you on your alcohol consumption for those night’s out with the girls and guys! So I’ll be helping you lay down simple rules to ensure your nights out don’t sabotage your results!
                                 </div>
-                            </div><!--//item-heading-->
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
+                            </div>
+                        </div>
+                    </div>
                     <div class="item col-12 col-md-6 col-lg-4">
                         <div class="item-inner p-3 p-lg-4">
                             <div class="item-header mb-3">
@@ -809,18 +946,67 @@
                                 <div class="item-desc">
                                     Tips on how to stay full, when to eat and measure your progress
                                 </div>
-                            </div><!--//item-heading-->
-                        </div><!--//item-inner-->
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+
+        <section id="foodpart-section" class="reviews-section py-5">
+            <div class="container">
+                <h2 class="section-heading text-center">These are the kind of meals you’ll be
+                    enjoying as your body gets sculpted! 🔥</h2>
+                <div class="section-intro text-center single-col-max mx-auto mb-5 mt-5 ">
+                    <h4>See what happened for Omojie, he went</h4>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="d-flex justify-content-around">
+                        <img src="{{ url('assets/frontend/images/chart4.jpeg') }}" class="img-responsive" width="50%" />
+
+                        <img src="{{ url('assets/frontend/images/chart5.jpeg') }}" class="img-responsive" width="50%" />
+                    </div>
+
+                    <div class="item col-12 col-lg-6 col-md-6 p-3 mb-4">
+                        <img src="{{ url('assets/frontend/images/chart6.jpeg') }}" class="img-responsive" width="100%" />
+                    </div><!--//item-->
+
+                    <div class="item col-12 col-lg-12 col-md-12 p-3 mb-4 text-center">
+                        <div class="item-inner  rounded p-4">
+                            <h3 class="mt-3 mb-5">Finally go from frustrated to getting consistent results that
+                                will get to you to your ultimate health and body goal!
+                            </h3>
+                            <p class="mt-3 mb-5" style="font-style: italic;">…without needing to exercise for hours, and even if you don’t cook much!
+                            </p>
+                            @if ($userDetails['status']== 'free')
+                            <div style="display: flex; justify-content: center;">
+
+                                <form id="paymentForm" style="width: 50%;">
+                                    <input type="hidden" id="name" name="name" value="{{$userDetails['name']}}" placeholder="Name:">
+                                    <input type="hidden" id="email-address" name="email-address" value="{{$userDetails['email']}}" placeholder="Email:" required>
+                                    <input type="hidden" id="amount" name="amount" placeholder="Amount:" value="20000" required>
+                                    <button type="submit" onclick="payWithPaystack(event)" class="btn btn-primary" style="width: 90%; background-color:#ff0000;  border-color:#ff0000;  font-family: 'Be Vietnam Pro', sans-serif; height: 100px; font-size:20px;">
+                                        Count me IN
+                                    </button>
+                                    <p id="success-div" style="display:none;">Your complete meal plan has been sent to your mail</p>
+                                    <p style="color:#FF9494; display: none;" id="error-div">Please contact us to make complain. <a href="mailto:support@cmp.com" target="_blank">Contant us</a></p>
+                                </form>
+                            </div>
+                            @endif
+
+
+                        </div><!--//inner-->
                     </div><!--//item-->
                 </div><!--//row-->
             </div><!--//container-->
-        </section><!--//benefits-section-->
-        <section id="audience-section" class="audience-section py-5" style="background-color: #d0d0d0;">
+        </section><!--//reviews-section-->
+
+        <section id="audience-section" class="audience-section py-5" style="background-color: #FAFAFA;">
             <div class="container">
                 <h2 class="section-heading text-center mb-4">FREQUENTLY ASKED QUESTIONS</h2>
-                <div class="section-intro single-col-max mx-auto text-center mb-5">
+                <!-- <div class="section-intro single-col-max mx-auto text-center mb-5">
                     Finally go from frustrated to getting consistent results that will get to you to your ultimate health and body goal!
-                </div><!--//section-intro-->
+                </div>//section-intro -->
                 <div class="audience mx-auto">
                     <div class="item row gx-3">
                         <div class="col">
@@ -943,14 +1129,14 @@
                             $('#error').hide();
                             setTimeout(function() {
                                 location.reload();
-                            }, 6000);
+                            }, 20000);
                         } else {
                             paymentForm.style.display = 'none'
                             $('#exampleModal').modal('show');
                             $('#success-div').hide();
                             setTimeout(function() {
                                 location.reload();
-                            }, 6000);
+                            }, 20000);
 
                         }
                     }

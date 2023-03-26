@@ -77,7 +77,7 @@ class UserController extends Controller
        
         $presentYear = date("Y");
         $userDetails = \App\Models\User::where('id', $id)->first();
-        $file_path = public_path('pdf/' . $userDetails['id'] . $userDetails['name'] . '.pdf');
+        $file_path = public_path('pdf/' .  $userDetails['name'] . $userDetails['id'] . '.pdf');
         // if ($file_path) {
         //     return PDF::loadfile($file_path)->inline();
         // }
@@ -129,13 +129,13 @@ class UserController extends Controller
             return redirect()->back()->withInput();
         }
         $userDetails = \App\Models\User::where('id', $id)->first();
-        $filename =  $userDetails['id'] . $userDetails['name'] . '.pdf';
+        $filename =   $userDetails['name'] . $userDetails['id'] . '.pdf';
 
         $uploaded = $request->mealplan->move(public_path('pdf'),$filename);
 
         if($uploaded)
         {
-            $file_path = public_path('pdf/' . $userDetails['id'] . $userDetails['name'] . '.pdf');
+            $file_path = public_path('pdf/' . $userDetails['name'] . $userDetails['id'] .  '.pdf');
             $mail_data = [
                 'reciever' => $userDetails['email'],
                 'from' => 'Optimumfoodie@gmail.com',
@@ -191,13 +191,13 @@ class UserController extends Controller
             }
         }
         $recipes = array_unique($rough);
-        $file_path = public_path('pdf/' . $userDetails['id'] . $userDetails['name'] . '.pdf');
+        $file_path = public_path('pdf/' .  $userDetails['name'] . $userDetails['id'] . '.pdf');
         if (!file_exists($file_path)) {
             $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails', 'recipes'));
             $pdf->setOptions([
                 'footer-center' => 'Copyright Optimum Foodie ' . $presentYear
             ]);
-            $pdfFilePath = public_path('pdf/' . $userDetails['id'] . $userDetails['name'] . '.pdf');
+            $pdfFilePath = public_path('pdf/' . $userDetails['name'] . $userDetails['id'] .  '.pdf');
             $pdf->save($pdfFilePath);
         }
 
@@ -221,7 +221,7 @@ class UserController extends Controller
     {
         $userDetails = \App\Models\User::find($id);
         $userMealDetails = \App\Models\UserMealPlan::find($id);
-        $file_path = public_path('pdf/' . $userDetails['id'] . $userDetails['name'] . '.pdf');
+        $file_path = public_path('pdf/' .  $userDetails['name'] . $userDetails['id'] . '.pdf');
         if(file_exists($file_path))
         {
             unlink($file_path);

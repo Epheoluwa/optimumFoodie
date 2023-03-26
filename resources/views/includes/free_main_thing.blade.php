@@ -84,8 +84,10 @@
         @endforeach
 
     </table><br>
+<a href=" {{ url('/login') }}">
+<h2 style="font-weight: bolder; color:red; font-family: 'Be Vietnam Pro', sans-serif;"> SUBSCRIBE TO HAVE ACCESS TO FULL MEAL PLAN</h2>
+</a>
 
-    <h2 style="font-weight: bolder; color:red; font-family: 'Be Vietnam Pro', sans-serif;"> SUBSCRIBE TO HAVE ACCESS TO FULL MEAL PLAN</h2>
 </div>
 
 

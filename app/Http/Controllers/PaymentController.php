@@ -69,7 +69,7 @@ class PaymentController extends Controller
             //update user to paid user
             \App\Models\User::where('id', $paymentDetails['user_id'])->update(array('status' => 'paid'));
             // Delete old and generate new pdf file and send to user mail.
-            $file_path = public_path('pdf/' . $userDetails['id'] . $userDetails['name'] . '.pdf');
+            $file_path = public_path('pdf/' . $userDetails['name'] . $userDetails['id'] . '.pdf');
             if(file_exists($file_path))
             {
                 unlink($file_path);
@@ -120,7 +120,7 @@ class PaymentController extends Controller
             //             'recieverName' => $userDetails['name'],
     
             //         ];
-            //         $file_path = public_path('pdf/' . $userDetails['id'] . $userDetails['name'] . '.pdf');
+            //         $file_path = public_path('pdf/' .$userDetails['name'] .  $userDetails['id'] .  '.pdf');
             //         $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName'], $file_path,  $userDetails['email']));;
             //     } else {
             //         return "Please turn on mobile date or connect to a wifi to continue.";

@@ -1,7 +1,9 @@
 <div class="container" style="padding: 1rem; background: #f5f5f5;">
     <p>Dear {{$name}}!</p>
+    <div style="display:flex;justify-content: center;">
+        <img src="{{ url('assets/frontend/images/optimumfoodie.png') }}" class="img-responsive" style="height:100px; width:100px" />
+    </div>
 
-    <!-- <h4 style="text-align: center;">⚡Congratulations!!!⚡</h4> -->
     <p>
         I'm super excited you've decided to reclaim your health and confidence, by taking
         care of your body!😍 <b> I applaud you for the courage and commitment </b> it took to

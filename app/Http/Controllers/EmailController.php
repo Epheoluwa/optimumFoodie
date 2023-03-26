@@ -139,7 +139,7 @@ class EmailController extends Controller
         // exit;
 
         if ($data['cusType'] == 'free') {
-            $file_path = public_path('pdf/' . $data['userId'] . $userDetails['name'] . '.pdf');
+            $file_path = public_path('pdf/'  . $userDetails['name'] . $data['userId']. '.pdf');
 
             if (!file_exists($file_path)) {
                 $pdf = PDF::loadview('free-time-table', compact('MealDetails', 'userDetails', 'recipes'));
@@ -147,7 +147,7 @@ class EmailController extends Controller
                     'footer-html' => view('pdf.footer')
                     // 'footer-center' => 'Copyright Optimum Foodie ' . $presentYear
                 ]);
-                $pdfFilePath = public_path('pdf/' . $data['userId'] . $userDetails['name'] . '.pdf');
+                $pdfFilePath = public_path('pdf/' . $userDetails['name'] .  $data['userId'] .'.pdf');
                 $pdf->save($pdfFilePath);
             }
 
@@ -190,7 +190,7 @@ class EmailController extends Controller
             //     'footer-center' => 'Optimum'
             // ]);
             // return $pdf->inline();
-            $file_path = public_path('pdf/' . $data['userId'] . $userDetails['name'] . '.pdf');
+            $file_path = public_path('pdf/'  . $userDetails['name'] .  $data['userId'] .'.pdf');
 
           
             if(file_exists($file_path))

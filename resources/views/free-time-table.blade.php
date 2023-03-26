@@ -6,6 +6,15 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Transactional Email</title>
   <style>
+     .page-break{
+      page-break-after: always;
+    }
+    .topPadding{
+      padding: 20px;
+    }
+    p{
+      font-size: 25px;
+    }
     @media only screen and (max-width: 620px) {
       table[class=body] h1 {
         font-size: 28px !important;
