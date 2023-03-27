@@ -515,11 +515,14 @@
             <div class="meailplanpart">
                 <div class="" style="width:60%">
                     <div class="" style="padding: 20px 20px;">
-                        <p class="text-center" style="font-size: 20px;">What you eat on a daily basis is the most important <br>
-                            aspect to getting the body you’ve always wanted</p>
+                        <p class="text-center" style="font-size: 20px;">
+                            What you eat on a daily basis is the most important
+                            <br>
+                            aspect to getting the health and body you’ve always wanted!
+                        </p>
                         <!-- <p class="text-center" style="font-size: 20px;">Here’s the thing, when it comes to getting fitness results, <br> your diet is KING! This right here is what has made the difference between frustration and absolute success for my clients!</p> -->
                     </div>
-                    <h1 class="mt-3 text-center" style="font-size: 30px;">FINALLY GET THE BODY YOU’VE BEEN WISHING FOR</h1>
+                    <h1 class="mt-3 text-center" style="font-size: 30px;">FINALLY ACHIEVE THE HEALTH & BODY YOU DESERVE</h1>
                     <p class="mt-3 text-center" style="font-size: 20px; font-style:italic; font-weight:bold">Without Ever Needing To Step In A GYM Or Give Up The Nigerian Meals You Enjoy!</p>
                     <!-- <p class="mt-3 text-center" style="font-size: 20px;">And the awesome news is that <b> you don’t have to stop eating your eba, rice, bread, beans and so on to get amazing results! <br> </b> You can eat all your fave Nigerian meals and still crush your body goals!</p> -->
                     <div class="text-center" style=" justify-content: space-between; display: flex; margin-top: 100px;">
@@ -541,12 +544,8 @@
                         </form>
 
                         @else
-                        <form action="{{ url('sendmail') }}" method="post" style="width: 100%;">
-                            {!! csrf_field() !!}
-                            <input type="hidden" name="userId" value="{{$userDetails['id']}}">
-                            <input type="hidden" name="cusType" value="{{ $userDetails['status']}}">
-                            <button type="submit" class="btn btn-primary" style="width: 70%; background-color:#ff0000; border-color:#ff0000; height: 50px; font-size:20px;">Get the FULL 4-week Plan</button>
-                        </form>
+                        <button id="showModalForPaid" class="btn btn-primary showModalForPaid" style="width: 70%; background-color:#ff0000; border-color:#ff0000; height: 50px; font-size:20px;">Get the FULL 4-week Plan</button>
+
                         @endif
 
                     </div>
@@ -725,29 +724,29 @@
                     </div>
 
                     <div class="item col-12 col-lg-6 col-md-6 p-3 mb-4">
-                       
-                            <h3 class="mt-3 mb-5">See what happened for Victoria and her family
-                            </h3>
-                            <img src="{{ url('assets/frontend/images/victoriaandfamily.jpeg') }}" class="img-responsive" width="50%" />
-                            <h3 class="mt-3 mb-5">Get your own CUSTOMISED Nigerian fitness meal plan
-                            </h3>
+
+                        <h3 class="mt-3 mb-5">See what happened for Victoria and her family
+                        </h3>
+                        <img src="{{ url('assets/frontend/images/victoriaandfamily.jpeg') }}" class="img-responsive" width="50%" />
+                        <h3 class="mt-3 mb-5">Get your own CUSTOMISED Nigerian fitness meal plan
+                        </h3>
 
 
-                            @if ($userDetails['status']== 'free')
-                            <div style="display: flex; justify-content: center;">
+                        @if ($userDetails['status']== 'free')
+                        <div style="display: flex; justify-content: center;">
 
-                                <form id="paymentForm" style="width: 50%;">
-                                    <input type="hidden" id="name" name="name" value="{{$userDetails['name']}}" placeholder="Name:">
-                                    <input type="hidden" id="email-address" name="email-address" value="{{$userDetails['email']}}" placeholder="Email:" required>
-                                    <input type="hidden" id="amount" name="amount" placeholder="Amount:" value="20000" required>
-                                    <button type="submit" onclick="payWithPaystack(event)" class="btn btn-primary" style="width: 90%; background-color:#ff0000;  border-color:#ff0000;  font-family: 'Be Vietnam Pro', sans-serif; height: 50px; font-size:20px;">
-                                        Get started HERE
-                                    </button>
-                                    <p id="success-div" style="display:none;">Your complete meal plan has been sent to your mail</p>
-                                    <p style="color:#FF9494; display: none;" id="error-div">Please contact us to make complain. <a href="mailto:support@cmp.com" target="_blank">Contant us</a></p>
-                                </form>
-                            </div>
-                            @endif
+                            <form id="paymentForm" style="width: 50%;">
+                                <input type="hidden" id="name" name="name" value="{{$userDetails['name']}}" placeholder="Name:">
+                                <input type="hidden" id="email-address" name="email-address" value="{{$userDetails['email']}}" placeholder="Email:" required>
+                                <input type="hidden" id="amount" name="amount" placeholder="Amount:" value="20000" required>
+                                <button type="submit" onclick="payWithPaystack(event)" class="btn btn-primary" style="width: 90%; background-color:#ff0000;  border-color:#ff0000;  font-family: 'Be Vietnam Pro', sans-serif; height: 50px; font-size:20px;">
+                                    Get started HERE
+                                </button>
+                                <p id="success-div" style="display:none;">Your complete meal plan has been sent to your mail</p>
+                                <p style="color:#FF9494; display: none;" id="error-div">Please contact us to make complain. <a href="mailto:support@cmp.com" target="_blank">Contant us</a></p>
+                            </form>
+                        </div>
+                        @endif
                     </div><!--//item-->
                 </div><!--//row-->
             </div><!--//container-->
@@ -1096,13 +1095,21 @@
             $('.main').fadeIn('slow');
         }, 3500);
     });
+    $('.showModalForPaid').click(function() {
+        $('#exampleModal').modal('show');
+        $('#error').hide();
+        setTimeout(function() {
+            location.reload();
+        }, 20000);
 
+    });
     const paymentForm = document.getElementById('paymentForm');
     // const error_div = document.getElementById('error-div');
     // const success_div = document.getElementById('success-div');
     paymentForm.addEventListener("submit", payWithPaystack, false);
 
     function payWithPaystack(e) {
+
         e.preventDefault();
 
         let handler = PaystackPop.setup({

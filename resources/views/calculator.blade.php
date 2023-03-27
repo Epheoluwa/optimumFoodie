@@ -619,9 +619,9 @@ $perc = 20;
                     <!-- <div class="col-md-2"></div> -->
 
                     <div >
-                        <h2 align="left" style="font-family: 'Be Vietnam Pro', sans-serif; padding-bottom: 5px;">Trying to lose weight?
+                        <h2 align="left" style="font-family: 'Be Vietnam Pro', sans-serif; padding-bottom: 5px;">Trying to get fit and healthy?
                         </h2>
-                        <h5 style="width: 40%; font-family: 'Be Vietnam Pro', sans-serif; margin-bottom:10px;line-height: inherit; ">What if I told you you could achieve your best body and maintain it, while still eating Nigerian meals 😋 </h5>
+                        <h5 style="width: 40%; font-family: 'Be Vietnam Pro', sans-serif; margin-bottom:10px;line-height: inherit; ">WWhat if I told you that you could achieve optimal health, and finally look and feel your best, while still eating African meals 😋 </h5>
                     </div>
 
                     <div class="col-md-12" style="margin-top: 10px;" align="center">

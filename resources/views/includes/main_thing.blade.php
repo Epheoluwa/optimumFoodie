@@ -140,6 +140,8 @@
                         $nnn = str_replace($oldget, $did, $get);
                         array_push($still, $nnn);
                     }
+                }else{
+                    array_push($still, $ml);
                 }
                 $ml = implode("+", $still);
                 $newml = str_replace('\u00bd', '½', $ml); ?>

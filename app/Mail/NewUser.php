@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class Notification extends Mailable
+class NewUser extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -18,11 +18,16 @@ class Notification extends Mailable
      *
      * @return void
      */
-    public function __construct(private $name, private $email)
+    public function __construct(private $name,  private $email)
     {
         //
     }
 
+    /**
+     * Get the message envelope.
+     *
+     * @return \Illuminate\Mail\Mailables\Envelope
+     */
     /**
      * Build the message.
      *
@@ -32,11 +37,8 @@ class Notification extends Mailable
     {
         return $this
         ->from("Optimumfoodie@gmail.com")
-        ->to('optimumfoodie@gmail.com')
-        ->view('mail.notification')
+        ->view('mail.newuser-template')
         ->with(['name' => $this->name, 'email' => $this->email])
-        ->subject('Approval Needed for Meal plan');
+        ->subject('New Account Created');
     }
-
-
 }

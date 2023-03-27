@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NewUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use PDF;
@@ -43,9 +44,21 @@ class UserController extends Controller
         ];
 
         $update = \App\Models\User::create($userdetails);
-        \Session::flash('success', 'User created successfully!');
 
-        return redirect()->back();
+        if ($update) {
+            $mail_data = [
+                'reciever' => $userdetails['email'],
+                'from' => 'Optimumfoodie@gmail.com',
+                'fromName' => 'Optimum Foodie',
+                'recieverName' => $userdetails['name'],
+
+            ];
+            $sent = Mail::to($mail_data['reciever'])->send(new NewUser($mail_data['recieverName'], $userdetails['email']));;
+            \Session::flash('success', 'User created successfully!');
+
+            return redirect()->back();
+        }
+      
     }
 
     public function Editusers(Request $request, $id)

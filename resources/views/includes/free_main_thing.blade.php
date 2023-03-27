@@ -42,15 +42,18 @@
 
             $yer = str_replace(['[', ']'], '', $m->daymeal);
             $implo = explode('",', $yer);
+            // print_r($implo);
             ?>
             @foreach($implo as $k=> $ml)
             <td style="min-width:90px;padding:5px">
                 <?php
+                // echo $ml;
                 $did = " ";
                 $oldget = " ";
                 $still = array();
                 //check if + sign exist in the string
                 if (strpos($ml, '+')) {
+                    
                     //if true the turn that string to an array on that + sign
                     $newarrr = explode('+', $ml);
                     foreach ($newarrr as $get) {
@@ -71,12 +74,18 @@
                         $nnn = str_replace($oldget, $did, $get);
                         array_push($still, $nnn);
                     }
+                }else{
+                    array_push($still, $ml);
                 }
                 $ml = implode("+", $still);
+            
+                
                 $newml = str_replace('\u00bd', '½', $ml);
-
+                // var_dump($newml);
                 ?>
+                
                 {!! strlen($newml) > 3 ? $newml : 'Snack meal' !!}
+
             </td>
             @endforeach
 

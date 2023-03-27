@@ -10,4 +10,7 @@ class Recipe extends Model
     use HasFactory;
     protected $table = "recipes";
     protected $fillable = ['recipe','title'];
+    protected $casts = [
+        'recipe' => 'array'
+     ];
 }

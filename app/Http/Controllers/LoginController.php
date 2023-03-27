@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
+use function PHPUnit\Framework\isEmpty;
+
 class LoginController extends Controller
 {
     public function index()
@@ -27,21 +29,17 @@ class LoginController extends Controller
             'email'  => $request->get('email'),
             'password' => $request->get('password')
         );
-    //    var_dump(Auth::user());
-        if(Auth::attempt($user_data))
-        {
-            if(Auth::user()->role == '1') //1 = Admin Login
+        //    var_dump(Auth::user());
+        if (Auth::attempt($user_data)) {
+            if (Auth::user()->role == '1') //1 = Admin Login
             {
                 // return Auth::user();
                 return redirect('admin');
-            }
-            elseif(Auth::user()->role == '2') // Normal or Default User Login
+            } elseif (Auth::user()->role == '2') // Normal or Default User Login
             {
-                return redirect('/getmail');
+                return redirect('/getmail');                
             }
-        }
-        else
-        {
+        } else {
             return back()->with('error', 'Wrong Login Details');
         }
     }

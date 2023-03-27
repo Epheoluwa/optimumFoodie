@@ -38,6 +38,9 @@ class GeneralController extends Controller
 
     public function calculator(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'activity' => 'required',
+        ]);
         session()->forget('activeUserID');
         $cats = \App\Models\Category::whereStatus('active')->get();
         $food_options = [];
@@ -204,7 +207,7 @@ class GeneralController extends Controller
 
             if($userIDstatus == 'paid')
             {
-                $adminemail = 'solomonepheoluwa@gmail.com';
+                $adminemail = 'optimumfoodie@gmail.com';
                 $sent = Mail::to($adminemail)->send(new Notification($userIDname, $userIDemail));;
             }
 

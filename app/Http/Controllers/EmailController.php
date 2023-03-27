@@ -56,8 +56,7 @@ class EmailController extends Controller
         $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal', 'food_options', 'calories', 'main_meal', 'snack_meal','weight_aim', 'calories', 'weight_time_aim')->where('user_id', $data['userId'])->limit(2)->get();
         // return view('free-time-table', compact('MealDetails', 'userDetails'));
         $presentYear = date("Y");
-
-        // var_dump($MealDetails);
+      
 
         foreach ($MealDetails as $meals) {
             $mealsss = $meals->main_meal;
@@ -82,7 +81,8 @@ class EmailController extends Controller
             $v = \App\Models\FoodRecipe::select('food_id', 'recipe_id')->where('calory_template_type_id', $calTem)->get();
             foreach ($v as $new) {
                 if (in_array($foods, $new['food_id'])) {
-                    array_push($rough, $new['recipe_id']);
+                    $re = \App\Models\Recipe::select('recipe')->where('id',  $new['recipe_id'])->get();
+                    array_push($rough, $re);
                 }
             }
             // if($v->count() !== 0){
