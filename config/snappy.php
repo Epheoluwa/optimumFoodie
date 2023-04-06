@@ -29,7 +29,7 @@ return [
     |
     | Env:
     |
-    |    The environment variables to set while running the wkhtmltopdf process.
+    |    The environment variables to set while running the wkhtmltopdf process. 
     |
     */
     

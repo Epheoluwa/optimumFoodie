@@ -10,6 +10,8 @@ use PDF;
 use Illuminate\Support\Facades\DB;
 use App\Mail\SentEmail;
 use Illuminate\Support\Facades\Mail;
+use App\Exports\ExportUsers;
+use Excel;
 
 class UserController extends Controller
 {
@@ -106,6 +108,9 @@ class UserController extends Controller
         $options_food = array();
         $recipes = array();
         $rough = array();
+        $initialSnack = array();
+        $roughSnack = array();
+        $snackMain = array();
         $food_options = json_decode($food_options);
         foreach ($food_options as $food) {
             $onje = str_replace(['[', ']'], '', $food);
@@ -114,6 +119,18 @@ class UserController extends Controller
         $mealTem = $mealsss . 'meal' . ' ' . $snack . 'snacks';
         $calTem = $calories . 'cal ' . $mealTem;
 
+        $snk = \App\Models\Snack::get();
+        foreach($snk as $sskid)
+        {
+            if(in_array($calTem, $sskid['template']))
+            {
+                $initialSnack[] = $sskid['snack'];
+                // array_push($initialSnack, $sskid['snack']);
+                // var_dump($sskid['snack']);
+            }
+        }
+        $roughSnack = $initialSnack[0];
+
         foreach ($options_food as $key => $foods) {
             $v = \App\Models\FoodRecipe::select('food_id', 'recipe_id')->where('calory_template_type_id', $calTem)->get();
             foreach ($v as $new) {
@@ -121,11 +138,29 @@ class UserController extends Controller
                     array_push($rough, $new['recipe_id']);
                 }
             }
+
+            foreach($roughSnack as $getsnk)
+            {
+                if(str_contains($getsnk, $foods))
+                {
+                   array_push($snackMain, $getsnk);
+                }
+          
+                
+            }
         }
-        $recipes = array_unique($rough);
+        $recipesTo = array_unique($rough);
+        foreach($recipesTo as $rec)
+        {
+            foreach($rec as $r)
+            {
+                $newr = explode("|", $r['recipe']);
+                $recipes = $newr;
+            } 
+        }
         //  return view('time-table', compact('MealDetails', 'userDetails', 'recipes'));
         // exit;
-        $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails', 'recipes'));
+        $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails', 'recipes', 'snackMain'));
         $pdf->setOptions([
             'footer-html' => view('pdf.footer')
         ]);
@@ -187,6 +222,9 @@ class UserController extends Controller
         $options_food = array();
         $recipes = array();
         $rough = array();
+         $initialSnack = array();
+        $roughSnack = array();
+        $snackMain = array();
         $food_options = json_decode($food_options);
         foreach ($food_options as $food) {
             $onje = str_replace(['[', ']'], '', $food);
@@ -195,6 +233,18 @@ class UserController extends Controller
         $mealTem = $mealsss . 'meal' . ' ' . $snack . 'snacks';
         $calTem = $calories . 'cal ' . $mealTem;
 
+        $snk = \App\Models\Snack::get();
+        foreach($snk as $sskid)
+        {
+            if(in_array($calTem, $sskid['template']))
+            {
+                $initialSnack[] = $sskid['snack'];
+                // array_push($initialSnack, $sskid['snack']);
+                // var_dump($sskid['snack']);
+            }
+        }
+        $roughSnack = $initialSnack[0];
+
         foreach ($options_food as $key => $foods) {
             $v = \App\Models\FoodRecipe::select('food_id', 'recipe_id')->where('calory_template_type_id', $calTem)->get();
             foreach ($v as $new) {
@@ -202,11 +252,30 @@ class UserController extends Controller
                     array_push($rough, $new['recipe_id']);
                 }
             }
+
+            foreach($roughSnack as $getsnk)
+            {
+                if(str_contains($getsnk, $foods))
+                {
+                   array_push($snackMain, $getsnk);
+                }
+          
+                
+            }
         }
-        $recipes = array_unique($rough);
+
+        $recipesTo = array_unique($rough);
+        foreach($recipesTo as $rec)
+        {
+            foreach($rec as $r)
+            {
+                $newr = explode("|", $r['recipe']);
+                $recipes = $newr;
+            } 
+        }
         $file_path = public_path('pdf/' .  $userDetails['name'] . $userDetails['id'] . '.pdf');
         if (!file_exists($file_path)) {
-            $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails', 'recipes'));
+            $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails', 'recipes', 'snackMain'));
             $pdf->setOptions([
                 'footer-center' => 'Copyright Optimum Foodie ' . $presentYear
             ]);
@@ -249,5 +318,10 @@ class UserController extends Controller
         \Session::flash('success', 'User Details Deleted successfully! ');
 
         return redirect()->back();
+    }
+
+    public function exportcsv()
+    {
+        return Excel::download(new ExportUsers, 'emailsubscription.csv');
     }
 }

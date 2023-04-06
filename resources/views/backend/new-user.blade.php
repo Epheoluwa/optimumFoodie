@@ -25,10 +25,17 @@
         <div class="container-fluid">
             <div class="card mb-3">
                 <div class="card-body">
-                    <a class="btn btn-primary mb-3 text-white" style="cursor:pointer" data-toggle="modal" data-target="#createModal">
-                        <span class="fa fa-plus"></span>
-                        Add New User
-                    </a>
+                    <div class="d-flex justify-content-between">
+                        <a class="btn btn-primary mb-3 text-white" style="cursor:pointer" data-toggle="modal" data-target="#createModal">
+                            <span class="fa fa-plus"></span> 
+                            Add New User
+                        </a>
+                        <a class="btn btn-primary mb-3 text-white" style="cursor:pointer" href="{{route('export.csv')}}">
+                            <span class="fa fa-file-export"></span>
+                            Download CSV
+                        </a>
+                    </div>
+
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                             <thead>

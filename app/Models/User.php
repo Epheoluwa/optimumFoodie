@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -46,5 +47,11 @@ class User extends Authenticatable
 
     public function UserMealPlan(){
         return $this->hasMany('App\Models\UserMealPlan', 'user_id');
+    }
+
+    public  static function getUserCsv()
+    {
+        $record = DB::table('users')->select('id','name', 'email')->get()->toArray();
+        return $record;
     }
 }

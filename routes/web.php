@@ -65,6 +65,9 @@ Route::prefix('admin')->middleware(['admin-auth', 'auth'])->group(function () {
     //SUGGESTIONS ROUTE
     Route::get('/suggestion',[AdminUserController::class, 'suggest']);
 
+    //EXPORT DATA AS CSV
+    Route::get('/exportcsv',[AdminUserController::class, 'exportcsv'])->name('export.csv');;
+
 
     // CATEGORIES ROUTES
     Route::get('/categories', [AdminPagesController::class, 'categories']);
@@ -106,9 +109,15 @@ Route::prefix('admin')->middleware(['admin-auth', 'auth'])->group(function () {
     Route::get('/recipes', [AdminPagesController::class, 'getRecipePage']);
     Route::post('/addrecipepost', [AdminPagesController::class, 'getRecipePagePost']);
     Route::post('/edit-recipe/{id}', [AdminPagesController::class, 'EditgetRecipePage']);
+    Route::post('/delete-recipe', [AdminPagesController::class, 'DeletegetRecipePage']);
     Route::get('/foodrecipes', [AdminPagesController::class, 'getFoodRecipePage']);
     Route::post('/create-new-foodrecipe', [AdminPagesController::class, 'getFoodRecipePagePost']);
     Route::post('/edit-foodrecipe/{id}', [AdminPagesController::class, 'EditFoodRecipePage']);
+    
+    //SNACK ROUTES
+    Route::get('/snacks', [AdminPagesController::class, 'getSnackPage']);  
+    Route::post('/addsnackspost', [AdminPagesController::class, 'getSnacksPost']);
+    Route::post('/edit-snack/{id}', [AdminPagesController::class, 'EditSnackPage']);
 });
 
 

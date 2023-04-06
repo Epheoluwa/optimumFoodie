@@ -155,4 +155,4 @@
 
 </div>
 
-@include('includes.snack2')
+<!-- @include('includes.snack2') -->

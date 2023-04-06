@@ -51,7 +51,7 @@
                                     {{ $rec->title }}
                                 </td>
                                 <td>
-                                    @foreach( $rec->recipe as $reci )
+                                    @foreach( $recipeDel as $reci )
                                     <small style="display:block">
                                         - {{ $reci }}
                                     </small>
@@ -69,58 +69,55 @@
                                         </button>
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item btn-sm" style="cursor:pointer" data-toggle="modal" data-target="#editModal{{$rec->id}}">Edit Recipe</a>
+                                            <form id="credit-form" action="{{url('/admin/delete-recipe')}}" method="post">
+                                            {{ csrf_field() }}
+                                                <input type="hidden" name="id" value="{{$rec->id}}" >
+                                                <button class="dropdown-item btn-sm" style="cursor:pointer; background: red;
+    color: white;" id="pay" type="submit">Delete</button>
+                                            </form>
+                                           
                                         </div>
                                     </div>
 
                                     <!-- Edit user Modal-->
                                     <div class="modal fade" id="editModal{{$rec->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Update Recipe</h5>
-                                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
-                                                    </button>
-                                                </div>
-                                                <form id="credit-form" action="{{url('/admin/edit-recipe', $rec->id)}}" method="post">
-                                                    <div class="modal-body">
-                                                        {{ csrf_field() }}
-                                                        <div class="form-group">
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <label for="amount">Title</label>
-                                                                    <input type="text" name="title" class="form-control" required value="{{ $rec->title }}">
-                                                                </div>
-                                                                <div class="col-md-12" id="all-attributes-{{ $rec->id }}">
-                                                                    <label for="amount">Recipe</label>
-                                                                    @forelse($rec->recipe as $reci)
-                                                                    <div class="row form-group" id="Qx_{{ $rec->id }}">
-                                                                        <div class="col-md-10">
-                                                                            <input name="recipe[]" class="form-control mealXX" value="{{ $reci }}">
-                                                                        </div>
-                                                                        <div class="col-md-2">
-                                                                            <button class="btn btn-danger times btn-sm" onclick="deleteQ('Qx_{{ $rec->id }}')" type="button">× REMOVE</button>
-                                                                        </div>
-                                                                    </div>
-                                                                    @empty
-                                                                    <div class="row form-group">
+                                                <div class="modal-dialog modal-lg" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Update Recipe</h5>
+                                                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                                                            </button>
+                                                        </div>
+                                                        <form id="credit-form" action="{{url('/admin/edit-recipe', $rec->id)}}" method="post">
+                                                            <div class="modal-body">
+                                                                {{ csrf_field() }}
+                                                                <div class="form-group">
+                                                                    <div class="row">
                                                                         <div class="col-md-12">
-                                                                            <input name="recipe[]" class="form-control mealXX">
+                                                                            <label for="amount">Title</label>
+                                                                            <input type="text" name="title" class="form-control" required value="{{ $rec->title }}">
+                                                                        </div>
+                                                                        <div class="col-md-12" id="all-attributes-{{ $rec->id }}">
+                                                                            <label for="amount">Recipe</label>
+                                                                           
+                                                                            <Textarea name="recipe" class="form-control mealXX">
+                                                                            @foreach($recipeDel as $reci)
+                                                                                {{$reci}}
+                                                                                @endforeach
+                                                                            </Textarea>
                                                                         </div>
                                                                     </div>
-                                                                    @endforelse
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                            <div class="modal-footer">
+                                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                                                <button class="btn btn-primary" id="pay" type="submit">Update Recipe</button>
+                                                                <!-- <button class="btn btn-success float-right" onclick="addQ('{{ $rec->id }}')" type="button">Add Recipe</button> -->
+                                                            </div>
+                                                        </form>
                                                     </div>
-                                                    <div class="modal-footer">
-                                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                                        <button class="btn btn-primary" id="pay" type="submit">Update Recipe</button>
-                                                        <button class="btn btn-success float-right" onclick="addQ('{{ $rec->id }}')" type="button">Add Recipe</button>
-                                                    </div>
-                                                </form>
-                                            </div>
+                                                </div>
                                         </div>
-                                    </div>
                                 </td>
                             </tr>
                             @endforeach
@@ -159,15 +156,24 @@
                             <div class="row form-group">
                                 <div class="col-md-12">
                                     <label for="amount">Recipe Details</label>
-                                    <input name="recipe[]" class="form-control mealXX">
+                                    <!-- <input name="recipe[]" class="form-control mealXX"> -->
+                                    <Textarea name="recipe" class="form-control mealXX"></Textarea>
                                 </div>
                             </div>
                         </div>
+                        <!-- <div class="form-group" id="all-attributes">
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label for="amount">Recipe Details</label>
+                                    <input name="recipe[]" class="form-control mealXX">
+                                </div>
+                            </div>
+                        </div> -->
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary float-left" type="button" data-dismiss="modal">Cancel</button>
                         <button class="btn btn-primary float-left" type="submit" onclick="return confirm('Are you sure you want to proceed?')">Create Recipe</button>
-                        <button class="btn btn-success float-right" id="add-new-q" type="button">Add Recipes</button>
+                        <!-- <button class="btn btn-success float-right" id="add-new-q" type="button">Add Recipes</button> -->
                     </div>
                 </form>
             </div>

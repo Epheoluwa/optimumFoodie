@@ -76,6 +76,8 @@
                         <h6 class="collapse-header">Recipe Composition:</h6>
                         <a class="collapse-item" href="{{ url('admin/recipes') }}">Add Recipes</a>
                         <a class="collapse-item" href="{{ url('admin/foodrecipes') }}">Food Recipes</a>
+                        <h6 class="collapse-header">Snack Composition:</h6>
+                        <a class="collapse-item" href="{{ url('admin/snacks') }}">Add Snacks</a>
                     </div>
                 </div>
             </li>

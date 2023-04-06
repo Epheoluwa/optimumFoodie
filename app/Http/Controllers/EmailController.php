@@ -67,6 +67,9 @@ class EmailController extends Controller
         $options_food = array();
         $recipes = array();
         $rough = array();
+        $initialSnack = array();
+        $roughSnack = array();
+        $snackMain = array();
         $food_options = json_decode($food_options);
         foreach ($food_options as $food) {
             $onje = str_replace(['[', ']'], '', $food);
@@ -75,9 +78,21 @@ class EmailController extends Controller
         $mealTem = $mealsss . 'meal' . ' ' . $snack . 'snacks';
         $calTem = $calories . 'cal ' . $mealTem;
 
+
+        $snk = \App\Models\Snack::get();
+        foreach($snk as $sskid)
+        {
+            if(in_array($calTem, $sskid['template']))
+            {
+                $initialSnack[] = $sskid['snack'];
+                // array_push($initialSnack, $sskid['snack']);
+                // var_dump($sskid['snack']);
+            }
+        }
+        $roughSnack = $initialSnack[0];
+
         foreach ($options_food as $key => $foods) {
-            // $v = \App\Models\FoodRecipe::where('foods.name', $foods)->where('calory_template_types.template_name', $mealTem)->where('calory_template_types.calory', $calories)->join('recipes', 'food_recipes.recipe_id', '=', 'recipes.id')->join('calory_template_types', 'food_recipes.calory_template_type_id', '=', 'calory_template_types.id')->join('foods', 'food_recipes.food_id', '=', 'foods.id')->select('recipes.recipe')->get();
-            // echo $foods;
+         
             $v = \App\Models\FoodRecipe::select('food_id', 'recipe_id')->where('calory_template_type_id', $calTem)->get();
             foreach ($v as $new) {
                 if (in_array($foods, $new['food_id'])) {
@@ -85,64 +100,36 @@ class EmailController extends Controller
                     array_push($rough, $re);
                 }
             }
-            // if($v->count() !== 0){
-            //     array_push($recipes, $v);
-            // }
-            // var_dump($v);
+
+            foreach($roughSnack as $getsnk)
+            {
+                if(str_contains($getsnk, $foods))
+                {
+                   array_push($snackMain, $getsnk);
+                }
+          
+                
+            }
+        }
+        
+        $recipesTo = array_unique($rough);
+        foreach($recipesTo as $rec)
+        {
+            foreach($rec as $r)
+            {
+                $newr = explode("|", $r['recipe']);
+                $recipes = $newr;
+            } 
         }
 
-        $recipes = array_unique($rough);
-        // $did = " ";
-        // $oldget = " ";
-        // $still = array();
-        // foreach ($MealDetails as $meals) {
-        //     // var_dump($meals->daymeal);
-        //     $newval = explode('",', $meals->daymeal);
-
-        //     foreach ($newval as $nn) {
-        //         $count = 0;
-        //         // echo $nn;
-        //         if (strpos($nn, '+')) {
-        //             $newarrr = explode('+', $nn);
-        //             foreach ($newarrr as $get) {
-        //                 $pos = substr($get, 1, 4);
-        //                 if (floatval($pos)) {
-        //                     if (strpos($pos, '.') !== false) {
-        //                         $oldget = $get;
-        //                         $decimal = floatval($pos);
-        //                         $fracValue = $this->float2rat($decimal);
-        //                         $did = str_replace($decimal, $fracValue, $get);
-        //                     }
-        //                 }                        
-        //                 $nnn = str_replace($oldget, $did, $get);
-        //               array_push($still, $nnn);                        
-        //             }
-        //         }
-        //         array_unique($still);
-        //         $nnw = implode("+", $still);
-        //         echo ("the nnw: ".$nnw);
-        //         // echo ("the main: ". $nn);
-        //         echo "<br />";
-        //         echo "<br />";
-        //         // var_dump($newarrr);
-        //         // var_dump($newarrr[1][1]);
-
-        //         // $position = strpos($nn,'+');
-        //         // // echo $position+2;
-        //         // echo substr($nn, $position+2, 3);
-        //         echo "<br />";
-        //         echo "<br />";
-        //     }
-        // }
-
-        // return view('free-time-table', compact('MealDetails', 'userDetails', 'recipes'));
+        // return view('free-time-table', compact('MealDetails', 'userDetails', 'recipes', 'snackMain'));
         // exit;
 
         if ($data['cusType'] == 'free') {
             $file_path = public_path('pdf/'  . $userDetails['name'] . $data['userId']. '.pdf');
 
             if (!file_exists($file_path)) {
-                $pdf = PDF::loadview('free-time-table', compact('MealDetails', 'userDetails', 'recipes'));
+                $pdf = PDF::loadview('free-time-table', compact('MealDetails', 'userDetails', 'recipes', 'snackMain'));
                 $pdf->setOptions([
                     'footer-html' => view('pdf.footer')
                     // 'footer-center' => 'Copyright Optimum Foodie ' . $presentYear

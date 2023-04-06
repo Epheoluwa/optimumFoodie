@@ -6,15 +6,9 @@
     <b>Ingredients</b>
     <ul>
         @foreach($recipes as $rec)
-        @foreach($rec as $resp)
-        @foreach($resp->recipe as $reppi)
-        <li>{{$reppi}} </li>
-        @endforeach
-
+        <li>{{$rec}}</li>
         @endforeach
         <!-- <li>{$rec->recipe}</li> -->
-
-        @endforeach
         <!-- <li>Tomatoes – 3 medium</li>
                             <li>Red pepper (Tatashe) - 2 large</li>
                             <li>Scotch bonnet (ata-rodo) – 2 small</li>

@@ -468,6 +468,10 @@ class PagesController extends Controller
     public function getRecipePage()
     {
         $data['recipe'] = \App\Models\Recipe::all();
+        foreach ($data['recipe'] as $rec) {
+            $newr = explode("|", $rec['recipe']);
+            $data['recipeDel'] = $newr;
+        }
         return view('backend.addrecipes', $data);
     }
     public function getRecipePagePost(Request $request)
@@ -483,18 +487,19 @@ class PagesController extends Controller
             \Session::flash('error', $validator->errors()->first());
             return redirect()->back()->withInput();
         }
+
         try {
 
-               
-                $recipedetails = [
-                    'recipe' => $data['recipe'],
-                    'title' => $data['title'],
 
-                ];
-                \App\Models\Recipe::create($recipedetails);
-            
-            
-        \Session::flash('success', 'Recipe created successfully!');
+            $recipedetails = [
+                'recipe' => $data['recipe'],
+                'title' => $data['title'],
+
+            ];
+            \App\Models\Recipe::create($recipedetails);
+
+
+            \Session::flash('success', 'Recipe created successfully!');
         } catch (\Exception $e) {
             \Session::flash('error', $e->getMessage());
         }
@@ -517,6 +522,21 @@ class PagesController extends Controller
         return redirect()->back();
     }
 
+    public function DeletegetRecipePage(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'id' => 'required',
+        ]);
+        if ($validator->fails()) {
+            \Session::flash('error', $validator->errors()->first());
+            return redirect()->back()->withInput();
+        }
+
+        $update = \App\Models\Recipe::whereId($request->id)->delete();
+        \Session::flash('success', 'Recipe Deleted successfully!');
+        return redirect()->back();
+    }
+
 
 
     public function getFoodRecipePage()
@@ -528,7 +548,7 @@ class PagesController extends Controller
 
         $data['foodrecipes'] = \App\Models\FoodRecipe::with('recipes')->get();
 
-        // $data['foodrecipes'] = \App\Models\FoodRecipe::where('food_recipes.status', 'active')->join('calory_template_types','food_recipes.calory_template_type_id','=','calory_template_types.id')->join('foods','food_recipes.food_id','=','foods.id')->join('recipes','food_recipes.recipe_id','=','recipes.id')->get();
+        // $data['foodrecipes'] = \App\Models\FoodRecipe::where('food_recipes.status', 'active')->join('calory_template_types','food_recipes.calory_template_type_id','=','calory_template_types.id')->join('foods','food_recipes.food_id','=','foods.id')->join('recipes','food_recipes.recipe_id','=','recipes.id')->get(); 
         return view('backend.recipes', $data);
     }
 
@@ -582,5 +602,71 @@ class PagesController extends Controller
         $update = \App\Models\FoodRecipe::whereId($id)->update($recipedetails);
         \Session::flash('success', 'Food Recipe updated successfully!');
         return redirect()->back();
+    }
+
+
+
+    public function getSnackPage()
+    {
+        $data = array();
+        $data['calories'] = \App\Models\CaloryTemplateType::whereStatus('active')->get();
+        $foods = \App\Models\Product::all();
+        foreach ($foods as $food) {
+            $data['foods'][] = [
+                'name' => $food->name,
+                'category' => $food->category->name
+            ];
+        }
+        $data['snacks'] = \App\Models\Snack::get();
+        return view('backend.addsnacks', $data);
+    }
+
+    public function getSnacksPost(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'calory_template_type_id.*' => 'nullable',
+            'snack.*' => 'nullable',
+        ]);
+        if ($validator->fails()) {
+            \Session::flash('error', $validator->errors()->first());
+            return redirect()->back()->withInput();
+        }
+        try {
+            if (count($request->calory_template_type_id) > 0) {
+                $data = [
+                    'template' => $request->calory_template_type_id,
+                    'snack' => $request->snack
+                ];
+                \App\Models\Snack::create($data);
+            }
+            \DB::commit();
+            \Session::flash('success', 'Snack Meal Added successfully!');
+        } catch (\Exception $e) {
+            \DB::rollback();
+            \Session::flash('error', $e->getMessage());
+        }
+        return redirect()->back();
+    }
+
+    public function EditSnackPage(Request $request, $id)
+    {
+
+        $validator = Validator::make($request->all(), [
+            'calory_template_type_id.*' => 'nullable',
+            'snack.*' => 'nullable',
+        ]);
+        if ($validator->fails()) {
+            \Session::flash('error', $validator->errors()->first());
+            return redirect()->back()->withInput();
+        }
+        if (count($request->calory_template_type_id) > 0) {
+            $data = [
+                'template' => $request->calory_template_type_id,
+                'snack' => $request->snack
+            ];
+            $update = \App\Models\Snack::whereId($id)->update($data);
+            \Session::flash('success', 'Snack updated successfully!');
+            return redirect()->back();
+        }
     }
 }
