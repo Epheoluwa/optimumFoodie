@@ -111,22 +111,30 @@ class EmailController extends Controller
                 
             }
         }
-        
-        $recipesTo = array_unique($rough);
-        foreach($recipesTo as $rec)
-        {
-            foreach($rec as $r)
-            {
-                $newr = explode("|", $r['recipe']);
+        if(count($rough) > 0){
+            $recipesTo = \App\Models\Recipe::where('id', $rough[0])->first();
+            if ($recipesTo) {
+                $newr = explode("|", $recipesTo['recipe']);
                 $recipes = $newr;
-            } 
+            }
         }
+    
+
+        // $recipesTo = array_unique($rough);
+        // foreach($recipesTo as $rec)
+        // {
+        //     foreach($rec as $r)
+        //     {
+        //         $newr = explode("|", $r['recipe']);
+        //         $recipes = $newr;
+        //     } 
+        // }
 
         // return view('free-time-table', compact('MealDetails', 'userDetails', 'recipes', 'snackMain'));
         // exit;
 
         if ($data['cusType'] == 'free') {
-            $file_path = public_path('pdf/'  . $userDetails['name'] . $data['userId']. '.pdf');
+            $file_path = public_path('pdf/'  . 'Customised Meal Plan -' .  $userDetails['email']. '.pdf');
 
             if (!file_exists($file_path)) {
                 $pdf = PDF::loadview('free-time-table', compact('MealDetails', 'userDetails', 'recipes', 'snackMain'));
@@ -134,7 +142,7 @@ class EmailController extends Controller
                     'footer-html' => view('pdf.footer')
                     // 'footer-center' => 'Copyright Optimum Foodie ' . $presentYear
                 ]);
-                $pdfFilePath = public_path('pdf/' . $userDetails['name'] .  $data['userId'] .'.pdf');
+                $pdfFilePath = public_path('pdf/' . 'Customised Meal Plan -' .  $userDetails['email'] .'.pdf');
                 $pdf->save($pdfFilePath);
             }
 
@@ -177,7 +185,7 @@ class EmailController extends Controller
             //     'footer-center' => 'Optimum'
             // ]);
             // return $pdf->inline();
-            $file_path = public_path('pdf/'  . $userDetails['name'] .  $data['userId'] .'.pdf');
+            $file_path = public_path('pdf/'  . 'Customised Meal Plan -' .  $userDetails['email'] .'.pdf');
 
           
             if(file_exists($file_path))

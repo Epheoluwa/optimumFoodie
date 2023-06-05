@@ -492,6 +492,11 @@ $perc = 20;
         border: 3px solid #FF9494 !important;
     }
 
+    .select-all-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+
     select {
         width: 300px;
         overflow-y: auto;
@@ -618,7 +623,7 @@ $perc = 20;
                 <div class="row valid-result">
                     <!-- <div class="col-md-2"></div> -->
 
-                    <div >
+                    <div>
                         <h2 align="left" style="font-family: 'Be Vietnam Pro', sans-serif; padding-bottom: 5px;">Trying to get fit and healthy?
                         </h2>
                         <h5 style="width: 40%; font-family: 'Be Vietnam Pro', sans-serif; margin-bottom:10px;line-height: inherit; ">WWhat if I told you that you could achieve optimal health, and finally look and feel your best, while still eating African meals 😋 </h5>
@@ -708,7 +713,7 @@ $perc = 20;
                                                 <div style="display:inline-block;" align="center">
                                                     <hr class="valid-result">
                                                     <div class="row valid-result">
-                                    
+
                                                         <div style="display: flex; justify-content: center;">
                                                             <h2 align="left" style="font-family: 'Be Vietnam Pro', sans-serif;">Become The Better Version Of Yourself
                                                             </h2>
@@ -1377,6 +1382,11 @@ $perc = 20;
                                             <h4 style="font-weight:bold; font-size: 15px; font-family: 'Be Vietnam Pro', sans-serif;">Now it’s time to choose the foods you enjoy, and have easy access to. Don’t worry if you consider them healthy or not, let us worry about that. If you like it, and it's available around you, tick it!</h4>
                                             <!-- <h4 style="font-weight:bold; font-size: 15px; font-family: 'Be Vietnam Pro', sans-serif;">Don’t worry if you consider them healthy or not, just choose the options you enjoy eating</h4> -->
                                             <h1>{{ $typ }}</h1><br>
+                                            <div class="select-all-wrapper">
+                                                <div class="food-options {{$typ}}" align="center" style="width: 30%;"  onclick="SelectAllBox(this, '{{$typ}}')">
+                                                    <input type="checkbox" class="select-all-checkbox"> Select All
+                                                </div>
+                                            </div>
 
                                             <div style="display:flex;align-items:center;justify-content:center;justify-items:center;min-height:60%;">
 
@@ -1384,8 +1394,8 @@ $perc = 20;
                                                     <div class="row">
                                                         @foreach($fts as $ft)
                                                         <div class="col-md-3">
-                                                            <div class="food-options" align="center" onclick="clickFoodsBtn(this)">
-                                                                <input type="checkbox" name="food_options[]" value="{{ '['.$ft.']' }}"> {{ $ft }}
+                                                            <div class="food-options {{$typ}}" align="center" onclick="clickFoodsBtn(this)">
+                                                                <input type="checkbox" name="food_options[]" class="checkboxIn{{$typ}}" value="{{ '['.$ft.']' }}"> {{ $ft }}
                                                             </div>
                                                         </div>
                                                         @endforeach
@@ -1920,8 +1930,8 @@ $perc = 20;
         if (ref != '') {
             var ind = parseInt($('#myCarousel').find('.active').index());
             var datum = $('#calcForm').serializeObject();
-            console.log(datum);
-            console.log('cal: ', datum['calories']);
+            // console.log(datum);
+            // console.log('cal: ', datum['calories']);
 
             if (ind == 7 && datum['activity[]'] == undefined) {
                 alert("Kindly pick a minimum of one option to proceed");
@@ -1948,6 +1958,8 @@ $perc = 20;
             });
         } else {
             $('#myCarousel').carousel('next');
+            // var datum = $('#calcForm').serializeObject();
+            // console.log(datum);
         }
     }
 
@@ -1994,7 +2006,7 @@ $perc = 20;
             'Extremely Active': 1.9
         }
         workoutIndex = workoutIndexes[datum.workout];
-        console.log(workoutIndex, datum.workout, workoutIndexes);
+        // console.log(workoutIndex, datum.workout, workoutIndexes);
         var weightToLosex = null;
 
         if (datum['goal[]'].includes('Maintain Weight')) {
@@ -2047,8 +2059,10 @@ $perc = 20;
         $('#res-goal').html(datum['goal[]']);
         $('#res-activity').html(datum['workout']);
         $('.calories').html(roundToNearest50(calories));
+        let mainCalories = roundToNearest50(calories);
         $('#caloriesField').val(roundToNearest50(calories));
-        if (calories < 1200) {
+        // console.log(mainCalories);
+        if (mainCalories < 1200) {
             $('.min-calory').show();
             $('.calories').hide();
             $('.recalc-next').hide();
@@ -2127,16 +2141,41 @@ $perc = 20;
                 if (e == 'success') {
                     // $('#proceed-msg').html('');
                     // $('#myCarousel').carousel('next');
-                    console.log(e);
+                    // console.log(e);
                 } else {
                     // $('#proceed-msg').html('<b>' + e + '</b><br>').css("color", "#FF9494");
                     // setTimeout(function() {
                     //     $('#proceed-msg').html(''); 
                     // }, 15000);
-                    console.log(e);
+                    // console.log(e);
                 }
             }
         });
+    }
+
+    //check all checkbox
+    function SelectAllBox(e, type) {
+   
+        var input = $(e).children('input[type="checkbox"]');
+        var actChk = input.prop('checked');
+      
+
+        if (type == 'Milk and Milk Products') {
+            type = 'Milk'
+        }
+        if (type == 'Fats & Oils') {
+            type = 'Fats'
+        }
+        if (type == 'Sweeteners & Others') {
+            type = 'Sweeteners'
+        }
+        if (actChk === true) {
+            $('.checkboxIn' + type).prop('checked', false);
+            $('.' + type).removeClass('greyed-bg');
+        } else {
+            $('.checkboxIn'+ type).prop('checked', true);
+            $('.' + type).addClass('greyed-bg');
+        }
     }
 </script>
 @endsection

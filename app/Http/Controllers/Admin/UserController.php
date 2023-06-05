@@ -60,7 +60,6 @@ class UserController extends Controller
 
             return redirect()->back();
         }
-      
     }
 
     public function Editusers(Request $request, $id)
@@ -89,15 +88,15 @@ class UserController extends Controller
 
     public function AdminPreviewuserMeal($id)
     {
-       
+
         $presentYear = date("Y");
         $userDetails = \App\Models\User::where('id', $id)->first();
-        $file_path = public_path('pdf/' .  $userDetails['name'] . $userDetails['id'] . '.pdf');
+        $file_path = public_path('pdf/' . 'Customised Meal Plan -' .  $userDetails['email'] . '.pdf');
         // if ($file_path) {
         //     return PDF::loadfile($file_path)->inline();
         // }
         //generate pdf and display for paid user
-        $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal', 'month_par', 'food_options', 'calories', 'main_meal', 'snack_meal')->where('user_id', $id)->get();
+        $MealDetails = DB::table('user_meal_plans')->select('days', 'daymeal', 'month_par', 'food_options', 'calories', 'main_meal', 'snack_meal', 'weight_aim', 'calories', 'weight_time_aim')->where('user_id', $id)->get();
 
         foreach ($MealDetails as $meals) {
             $mealsss = $meals->main_meal;
@@ -120,16 +119,18 @@ class UserController extends Controller
         $calTem = $calories . 'cal ' . $mealTem;
 
         $snk = \App\Models\Snack::get();
-        foreach($snk as $sskid)
-        {
-            if(in_array($calTem, $sskid['template']))
-            {
+
+        foreach ($snk as $sskid) {
+
+            if (in_array($calTem, $sskid['template'])) {
+
                 $initialSnack[] = $sskid['snack'];
                 // array_push($initialSnack, $sskid['snack']);
                 // var_dump($sskid['snack']);
             }
         }
-        $roughSnack = $initialSnack[0];
+
+        $roughSnack = count($initialSnack) > 0 ? $initialSnack[0] : [];
 
         foreach ($options_food as $key => $foods) {
             $v = \App\Models\FoodRecipe::select('food_id', 'recipe_id')->where('calory_template_type_id', $calTem)->get();
@@ -139,32 +140,49 @@ class UserController extends Controller
                 }
             }
 
-            foreach($roughSnack as $getsnk)
-            {
-                if(str_contains($getsnk, $foods))
-                {
-                   array_push($snackMain, $getsnk);
+            foreach ($roughSnack as $getsnk) {
+                if (str_contains($getsnk, $foods)) {
+                    array_push($snackMain, $getsnk);
                 }
-          
-                
             }
         }
-        $recipesTo = array_unique($rough);
-        foreach($recipesTo as $rec)
-        {
-            foreach($rec as $r)
-            {
-                $newr = explode("|", $r['recipe']);
+
+
+        if (count($rough) > 0) {
+            $recipesTo = \App\Models\Recipe::where('id', $rough[0])->first();
+            if ($recipesTo) {
+                $newr = explode("|", $recipesTo['recipe']);
                 $recipes = $newr;
-            } 
+            }
         }
-        //  return view('time-table', compact('MealDetails', 'userDetails', 'recipes'));
-        // exit;
+
+        // if ($recipesTo) {
+        //     foreach($recipesTo as $rec)
+        //     {
+        //      var_dump($rec);
+        //      exit;
+        //         foreach($rec as $r)
+        //         {
+        //             $newr = explode("|", $r['recipe']);
+        //             $recipes = $newr;
+        //         } 
+        //     }
+        // }
+
+        // return view('time-table', compact('MealDetails', 'userDetails', 'recipes', 'snackMain'));
+
         $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails', 'recipes', 'snackMain'));
         $pdf->setOptions([
-            'footer-html' => view('pdf.footer')
+            'footer-html' => view('pdf.footer'),
         ]);
-        return $pdf->inline();
+        // Set the desired file name
+        $fileName ='Customised Meal Plan -' .  $userDetails['email'] . '.pdf';
+
+// Return the PDF as a download with the specified file name
+// return $pdf->download($fileName);        
+        return $pdf->inline($fileName);
+
+ 
     }
 
     public function AdminUploaduserMeal(Request $request, $id)
@@ -177,13 +195,12 @@ class UserController extends Controller
             return redirect()->back()->withInput();
         }
         $userDetails = \App\Models\User::where('id', $id)->first();
-        $filename =   $userDetails['name'] . $userDetails['id'] . '.pdf';
+        $filename =   'Customised Meal Plan -' .  $userDetails['email'] . '.pdf';
 
-        $uploaded = $request->mealplan->move(public_path('pdf'),$filename);
+        $uploaded = $request->mealplan->move(public_path('pdf'), $filename);
 
-        if($uploaded)
-        {
-            $file_path = public_path('pdf/' . $userDetails['name'] . $userDetails['id'] .  '.pdf');
+        if ($uploaded) {
+            $file_path = public_path('pdf/' . 'Customised Meal Plan -' .  $userDetails['email'] .  '.pdf');
             $mail_data = [
                 'reciever' => $userDetails['email'],
                 'from' => 'Optimumfoodie@gmail.com',
@@ -222,7 +239,7 @@ class UserController extends Controller
         $options_food = array();
         $recipes = array();
         $rough = array();
-         $initialSnack = array();
+        $initialSnack = array();
         $roughSnack = array();
         $snackMain = array();
         $food_options = json_decode($food_options);
@@ -234,16 +251,14 @@ class UserController extends Controller
         $calTem = $calories . 'cal ' . $mealTem;
 
         $snk = \App\Models\Snack::get();
-        foreach($snk as $sskid)
-        {
-            if(in_array($calTem, $sskid['template']))
-            {
+        foreach ($snk as $sskid) {
+            if (in_array($calTem, $sskid['template'])) {
                 $initialSnack[] = $sskid['snack'];
                 // array_push($initialSnack, $sskid['snack']);
                 // var_dump($sskid['snack']);
             }
         }
-        $roughSnack = $initialSnack[0];
+        $roughSnack = count($initialSnack) > 0 ? $initialSnack[0] : [];
 
         foreach ($options_food as $key => $foods) {
             $v = \App\Models\FoodRecipe::select('food_id', 'recipe_id')->where('calory_template_type_id', $calTem)->get();
@@ -253,33 +268,34 @@ class UserController extends Controller
                 }
             }
 
-            foreach($roughSnack as $getsnk)
-            {
-                if(str_contains($getsnk, $foods))
-                {
-                   array_push($snackMain, $getsnk);
+            foreach ($roughSnack as $getsnk) {
+                if (str_contains($getsnk, $foods)) {
+                    array_push($snackMain, $getsnk);
                 }
-          
-                
             }
         }
 
-        $recipesTo = array_unique($rough);
-        foreach($recipesTo as $rec)
-        {
-            foreach($rec as $r)
-            {
-                $newr = explode("|", $r['recipe']);
+        if (count($rough) > 0) {
+            $recipesTo = \App\Models\Recipe::where('id', $rough[0])->first();
+            if ($recipesTo) {
+                $newr = explode("|", $recipesTo['recipe']);
                 $recipes = $newr;
-            } 
+            }
         }
-        $file_path = public_path('pdf/' .  $userDetails['name'] . $userDetails['id'] . '.pdf');
+        // $recipesTo = array_unique($rough);
+        // foreach ($recipesTo as $rec) {
+        //     foreach ($rec as $r) {
+        //         $newr = explode("|", $r['recipe']);
+        //         $recipes = $newr;
+        //     }
+        // }
+        $file_path = public_path('pdf/' .  'Customised Meal Plan -' .  $userDetails['email'] . '.pdf');
         if (!file_exists($file_path)) {
             $pdf = PDF::loadview('time-table', compact('MealDetails', 'userDetails', 'recipes', 'snackMain'));
             $pdf->setOptions([
                 'footer-center' => 'Copyright Optimum Foodie ' . $presentYear
             ]);
-            $pdfFilePath = public_path('pdf/' . $userDetails['name'] . $userDetails['id'] .  '.pdf');
+            $pdfFilePath = public_path('pdf/' . 'Customised Meal Plan -' .  $userDetails['email'] .  '.pdf');
             $pdf->save($pdfFilePath);
         }
 
@@ -291,8 +307,7 @@ class UserController extends Controller
 
         ];
         $sent = Mail::to($mail_data['reciever'])->send(new SentEmail($mail_data['recieverName'], $file_path, $userDetails['email']));;
-        if($sent)
-        {
+        if ($sent) {
             \Session::flash('success', 'Meal Plan Approved successfully! ');
 
             return redirect()->back();
@@ -303,18 +318,16 @@ class UserController extends Controller
     {
         $userDetails = \App\Models\User::find($id);
         $userMealDetails = \App\Models\UserMealPlan::find($id);
-        $file_path = public_path('pdf/' .  $userDetails['name'] . $userDetails['id'] . '.pdf');
-        if(file_exists($file_path))
-        {
+        $file_path = public_path('pdf/' . 'Customised Meal Plan -' .  $userDetails['email'] . '.pdf');
+        if (file_exists($file_path)) {
             unlink($file_path);
         }
 
         $userDetails->delete();
-        if($userMealDetails)
-        {
+        if ($userMealDetails) {
             $userMealDetails->delete();
         }
-        
+
         \Session::flash('success', 'User Details Deleted successfully! ');
 
         return redirect()->back();

@@ -10,8 +10,6 @@ use PDF;
 use App\Mail\Notification;
 use Illuminate\Support\Facades\Mail;
 
-use function PHPSTORM_META\type;
-
 // use Stripe;
 
 class GeneralController extends Controller
@@ -67,7 +65,8 @@ class GeneralController extends Controller
         $cal = \App\Models\CaloryTemplateType::whereCalory($request->calories)->where('template_name', $template)->where('template_name', $template)->first();
         $mealDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
         if (empty($cal)) {
-            \Session::flash('error', 'Your Daily Calory Template Does Not Exist Yet. Kindly Contact Us For More Info.');
+            \Session::flash('error', 'We noticed you’ve selected an eating pattern that would be difficult to achieve with your calorie intake. Click the button below to adjust the number of main meals and snacks you eat. 
+            ');
             return redirect()->back()->withInput();
         }
 
@@ -140,8 +139,14 @@ class GeneralController extends Controller
         $userIDemail = $emailwa2['email'];
         $activeMealPlan =  \App\Models\UserMealPlan::where('user_id', $userID)->first();
         if ($activeMealPlan) {
-            return view('login');
-        } else {
+            // return var_dump($activeMealPlan);
+            \App\Models\UserMealPlan::where('user_id', $userID)->delete();
+            $file_path = public_path('pdf/' .  'Customised Meal Plan -' .  $userIDemail . '.pdf');
+            if(file_exists($file_path))
+            {
+                unlink($file_path);
+            }
+        } 
             //update user table
             $userDataMeal = [
                 'sex' => $data['data']['sex'],
@@ -214,7 +219,7 @@ class GeneralController extends Controller
             if ($saveMeal) {
                 return redirect('/getmail');
             }
-        }
+        
     }
 
     public function checkRightMeal($meal, $food_options)
@@ -313,7 +318,7 @@ class GeneralController extends Controller
         $template = $request->main_meal . 'meal ' . $request->snack_meal . 'snacks';
         $cal = \App\Models\CaloryTemplateType::whereCalory($request->calories)->where('template_name', $template)->where('template_name', $template)->first();
         if (empty($cal)) {
-            return 'A Meal Plan Does Not Exist For Your Daily Calory. Kindly Contact Us For More Info or Adjust Your Input For Result.';
+            return 'We noticed you’ve selected an eating pattern that would be difficult to achieve with your calorie intake. Click the button below to adjust the number of main meals and snacks you eat';
         } else {
             return 'success';
         }

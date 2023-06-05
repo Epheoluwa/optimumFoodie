@@ -1,6 +1,6 @@
-
-                    <div>
-                        <h3 style="color:red;text-align:center;margin-top: 10rem;">PLEASE READ THE INDEX BELOW TO UNDERSTAND THE MEANING OF SOME OF THE TERMS YOU’LL FIND IN THE TABLE. VERY IMPORTANT!</h3>
+<div class="page-break"></div>
+                    <div class="topPadding">
+                        <h3 style="color:red;text-align:center;margin-top: 2rem;">PLEASE READ THE INDEX BELOW TO UNDERSTAND THE MEANING OF SOME OF THE TERMS YOU’LL FIND IN THE TABLE. VERY IMPORTANT!</h3>
                         <h3>Index</h3>
                         <ul>
                             <li>Veggies= any combination of any of the following: carrots/cabbage/onions/spring onions/green, yellow, red pepper/tomatoes/spinach/lettuce and so on.</li>
