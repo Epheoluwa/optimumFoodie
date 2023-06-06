@@ -62,7 +62,8 @@
             }
         }
 
-        function gcd($a, $b) {
+        function gcd($a, $b)
+        {
             if ($b == 0) {
                 return $a;
             }
@@ -135,7 +136,9 @@
                 }, $ml);
                 // $newl = convertDecimalToFraction($ml);
                 $tr = str_replace('"', '', $newl);
-                $newml = str_replace('\u00bd', '½', $tr);
+                $search = array('\u00bd', '\u00bc', '\u2154');
+                $replace = array('½', '¼', '⅔');
+                $newml = str_replace($search, $replace, $tr);
                 ?>
                 {!! strlen($newml) > 3 ? $newml : 'Snack meal' !!}
             </td>
@@ -207,12 +210,15 @@
                 // }
 
                 $newl = preg_replace_callback('/\d+\.\d+/', function ($match) {
-                    return  decimal_to_mixed_fraction($match[0]); 
+                    return  decimal_to_mixed_fraction($match[0]);
                 }, $ml);
 
                 // $ml = implode("+", $still);
                 $tr = str_replace('"', '', $newl);
-                $newml = str_replace('\u00bd', '½', $tr);
+                // $newml = str_replace('\u00bd', '½', $tr);
+                $search = array('\u00bd', '\u00bc', '\u2154');
+                $replace = array('½', '¼', '⅔');
+                $newml = str_replace($search, $replace, $tr);
 
                 ?>
                 {!! strlen($newml) > 3 ? $newml : 'Snack meal' !!}

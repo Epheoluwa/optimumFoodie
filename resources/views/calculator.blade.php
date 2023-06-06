@@ -1414,10 +1414,13 @@ $perc = 20;
                                                     <br><br>
                                                     @if($rf==count($food_options))
                                                     <p id="proceed-msg" align="center"></p>
-                                                    <a href="#myCarousel" class="btn btn-dark-outline whom-btn" onclick="proceedVal('last')" style="width: 300px;">Next</a>
+                                                    <a href="#myCarousel" class="btn btn-dark-outline whom-btn last-btn" onclick="proceedVal('last')" style="width: 300px;">Next</a>
+                                                    <a href="javascript:void(0)" onclick="$('#myCarousel').carousel(10);" class="btn btn-dark" id="last-Invalide-result" onclick="">Recalculate</a>&nbsp;&nbsp;
                                                     @else
                                                     <a href="#myCarousel" class="btn btn-dark-outline whom-btn" onclick="proceedVal('')" style="width: 300px;">Next</a>
                                                     @endif
+
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -1501,6 +1504,7 @@ $perc = 20;
 
 <script type="text/javascript">
     $('#backBtn').hide();
+    $('#last-Invalide-result').hide();
     $('#backBtn').click(function() {
         var goals = $('input[name="goal[]"]:checked').map(function() {
             return $(this).val();
@@ -1950,14 +1954,21 @@ $perc = 20;
                         $('#myCarousel').carousel('next');
                     } else {
                         $('#proceed-msg').html('<b>' + e + '</b><br>').css("color", "#FF9494");
+                        $('#last-Invalide-result').show();
+                        $('.last-btn').hide();
                         setTimeout(function() {
                             $('#proceed-msg').html('');
-                        }, 15000);
+                            $('#last-Invalide-result').hide();
+                            $('.last-btn').show();
+                        }, 55000);
                     }
                 }
             });
         } else {
             $('#myCarousel').carousel('next');
+            $('#last-Invalide-result').hide();
+                            $('.last-btn').show();
+                            $('#proceed-msg').html('');
             // var datum = $('#calcForm').serializeObject();
             // console.log(datum);
         }
