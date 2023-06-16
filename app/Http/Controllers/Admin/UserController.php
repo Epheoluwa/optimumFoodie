@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\DB;
 use App\Mail\SentEmail;
 use Illuminate\Support\Facades\Mail;
 use App\Exports\ExportUsers;
+use App\Models\User;
+use App\Models\UserMealPlan;
 use Excel;
 
 class UserController extends Controller
@@ -37,12 +39,15 @@ class UserController extends Controller
             \Session::flash('error', $validator->errors()->first());
             return redirect()->back()->withInput();
         }
+        
         $data = $request->all();
+        $words = explode(" ", $data['name']);
+        $password = $words[0];
         $userdetails = [
             'name' => $data['name'],
             'email' => $data['email'],
             'status' => $data['status'],
-            'password' => bcrypt($data['name']),
+            'password' => bcrypt($password),
         ];
 
         $update = \App\Models\User::create($userdetails);
@@ -176,13 +181,11 @@ class UserController extends Controller
             'footer-html' => view('pdf.footer'),
         ]);
         // Set the desired file name
-        $fileName ='Customised Meal Plan -' .  $userDetails['email'] . '.pdf';
+        $fileName = 'Customised Meal Plan -' .  $userDetails['email'] . '.pdf';
 
-// Return the PDF as a download with the specified file name
-// return $pdf->download($fileName);        
+        // Return the PDF as a download with the specified file name
+        // return $pdf->download($fileName);        
         return $pdf->inline($fileName);
-
- 
     }
 
     public function AdminUploaduserMeal(Request $request, $id)
@@ -336,5 +339,13 @@ class UserController extends Controller
     public function exportcsv()
     {
         return Excel::download(new ExportUsers, 'emailsubscription.csv');
+    }
+
+
+    public function AdminUserFoodOptions($id)
+    {
+        $food_options = UserMealPlan::where('user_id', $id)->select('food_options')->first();
+        $user = User::where('id', $id)->get();
+        return view('backend.foodoptions', $food_options, compact('user'));
     }
 }

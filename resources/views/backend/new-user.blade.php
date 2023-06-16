@@ -84,10 +84,12 @@
                                                 @if($exist == 'yes')
                                                 <a class="dropdown-item btn-sm" style="cursor:pointer" href="{{url('/admin/admin-view-meal-plan', $user->id)}}">View User Meal Plan</a>
                                                 <a class="dropdown-item btn-sm" style="cursor:pointer" data-toggle="modal" data-target="#editedmealModal{{$user->id}}">Upload Update Meal Plan</a>
+                                                <a class="dropdown-item btn-sm" style="cursor:pointer" href="{{url('/admin/user-food-options', $user->id)}}">View User Selected Food Options</a>
                                                 @if($user->status == 'paid')
                                                 <a class="dropdown-item btn-sm" style="cursor:pointer" data-toggle="modal" data-target="#approveModal{{$user->id}}">Approve Meal Plan</a>
                                                 @endif
                                                 @endif
+                                               
                                             </div>
                                         </div>
 

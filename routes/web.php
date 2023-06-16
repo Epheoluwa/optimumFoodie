@@ -61,6 +61,8 @@ Route::prefix('admin')->middleware(['admin-auth', 'auth'])->group(function () {
     Route::get('/admin-view-meal-plan/{id}', [AdminUserController::class, 'AdminPreviewuserMeal']);
     Route::post('/approvemealplan/{id}', [AdminUserController::class, 'AdminApproveuserMeal']);
     Route::post('/deleteuserDetails/{id}', [AdminUserController::class, 'AdminDeleteUserdetails']);
+    Route::get('/user-food-options/{id}', [AdminUserController::class, 'AdminUserFoodOptions']);
+
 
     //SUGGESTIONS ROUTE
     Route::get('/suggestion',[AdminUserController::class, 'suggest']);

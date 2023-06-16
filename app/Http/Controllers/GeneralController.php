@@ -119,11 +119,13 @@ class GeneralController extends Controller
         $emailwa = \App\Models\User::where('email', $data['data']['best_email'])->first();
         $random_password = Str::random(10);
         if (!$emailwa) {
+            $words = explode(" ", $data['data']['best_name']);
+            $password = $words[0];
             $userData = [
                 'email' => $data['data']['best_email'],
                 'name' => $data['data']['best_name'],
                 'status' => 'free',
-                'password' => bcrypt($data['data']['best_name'])
+                'password' => bcrypt($password)
             ];
             $update = \App\Models\User::create($userData);
             if ($update) {
@@ -142,84 +144,81 @@ class GeneralController extends Controller
             // return var_dump($activeMealPlan);
             \App\Models\UserMealPlan::where('user_id', $userID)->delete();
             $file_path = public_path('pdf/' .  'Customised Meal Plan -' .  $userIDemail . '.pdf');
-            if(file_exists($file_path))
-            {
+            if (file_exists($file_path)) {
                 unlink($file_path);
             }
-        } 
-            //update user table
-            $userDataMeal = [
-                'sex' => $data['data']['sex'],
-                'age' => $data['data']['age'],
-                'height' => $data['data']['height'],
-                'weight' => $data['data']['weight'],
+        }
+        //update user table
+        $userDataMeal = [
+            'sex' => $data['data']['sex'],
+            'age' => $data['data']['age'],
+            'height' => $data['data']['height'],
+            'weight' => $data['data']['weight'],
+        ];
+        \App\Models\User::where('id', $userID)->update($userDataMeal);
+
+        $meal1ako = $data['meal1'];
+        foreach ($meal1ako as $day => $mainmeals1eat) {
+            $userMealData = [
+                'days' => $day,
+                'user_id' => $userID,
+                'goal' => $data['data']['goal'],
+                'weight_aim' => $data['data']['weight_aim'],
+                'weight_time_aim' => $data['data']['weight_time_aim'],
+                'activity' => $data['data']['activity'],
+                'calories' => $data['data']['calories'],
+                'main_meal' => $data['data']['main_meal'],
+                'snack_meal' => $data['data']['snack_meal'],
+                'food_options' => $data['data']['food_options'],
+                'month_par' => '1_and_2',
+                'daymeal' => $mainmeals1eat,
             ];
-            \App\Models\User::where('id', $userID)->update($userDataMeal);
-         
-            $meal1ako = $data['meal1'];
-            foreach ($meal1ako as $day => $mainmeals1eat) {
-                $userMealData = [
-                    'days' => $day,
-                    'user_id' => $userID,
-                    'goal' => $data['data']['goal'],
-                    'weight_aim' => $data['data']['weight_aim'],
-                    'weight_time_aim' => $data['data']['weight_time_aim'],
-                    'activity' => $data['data']['activity'],
-                    'calories' => $data['data']['calories'],
-                    'main_meal' => $data['data']['main_meal'],
-                    'snack_meal' => $data['data']['snack_meal'],
-                    'food_options' => $data['data']['food_options'],
-                    'month_par' => '1_and_2',
-                    'daymeal' => $mainmeals1eat,
-                ];
-                // save the data on each day loop
-                $saveMeal = \App\Models\UserMealPlan::create($userMealData);
-            }
+            // save the data on each day loop
+            $saveMeal = \App\Models\UserMealPlan::create($userMealData);
+        }
 
-            $meal1ako2 = $data['meal2'];
-            foreach ($meal1ako2 as $day2 => $mainmeals1eat2) {
-                $userMealData2 = [
-                    'days' => $day2,
-                    'user_id' => $userID,
-                    'goal' => $data['data']['goal'],
-                    'weight_aim' => $data['data']['weight_aim'],
-                    'weight_time_aim' => $data['data']['weight_time_aim'],
-                    'activity' => $data['data']['activity'],
-                    'calories' => $data['data']['calories'],
-                    'main_meal' => $data['data']['main_meal'],
-                    'snack_meal' => $data['data']['snack_meal'],
-                    'food_options' => $data['data']['food_options'],
-                    'month_par' => '3_and_4',
-                    'daymeal' => $mainmeals1eat2,
+        $meal1ako2 = $data['meal2'];
+        foreach ($meal1ako2 as $day2 => $mainmeals1eat2) {
+            $userMealData2 = [
+                'days' => $day2,
+                'user_id' => $userID,
+                'goal' => $data['data']['goal'],
+                'weight_aim' => $data['data']['weight_aim'],
+                'weight_time_aim' => $data['data']['weight_time_aim'],
+                'activity' => $data['data']['activity'],
+                'calories' => $data['data']['calories'],
+                'main_meal' => $data['data']['main_meal'],
+                'snack_meal' => $data['data']['snack_meal'],
+                'food_options' => $data['data']['food_options'],
+                'month_par' => '3_and_4',
+                'daymeal' => $mainmeals1eat2,
 
-                ];
-                // save the data on each day loop
-                $saveMeal = \App\Models\UserMealPlan::create($userMealData2);
-            }
+            ];
+            // save the data on each day loop
+            $saveMeal = \App\Models\UserMealPlan::create($userMealData2);
+        }
 
-            session(['activeUserID' => $userID]);
+        session(['activeUserID' => $userID]);
 
-            //save suggestions
-            if (!empty($data['data']["suggestions"])) {
-                $Data = [
-                    'food_option' => $data['data']['suggestions'],
-                    'name' => $data['data']['best_name'],
-                    'email' => $data['data']['best_email'],
+        //save suggestions
+        if (!empty($data['data']["suggestions"])) {
+            $Data = [
+                'food_option' => $data['data']['suggestions'],
+                'name' => $data['data']['best_name'],
+                'email' => $data['data']['best_email'],
 
-                ];
-                $update = \App\Models\Suggestion::create($Data);
-            }
+            ];
+            $update = \App\Models\Suggestion::create($Data);
+        }
 
-            if($userIDstatus == 'paid')
-            {
-                $adminemail = 'optimumfoodie@gmail.com';
-                $sent = Mail::to($adminemail)->send(new Notification($userIDname, $userIDemail));;
-            }
+        if ($userIDstatus == 'paid') {
+            $adminemail = 'optimumfoodie@gmail.com';
+            $sent = Mail::to($adminemail)->send(new Notification($userIDname, $userIDemail));;
+        }
 
-            if ($saveMeal) {
-                return redirect('/getmail');
-            }
-        
+        if ($saveMeal) {
+            return redirect('/getmail');
+        }
     }
 
     public function checkRightMeal($meal, $food_options)
