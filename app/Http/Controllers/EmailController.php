@@ -80,6 +80,7 @@ class EmailController extends Controller
 
 
         $snk = \App\Models\Snack::get();
+       
         foreach($snk as $sskid)
         {
             if(in_array($calTem, $sskid['template']))
@@ -89,7 +90,7 @@ class EmailController extends Controller
                 // var_dump($sskid['snack']);
             }
         }
-        $roughSnack = $initialSnack[0];
+        $roughSnack = count($initialSnack) > 0 ? $initialSnack[0] : [];
 
         foreach ($options_food as $key => $foods) {
          

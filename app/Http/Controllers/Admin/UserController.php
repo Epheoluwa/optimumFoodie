@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use App\Mail\SentEmail;
 use Illuminate\Support\Facades\Mail;
 use App\Exports\ExportUsers;
+use App\Models\Product;
 use App\Models\User;
 use App\Models\UserMealPlan;
 use Excel;
@@ -39,7 +40,7 @@ class UserController extends Controller
             \Session::flash('error', $validator->errors()->first());
             return redirect()->back()->withInput();
         }
-        
+
         $data = $request->all();
         $words = explode(" ", $data['name']);
         $password = $words[0];
@@ -344,8 +345,28 @@ class UserController extends Controller
 
     public function AdminUserFoodOptions($id)
     {
+
         $food_options = UserMealPlan::where('user_id', $id)->select('food_options')->first();
         $user = User::where('id', $id)->get();
-        return view('backend.foodoptions', $food_options, compact('user'));
+
+        $newFood = $food_options->food_options;
+        $foodNames = array_map(function ($item) {
+            return trim($item, '[]');
+        }, $newFood);
+        // var_dump($foodNames);
+
+        // exit;
+        $foods = Product::whereIn('name', $foodNames)->get();
+
+        $foodsNoAlternate = Product::whereIn('name', $foodNames)
+        ->select('name')
+            ->whereNull('alternates')
+            ->get();
+
+        $foodsWithAlternate = Product::whereIn('name', $foodNames)
+            ->whereNotNull('alternates')
+            ->get();
+
+        return view('backend.foodoptions', compact('user', 'foodsWithAlternate', 'foodsNoAlternate'));
     }
 }

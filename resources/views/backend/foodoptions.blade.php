@@ -37,17 +37,29 @@
                                 <tr class="warning">
                                     <td>{{$user[0]->name}}</td>
                                     <td>
-                                        @foreach($food_options as $food)
-                                        <small style="display:block">
-                                        <?php
+                                    @if($foodsNoAlternate)
+                                        @foreach($foodsNoAlternate as $food)
+                                        <small style="display:block; color:red;">
+                                        <!-- <?php
                                               $search = array('[', ']');
                                               $replace = array('', '');
                                               $newfood = str_replace($search, $replace, $food);
-                                        ?>
-                                            - {{ $newfood }}
+                                        ?> -->
+                                            - {{ $food->name }}
                                         </small>
                                         
                                         @endforeach
+                                        @endif
+                                        @if($foodsWithAlternate)
+                                            @foreach($foodsWithAlternate as $food)
+                                            <small style="display:block; ">
+                                
+                                                - {{ $food->name }}
+                                            </small>
+                                            
+                                            @endforeach
+                                        @endif
+                                     
                                     </td>
                                 </tr>
 
