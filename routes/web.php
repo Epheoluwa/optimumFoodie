@@ -105,7 +105,7 @@ Route::prefix('admin')->middleware(['admin-auth', 'auth'])->group(function () {
     Route::get('/meal-alternate-deactivate/{id}', [AdminPagesController::class, 'mealAlternateDeactivate']);
     Route::post('/create-meal-alternate', [AdminPagesController::class, 'createMealAlternate']);
     Route::post('/edit-meal-alternate/{id}', [AdminPagesController::class, 'editMealAlternate']);
-    Route::post('/meal-alternate-delete//{id}', [AdminPagesController::class, 'mealAlternateDelete']);
+    Route::get('/meal-alternate-delete/{id}', [AdminPagesController::class, 'mealAlternateDelete']);
 
 
     //RECIPES ROUTES

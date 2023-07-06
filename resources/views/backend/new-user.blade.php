@@ -27,7 +27,7 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
                         <a class="btn btn-primary mb-3 text-white" style="cursor:pointer" data-toggle="modal" data-target="#createModal">
-                            <span class="fa fa-plus"></span> 
+                            <span class="fa fa-plus"></span>
                             Add New User
                         </a>
                         <a class="btn btn-primary mb-3 text-white" style="cursor:pointer" href="{{route('export.csv')}}">
@@ -69,18 +69,23 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item btn-sm" style="cursor:pointer" data-toggle="modal" data-target="#editModal{{$user->id}}">Edit User</a>
-                                                <a class="dropdown-item btn-sm" style="cursor:pointer; background: red;
-    color: white;" data-target="#DeleteModal{{$user->id}}" data-toggle="modal">Delete User</a>
-                                                <?php foreach ($mealUserid as $userId) {
-                                                    if ($user->id == $userId['user_id']) {
-                                                        $exist = 'yes';
-                                                        if ($exist == 'yes') {
-                                                            break;
+                                                <a class="dropdown-item btn-sm" style="cursor:pointer; background: red;color: white;" data-target="#DeleteModal{{$user->id}}" data-toggle="modal">Delete User</a>
+                                                <?php
+                                                if (count($mealUserid) > 0) {
+                                                    foreach ($mealUserid as $userId) {
+                                                        if ($user->id == $userId['user_id']) {
+                                                            $exist = 'yes';
+                                                            if ($exist == 'yes') {
+                                                                break;
+                                                            }
+                                                        } else {
+                                                            $exist = 'No';
                                                         }
-                                                    } else {
-                                                        $exist = 'No';
                                                     }
-                                                } ?>
+                                                } else {
+                                                    $exist = 'No';
+                                                }
+                                                ?>
                                                 @if($exist == 'yes')
                                                 <a class="dropdown-item btn-sm" style="cursor:pointer" href="{{url('/admin/admin-view-meal-plan', $user->id)}}">View User Meal Plan</a>
                                                 <a class="dropdown-item btn-sm" style="cursor:pointer" data-toggle="modal" data-target="#editedmealModal{{$user->id}}">Upload Update Meal Plan</a>
@@ -89,7 +94,7 @@
                                                 <a class="dropdown-item btn-sm" style="cursor:pointer" data-toggle="modal" data-target="#approveModal{{$user->id}}">Approve Meal Plan</a>
                                                 @endif
                                                 @endif
-                                               
+
                                             </div>
                                         </div>
 
